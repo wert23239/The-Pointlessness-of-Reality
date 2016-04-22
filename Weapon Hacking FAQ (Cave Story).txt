@@ -1,0 +1,223 @@
+Weapon Hacking FAQ by S. P. Gardebiter
+Thanks to turska and ZTaimat
+
+0x00 - Damage
+0x01 - Penetrating Power
+0x04 - Range
+0x08 - Flags [See below]
+0x0C - Rect A1 (?)
+0x10 - Rect A2 (?)
+0x14 - Rect A3 (?)
+0x18 - Rect A4 (?)
+0x1C - Rect B1 (X Axis?)
+0x20 - Rect B2 (Y Axis)
+0x24 - Rect B3 (?)
+0x28 - Rect B4 (?)
+
+0x8F074 - Snake level 1
+0x8F0A0 - Snake level 2
+0x8F0CC - Snake level 3
+
+0x8F0F8 - Polar Star level 1
+0x8F124 - Polar Star level 2
+0x8F150 - Polar Star level 3 (Spur level 1)
+
+0x8F17C - Fireball level 1
+0x8F1A8 - Fireball level 2
+0x8F1D4 - Fireball level 3
+
+0x8F200 - Machinegun level 1
+0x8F22C - Machinegun level 2
+0x8F258 - Machinegun level 3
+
+0x8F284 - Missile Launcher level 1*
+0x8F2B0 - Missile Launcher level 2
+0x8F2DC - Missile Launcher level 3
+
+0x8F308 - Missiles level 1
+0x8F334 - Missiles level 2
+0x8F360 - Missiles level 3
+
+0x8F38C - Bubbler level 1
+0x8F3B8 - Bubbler level 2
+0x8F3E4 - Bubbler level 3
+
+0x8F410 - [nothing] level 1
+0x8F43C - [nothing] level 2
+0x8F468 - [nothing] level 3
+
+0x8F494 - Blade level 1
+0x8F4C0 - Blade level 2
+0x8F4EC - Blade level 3
+
+0x8F518 - Super Missile Launcher level 1
+0x8F544 - Super Missile Launcher level 2
+0x8F570 - Super Missile Launcher level 3
+
+0x8F59C - Super Missiles level 1
+0x8F5C8 - Super Missiles level 2
+0x8F5F4 - Super Missiles level 3
+
+0x8F620 - Nemesis level 1
+0x8F64C - Nemesis level 2
+0x8F678 - Nemesis level 3
+
+* NOTE: base damage is 0xA (or 0xF for lv2 and 0x5 for lv3), this value added to it, meaning if you define this 0x4, the damage will be 0xE.
+
+Flags:
+
+0x01 - [unused]
+0x02 - [unused]
+0x04 - Ignore solid
+0x08 - No destroy on solid
+0x10 - [unused]
+0x20 - ?
+0x40 - [unused]
+0x80 - [unused]
+
+Experience:
+
+0x9366C - Snake level 1
+0x93670 - Snake level 2
+0x93674 - Snake level 3
+
+0x93678 - Polar Star level 1
+0x9367C - Polar Star level 2
+0x93680 - Polar Star level 3
+
+0x93684 - Fireball level 1
+0x93688 - Fireball level 2
+0x9368C - Fireball level 3
+
+0x93690 - Machinegun level 1
+0x93694 - Machinegun level 2
+0x93698 - Machinegun level 3
+
+0x9369C - Missile Launcher level 1
+0x936A0 - Missile Launcher level 2
+0x936A4 - Missile Launcher level 3
+
+0x936A8 - Missiles level 1
+0x936AC - Missiles level 2
+0x936B0 - Missiles level 3
+
+0x936B4 - Bubbler level 1
+0x936B8 - Bubbler level 2
+0x936BC - Bubbler level 3
+
+0x936C0 - [nothing] level 1
+0x936C4 - [nothing] level 2
+0x936C8 - [nothing] level 3
+
+0x936CA - Blade level 1
+0x936D0 - Blade level 2
+0x936D4 - Blade level 3
+
+0x936D8 - Super Missile Launcher level 1
+0x936DC - Super Missile Launcher level 2
+0x936E0 - Super Missile Launcher level 3
+
+0x936E4 - Super Missiles level 1
+0x936E8 - Super Missiles level 2
+0x936EC - Super Missiles level 3
+
+0x936F0 - Nemesis level 1
+0x936F4 - Nemesis level 2
+0x936F8 - Nemesis level 3
+
+0x936FC - Spur level 1
+0x93700 - Spur level 2
+0x93704 - Spur level 3
+
+Note: The maximum experience value is somewhat near 0x64.
+
+Maximum Number of Shots:
+
+0x1DC15 - Snake level 1
+0x1DC15 - Snake level 2
+0x1DC15 - Snake level 3
+
+0x1DEA5 - Polar Star level 1
+0x1DEA5 - Polar Star level 2
+0x1DEA5 - Polar Star level 3
+
+0x1E13C - Fireball level 1
+0x1E159 - Fireball level 2
+0x1E176 - Fireball level 3
+
+0x1E3E2 - Machinegun level 1
+0x1E3E2 - Machinegun level 2
+0x1E3E2 - Machinegun level 3
+
+0x????? - Missile Launcher level 1
+0x1E90D - Missile Launcher level 2
+0x1E937 - Missile Launcher level 3
+
+0x1EFDF - Bubbler level 1
+0x1F28F - Bubbler level 2
+0x1F28F - Bubbler level 3*
+
+0x????? - Blade level 1
+0x????? - Blade level 2
+0x????? - Blade level 3
+
+0x????? - Super Missile Launcher level 1
+0x????? - Super Missile Launcher level 2
+0x????? - Super Missile Launcher level 3
+
+0x1F755 - Nemesis level 2
+0x1F755 - Nemesis level 2
+0x1F755 - Nemesis level 3
+
+* NOTE: only affects maximum number of bubbles floating by your side.
+
+Assembly:
+
+0x04160 - Snake level 1
+0x043F0 - Snake level 2
+0x????? - Snake level 3
+
+0x????? - Polar Star level 1
+0x????? - Polar Star level 2
+0x????? - Polar Star level 3
+
+0x????? - Fireball level 1
+0x????? - Fireball level 2
+0x????? - Fireball level 3
+
+0x????? - Machinegun level 1
+0x????? - Machinegun level 2
+0x????? - Machinegun level 3
+
+0x????? - Missile Launcher level 1
+0x????? - Missile Launcher level 2
+0x????? - Missile Launcher level 3
+
+0x????? - Bubbler level 1
+0x????? - Bubbler level 2
+0x????? - Bubbler level 3
+
+0x????? - Blade level 1
+0x????? - Blade level 2
+0x????? - Blade level 3
+
+0x????? - Super Missile Launcher level 1
+0x????? - Super Missile Launcher level 2
+0x????? - Super Missile Launcher level 3
+
+0x????? - Nemesis level 1
+0x????? - Nemesis level 2
+0x????? - Nemesis level 3
+
+0x????? - Spur level 1
+0x????? - Spur level 2
+0x????? - Spur level 3
+
+Energy crystal:
+
+0x26A17 - Medium 
+0x26A1D - Large
+
+Note: These values are for how much a weapon energy crystal has to be worth in order to switch sizes.
+ 
+0x267D7 - Sound

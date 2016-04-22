@@ -1,0 +1,1526 @@
+This is the Doukutsu Monogatari/Cave Story editor imaginively name CaveEditor (copyright 2006-2010).
+Verstion: 0.99
+Released: Sept 30, 2010
+
+
+Background
+
+I was first introduced to Cave Story in 2005 and was immediately enchanted by it and so this editor
+was created.  It has slowly become the foremost editor for the game though Sue's Workshop is still
+liked more by some due to the odd interface setup in CE.  In its current incarnation it can perform
+most any edit to the game outside of direct assembly hacks and resource replacement (used for changing
+music).
+
+Some hotkeys are supported which are shown next to the menu item they mimic.  Righ clicking will bring
+up a context menu in many of hte windows to list various functions appropriate to the selection.
+
+
+
+This File
+
+This file contains all modifiable data that can be changed to make CaveEditor Work in different
+ways to to account for crazy assembly hacks you're doing outside of CaveEditor that it can't detect.
+This also includes any data that is not part of Cave Story but is useful to know like NPC entity
+type 192 being the hoover scooter.
+
+All sections will begin with a title in [brackets] sometimes followed by a number.  The number tells
+CE how many lines long the section is.  Anyplace that there isn't data you can make notes in here so
+long as you don't mention a section title within brackets.  In fact, don't use brakets anywhere if
+possible.
+
+You can re-order sections if you wish.
+
+
+
+
+All the great constants that CE uses to make it look and feel how you want.   These values can be
+edited without too much worry if you are careful.  They effect the general display parameters in CE.
+Put weird values in here at your own peril...
+
+
+[CE_SETTINGS]
+Arial Narrow	Map editor entity font
+2.5		Map editor font size multiplier
+Lucida Console	Script editor font (fixed width fonts are recommended)
+8		Script editor font size (only affects edit box)
+32		Tile size
+CE_Tiles.png	This is the image name of the tile type representation used in the tileset and map editor
+0		1 or 0 - 1 CE will attempt to remove read only from files when saving (buggy)
+1		Default zoom scale for maps, tilesets, and sprites
+1		Default zoom for tileset selector
+0		1 or 0 - 1 = mouse wheel zoom, 0 = mouse wheel scroll
+128		0 to 255 - This is the transparency of the tile type overlay in the map editor
+
+
+
+
+Here's info for the TSC commands.  Basic setup is the command name, the number of arguments it takes,
+a short name for the command, and a description of what it does.  I have personally kept the short
+names in such a way that the names match fairly well with the command code.  That way when I read
+<MYB I think MY Bump and not Player Bump which makes more sense to me.
+
+
+The following descriptions are used by CE to display information more useful for the current data
+entered for a command command.  These ids are NOT editable.
+a	arms
+A	ammo
+d	direction
+e	event
+f	face
+F	flag
+g	graphic
+l	illustration
+i	item
+m	map
+u	music
+N	npc (specific)
+n	npc type
+s	sound
+t	tile
+x	x coord
+y	y coord
+#	number
+.	ticks
+
+
+[CE_TSC] 90
+<AE+	0	----	Arms Energy +	Refill Ammo
+<AM+	2	aA--	ArMs +	Give weapon X with Ammo Y (or just adds ammo Y to X)
+<AM-	1	a---	ArMs -	Lose Weapon X
+<AMJ	2	ae--	ArMs Jump	Jump to Y if player has weapon X
+<ANP	3	N#d-	Animate NPc	Animate npc X with animation Y and direction Z
+<BOA	1	#---	BOss Animation	Animate boss
+<BSL	1	N---	Boss Script Load	Start boss fight with npc X
+<CAT	0	----	Speed All Text	Instant text display on all messages until END
+<CIL	0	----	Clear ILlustration	Clears illustration during credits
+<CLO	0	----	CLOse	Close message box
+<CLR	0	----	CLeaR	Clear message box
+<CMP	3	xyt-	Change MaP tile	Change map coords X:Y to tile Z (with smoke)
+<CMU	1	u---	Change MUsic	Change music to song X
+<CNP	3	Nnd-	Change NPc	Change npc X to type Y with direction Z
+<CPS	0	----	Clear Prop. Sound	Clears propeller sound
+<CRE	0	----	CREdits	Roll Credits
+<CSS	0	----	Clear Stream Sound	Clear stream sound
+<DNA	1	n---	Delete NPC All	Delete all NPC of type XXXX
+<DNP	1	N---	Delete NPc	Delete npc X
+<ECJ	2	#e--	Event Check Jump	Jump to Y if npc with ID X exists
+<END	0	----	END	End script event
+<EQ+	1	#---	EQuip +	Add X to equip flag bytes
+<EQ-	1	#---	EQuip -	Subtract X from equip flag bytes
+<ESC	0	----	ESCape	Quit to title screen
+<EVE	1	e---	EVEnt	Jump to event X (non-conditional)
+<FAC	1	f---	FACe	Show face X in message box
+<FAI	1	d---	FAde In	Fade in from direction X
+<FAO	1	d---	FAde Out	Fade out from direction X
+<FL+	1	F---	FLag +	Set flag X
+<FL-	1	F---	FLag -	Clear flag X
+<FLA	0	----	FLAsh	Flash screen
+<FLJ	2	Fe--	FLag Jump	Jump to event Y if flag X is set
+<FMU	0	----	Fade MUsic	Fade Music to low volume
+<FOB	2	N.--	Focus On Boss	Focus of boss X in Y ticks [Y > 0]
+<FOM	1	.---	Focus On Me	Focus on player in X ticks [X > 0]
+<FON	2	N.--	Focus On Npc	Focus on npc X in Y ticks [Y > 0]
+<FRE	0	----	FREe	Frees menu cursor [also used after ZAM or some reason]
+<GIT	1	g---	Graphic ITem	Show item X in message box (add 1000 to X for items - GIT0000 to remove)
+<HMC	0	----	Hide My Character	Hides player
+<INI	0	----	INItialize	Resets memory and starts game from beginning
+<INP	3	Nnd-	[I?] NPc	Change NPc X to type Y and direction Z [Sets flag 0x8000]
+<IT+	1	i---	ITem +	Add item X
+<IT-	1	i---	ITem -	Remove item X
+<ITJ	2	ie--	ITem Jump	Jump to Y if player has item X
+<KEY	0	----	KEY lock	Locks keyboard input and hides status bars until END [used for message boxes]
+<LDP	0	----	LoaD Profile	Loads Profile.dat save file
+<LI+	1	#---	LIfe +	Restores X health
+<ML+	1	#---	Max Life +	Maximum health increases by X
+<MLP	0	----	Map [LP?]	Display Map
+<MM0	0	----	My Motion 0	Sets player horizontal motion to zero
+<MNA	0	----	Map NAme	Displays map name
+<MNP	4	Nxyd	Move NPc	Moves npc X to coords Y:Z with direction W
+<MOV	2	xy--	MOVe	Moves player to X:Y
+<MP+	1	#---	[MaP +?]	Unknown [map-related]
+<MS2	0	----	MeSsage 2	Places an invisible message box at top of screen
+<MS3	0	----	MeSsage 3	Places a message box at top of screen
+<MSG	0	----	MeSsaGe	Places a message box at bottom of screen
+<MYB	1	d---	MY Bump	Player jumps in direction X
+<MYD	1	d---	MY Direction	Set player direction to X
+<NCJ	2	ne--	Npc Check Jump	Jumps to Y if any npc of type X exist
+<NOD	0	----	NOD	Message box wait for key press to continue
+<NUM	1	a---	NUMber	Outputs weapon X's ammo as text
+<PRI	0	----	PRInt	Hides status bars and freezes game until KEY or END
+<PS+	2	#m--	Portal Slot +	Set teleporter slot X to location Y
+<QUA	1	.---	QUAke	Shake screen for X ticks
+<RMU	0	----	Restore MUsic	Restores music playback [doesn't work for all songs]
+<SAT	0	----	Speed-up All Text	Instant text display on all messages until END [glitches scrolling text]
+<SIL	1	l---	Show ILlustration	Show Illustration X during credits
+<SK+	1	F---	SKipflag +	Sets Skipflag X [remains set after player died]
+<SK-	1	F---	Skipflag -	Removes Skipflag
+<SKJ	2	Fe--	SKipflag Jump	Jump to event Y if Skipflag X is set
+<SLP	0	----	Show Location Portals	Show teleporter location menu
+<SMC	0	----	Show My Character	Shows player character
+<SMP	2	xy--	Shift MaP tile	Shift map tile at coords X:Y one tile to the left in the tile set (without smoke)
+<SNP	4	nxyd	Set NPc	Create npc of type X at coord Y:Z and direction W
+<SOU	1	s---	SOUnd	Play Sound X
+<SPS	0	----	Start Propeller Sound	Starts propeller sound 
+<SSS	1	#---	Start Stream Sound	Starts stream sound with pitch X
+<STC	0	----	Save Time Counter	Saves time counter to 290.rec
+<SVP	0	----	SaVe Profile	Save game
+<TAM	3	aaA-	Trade ArMs	Trade weapon X for weapon Y with ammo Z [max ammo 0000 = no change]
+<TRA	4	mexy	TRAnsport	Transport to map X, run event Y and place player at coordinates Z:W
+<TUR	0	----	Text UnRead?	Instant text display until CLR
+<UNI	1	#---	UNIverse?	Changes movement mode (0000 - regular, 0001 - zero-G, 0002 - No movement allowed)
+<UNJ	1	#---	UNiverse Jump?	Unknown
+<WAI	1	.---	WAIt	Pauses script for X ticks
+<WAS	0	----	WAit until Standing	Pause script until player touches ground
+<XX1	1	l---	XX1	Shows distant view of Island [image X]
+<YNJ	1	e---	Yes/No Jump	Ask question, jump to event X if no
+<ZAM	0	----	Zero ArMs	All weapon levels drop to 1
+
+
+
+
+
+Here's where all the NPC metadata is stored.  All the entity types with real names to help you know
+what you're placing on your maps.
+Columns:
+ID	ShortNameRow1	ShortNameRow2	Type	Flag0100(option1)	Flag1000(option2)	Name	Notes
+
+[CE_NPC] 372
+0			General			<nothing>	
+1	Weapn	enrgy	General			Weapon energy	
+2	Enemy	Behem	Egg1			Enemy - Behemoth	
+3	?		Unsure			<nothing?>	
+4	Smoke		Misc			Smoke	
+5	Enemy	CrtHG	Egg1			Enemy - Critter (hopping, green)	
+6	Enemy	BtlHG	Egg1			Enemy - Beetle (horiz, green)	
+7	Enemy	Basil	Egg1			Enemy - Basil	
+8	Enemy	BtlF1	Egg1			Enemy - Beetle (follow 1)	
+9	Blrg	drop	Balrog			Balrog (drops in)	
+10	Boss	Blrg0	Balrog			Boss - Balrog (shooting)	
+11	Proj	Blrg1	Balrog			Projectile - Balrog (energy shot)	
+12	Blrg		Balrog			Balrog (cutscene)	
+13	Force	field	Misc			Forcefield	Impassable
+14	Santa	Key	Misc			Santa's Key	
+15	Chest	closd	General			Treasure chest (closed)	
+16	Save	point	General			Save point	
+17	Refil		General			Health/ammo refill	
+18	Door		General			Door	
+19	Blrg	bust	Balrog			Balrog (busts in)	
+20	Compu		Misc			Computer	
+21	Chest	open	General		One tile down	Treasure chest (open)	
+22	Telep		Misc			Teleporter	
+23	Telep	light	Misc			Teleporter lights	
+24	Enemy	PCrit	Grasstown			Enemy - Power Critter	
+25	Lift	platf	Misc			Lift platform	
+26	Enemy	BatBC	Grasstown			Enemy - Bat (black, circling)	
+27	Death	trap	Misc			Deathtrap	
+28	Enemy	CrtFy	Grasstown			Enemy - Critter (flying)	
+29	Cthu		Characters			Cthulhu	
+30	Hermt	Gunsm	Characters			Hermit Gunsmith	
+31	Enemy	BatBH	Grasstown			Enemy - Bat (black, hanging)	
+32	Capsl	life	General			Life Capsule	Just sprite, needs script to adjust health
+33	Proj	Blrg2	Balrog			Projectile - Balrog (energy bounce)	
+34	Bed		General			Bed	
+35	Enemy	Manan	Grasstown			Enemy - Mannan	
+36	Boss	Blrg2	Balrog			Boss - Balrog (hovering)	
+37	Sign	post	General			Signpost	
+38	Fire	place	Misc			Fireplace fire	
+39	Save	sign	Misc		Cocktail sign	Save sign	
+40	Santa		Characters			Santa	
+41	Door	bustd	Misc			Busted doorway	
+42	Sue		Characters			Sue	
+43	Black	board	Misc			Blackboard	
+44	Enemy	Polsh	Sand Zone			Enemy - Polish	
+45	Enemy	Baby	Sand Zone			Enemy - Baby	
+46	H/V	trigr	General	Follow player	Vertical	Horiz/vert trigger	
+47	Enemy	ScrcG	Sand Zone			Enemy - Sandcroc (green)	
+48	Proj	Omega	Sand Zone			Projectile - Omega	
+49	Enemy	SkulH	Sand Zone			Enemy - Skullhead	
+50	Proj	SkulH	Sand Zone			Projectile - Skeleton	
+51	Enemy	CrowS	Sand Zone			Enemy - Crow & Skullhead	
+52	BRobt	sit	Misc			Blue robot (sitting)	
+53	CRASH		Crash			<CRASH>	
+54	Enemy	SkulS	Sand Zone			Enemy - Skullstep	
+55	Kazum		Characters			Kazuma	
+56	Enemy	BtlHB	Sand Zone			Enemy - Beetle (horiz, brown)	
+57	Enemy	Crow	Sand Zone			Enemy - Crow	
+58	Enemy	Basu1	Egg1			Enemy - Basu (1)	
+59	Enemy	Door	Misc			Enemy - Door	
+60	Torok		Characters			Toroko	
+61	King		Characters			King	
+62	Kazum	compu	Characters			Kazuma (computer)	
+63	Torok	attck	Characters			Toroko (attacking)	
+64	Enemy	CrtHB	First Cave			Enemy - Critter (hopping, blue)	
+65	Enemy	BatBu	First Cave			Enemy - Bat (blue)	
+66	Bubbl		Unsure			Bubble - Misery capturing Toroko?	
+67	Msry	float	Misery			Misery (floating)	
+68	Boss	Blrg1	Balrog			Boss - Balrog (running)	
+69	Enemy	Pign	Graveyard			Enemy - Pignon	
+70	Spark	item	General			Sparkling item	
+71	Enemy	Chinf	Misc			Enemy - Chinfish	
+72	Sprnk		Misc			Sprinkler	
+73	Water	drop	Misc			Water drop	
+74	Jack		Characters			Jack	
+75	Kanpa	fishn	Characters			Kanpachi (fishing)	
+76	Flowr		Yamashita Farm			Flowers	
+77	Sanda	pavil	Yamashita Farm			Sandaime's pavilion	
+78	Pot		Misc			Pot	
+79	Mahin		Characters			Mahin	
+80	Enemy	GravK	Graveyard			Enemy - Gravekeeper	
+81	Enemy	GPign	Graveyard			Enemy - Giant Pignon	
+82	Msry	stand	Misery			Misery (standing)	
+83	Igor		Mimiga			Igor (cutscene)	
+84	Proj	Basu1	Egg1			Projectile - Basu (1)	
+85	Termn		Misc			Terminal	
+86	Missl		General			Missile	
+87	Heart		General		No flash	Heart	
+88	Boss	Igor	Mimiga			Boss - Igor	
+89	Dead	Igor	Mimiga			Igor (defeated)	
+90	Backg		Unsure			Background?	
+91	Cage		Misc			Cage	
+92	Sue	compu	Characters			Sue (computer)	
+93	Chaco		Characters			Chaco	
+94	Enemy	Kulal	Grasstown			Enemy - Kulala	
+95	Enemy	Jelly	Grasstown			Enemy - Jelly	
+96	Fan	left	Misc			Fan (left)	
+97	Fan	up	Misc			Fan (up)	
+98	Fan	right	Misc			Fan (right)	
+99	Fan	down	Misc			Fan (down)	
+100	Grate		Misc			Grate	
+101	PowCn	scrn	Misc			Power controls (screen)	
+102	PowCn	pflow	Misc			Power controls (power flow)	
+103	Proj	Manan	Grasstown			Projectile - Mannan	
+104	Enemy	Frog	Grasstown			Enemy - Frog	
+105	Bloon	HeyL	Misc			Balloon ('Hey!' low)	
+106	Bloon	HeyH	Misc			Balloon ('Hey!' high)	
+107	Malco		Grasstown			Malco (undamaged)	
+108	Proj	Bfrog	Grasstown			Projectile - Balfrog	
+109	Malco	damgd	Grasstown			Malco (damaged)	
+110	Enemy	Puchi	Grasstown			Enemy - Puchi	
+111	Quote	t-out	Quote			Quote (teleports out)	
+112	Quote	t-in	Quote			Quote (teleports in)	
+113	Boost		Characters			Prof. Booster	
+114	Enemy	Press	Misc			Enemy - Press	
+115	Enemy	Ravil	Mimiga			Enemy - Ravil	
+116	RFlow	petal	Misc			Red Flowers (petals)	
+117	Curly		Curly			Curly	
+118	Boss	Curly	Curly			Boss - Curly	
+119	Table	chair	Misc			Table & chair	
+120	Colon	1	Unsure			Colon 1	
+121	Colon	2	Unsure			Colon 2	
+122	Enemy	Colon	Unsure			Enemy - Colon	
+123	Proj	Curly	Curly			Projectile - Curly	
+124	Sun	stone	Sand Zone			Sunstone	
+125	Hiddn	H/M	General			Hidden heart/missile	
+126	Puppy	run	Sand Zone			Puppy (runs away)	
+127	Glows	Momnt	Unsure			Glows momentarily?	
+128	Glows	Momnt	Unsure			Glows momentarily?	
+129	Glows	Momnt	Unsure			Glows momentarily?	
+130	Puppy	wag	Sand Zone			Puppy (tail wag)	
+131	Puppy	sleep	Sand Zone			Puppy (sleeping)	
+132	Puppy	bark	Sand Zone			Puppy (bark)	
+133	Jenka		Characters			Jenka	
+134	Enemy	Armdl	Sand Zone			Enemy - Armadillo	
+135	Enemy	Skelt	Sand Zone			Enemy - Skeleton	
+136	Carry	Puppy	Sand Zone			Puppy (carried)	
+137	LDoor	frame	Misc			Large doorway (frame)	
+138	LDoor	doors	Misc			Large doorway (doors)	
+139	Doctr		Doctor			Doctor (crowned)	
+140	Boss	Torok	Toroko (boss)			Boss - Frenzied Toroko	
+141	CRASH		Crash			<CRASH>	
+142	Enemy	Flwcb	Toroko (boss)			Enemy - Flowercub	
+143	Jenka	uncon	Characters			Jenka (collapsed)	
+144	Torok	telep	Characters			Toroko (teleports in)	
+145	CRASH		Crash			<CRASH>	
+146	Ligtn		Misc			Lightning	
+147	Enemy	CrtHv	Labyrinth			Enemy - Critter (hover)	
+148	Proj	CrtHv	Labyrinth			Projectile - Critter	
+149	Block	MoveH	Labyrinth			Moving block (horiz)	
+150	Quote		Quote			Quote	
+151	BRobt	stand	Misc			Blue robot	
+152	Shutr	stuck	Core			Shutter (stuck)	
+153	Enemy	Gaudi	Labyrinth			Enemy - Gaudi	
+154	Dead	Gaudi	Labyrinth			Enemy - Gaudi (defeated)	
+155	Enemy	GaudF	Labyrinth			Enemy - Gaudi (flying)	
+156	Proj	GaudF	Labyrinth			Projectile - Gaudi (flying)	
+157	Block	MoveV	Labyrinth			Moving block (vert)	
+158	Proj	MonX	Labyrinth			Projectile - Monster X	
+159	Dead	MonX	Labyrinth			Boss - Monster X (defeated)	
+160	Boss	PoohB	Pooh Black			Boss - Pooh Black	
+161	Proj	PoohB	Pooh Black			Projectile - Pooh Black	
+162	Dead	PoohB	Pooh Black			Pooh Black (defeated)	
+163	Dr	Gero	Characters			Dr. Gero	
+164	Nurse	Hasum	Characters			Nurse Hasumi	
+165	Curly	uncon	Curly			Curly (collapsed)	
+166	Chaba		Labyrinth			Chaba	
+167	Boost	fall	Characters			Prof. Booster (fall)	
+168	Bould		Labyrinth			Boulder	
+169	Boss	Blrg3	Balrog			Boss - Balrog (missiles)	
+170	Proj	Blrg3	Labyrinth			Projectile - Balrog (missiles)	
+171	Enemy	FWhir	Labyrinth			Enemy - Fire Whirrr	
+172	Proj	FWhir	Labyrinth			Projectile - Fire Whirrr	
+173	Enemy	GaudA	Labyrinth			Enemy - Gaudi Armor	
+174	Proj	GaudA	Labyrinth			Projectile - Gaudi Armor	
+175	Enemy	GaudE	Labyrinth			Enemy - Gaudi Egg	
+176	Enemy	BuyoB	Labyrinth			Enemy - Buyobuyo Base	
+177	Enemy	Buyo	Labyrinth			Enemy - Buyobuyo	
+178	Proj	Core1	Core			Projectile - Core (spinner)	
+179	Proj	Core2	Core			Projectile - Core (wisp)	
+180	Curly	A.I.	Curly			Curly (A.I.)	
+181	?		Unsure			<nothing?>	
+182	?		Unsure			<nothing?>	
+183	?		Unsure			<nothing?>	
+184	Shutr	large	Core			Shutter (large)	
+185	Shutr	small	Core			Shutter (small)	
+186	Lift	block	Core			Lift block	
+187	Enemy	FuzzC	Labyrinth			Enemy - Fuzz Core	
+188	CRASH		Crash			<CRASH>	
+189	Proj	HomFl	Unsure			Projectile - Homing Flame	
+190	Surfc	robot	Misc			Surface robot	
+191	Water	level	Core			Water level	
+192	Scoot		Misc			Scooter	
+193	Scoot	dead	Misc			Scooter (pieces)	
+194	BRobt	dead	Misc			Blue robot (pieces)	
+195	Grate	mouth	Core			Grate mouth	
+196	Mtion	wall	Main Artery			Motion wall	
+197	Enemy	PFish	Unsure			Enemy - Porcupine Fish	
+198	Proj	IronH	Main Artery			Projectile - Ironhead	
+199	Water	curnt	Misc			Underwater current	
+200	Enemy	DragZ	Egg2			Enemy - Dragon Zombie	
+201	Dead	DragZ	Egg2			Dragon Zombie (dead)	
+202	Proj	DragZ	Egg2			Projectile - Dragon Zombie	
+203	Enemy	CrtHA	Egg2			Enemy - Critter (hopping, aqua)	
+204	Spike	FallS	Egg2			Falling Spike (small)	
+205	Spike	FallL	Egg2			Falling Spike (large)	
+206	Enemy	CBomb	Egg2			Enemy - Counter Bomb	
+207	Bloon	CDown	Misc			Balloon (countdown)	
+208	Enemy	Basu2	Egg2			Enemy - Basu (2)	
+209	Proj	Basu2	Egg2			Projectile - Basu (2)	
+210	Enemy	BtlF2	Egg2			Enemy - Beetle (follow 2)	
+211	Spike		Misc			Spikes	
+212	Sky	Dragn	Misc			Sky Dragon	
+213	Enemy	NiteS	Outer Wall			Enemy - Night Spirit	
+214	Proj	NiteS	Outer Wall			Projectile - Night Spirit	
+215	Enemy	ScrcW	Outer Wall			Enemy - Sandcroc (white)	
+216	Debug	cat	Characters			Debug cat	
+217	Itoh		Characters			Itoh	
+218	Proj?		Unsure			Projectile?	
+219	Genrt	Smoke	Misc			Generator - Smoke/Underwater current	
+220	SBrig	stand	Characters			Shovel Brigade	
+221	SBrig	walk	Characters			Shovel Brigade (walking)	
+222	Prisn	bars	Misc			Prison bars	
+223	Momo		Characters			Momorin	
+224	Chie		Characters			Chie	
+225	Megan		Characters			Megane	
+226	Kanpa	stand	Characters			Kanpachi	
+227	Buckt		Misc			Bucket	
+228	Droll	guard	Plantation			Droll (guard)	
+229	RFlow	sprts	Misc			Red Flowers (sprouts)	
+230	RFlow	bloom	Misc			Red Flowers (blooming)	
+231	Rockt		Misc			Rocket	
+232	Enemy	Orang	Plantation			Enemy - Orangebell	
+233	CRASH		Crash			<CRASH>	
+234	RFlow	pickd	Misc			Red Flowers (picked)	
+235	Midor		Characters			Enemy - Midorin	
+236	Enemy	Gunfs	Plantation			Enemy - Gunfish	
+237	Proj	Gunfs	Plantation			Projectile - Gunfish	
+238	Enemy	PresK	Misc			Enemy - Press (killer)	
+239	Cage	bars	Misc			Cage bars	
+240	Mimig	jail	Characters			Mimiga (jailed)	
+241	Enemy	CritHR	Last Cave			Enemy - Critter (hopping, red)	
+242	Enemy	BatRd	Last Cave			Enemy - Bat (red)	
+243	Genrt	BatRd	Last Cave			Generator - Bat (red)	
+244	Acid	drop	Last Cave			Acid drop	
+245	Genrt	Acid	Last Cave			Generator - Acid drop	
+246	Enemy	PresP	Misc			Enemy - Press (proximity)	
+247	Boss	Msry	Misery			Boss - Misery	
+248	Boss	MsryV	Misery			Boss - Misery (vanish)	
+249	Proj	Msry1	Misery			Projectile - Misery (energy shot)	
+250	Proj	Msry2	Misery			Projectile - Misery (lightning ball)	
+251	Proj	Msry3	Misery			Projectile - Misery (lightning)	
+252	CRASH		Crash			<CRASH>	
+253	Capsl	enrgy	General			Energy Capsule	
+254	Heli	copter	Sky			Helicopter	
+255	CRASH		Crash			<CRASH>	
+256	Doctr	back	Doctor			Doctor (crowned, facing away)	
+257	Red	Cryst	Doctor			Red Crystal	
+258	Mimig	sleep	Characters			Mimiga (sleeping)	
+259	Carry	Curl1	Curly			Curly (carried, unconscious)	
+260	SBrig	cage	Characters			Shovel Brigade (caged)	
+261	Chie	cage	Characters			Chie (caged)	
+262	Chaco	cage	Characters			Chaco (caged)	
+263	Boss	Doct1	Doctor			Boss - Doctor	
+264	Proj	Doct1	Doctor			Projectile - Doctor (red wave)	
+265	Proj	RFBal	Unsure			Projectile - Doctor (red ball - fast vanish)	
+266	Proj	RSBal	Unsure			Projectile - Doctor (red ball - slow vanish)	
+267	Boss	Doct2	Doctor			Boss - Muscle Doctor	
+268	Enemy	Igor	Mimiga			Enemy - Igor	
+269	Enemy	BatRE	Doctor			Enemy - Bat (red energy)	
+270	Red	enrgy	Doctor			Red energy	
+271	UBlok		Main Artery			Underwater block	
+272	Genrt	UBlok	Main Artery			Generator - Underwater block	
+273	Proj	Droll	Plantation			Projectile - Droll	
+274	Enemy	Droll	Plantation			Enemy - Droll	
+275	Puppy	items	Plantation			Puppy (with items)	
+276	Boss	RDemn	Last Cave			Boss - Red Demon	
+277	Proj	RDemn	Last Cave			Projectile - Red Demon	
+278	Littl	famly	Little			Little family	
+279	FBlck	large	Misc			Falling block (large)	
+280	Sue	telep	Characters			Sue (teleported in by Misery)	
+281	Doctr	enrgy	Doctor			Doctor (red energy form)	
+282	Mini	UCore	Unsure			Mini Undead Core - floats forward	
+283	Enemy	Msry	Undead Core			Enemy - Misery (transformed)	
+284	Enemy	Sue	Undead Core			Enemy - Sue (transformed)	
+285	Proj	OSpir	Unsure			Projectile - Undead Core (orange spiral shot)	
+286	Orang	Dot	Unsure			Orange Dot	
+287	Orang	Smoke	Unsure			Orange Smoke	
+288	Proj	GRock	Unsure			Projectile - Undead Core (glowing rock thing)	
+289	Enemy	CrtHO	Undead Core			Enemy - Critter (hopping, orange)	
+290	Enemy	BatOr	Undead Core			Enemy - Bat (orange)	
+291	UCore	Mini	Undead Core			Mini Undead Core (before fight)	
+292	Quake		General			Quake	
+293	Proj	HEner	Unsure			Projectile - Undead Core (huge energy shot)	
+294	Quake	FBlck	Misc			Quake & Generator - Falling blocks	
+295	Cloud		Sky			Cloud	
+296	Genrt	Cloud	Sky			Generator - Cloud	
+297	CRASH	SOME	Crash			<CRASH> (Sometimes)	
+298	Intro	Doctr	Intro			Doctor (uncrowned)	
+299	Intro	Bubbl	Intro			Balrog/Misery (bubble)	
+300	Intro	Crown	Intro			Demon Crown	
+301	Enemy	FishO	Undead Core			Enemy - Fish Missile (orange)	
+302	End	Scene	Unsure			Something with ending Scenes	
+303	?		Unsure			<nothing?>	
+304	Gaudi	sit	Labyrinth			Gaudi (sitting)	
+305	Puppy	small	Sand Zone			Puppy (small)	
+306	Blrg	nurse	Characters			Balrog (nurse)	
+307	Santa	cage	Characters			Santa (caged)	
+308	Enemy	Stump	Plantation			Enemy - Stumpy	
+309	Enemy	Bute	Hell			Enemy - Bute	
+310	Enemy	ButeS	Hell			Enemy - Bute (sword)	
+311	Enemy	ButeA	Hell			Enemy - Bute (archer)	
+312	Proj	ButeA	Hell			Projectile - Bute (archer)	
+313	Boss	MPign	Graveyard			Boss - Ma Pignon	
+314	???		Unsure			Falling, Indestructible	
+315	Enemy	???	Unsure			Enemy (hopping, disappears)	
+316	Dead	Bute	Hell			Enemy - Bute (defeated)	
+317	Enemy	Mesa	Hell			Enemy - Mesa	
+318	Dead	Mesa	Hell			Enemy - Mesa (defeated)	
+319	CRASH		Crash			<CRASH>	
+320	Carry	Curl2	Curly			Curly (carried, shooting)	
+321	?		Unsure			<nothing?>	
+322	Enemy	Delet	Hell			Enemy - Deleet	
+323	Enemy	ButeG	Hell			Enemy - Bute (generator)	
+324	Genrt	Bute	Hell			Generator - Bute	
+325	Proj	HeavP	Hell			Projectile - Heavy Press	
+326	turn	human	Characters			Itoh/Sue (turning human)	
+327	CRASH		Crash			<CRASH>	
+328	human	machn	Laboratory			Transmogrifier	
+329	Bldg	fan	Laboratory			Building fan	
+330	Enemy	Rolln	Hell			Enemy - Rolling	
+331	Proj	Blls1	Ballos			Projectile - Ballos (bone)	
+332	Proj	Blls2	Ballos			Projectile - Ballos (shockwave)	
+333	Proj	Blls3	Ballos			Projectile - Ballos (lightning)	
+334	Sweat		Misc			Sweat	
+335	Ika-	chan	Main Artery			Ika-chan	
+336	Genrt	Ika	Unsure			Generator - Ika-chan?	
+337	Numa	hachi	Plantation			Numahachi	
+338	Enemy	GDevl	Ballos			Enemy - Green Devil	
+339	Genrt	GDevl	Ballos			Generator - Green Devil	
+340	Boss	Blls1	Ballos			Boss - Ballos	
+341	CRASH		Crash			<CRASH>	
+342	CRASH		Crash			<CRASH>	
+343	CRASH		Crash			<CRASH>	
+344	CRASH		Crash			<CRASH>	
+345	Proj	Blls4	Ballos			Projectile - Ballos (skull)	
+346	CRASH		Crash			<CRASH>	
+347	Enemy	Hoppy	Outer Wall			Enemy - Hoppy	
+348	Spike	Blls	Ballos			Ballos spikes (rising)	
+349	Statu		Statue			Statue	
+350	Enemy	ButRA	Ballos			Enemy - Bute (archer, red)	
+351	Statu	shoot	Statue			Statue (can shoot)	
+352	King	sword	Characters			King (sword)	
+353	Enemy	ButRS	Ballos			Enemy - Bute (sword, red)	
+354	Invis	Trap	Unsure			Invisible deathtrap wall	
+355	CRASH	SOME	Crash			<CRASH> (Sometimes)	
+356	Blrg	rescu	Sky			Balrog (rescue)	
+357	Puppy	ghost	Ballos			Puppy (ghost)	
+358	Msry	wind	Misery			Misery (wind)	
+359	Genrt	WDrop	Misc			Generator - Water drop	
+360	Thank	you!	Misc			'Thank you!'	
+363	MBoss	BHead	Major Boss			Boss - Ballos Head	
+365	MBoss	MonX	Major Boss			Boss - Monster X	
+366	MBoss	IronH	Major Boss			Boss - Ironhead	
+367	MBoss	MonXC	Major Boss			Boss - Monster X (center panel)	
+368	MBoss	Core	Major Boss			Boss - Core? (appears far to the right)	
+369	MBoss	Press	Major Boss			Boss - Boss - Heavy Press?	
+370	MBoss	???	Major Boss			Boss - ???	
+380	MBoss	???	Major Boss			Boss - ???	
+381	MBoss	???	Major Boss			Boss - ???	
+382	MBoss	???	Major Boss			Boss - ???	
+391	EXITS	GAME	Crash			<EXITS GAME>	
+
+
+
+
+
+These are the death animation descriptions so that you know that death animation 1 is a
+small explosion.  The number is the animation number and the rest is the description. Please
+keep the numbers in order.  Strange things will happen (in CE) if they're out of order.
+
+
+[CE_DEATH] 4
+00	Nothing
+01	Small Cloud
+02	Medium Cloud
+03	Large Cloud
+
+
+
+
+
+
+This is a list of the possible sprite sheets indexed in the npc.tbl file
+and which .pbm file goes with each index number.  Updates from Noxid.
+
+
+[CE_SPRITESHEET] 27
+0	Title.pbm
+1	"2004.12 Studio Pixel"
+2	current map tileset
+3	null
+4	null
+5	null
+6	Fade.pbm
+7	null
+8	ItemImage.pbm
+9	???
+10	???
+11	Arms.pbm
+12	ArmsImage.pbm
+13	The text that appears from <MNA
+14	StageImage.pbm
+15	Loading.pbm (behaves oddly)
+16	MyChar.pbm
+17	Bullet.pbm
+18	null
+19	Caret.pbm
+20	Npc\NpcSym.pbm
+21	Map tileset 1
+22	Map tileset 2
+23	Npc\NpcRegu.pbm
+24	null
+25	null
+26	TextBox.pbm
+27	Face.pbm
+28	Map Background
+29	weapon related
+30	inventory related
+31	more of the above. But also different.
+32	????
+33	null
+34	????
+35	The credits image w/ Quote, Kazuma, Sue on sky dragon
+36	???? 
+
+
+
+
+These are all the sound effects in the game used for various attacks, deaths, and events. Place
+the sound effect number first and then the description for it.  Please no skipping numbers!
+
+
+[CE_SOUNDS] 73
+0	<nothing>
+1	[blip]
+2	Message typing
+3	Bonk
+4	Weapon switch
+5	???
+6	Critter hop
+7	???
+8	???
+9	???
+10	???
+11	Door
+12	[*plsh*]
+13	???
+14	Get weapon energy
+15	[click]
+16	Take damage
+17	Die
+18	[Menu?]
+19	???
+20	Health/ammo refill
+21	[bubble]
+22	[Click]
+23	[Thud]
+24	[Tap] walking?
+25	Enemy killed?
+26	[Loud thud]
+27	Level up!
+28	[Thump]
+29	Teleport
+30	Jump
+31	[Ting!]
+32	Polar Star lvl
+33	Fireball
+34	Fireball bounce
+35	Explosion
+36	???
+37	[click]
+38	Get item?
+39	[*bvng*]
+40	Water
+41	Water
+42	[Beep]
+43	[BEEP] computer
+44	[*KAPOW!*]
+45	[Ping] Weapon energy bounce
+46	[*ftt*] Out of ammo
+47	???
+48	Bubble pop
+49	Spur level 1
+50	[Squeek!]
+51	[Squeal!]
+52	[ROAR!]
+53	[*bblblbl*]
+54	[Thud]
+55	[Squeek]
+56	[Splash]
+57	Little damage sound
+58	[*chlk*]
+59	???
+60	Spur charge (lower)
+61	Spur charge (higher)
+62	Spur level 2
+63	Spur level 3
+64	Spur MAX
+65	Spur full?
+66	???
+67	???
+68	???
+69	???
+70	[Whud]
+71	Tiny explosion
+72	Small explosion
+
+
+
+
+These are the music scores in the game.  Since changing the name of the music isn't
+practical (yet), this will let you modify the names of songs for any modifications
+made.
+
+[CE_MUSIC] 42
+0	(nothing)
+1	Mischievous Robot
+2	Safety
+3	Game Over
+4	Gravity
+5	On To Grasstown
+6	Meltdown 2
+7	Eyes of Flame
+8	Gestation
+9	Mimiga Town
+10	Get Item
+11	Balrog's Theme
+12	Cemetary
+13	Plant
+14	Pulse
+15	Boss Fanfare
+16	Get Life
+17	Tyrant
+18	Run!
+19	Jenka 1
+20	Labyrinth Fight
+21	Access
+22	Oppression
+23	Geothermal
+24	Cave Story
+25	Moonsong
+26	Hero's End
+27	Scorching Back
+28	Quiet
+29	Final Cave
+30	Balcony
+31	Charge
+32	Last Battle
+33	The Way Back Home
+34	Zombie
+35	Break Down
+36	Running Hell
+37	Jenka 2
+38	Living Waterway
+39	Seal Chamber
+40	Toroko's Theme
+41	White
+
+
+
+
+
+Simple list with the direction values for the TSC commands.
+
+[CE_DIRECTION] 5
+0	Left
+1	Up
+2	Right
+3	Down
+4	Center
+
+
+
+
+Here's a WHOLE bunch of info in the different tile types.  Most of it isn't used by CE
+at this time but it helps determine what tiles and up on the foreground and background.
+The actual tile types seen graphically are entirely based on the tile number from the
+tileset and the CE_Tiles.png file for tiles 0 - 255 left to right, top to bottom.
+
+[CE_TILES] 256
+Number	HEX	Bits								Solid PC	Solid NPC	Water	Foreground	Displayed	Description
+0	0x00	0	0	0	0	0	0	0	0	0	0	0	0	1	(background graphics)
+1	0x01	0	0	0	0	0	0	0	1	0	0	0	0	1	(background graphics)
+2	0x02	0	0	0	0	0	0	1	0	0	0	1	0	1	water (background graphics)
+3	0x03	0	0	0	0	0	0	1	1	0	1	0	0	1	solid to NPCs but not player (background graphics)
+4	0x04	0	0	0	0	0	1	0	0	0	1	0	0	1	solid to NPCs but not player (background graphics)
+5	0x05	0	0	0	0	0	1	0	1	1	1	0	0	1	you can shoot through but otherwise solid (background graphics)
+6	0x06	0	0	0	0	0	1	1	0	0	0	0	0	1	(background graphics)
+7	0x07	0	0	0	0	0	1	1	1	0	0	0	0	1	(background graphics)
+8	0x08	0	0	0	0	1	0	0	0	0	0	0	0	1	(background graphics)
+9	0x09	0	0	0	0	1	0	0	1	0	0	0	0	1	(background graphics)
+10	0x0a	0	0	0	0	1	0	1	0	0	0	0	0	1	(background graphics)
+11	0x0b	0	0	0	0	1	0	1	1	0	0	0	0	1	(background graphics)
+12	0x0c	0	0	0	0	1	1	0	0	0	0	0	0	1	(background graphics)
+13	0x0d	0	0	0	0	1	1	0	1	0	0	0	0	1	(background graphics)
+14	0x0e	0	0	0	0	1	1	1	0	0	0	0	0	1	(background graphics)
+15	0x0f	0	0	0	0	1	1	1	1	0	0	0	0	1	(background graphics)
+16	0x10	0	0	0	1	0	0	0	0	0	0	0	0	1	(background graphics)
+17	0x11	0	0	0	1	0	0	0	1	0	0	0	0	1	(background graphics)
+18	0x12	0	0	0	1	0	0	1	0	0	0	0	0	1	(background graphics)
+19	0x13	0	0	0	1	0	0	1	1	0	0	0	0	1	(background graphics)
+20	0x14	0	0	0	1	0	1	0	0	0	0	0	0	1	(background graphics)
+21	0x15	0	0	0	1	0	1	0	1	0	0	0	0	1	(background graphics)
+22	0x16	0	0	0	1	0	1	1	0	0	0	0	0	1	(background graphics)
+23	0x17	0	0	0	1	0	1	1	1	0	0	0	0	1	(background graphics)
+24	0x18	0	0	0	1	1	0	0	0	0	0	0	0	1	(background graphics)
+25	0x19	0	0	0	1	1	0	0	1	0	0	0	0	1	(background graphics)
+26	0x1a	0	0	0	1	1	0	1	0	0	0	0	0	1	(background graphics)
+27	0x1b	0	0	0	1	1	0	1	1	0	0	0	0	1	(background graphics)
+28	0x1c	0	0	0	1	1	1	0	0	0	0	0	0	1	(background graphics)
+29	0x1d	0	0	0	1	1	1	0	1	0	0	0	0	1	(background graphics)
+30	0x1e	0	0	0	1	1	1	1	0	0	0	0	0	1	(background graphics)
+31	0x1f	0	0	0	1	1	1	1	1	0	0	0	0	1	(background graphics)
+32	0x20	0	0	1	0	0	0	0	0	0	0	0	0	0	non-solid (no graphics)
+33	0x21	0	0	1	0	0	0	0	1	0	0	0	0	1	non-solid (no graphics)
+34	0x22	0	0	1	0	0	0	1	0	0	0	0	0	1	non-solid (no graphics)
+35	0x23	0	0	1	0	0	0	1	1	0	0	0	0	1	non-solid (no graphics)
+36	0x24	0	0	1	0	0	1	0	0	0	0	0	0	1	non-solid (no graphics)
+37	0x25	0	0	1	0	0	1	0	1	0	0	0	0	1	non-solid (no graphics)
+38	0x26	0	0	1	0	0	1	1	0	0	0	0	0	1	non-solid (no graphics)
+39	0x27	0	0	1	0	0	1	1	1	0	0	0	0	1	non-solid (no graphics)
+40	0x28	0	0	1	0	1	0	0	0	0	0	0	0	1	non-solid (no graphics)
+41	0x29	0	0	1	0	1	0	0	1	0	0	0	0	1	non-solid (no graphics)
+42	0x2a	0	0	1	0	1	0	1	0	0	0	0	0	1	non-solid (no graphics)
+43	0x2b	0	0	1	0	1	0	1	1	0	0	0	0	1	non-solid (no graphics)
+44	0x2c	0	0	1	0	1	1	0	0	0	0	0	0	1	non-solid (no graphics)
+45	0x2d	0	0	1	0	1	1	0	1	0	0	0	0	1	non-solid (no graphics)
+46	0x2e	0	0	1	0	1	1	1	0	0	0	0	0	1	non-solid (no graphics)
+47	0x2f	0	0	1	0	1	1	1	1	0	0	0	0	1	non-solid (no graphics)
+48	0x30	0	0	1	1	0	0	0	0	0	0	0	0	1	non-solid (no graphics)
+49	0x31	0	0	1	1	0	0	0	1	0	0	0	0	1	didn't check
+50	0x32	0	0	1	1	0	0	1	0	0	0	0	0	1	didn't check
+51	0x33	0	0	1	1	0	0	1	1	0	0	0	0	1	didn't check
+52	0x34	0	0	1	1	0	1	0	0	0	0	0	0	1	didn't check
+53	0x35	0	0	1	1	0	1	0	1	0	0	0	0	1	didn't check
+54	0x36	0	0	1	1	0	1	1	0	0	0	0	0	1	didn't check
+55	0x37	0	0	1	1	0	1	1	1	0	0	0	0	1	didn't check
+56	0x38	0	0	1	1	1	0	0	0	0	0	0	0	1	didn't check
+57	0x39	0	0	1	1	1	0	0	1	0	0	0	0	1	didn't check
+58	0x3a	0	0	1	1	1	0	1	0	0	0	0	0	1	didn't check
+59	0x3b	0	0	1	1	1	0	1	1	0	0	0	0	1	didn't check
+60	0x3c	0	0	1	1	1	1	0	0	0	0	0	0	1	didn't check
+61	0x3d	0	0	1	1	1	1	0	1	0	0	0	0	1	didn't check
+62	0x3e	0	0	1	1	1	1	1	0	0	0	0	0	1	didn't check
+63	0x3f	0	0	1	1	1	1	1	1	0	0	0	0	1	didn't check
+64	0x40	0	1	0	0	0	0	0	0	0	0	0	1	1	(foreground graphics)
+65	0x41	0	1	0	0	0	0	0	1	1	1	0	1	1	solid (foreground graphics)
+66	0x42	0	1	0	0	0	0	1	0	0	0	0	1	1	non-solid spikes (10 damage) (foreground graphics)
+67	0x43	0	1	0	0	0	0	1	1	0	0	0	1	1	breakable block which hides tile located just before this one (foreground graphics) (ex. if this is tile 12 then once destroyed it becomes tile 11)
+68	0x44	0	1	0	0	0	1	0	0	0	1	0	1	1	solid to NPCs but not player (foreground graphics) (flag can change this for NPCs)
+69	0x45	0	1	0	0	0	1	0	1	0	0	0	1	1	(foreground graphics)
+70	0x46	0	1	0	0	0	1	1	0	1	0	0	1	1	solid to player but not NPCs or shots (foreground graphics)
+71	0x47	0	1	0	0	0	1	1	1	0	0	0	1	1	(foreground graphics)
+72	0x48	0	1	0	0	1	0	0	0	0	0	0	1	1	(foreground graphics)
+73	0x49	0	1	0	0	1	0	0	1	0	0	0	1	1	(foreground graphics)
+74	0x4a	0	1	0	0	1	0	1	0	0	0	0	1	1	(foreground graphics)
+75	0x4b	0	1	0	0	1	0	1	1	0	0	0	1	1	(foreground graphics)
+76	0x4c	0	1	0	0	1	1	0	0	1	0	0	1	1	solid to player but not NPCs or shots (foreground graphics)
+77	0x4d	0	1	0	0	1	1	0	1	1	0	0	1	1	solid to player but not NPCs or shots (foreground graphics)
+78	0x4e	0	1	0	0	1	1	1	0	1	0	0	1	1	solid to player but not NPCs or shots (foreground graphics)
+79	0x4f	0	1	0	0	1	1	1	1	1	0	0	1	1	solid to player but not NPCs or shots (foreground graphics)
+80	0x50	0	1	0	1	0	0	0	0	1	1	0	1	1	ceiling slope / left part (foreground graphics)
+81	0x51	0	1	0	1	0	0	0	1	1	1	0	1	1	ceiling slope / right part (foreground graphics)
+82	0x52	0	1	0	1	0	0	1	0	1	1	0	1	1	ceiling slope \ left part (foreground graphics)
+83	0x53	0	1	0	1	0	0	1	1	1	1	0	1	1	ceiling slope \ right part (foreground graphics)
+84	0x54	0	1	0	1	0	1	0	0	1	1	0	1	1	floor slope \ left part (foreground graphics)
+85	0x55	0	1	0	1	0	1	0	1	1	1	0	1	1	floor slope \ right part (foreground graphics)
+86	0x56	0	1	0	1	0	1	1	0	1	1	0	1	1	floor slope / left part (foreground graphics)
+87	0x57	0	1	0	1	0	1	1	1	1	1	0	1	1	floor slope / right part (foreground graphics)
+88	0x58	0	1	0	1	1	0	0	0	0	0	0	1	1	(foreground graphics)
+89	0x59	0	1	0	1	1	0	0	1	0	0	0	1	1	(foreground graphics)
+90	0x5a	0	1	0	1	1	0	1	0	0	0	0	1	1	(foreground graphics)
+91	0x5b	0	1	0	1	1	0	1	1	0	0	0	1	1	(foreground graphics)
+92	0x5c	0	1	0	1	1	1	0	0	0	0	0	1	1	(foreground graphics)
+93	0x5d	0	1	0	1	1	1	0	1	0	0	0	1	1	(foreground graphics)
+94	0x5e	0	1	0	1	1	1	1	0	0	0	0	1	1	(foreground graphics)
+95	0x5f	0	1	0	1	1	1	1	1	0	0	0	1	1	(foreground graphics)
+96	0x60	0	1	1	0	0	0	0	0	0	0	1	1	1	water (foreground graphics)
+97	0x61	0	1	1	0	0	0	0	1	1	1	0	1	1	solid (foreground graphics)
+98	0x62	0	1	1	0	0	0	1	0	0	0	1	1	1	non-solid water spikes (10 damage) (foreground graphics)
+99	0x63	0	1	1	0	0	0	1	1	0	0	0	1	1	(foreground graphics)
+100	0x64	0	1	1	0	0	1	0	0	0	1	0	1	1	solid to NPCs but not player (foreground graphics)
+101	0x65	0	1	1	0	0	1	0	1	0	0	0	1	1	(foreground graphics)
+102	0x66	0	1	1	0	0	1	1	0	0	0	0	1	1	(foreground graphics)
+103	0x67	0	1	1	0	0	1	1	1	0	0	0	1	1	(foreground graphics)
+104	0x68	0	1	1	0	1	0	0	0	0	0	0	1	1	(foreground graphics)
+105	0x69	0	1	1	0	1	0	0	1	0	0	0	1	1	(foreground graphics)
+106	0x6a	0	1	1	0	1	0	1	0	0	0	0	1	1	(foreground graphics)
+107	0x6b	0	1	1	0	1	0	1	1	0	0	0	1	1	(foreground graphics)
+108	0x6c	0	1	1	0	1	1	0	0	0	0	0	1	1	(foreground graphics)
+109	0x6d	0	1	1	0	1	1	0	1	0	0	0	1	1	(foreground graphics)
+110	0x6e	0	1	1	0	1	1	1	0	0	0	0	1	1	(foreground graphics)
+111	0x6f	0	1	1	0	1	1	1	1	0	0	0	1	1	(foreground graphics)
+112	0x70	0	1	1	1	0	0	0	0	1	1	1	1	1	water ceiling slope / left part (foreground graphics)
+113	0x71	0	1	1	1	0	0	0	1	1	1	1	1	1	water ceiling slope / right part (foreground graphics)
+114	0x72	0	1	1	1	0	0	1	0	1	1	1	1	1	water ceiling slope \ left part (foreground graphics)
+115	0x73	0	1	1	1	0	0	1	1	1	1	1	1	1	water ceiling slope \ right part (foreground graphics)
+116	0x74	0	1	1	1	0	1	0	0	1	1	1	1	1	water floor slope \ left part (foreground graphics)
+117	0x75	0	1	1	1	0	1	0	1	1	1	1	1	1	water floor slope \ right part (foreground graphics)
+118	0x76	0	1	1	1	0	1	1	0	1	1	1	1	1	water floor slope / left part (foreground graphics)
+119	0x77	0	1	1	1	0	1	1	1	1	1	1	1	1	water floor slope / right part (foreground graphics)
+120	0x78	0	1	1	1	1	0	0	0	0	0	0	1	1	(foreground graphics)
+121	0x79	0	1	1	1	1	0	0	1	0	0	0	1	1	(foreground graphics)
+122	0x7a	0	1	1	1	1	0	1	0	0	0	0	1	1	(foreground graphics)
+123	0x7b	0	1	1	1	1	0	1	1	0	0	0	1	1	(foreground graphics)
+124	0x7c	0	1	1	1	1	1	0	0	0	0	0	1	1	(foreground graphics)
+125	0x7d	0	1	1	1	1	1	0	1	0	0	0	1	1	(foreground graphics)
+126	0x7e	0	1	1	1	1	1	1	0	0	0	0	1	1	(foreground graphics)
+127	0x7f	0	1	1	1	1	1	1	1	0	0	0	1	1	(foreground graphics)
+128	0x80	1	0	0	0	0	0	0	0	0	0	0	0	0	wind left (only wind graphic)
+129	0x81	1	0	0	0	0	0	0	1	0	0	0	0	0	wind up (only wind graphic)
+130	0x82	1	0	0	0	0	0	1	0	0	0	0	0	0	wind right (only wind graphic)
+131	0x83	1	0	0	0	0	0	1	1	0	0	0	0	0	wind left (only wind graphic)
+132	0x84	1	0	0	0	0	1	0	0	0	0	0	0	0	non-solid (no graphics)
+133	0x85	1	0	0	0	0	1	0	1	0	0	0	0	0	non-solid (no graphics)
+134	0x86	1	0	0	0	0	1	1	0	0	0	0	0	0	non-solid (no graphics)
+135	0x87	1	0	0	0	0	1	1	1	0	0	0	0	0	non-solid (no graphics)
+136	0x88	1	0	0	0	1	0	0	0	0	0	0	0	0	non-solid (no graphics)
+137	0x89	1	0	0	0	1	0	0	1	0	0	0	0	0	non-solid (no graphics)
+138	0x8a	1	0	0	0	1	0	1	0	0	0	0	0	0	non-solid (no graphics)
+139	0x8b	1	0	0	0	1	0	1	1	0	0	0	0	0	non-solid (no graphics)
+140	0x8c	1	0	0	0	1	1	0	0	0	0	0	0	0	non-solid (no graphics)
+141	0x8d	1	0	0	0	1	1	0	1	0	0	0	0	0	non-solid (no graphics)
+142	0x8e	1	0	0	0	1	1	1	0	0	0	0	0	0	non-solid (no graphics)
+143	0x8f	1	0	0	0	1	1	1	1	0	0	0	0	0	non-solid (no graphics)
+144	0x90	1	0	0	1	0	0	0	0	0	0	0	0	0	non-solid (no graphics)
+145	0x91	1	0	0	1	0	0	0	1	0	0	0	0	0	non-solid (no graphics)
+146	0x92	1	0	0	1	0	0	1	0	0	0	0	0	0	non-solid (no graphics)
+147	0x93	1	0	0	1	0	0	1	1	0	0	0	0	0	non-solid (no graphics)
+148	0x94	1	0	0	1	0	1	0	0	0	0	0	0	0	non-solid (no graphics)
+149	0x95	1	0	0	1	0	1	0	1	0	0	0	0	0	non-solid (no graphics)
+150	0x96	1	0	0	1	0	1	1	0	0	0	0	0	0	non-solid (no graphics)
+151	0x97	1	0	0	1	0	1	1	1	0	0	0	0	0	non-solid (no graphics)
+152	0x98	1	0	0	1	1	0	0	0	0	0	0	0	0	non-solid (no graphics)
+153	0x99	1	0	0	1	1	0	0	1	0	0	0	0	0	non-solid (no graphics)
+154	0x9a	1	0	0	1	1	0	1	0	0	0	0	0	0	non-solid (no graphics)
+155	0x9b	1	0	0	1	1	0	1	1	0	0	0	0	0	non-solid (no graphics)
+156	0x9c	1	0	0	1	1	1	0	0	0	0	0	0	0	non-solid (no graphics)
+157	0x9d	1	0	0	1	1	1	0	1	0	0	0	0	0	non-solid (no graphics)
+158	0x9e	1	0	0	1	1	1	1	0	0	0	0	0	0	non-solid (no graphics)
+159	0x9f	1	0	0	1	1	1	1	1	0	0	0	0	0	non-solid (no graphics)
+160	0xa0	1	0	1	0	0	0	0	0	0	0	1	0	0	water current left (only current graphic)
+161	0xa1	1	0	1	0	0	0	0	1	0	0	1	0	0	water current up (only current graphic)
+162	0xa2	1	0	1	0	0	0	1	0	0	0	1	0	0	water current right (only current graphic)
+163	0xa3	1	0	1	0	0	0	1	1	0	0	1	0	0	water current left (only current graphic)
+164	0xa4	1	0	1	0	0	1	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+165	0xa5	1	0	1	0	0	1	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+166	0xa6	1	0	1	0	0	1	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+167	0xa7	1	0	1	0	0	1	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+168	0xa8	1	0	1	0	1	0	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+169	0xa9	1	0	1	0	1	0	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+170	0xaa	1	0	1	0	1	0	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+171	0xab	1	0	1	0	1	0	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+172	0xac	1	0	1	0	1	1	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+173	0xad	1	0	1	0	1	1	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+174	0xae	1	0	1	0	1	1	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+175	0xaf	1	0	1	0	1	1	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+176	0xb0	1	0	1	1	0	0	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+177	0xb1	1	0	1	1	0	0	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+178	0xb2	1	0	1	1	0	0	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+179	0xb3	1	0	1	1	0	0	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+180	0xb4	1	0	1	1	0	1	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+181	0xb5	1	0	1	1	0	1	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+182	0xb6	1	0	1	1	0	1	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+183	0xb7	1	0	1	1	0	1	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+184	0xb8	1	0	1	1	1	0	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+185	0xb9	1	0	1	1	1	0	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+186	0xba	1	0	1	1	1	0	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+187	0xbb	1	0	1	1	1	0	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+188	0xbc	1	0	1	1	1	1	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+189	0xbd	1	0	1	1	1	1	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+190	0xbe	1	0	1	1	1	1	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+191	0xbf	1	0	1	1	1	1	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+192	0xc0	1	1	0	0	0	0	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+193	0xc1	1	1	0	0	0	0	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+194	0xc2	1	1	0	0	0	0	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+195	0xc3	1	1	0	0	0	0	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+196	0xc4	1	1	0	0	0	1	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+197	0xc5	1	1	0	0	0	1	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+198	0xc6	1	1	0	0	0	1	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+199	0xc7	1	1	0	0	0	1	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+200	0xc8	1	1	0	0	1	0	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+201	0xc9	1	1	0	0	1	0	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+202	0xca	1	1	0	0	1	0	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+203	0xcb	1	1	0	0	1	0	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+204	0xcc	1	1	0	0	1	1	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+205	0xcd	1	1	0	0	1	1	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+206	0xce	1	1	0	0	1	1	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+207	0xcf	1	1	0	0	1	1	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+208	0xd0	1	1	0	1	0	0	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+209	0xd1	1	1	0	1	0	0	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+210	0xd2	1	1	0	1	0	0	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+211	0xd3	1	1	0	1	0	0	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+212	0xd4	1	1	0	1	0	1	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+213	0xd5	1	1	0	1	0	1	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+214	0xd6	1	1	0	1	0	1	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+215	0xd7	1	1	0	1	0	1	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+216	0xd8	1	1	0	1	1	0	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+217	0xd9	1	1	0	1	1	0	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+218	0xda	1	1	0	1	1	0	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+219	0xdb	1	1	0	1	1	0	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+220	0xdc	1	1	0	1	1	1	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+221	0xdd	1	1	0	1	1	1	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+222	0xde	1	1	0	1	1	1	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+223	0xdf	1	1	0	1	1	1	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+224	0xe0	1	1	1	0	0	0	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+225	0xe1	1	1	1	0	0	0	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+226	0xe2	1	1	1	0	0	0	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+227	0xe3	1	1	1	0	0	0	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+228	0xe4	1	1	1	0	0	1	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+229	0xe5	1	1	1	0	0	1	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+230	0xe6	1	1	1	0	0	1	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+231	0xe7	1	1	1	0	0	1	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+232	0xe8	1	1	1	0	1	0	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+233	0xe9	1	1	1	0	1	0	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+234	0xea	1	1	1	0	1	0	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+235	0xeb	1	1	1	0	1	0	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+236	0xec	1	1	1	0	1	1	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+237	0xed	1	1	1	0	1	1	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+238	0xee	1	1	1	0	1	1	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+239	0xef	1	1	1	0	1	1	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+240	0xf0	1	1	1	1	0	0	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+241	0xf1	1	1	1	1	0	0	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+242	0xf2	1	1	1	1	0	0	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+243	0xf3	1	1	1	1	0	0	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+244	0xf4	1	1	1	1	0	1	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+245	0xf5	1	1	1	1	0	1	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+246	0xf6	1	1	1	1	0	1	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+247	0xf7	1	1	1	1	0	1	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+248	0xf8	1	1	1	1	1	0	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+249	0xf9	1	1	1	1	1	0	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+250	0xfa	1	1	1	1	1	0	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+251	0xfb	1	1	1	1	1	0	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+252	0xfc	1	1	1	1	1	1	0	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+253	0xfd	1	1	1	1	1	1	0	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+254	0xfe	1	1	1	1	1	1	1	0	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+255	0xff	1	1	1	1	1	1	1	1	0	0	0	0	0	"non-solid (no graphics) (not completely verified, I got tired of checking)"
+
+
+
+
+This will eventually hold ALL of the constants used in CE for accessing Cave Story data.  This way if someone
+hacks the game so that, say the start event is in a different location, you can tell CE where you moved it to
+so things still work.  Currently they are NOT being read and they need better descriptions.
+
+
+[CE_OFFSETS]
+0x00E761	CS_TITLE_MAP_X_OFFSET
+0x00E75F	CS_TITLE_MAP_Y_OFFSET
+0x00E763	CS_TITLE_MAP_EVENT_OFFSET
+0x00E765	CS_TITLE_MAP_OFFSET
+0x013BCF	CS_START_HEALTH_CURRENT_OFFSET
+0x013BD8	CS_START_HEALTH_MAX_OFFSET
+0x013B74	CS_START_PLAYER_FACING
+0x013B24	CS_MAXIMUM_MAP_COUNT_OFFSET
+0x013B6D	CS_START_UNKOWN1
+0x01C592	CS_START_PLAYER_X_OFFSET
+0x01C590	CS_START_PLAYER_Y_OFFSET
+0x01C594	CS_START_EVENT_OFFSET
+0x01C599	CS_START_MAP_OFFSET
+0x020545	CS_SCRIPT_LIMT
+0x020C2F	CS_MAP_JMP1_OFFSET1
+0x020C73	CS_MAP_JMP1_OFFSET2
+0x020CB5	CS_MAP_JMP2_OFFSET1
+0x020CF6	CS_MAP_JMP2_OFFSET2
+0x020D38	CS_MAP_JMP2_OFFSET3
+0x020D7A	CS_MAP_JMP3_OFFSET1
+0x020D9E	CS_MAP_JMP8_OFFSET1
+0x020DD9	CS_MAP_JMP4_OFFSET1
+0x020E1C	CS_MAP_JMP5_OFFSET1
+0x020E6A	CS_MAP_JMP6_OFFSET1
+0x020EA8	CS_MAP_JMP7_OFFSET1
+0x00F6CC	CS_HEALTH_CURRENT_OFFSET
+0x00F6D0	CS_HEALTH_MAX_OFFSET
+624	CS_ARMSITEM_TSC_STRING_OFFSET
+640	CS_PBM_FOLDER_STRING_OFFSET
+656	CS_DOUKUTSU_TIMESTAMP_STRING_OFFSET
+676	CS_CONFIG_DAT_STRING_OFFSET
+700	CS_VERSION_FORMAT_STRING_OFFSET
+764	CS_000_DAT_STRING_OFFSET
+772	CS_PBM_FOLDER_STRING_OFFSET2
+784	CS_SURFACE_STRING_OFFSET
+808	CS_PBM_FOLDER_STRING_OFFSET3
+840	CS_DEBUG_OUT_STRING_OFFSET
+860	CS_CREDIT_STRING_OFFSET
+872	CS_CREDIT_TSC_STRING_OFFSET
+896	CS_CASTS_STRING_OFFSET
+936	CS_NPC_TBL_STRING_OFFSET
+992	CS_XXX_STRING_OFFSET
+1240	CS_C_PIXEL_STRING_OFFSET
+1256	CS_PIXEL_STRING_OFFSET
+1264	CS_MYCHAR_STRING_OFFSET
+1272	CS_TITLE_STRING_OFFSET
+1280	CS_ARMSIMAGE_STRING_OFFSET
+1292	CS_ARMS_STRING_OFFSET
+1300	CS_ITEMIMAGE_STRING_OFFSET
+1312	CS_STAGEIMAGE_STRING_OFFSET
+1324	CS_NPC_NPCSYM_STRING_OFFSET
+1336	CS_NPC_NPCREGU_STRING_OFFSET
+1348	CS_TEXTBOX_STRING_OFFSET
+1356	CS_CARET_STRING_OFFSET
+1364	CS_BULLET_STRING_OFFSET
+1372	CS_FACE_STRING_OFFSET
+1380	CS_FADE_STRING_OFFSET
+1388	CS_CREDIT01_STRING_OFFSET
+1400	CS_PIXTONE_STRING_OFFSET
+1456	CS_DOUKUTSU_STRING_OFFSET
+1468	CS_DATA_STRING_OFFSET
+1504	CS_0_STRING_OFFSET
+1660	CS_PXM_STRING_OFFSET
+1792	CS_PROFILE_DAT_STRING_OFFSET
+1904	CS_STAGESELECT_TSC_STRING_OFFSET
+2004	CS_STAGE_STRING_OFFSET
+2012	CS_PRT_FOLDER_STRING_OFFSET
+2024	CS_PXA_FOLDER_STRING_OFFSET
+2036	CS_PXM_FOLDER_STRING_OFFSET
+2048	CS_PXE_FOLDER_STRING_OFFSET
+2060	CS_TSC_FOLDER_STRING_OFFSET
+2076	CS_NPC_STRING_OFFSET
+2080	CS_NPC_FOLDER_STRING_OFFSET
+2092	CS_NPC_FOLDER_STRING_OFFSET2
+2104	CS_XXXX_STRING_OFFSET
+2472	CS_HEAD_TSC_STRING_OFFSET
+12240	CS_WINDOW_STRING_OFFSET
+1532	CS_LOADING_STRING_OFFSET
+2112	CS_ORG_WANPAKU_STRING_OFFSET
+2120	CS_ORG_ANZEN_STRING_OFFSET
+2128	CS_ORG_GAMEOVER_STRING_OFFSET
+2140	CS_ORG_GAVITY_STRING_OFFSET
+2148	CS_ORG_WEED_STRING_OFFSET
+2156	CS_ORG_MDOWN2_STRING_OFFSET
+2164	CS_ORG_FIREEYE_STRING_OFFSET
+2172	CS_ORG_VIVI_STRING_OFFSET
+2180	CS_ORG_MURA_STRING_OFFSET
+2188	CS_ORG_FANFALE1_STRING_OFFSET
+2200	CS_ORG_GINSUKE_STRING_OFFSET
+2208	CS_ORG_CEMETERY_STRING_OFFSET
+2220	CS_ORG_PLANT_STRING_OFFSET
+2228	CS_ORG_KODOU_STRING_OFFSET
+2236	CS_ORG_FANFALE3_STRING_OFFSET
+2248	CS_ORG_FANFALE2_STRING_OFFSET
+2260	CS_ORG_DR_STRING_OFFSET
+2264	CS_ORG_ESCAPE_STRING_OFFSET
+2272	CS_ORG_JENKA_STRING_OFFSET
+2280	CS_ORG_MAZE_STRING_OFFSET
+2288	CS_ORG_ACCESS_STRING_OFFSET
+2296	CS_ORG_IRONH_STRING_OFFSET
+2304	CS_ORG_GRAND_STRING_OFFSET
+2312	CS_ORG_CURLY_STRING_OFFSET
+2320	CS_ORG_OSIDE_STRING_OFFSET
+2328	CS_ORG_REQUIEM_STRING_OFFSET
+2336	CS_ORG_WANPAK2_STRING_OFFSET
+2344	CS_ORG_QUIET_STRING_OFFSET
+2352	CS_ORG_LASTCAVE_STRING_OFFSET
+2364	CS_ORG_BALCONY_STRING_OFFSET
+2372	CS_ORG_LASTBTL_STRING_OFFSET
+2380	CS_ORG_LASTBT3_STRING_OFFSET
+2388	CS_ORG_ENDING_STRING_OFFSET
+2396	CS_ORG_ZONBIE_STRING_OFFSET
+2404	CS_ORG_BDOWN_STRING_OFFSET
+2412	CS_ORG_HELL_STRING_OFFSET
+2420	CS_ORG_JENKA2_STRING_OFFSET
+2428	CS_ORG_MARINE_STRING_OFFSET
+2436	CS_ORG_BALLOS_STRING_OFFSET
+2444	CS_ORG_TOROKO_STRING_OFFSET
+2452	CS_ORG_WHITE_STRING_OFFSET
+116	CS_SHOT_DATA_OFFSET
+0x466C	CS_WEAPON_LEVEL_OFFSET
+	SC_WEAPON_JUMP_TABLE_OFFSET
+0x9548	SC_ENTITY_JUMP_TABLE_OFFSET
+
+
+
+
+
+
+
+
+
+This section is practically worthless.  It was my initial attempt to add assembly coding for NPCs and weapons.
+Needless to say that's hard. Tt never got beyond a assembly viewer for the weapons.  If someone has a good way
+to *ERROR CHECK* and recompile assembly then maybe it could be expanded.
+
+[CE_OPCODES] 345
+Decimal	Code	Name	ModR/M	RegCode	Reg	RegSize	RM	RMSize	Imm	Rel	Order (RM Dest)	FLAGS:ACOSPZTID	Description	Operation
+55	37	AAA	0	100	101	0	101	0	0	1	0	AC.......	Ascii Adjust for Addition	
+213	D5	AAD	0	100	103	1	101	0	1	1	0	...SPZ...	Ascii Adjust for Division	AL = AL + (AH*I); AH = 0;
+212	D4	AAM	0	100	103	1	101	0	1	1	0	...SPZ...	Ascii Adjust for Multiplication	AH = AL / I; AL = AL % I;
+63	3F	AAS	0	100	101	0	101	0	0	1	0	AC.......	Ascii Adjust for Subtraction	
+16	10	ADC	1	100	100	1	100	1	0	1	1	ACOSPZ...	Add with carry	RM8 = RM8 + R8 + CF;
+17	11	ADC	1	100	100	4	100	4	0	1	1	ACOSPZ...	Add with carry	RM32 = RM32 + R32 + CF;
+18	12	ADC	1	100	100	1	100	1	0	1	0	ACOSPZ...	Add with carry	R8 = R8 + RM8 + CF;
+19	13	ADC	1	100	100	4	100	4	0	1	0	ACOSPZ...	Add with carry	R32 = R32 + RM32 + CF;
+20	14	ADC	0	100	0	1	103	1	1	1	0	ACOSPZ...	Add with carry	AL = AL + I + CF;
+21	15	ADC	0	100	0	4	103	4	4	1	0	ACOSPZ...	Add with carry	EAX = EAX + I + CF;
+128	80	ADC	1	2	103	1	100	1	1	1	1	ACOSPZ...	Add with carry	RM8 = RM8 + I + CF;
+129	81	ADC	1	2	103	4	100	4	4	1	1	ACOSPZ...	Add with carry	RM32 = RM32 + I + CF;
+131	83	ADC	1	2	103	1	100	4	1	1	1	ACOSPZ...	Add with carry	RM32 = RM32 + I + CF;
+0	0	ADD	1	100	100	1	100	1	0	1	1	ACOSPZ...	Add	RM8 = RM8 + R8;
+1	1	ADD	1	100	100	4	100	4	0	1	1	ACOSPZ...	Add	RM32 = RM32 + R32;
+2	2	ADD	1	100	100	1	100	1	0	1	0	ACOSPZ...	Add	R8 = R8 + RM8;
+3	3	ADD	1	100	100	4	100	4	0	1	0	ACOSPZ...	Add	R32 = R32 + RM32;
+4	4	ADD	0	100	0	1	103	1	1	1	0	ACOSPZ...	Add	AL = AL + I;
+5	5	ADD	0	100	0	4	103	4	4	1	0	ACOSPZ...	Add	EAX = EAX + I;
+128	80	ADD	1	0	103	1	100	1	1	1	1	ACOSPZ...	Add	RM8 = RM8 + I;
+129	81	ADD	1	0	103	4	100	4	4	1	1	ACOSPZ...	Add	RM32 = RM32 + I;
+131	83	ADD	1	0	103	1	100	4	1	1	1	ACOSPZ...	Add	RM32 = RM32 + I;
+32	20	AND	1	100	100	1	100	1	0	1	1	.COSPZ...	And	RM8 = RM8 & R8;
+33	21	AND	1	100	100	4	100	4	0	1	1	.COSPZ...	And	RM32 = RM32 & R32;
+34	22	AND	1	100	100	1	100	1	0	1	0	.COSPZ...	And	R8 = R8 & RM8;
+35	23	AND	1	100	100	4	100	4	0	1	0	.COSPZ...	And	R32 = R32 & RM32;
+36	24	AND	0	100	0	1	103	1	1	1	0	.COSPZ...	And	AL = AL & I;
+37	25	AND	0	100	0	4	103	4	4	1	0	.COSPZ...	And	EAX = EAX & I;
+128	80	AND	1	4	103	1	100	1	1	1	1	.COSPZ...	And	RM8 = RM8 & I;
+129	81	AND	1	4	103	4	100	4	4	1	1	.COSPZ...	And	RM32 = RM32 & I;
+131	83	AND	1	4	103	4	100	4	1	1	1	.COSPZ...	And	RM32 = RM32 & I;
+98	62	BOUND	1	100	100	4	100	4	0	1	0	.........	Array Index Bound Check	
+4028	0FBC	BSF	1	100	100	4	100	4	0	1	0	.....Z...	Bit Scan Forward	"if (RM32 != 0) {ZF = 0; R32 = 0; while (Bit(RM32, R32) == 0) R32++;} else ZF = 1;"
+4029	0FBD	BSR	1	100	100	4	100	4	0	1	0	.....Z...	Bit Scan Reverse	"if (RM32 != 0) {ZF = 0; R32 = 31; while (Bite(RM32, R32) == 0) R32--;} else ZF = 1;"
+4040	0FC8	BSWAP	0	100	0	4	101	0	0	1	0	.........	Byte swap	temp = AL; AL = AXH; AXH = temp; temp = AH; AH = AXL; AXL = temp;
+4041	0FC9	BSWAP	0	100	1	4	101	0	0	1	0	.........	Byte swap	temp = CL; CL = CXH; CXH = temp; temp = CH; CH = CXL; CXL = temp;
+4042	0FCA	BSWAP	0	100	2	4	101	0	0	1	0	.........	Byte swap	temp = DL; DL = DXH; DXH = temp; temp = DH; DH = DXL; DXL = temp;
+4043	0FCB	BSWAP	0	100	3	4	101	0	0	1	0	.........	Byte swap	temp = BL; BL = BXH; BXH = temp; temp = BH; BH = BXL; BXL = temp;
+4044	0FCC	BSWAP	0	100	4	4	101	0	0	1	0	.........	Byte swap	temp = SPL; SPL = SPXH; SPXH = temp; temp = SPH; SPH = SPXL; SPXL = temp;
+4045	0FCD	BSWAP	0	100	5	4	101	0	0	1	0	.........	Byte swap	temp = BPL; BPL = BPXH; BPXH = temp; temp = BPH; BPH = BPXL; BPXL = temp;
+4046	0FCE	BSWAP	0	100	6	4	101	0	0	1	0	.........	Byte swap	temp = SIL; SIL = SIXH; SIXH = temp; temp = SIH; SIH = SIXL; SIXL = temp;
+4047	0FCF	BSWAP	0	100	7	4	101	0	0	1	0	.........	Byte swap	temp = DIL; DIL = DIXH; DIXH = temp; temp = DIH; DIH = DIXL; DIXL = temp;
+4003	0FA3	BT	1	100	100	4	100	4	0	1	1	.C.......	Bit Test	"CF = Bit(RM32, R32);"
+4026	0FBA	BT	1	4	103	1	100	4	1	1	1	.C.......	Bit Test	"CF = Bit(RM32, I);"
+4026	0FBA	BTC	1	7	103	1	100	4	1	1	1	.C.......	Bit Test with Compliment	"CF = !Bit(RM32, I);"
+4027	0FBB	BTC	1	100	100	4	100	4	0	1	1	.C.......	Bit Test with Compliment	"CF = !Bit(RM32, R32);"
+4019	0FB3	BTR	1	100	100	4	100	4	0	1	1	.........	Bit Test with Reset	"CF = Bit(RM32, R32); Bit(RM32, R32) = 0;"
+4026	0FBA	BTR	1	6	103	1	100	4	1	1	1	.........	Bit Test with Reset	"CF = Bit(RM32, I); Bit(RM32, I) = 0;"
+4011	0FAB	BTS	1	100	100	4	100	4	0	1	1	.........	Bit Test and Set	"CF = Bit(RM32, R32); Bit(RM32, R32) = 1;"
+4026	0FBA	BTS	1	5	103	1	100	4	1	1	1	.........	Bit Test and Set	"CF = Bit(RM32, I); Bit(RM32, I) = 1;"
+154	9A	CALL	0	100	101	0	103	4	4	0	1	.........	Procedure Call	PUSH EIP; EIP = I;
+232	E8	CALL	0	100	101	0	103	4	4	1	1	.........	Procedure Call	PUSH EIP; EIP += I;
+255	FF	CALL	1	2	101	0	100	4	0	0	1	.........	Procedure Call	PUSH EIP; EIP = RM32;
+255	FF	CALL	1	3	101	0	102	4	0	0	1	.........	Procedure Call	PUSH EIP; EIP = M32;
+152	98	CBW	0	100	101	0	101	0	0	1	0	.........	Convert Byte to Word	EAX = AX;
+153	99	CDQ	0	100	101	0	101	0	0	1	0	.........	Convert Double to Quad	EDX:EAX = EAX;
+248	F8	CLC	0	100	101	0	101	0	0	1	0	.........	Clear Carry	CF = 0;
+252	FC	CLD	0	100	101	0	101	0	0	1	0	.........	Clear Direction Flag	DF = 0;
+250	FA	CLI	0	100	101	0	101	0	0	1	0	.........	Clear Interrupt Flag	IF = 0;
+3846	0F06	CLTS	0	100	101	0	101	0	0	1	0	.........	Clear Task Switched Flag	TS = 0;
+245	F5	CMC	0	100	101	0	101	0	0	1	0	.........	Complement Carry Flag	CF = !CF;
+3911	0F47	CMOVA	1	100	100	4	100	4	0	1	0	.........	Move if Above	if (CF == 0 && ZF == 0) R32 = RM32;
+3907	0F43	CMOVAE	1	100	100	4	100	4	0	1	0	.........	Move if No Carry	if (CF == 0) R32 = RM32;
+3906	0F42	CMOVB	1	100	100	4	100	4	0	1	0	.........	Move if Carry	if (CF == 1) R32 = RM32;
+3910	0F46	CMOVBE	1	100	100	4	100	4	0	1	0	.........	Move if Below or Equal	if (CF == 1 || ZF == 1) R32 = RM32;
+3908	0F44	CMOVE	1	100	100	4	100	4	0	1	0	.........	Move if Zero	if (ZF == 1) R32 = RM32;
+3919	0F4F	CMOVG	1	100	100	4	100	4	0	1	0	.........	Move if Greater	if (ZF == 0 && SF == OF) R32 = RM32;
+3917	0F4D	CMOVGE	1	100	100	4	100	4	0	1	0	.........	Move if Greater or Equal	if (SF == OF) R32 = RM32;
+3916	0F4C	CMOVL	1	100	100	4	100	4	0	1	0	.........	Move if Less	if (SF != OF) R32 = RM32;
+3918	0F4E	CMOVLE	1	100	100	4	100	4	0	1	0	.........	Move if Less or Equal	if (ZF == 1 || SF != OF) R32 = RM32;
+3909	0F45	CMOVNE	1	100	100	4	100	4	0	1	0	.........	Move if No Zero	if (ZF == 0) R32 = RM32;
+3905	0F41	CMOVNO	1	100	100	4	100	4	0	1	0	.........	Move if No Overflow	if (OF == 0) R32 = RM32;
+3915	0F4B	CMOVNP	1	100	100	4	100	4	0	1	0	.........	Move if Not Parity	if (PF == 0) R32 = RM32;
+3913	0F49	CMOVNS	1	100	100	4	100	4	0	1	0	.........	Move if Not Sign	if (SF == 0) R32 = RM32;
+3904	0F40	CMOVO	1	100	100	4	100	4	0	1	0	.........	Move if Overflow	if (OF == 1) R32 = RM32;
+3914	0F4A	CMOVP	1	100	100	4	100	4	0	1	0	.........	Move if Parity	if (PF == 1) R32 = RM32;
+3912	0F48	CMOVS	1	100	100	4	100	4	0	1	0	.........	Move if Sign	if (SF == 1) R32 = RM32;
+56	38	CMP	1	100	100	1	100	1	0	1	1	ACOSPZ...	Compare	temp = RM8 - R8;
+57	39	CMP	1	100	100	4	100	4	0	1	1	ACOSPZ...	Compare	temp = RM32 - R32;
+58	3A	CMP	1	100	100	1	100	1	0	1	0	ACOSPZ...	Compare	temp = R8 - RM8;
+59	3B	CMP	1	100	100	4	100	4	0	1	0	ACOSPZ...	Compare	temp = R32 - RM32;
+60	3C	CMP	0	100	0	1	103	1	1	1	0	ACOSPZ...	Compare	temp = AL - I;
+61	3D	CMP	0	100	0	4	103	4	4	1	0	ACOSPZ...	Compare	temp = EAX - I;
+128	80	CMP	1	7	103	1	100	1	1	1	1	ACOSPZ...	Compare	temp = RM8 - I;
+129	81	CMP	1	7	103	4	100	4	4	1	1	ACOSPZ...	Compare	temp = RM32 - I;
+131	83	CMP	1	7	103	1	100	4	1	1	1	ACOSPZ...	Compare	temp = RM32 - I;
+166	A6	CMPSB	0	100	101	0	101	0	0	1	0	ACOSPZ...	Compare String	temp = BYTE(DS:ESI) - BYTE(ES:EDI)
+167	A7	CMPSD	0	100	101	0	101	0	0	1	0	ACOSPZ...	Compare String	temp = DWORD(DS:ESI) - DWORD(ES:EDI)
+4016	0FB0	CMPXCHG	1	100	100	1	100	1	0	1	0	.COSPZ...	Compare and Exchange	if (AL == RM8) {ZF = 1; R8 = RM8;} else {ZF = 0; AL = RM8;};
+4017	0FB1	CMPXCHG	1	100	100	4	100	4	0	1	0	.COSPZ...	Compare and Exchange	if (EAX == RM32) {ZF = 1; R32 = RM32;} else {ZF = 0; EAX = RM32;};
+39	27	DAA	0	100	101	0	101	0	0	1	0	AC.SPZ...	Decimal Adjust for Addition	
+47	2F	DAS	0	100	101	0	101	0	0	1	0	AC.SPZ...	Decimal Adjust for Subtraction	
+72	48	DEC	0	100	0	4	101	0	0	1	0	A.OSPZ...	Decrement	EAX--;
+73	49	DEC	0	100	1	4	101	0	0	1	0	A.OSPZ...	Decrement	ECX--;
+74	4A	DEC	0	100	2	4	101	0	0	1	0	A.OSPZ...	Decrement	EDX--;
+75	4B	DEC	0	100	3	4	101	0	0	1	0	A.OSPZ...	Decrement	EBX--;
+76	4C	DEC	0	100	4	4	101	0	0	1	0	A.OSPZ...	Decrement	ESP--;
+77	4D	DEC	0	100	5	4	101	0	0	1	0	A.OSPZ...	Decrement	EBP--;
+78	4E	DEC	0	100	6	4	101	0	0	1	0	A.OSPZ...	Decrement	ESI--;
+79	4F	DEC	0	100	7	4	101	0	0	1	0	A.OSPZ...	Decrement	EDI--;
+254	FE	DEC	1	1	101	0	100	1	0	1	1	A.OSPZ...	Decrement	RM8--;
+255	FF	DEC	1	1	101	0	100	4	0	1	1	A.OSPZ...	Decrement	RM32--;
+246	F6	DIV	1	6	101	0	100	1	0	1	2	ACOSPZ...	Divide	temp = +AX / RM8; AH = +AX % RM8; AL = temp;
+247	F7	DIV	1	6	101	0	100	4	0	1	2	ACOSPZ...	Divide	temp = +EDX:EAX / RM8; EDX = +EDX:EAX % RM8; EAX = temp;
+246	F6	IDIV	1	7	101	0	100	1	0	1	2	.........	Signed Divide	temp = AX / RM8; AH = AX % RM8; AL = temp;
+247	F7	IDIV	1	7	101	0	100	4	0	1	2	.........	Signed Divide	temp = EDX:EAX / RM8; EDX = EDX:EAX % RM8; EAX = temp;
+105	69	IMUL	1	100	100	0	103	4	4	1	0	.CO......	Signed Multiply	R64 = RM32 * I;
+107	6B	IMUL	1	100	100	0	103	1	1	1	0	.CO......	Signed Multiply	R64 = RM32 * I;
+246	F6	IMUL	1	5	0	1	100	1	0	1	0	.CO......	Signed Multiply	AX = AL * RM8;
+247	F7	IMUL	1	5	0	4	100	4	0	1	0	.CO......	Signed Multiply	EDX:EAX = EAX * RM32;
+228	E4	IN	0	100	103	1	101	0	1	1	0	.........	Input Byte From Port	
+229	E5	IN	0	100	103	1	101	0	1	1	0	.........	Input DWord From Port	
+236	EC	IN	0	100	101	0	101	0	0	1	0	.........	Input Byte From Port	
+237	ED	IN	0	100	101	0	101	0	0	1	0	.........	Input DWord From Port	
+64	40	INC	0	100	0	4	101	0	0	1	0	A.OSPZ...	Increment	EAX++;
+65	41	INC	0	100	1	4	101	0	0	1	0	A.OSPZ...	Increment	ECX++;
+66	42	INC	0	100	2	4	101	0	0	1	0	A.OSPZ...	Increment	EDX++;
+67	43	INC	0	100	3	4	101	0	0	1	0	A.OSPZ...	Increment	EBX++;
+68	44	INC	0	100	4	4	101	0	0	1	0	A.OSPZ...	Increment	ESP++;
+69	45	INC	0	100	5	4	101	0	0	1	0	A.OSPZ...	Increment	EBP++;
+70	46	INC	0	100	6	4	101	0	0	1	0	A.OSPZ...	Increment	ESI++;
+71	47	INC	0	100	7	4	101	0	0	1	0	A.OSPZ...	Increment	EDI++;
+254	FE	INC	1	0	101	0	100	1	0	1	1	A.OSPZ...	Increment	RM8++;
+255	FF	INC	1	0	101	0	100	4	0	1	1	A.OSPZ...	Increment	RM32++;
+205	CD	INT	0	100	103	1	101	0	1	1	0	......TI.	Interrupt	
+204	CC	INT3	0	100	101	0	101	0	0	1	0	......TI.	Interrupt	
+206	CE	INTO	0	100	101	0	101	0	0	1	0	......TI.	Interrupt on Overflow	
+207	CF	IRET	0	100	101	0	101	0	0	1	0	AC.SPZTID	Interrupt Return	
+3975	0F87	JA	0	100	103	4	101	0	4	1	0	.........	Jump if Above	if (CF == 0 && ZF == 0) EIP += I;
+119	77	JA 	0	100	103	1	101	0	1	1	0	.........	Jump if Above	if (CF == 0 && ZF == 0) EIP += I;
+3971	0F83	JAE	0	100	103	4	101	0	4	1	0	.........	Jump if Above or Equal	if (CF == 0) EIP += I;
+3974	0F86	JBE	0	100	103	4	101	0	4	1	0	.........	Jump if Below or Equal	if (CF == 1 || ZF == 1) EIP += I;
+118	76	JBE 	0	100	103	1	101	0	1	1	0	.........	Jump if Below or Equal	if (CF == 1 || ZF == 1) EIP += I;
+3970	0F82	JC	0	100	103	4	101	0	4	1	0	.........	Jump if Carry	if (CF ==1) EIP += I;
+114	72	JC 	0	100	103	1	101	0	1	1	0	.........	Jump if Carry	if (CF == 1) EIP += I;
+3972	0F84	JE	0	100	103	4	101	0	4	1	0	.........	Jump if Equal	if (ZF == 1) EIP += I;
+116	74	JE 	0	100	103	1	101	0	1	1	0	.........	Jump if Equal	if (ZF == 1) EIP += I;
+227	E3	JECXZ 	0	100	103	1	101	0	1	1	0	.........	Jump if Register ECX is Zero	if (ECX == 0) EIP += I;
+3983	0F8F	JG	0	100	103	4	101	0	4	1	0	.........	Jump if Greater	if (ZF == 0 && SF == OF) EIP += I;
+127	7F	JG 	0	100	103	1	101	0	1	1	0	.........	Jump if Greater	if (ZF == 0 && SF == OF) EIP += I;
+3981	0F8D	JGE	0	100	103	4	101	0	4	1	0	.........	Jump if Greater or Equal	
+125	7D	JGE 	0	100	103	1	101	0	1	1	0	.........	Jump if Greater or Equal	if (SF == OF) EIP += I;
+124	7C	JL 	0	100	103	1	101	0	1	1	0	.........	Jump if Less	if (SF != OF) EIP += I;
+3982	0F8E	JLE	0	100	103	4	101	0	4	1	0	.........	Jump if Less or Equal	if (ZF == 1 || SF != OF) EIP += I;
+126	7E	JLE 	0	100	103	1	101	0	1	1	0	.........	Jump if Less or Equal	if (ZF == 1 || SF != OF) EIP += I;
+233	E9	JMP	0	100	103	4	101	0	4	1	0	.........	Jump	EIP += I;
+234	EA	JMP	0	100	103	4	101	0	4	0	0	.........	Jump	EIP = I;
+235	EB	JMP	0	100	103	1	101	0	1	1	0	.........	Jump	EIP += I;
+255	FF	JMP	1	4	101	0	103	4	0	0	1	.........	Jump	EIP = RM32;
+255	FF	JMP	1	5	101	0	102	4	0	0	1	.........	Jump	EIP = M32;
+115	73	JNC 	0	100	103	1	101	0	1	1	0	.........	Jump if Not Carry	if (CF == 0) EIP += I;
+3973	0F84	JNE	0	100	103	4	101	0	4	1	0	.........	Jump if Not Equal	
+117	75	JNE 	0	100	103	1	101	0	1	1	0	.........	Jump if Not Equal	if (ZF == 0) EIP += I;
+113	71	JNO 	0	100	103	1	101	0	1	1	0	.........	Jump if Not Overflow	if (OF == 0) EIP += I;
+123	7B	JNP 	0	100	103	1	101	0	1	1	0	.........	Jump if Parity Odd	if (PF == 0) EIP += I;
+121	79	JNS 	0	100	103	1	101	0	1	1	0	.........	Jump if Not Sign	if (SF == 0) EIP += I;
+112	70	JO 	0	100	103	1	101	0	1	1	0	.........	Jump if Overflow	if (OF == 1) EIP += I;
+122	7A	JP 	0	100	103	1	101	0	1	1	0	.........	Jump if Parity Even	if (PF == 1) EIP += I;
+120	78	JS 	0	100	103	1	101	0	1	1	0	.........	Jump if Sign	if (SF == 1) EIP += I;
+159	9F	LAHF	0	100	101	0	101	4	0	1	0	.........	Load Register AH From Flags	AH = EFLAGS;
+197	C5	LDS	1	100	100	4	100	4	0	1	1	.........	Load Pointer Using DS	
+141	8D	LEA	1	100	100	4	102	4	0	1	1	.........	Load Effective Address	
+201	C9	LEAVE	0	100	101	0	101	0	0	1	0	.........	Leave	
+240	F0	LOCK	0	100	101	0	101	0	0	1	0	.........	Lock Bus	
+172	AC	LODS	0	100	101	0	102	1	0	1	1	.........	Load String	
+173	AD	LODS	0	100	101	0	102	4	0	1	1	.........	Load String	
+226	E2	LOOP	0	100	103	1	101	0	1	1	0	.........	Decrement CX and Loop if CX Not Zero	if (ECX != 0) {EIP += I; ECX--;};
+224	E0	LOOPNZ	0	100	103	1	101	0	1	1	0	.........	Loop While Zero	if (ECX != 0 && ZF == 0) {EIP += I; ECX--;};
+225	E1	LOOPZ	0	100	103	1	101	0	1	1	0	.........	Loop While Not Zero	if (ECX != 0 && ZF == 1) {EIP += I; ECX--;};
+3895	0F37	LSL	1	100	100	4	100	4	0	1	1	.....Z...	Load Segment Limit	
+136	88	MOV	1	100	100	1	100	1	0	1	1	.........	Move	RM8 = R8;
+137	89	MOV	1	100	100	4	100	4	0	1	1	.........	Move	RM32 = R32;
+138	8A	MOV	1	100	100	1	100	1	0	1	0	.........	Move	R8 = RM8;
+139	8B	MOV	1	100	100	4	100	4	0	1	0	.........	Move	R32 = RM32;
+140	8C	MOV	1	100	100	2	100	2	0	1	1	.........	Move	RM16 = SREG;
+142	8E	MOV	1	100	100	2	100	2	0	1	0	.........	Move	SREG = RM16;
+176	B0	MOV	0	100	0	1	103	1	1	1	0	.........	Move	AL = I;
+177	B1	MOV	0	100	1	1	103	1	1	1	0	.........	Move	CL = I;
+178	B2	MOV	0	100	2	1	103	1	1	1	0	.........	Move	DL = I;
+179	B3	MOV	0	100	3	1	103	1	1	1	0	.........	Move	BL = I;
+180	B4	MOV	0	100	4	1	103	1	1	1	0	.........	Move	AH = I;
+181	B5	MOV	0	100	5	1	103	1	1	1	0	.........	Move	CH = I;
+182	B6	MOV	0	100	6	1	103	1	1	1	0	.........	Move	DH = I;
+183	B7	MOV	0	100	7	1	103	1	1	1	0	.........	Move	BH = I;
+184	B8	MOV	0	100	0	4	103	4	4	1	0	.........	Move	EAX = I;
+185	B9	MOV	0	100	1	4	103	4	4	1	0	.........	Move	ECX = I;
+186	BA	MOV	0	100	2	4	103	4	4	1	0	.........	Move	EDX = I;
+187	BB	MOV	0	100	3	4	103	4	4	1	0	.........	Move	EBX = I;
+188	BC	MOV	0	100	4	4	103	4	4	1	0	.........	Move	ESP = I;
+189	BD	MOV	0	100	5	4	103	4	4	1	0	.........	Move	EBP = I;
+190	BE	MOV	0	100	6	4	103	4	4	1	0	.........	Move	ESI = I;
+191	BF	MOV	0	100	7	4	103	4	4	1	0	.........	Move	EDI = I;
+198	C6	MOV	1	0	103	1	100	1	1	1	1	.........	Move	RM8 = I;
+199	C7	MOV	1	0	103	4	100	4	4	1	1	.........	Move	RM32 = I;
+4030	0FBE	MOVSX	1	100	100	1	100	1	0	1	0	.........	Move with Sign Extend	R32 = RM8;
+4031	0FBF	MOVSX	1	100	100	4	100	2	0	1	0	.........	Move with Sign Extend	R32 = RM16;
+4022	0FB6	MOVZX	1	100	100	1	100	1	0	1	0	.........	Move with Zero Extend	R32 = +RM8;
+4023	0FB7	MOVZX	1	100	100	4	100	2	0	1	0	.........	Move with Zero Extend	R32 = +RM16;
+246	F6	MUL	1	4	101	0	100	1	0	1	1	.CO......	Unsigned Multiply	AX = +AL * +RM8;
+247	F7	MUL	1	4	101	0	100	4	0	1	1	.CO......	Unsigned Multiply	EDX:EAX = +EAX * +RM32;
+246	F6	NEG	1	3	101	0	100	1	0	1	1	ACOSPZ...	2's Complement	RM8 = 0 - RM8;
+247	F7	NEG	1	3	101	0	100	4	0	1	1	ACOSPZ...	2's Complement	RM32 = 0 - RM32;
+144	90	NOP	0	100	101	0	101	0	0	1	0	.........	No Operation	;
+246	F6	NOT	1	2	101	0	100	1	0	1	1	.........	Binary NOT	RM8 = RM8 ^ 0XFF;
+247	F7	NOT	1	2	101	0	100	4	0	1	1	.........	Binary NOT	RM32 = RM32 ^ 0XFFFFFFFF;
+8	8	OR	1	100	100	1	100	1	0	1	1	.COSPZ...	Binary OR	RM8 = RM8 | R8;
+9	9	OR	1	100	100	4	100	4	0	1	1	.COSPZ...	Binary OR	RM32 = RM32 | R32;
+10	0A	OR	1	100	100	1	100	1	0	1	0	.COSPZ...	Binary OR	R8 = R8 | RM8;
+11	0B	OR	1	100	100	4	100	4	0	1	0	.COSPZ...	Binary OR	R32 = R32 | RM32;
+12	0C	OR	0	100	0	1	103	1	1	1	0	.COSPZ...	Binary OR	AL = AL | I;
+13	0D	OR	0	100	0	4	103	4	4	1	0	.COSPZ...	Binary OR	EAX = EAX | I;
+128	80	OR	1	1	103	1	100	1	1	1	1	.COSPZ...	Binary OR	RM8 = RM8 | I;
+129	81	OR	1	1	103	4	100	4	4	1	1	.COSPZ...	Binary OR	RM32 = RM32 | I;
+131	83	OR	1	1	103	1	100	4	1	1	1	.COSPZ...	Binary OR	RM32 = RM32 | I;
+88	58	POP	0	100	0	4	101	0	0	1	0	.........	Pop Word Off Stack	EAX = [ESP]; ESP += 4;
+89	59	POP	0	100	1	4	101	0	0	1	0	.........	Pop Word Off Stack	ECX = [ESP]; ESP += 4;
+90	5A	POP	0	100	2	4	101	0	0	1	0	.........	Pop Word Off Stack	EDX = [ESP]; ESP += 4;
+91	5B	POP	0	100	3	4	101	0	0	1	0	.........	Pop Word Off Stack	EBX = [ESP]; ESP += 4;
+92	5C	POP	0	100	4	4	101	0	0	1	0	.........	Pop Word Off Stack	ESP = [ESP]; ESP += 4;
+93	5D	POP	0	100	5	4	101	0	0	1	0	.........	Pop Word Off Stack	EBP = [ESP]; ESP += 4;
+94	5E	POP	0	100	6	4	101	0	0	1	0	.........	Pop Word Off Stack	ESI = [ESP]; ESP += 4;
+95	5F	POP	0	100	7	4	101	0	0	1	0	.........	Pop Word Off Stack	EDI = [ESP]; ESP += 4;
+97	61	POPAD	0	100	101	0	101	0	0	1	0	.........	Pop All Registers	EDI = [ESP]; ESP += 4; ESI = [ESP]; ESP += 4; EBP = [ESP]; ESP += 8; EBX = [ESP]; ESP += 4; EDX = [ESP]; ESP += 4; ECX = [ESP]; ESP += 4; EAX = [ESP]; ESP += 4;
+157	9D	POPFD	0	100	101	0	101	0	0	1	0	.........	Pop Flags Off Stack	EFLAGS = [ESP]; ESP += 4;
+80	50	PUSH	0	100	0	4	101	0	0	1	0	.........	Push Word Onto Stack	[ESP] = EAX; ESP -= 4;
+81	51	PUSH	0	100	1	4	101	0	0	1	0	.........	Push Word Onto Stack	[ESP] = ECX; ESP -= 4;
+82	52	PUSH	0	100	2	4	101	0	0	1	0	.........	Push Word Onto Stack	[ESP] = EDX; ESP -= 4;
+83	53	PUSH	0	100	3	4	101	0	0	1	0	.........	Push Word Onto Stack	[ESP] = EBX; ESP -= 4;
+84	54	PUSH	0	100	4	4	101	0	0	1	0	.........	Push Word Onto Stack	[ESP] = ESP; ESP -= 4;
+85	55	PUSH	0	100	5	4	101	0	0	1	0	.........	Push Word Onto Stack	[ESP] = EBP; ESP -= 4;
+86	56	PUSH	0	100	6	4	101	0	0	1	0	.........	Push Word Onto Stack	[ESP] = ESI; ESP -= 4;
+87	57	PUSH	0	100	7	4	101	0	0	1	0	.........	Push Word Onto Stack	[ESP] = EDI; ESP -= 4;
+104	68	PUSH	0	100	103	4	101	0	4	1	0	.........	Push Word Onto Stack	[ESP] = I; ESP -= 4;
+106	6A	PUSH	0	100	103	1	101	0	1	1	0	.........	Push Word Onto Stack	[ESP] = I; ESP -= 1;
+255	FF	PUSH	1	6	101	0	100	4	0	1	1	.........	Push Word Onto Stack	[ESP] = RM32; ESP -=4;
+96	60	PUSHAD	0	100	101	0	101	0	0	1	0	.........	Push All Registers	[ESP] = EAX; ESP -= 4; [ESP] = ECX; ESP -= 4; [ESP] = EDX; ESP -= 4; [ESP] = EBX; ESP -= 4; [ESP] = ESP; ESP -= 4; [ESP] = EBP; ESP -= 4; [ESP] = ESI; ESP -= 4; [ESP] = EDI; ESP -=4;
+156	9C	PUSHFD	0	100	101	0	101	0	0	1	0	.........	Push Flags Onto Stack	[ESP] = EFLAGS;
+192	C0	RCL	1	2	103	1	100	1	1	1	1	.CO......	Rotate Through Carry Left	temp = RM8[8 - I]; RM8 = (RM8 << I) + (CF << I - 1) + (RM8 >> 9 - I);  CF = temp;
+193	C1	RCL	1	2	103	1	100	4	1	1	1	.CO......	Rotate Through Carry Left	temp = RM32[32 - I]; RM32 = (RM32 << I) + (CF << I - 1) + (RM32 >> 33 - I);  CF = temp;
+208	D0	RCL	1	2	101	0	100	1	0	1	1	.CO......	Rotate Through Carry Left	temp = RM8[7]; RM8 = RM8 << 1 + CF;  CF = temp;
+209	D1	RCL	1	2	101	0	100	4	0	1	1	.CO......	Rotate Through Carry Left	temp = RM32[31]; RM32 = RM32 << 1 + CF;  CF = temp;
+210	D2	RCL	1	2	1	1	100	1	0	1	1	.CO......	Rotate Through Carry Left	temp = RM8[8 - CL]; RM8 = (RM8 << CL) + (CF << CL - 1) + (RM8 >> 9 - CL);  CF = temp;
+211	D3	RCL	1	2	1	1	100	4	0	1	1	.CO......	Rotate Through Carry Left	temp = RM32[32 - CL]; RM32 = (RM32 << CL) + (CF << CL - 1) + (RM32 >> 33 - CL);  CF = temp;
+192	C0	RCR	1	3	103	1	100	1	1	1	1	.CO......	Rotate Through Carry Right	temp = RM8[8 - I]; RM8 = (RM8 << I) + (CF << I - 1) + (RM8 >> 9 - I);  CF = temp;
+193	C1	RCR	1	3	103	1	100	4	1	1	1	.CO......	Rotate Through Carry Right	temp = RM32[32 - I]; RM32 = (RM32 << I) + (CF << I - 1) + (RM32 >> 33 - I);  CF = temp;
+208	D0	RCR	1	3	101	0	100	1	0	1	1	.CO......	Rotate Through Carry Right	temp = RM8[0]; RM8 = RM8 >> 1 + (CF << 7);  CF = temp;
+209	D1	RCR	1	3	101	0	100	4	0	1	1	.CO......	Rotate Through Carry Right	temp = RM32[31]; RM32 = RM32 << 1 + CF;  CF = temp;
+210	D2	RCR	1	3	1	1	100	1	0	1	1	.CO......	Rotate Through Carry Right	temp = RM8[8 - CL]; RM8 = (RM8 << CL) + (CF << CL - 1) + (RM8 >> 9 - CL);  CF = temp;
+211	D3	RCR	1	3	1	1	100	4	0	1	1	.CO......	Rotate Through Carry Right	temp = RM32[32 - CL]; RM32 = (RM32 << CL) + (CF << CL - 1) + (RM32 >> 33 - CL);  CF = temp;
+3889	0F31	RDTSC	0	100	101	0	101	0	0	1	0	.........	Read Time-Step Counter	
+194	C2	RET	0	100	103	2	101	0	2	1	0	.........	Return From Procedure	EIP = [ESP]; ESP += 4 * (1 + I);
+195	C3	RET	0	100	101	0	101	0	0	1	0	.........	Return From Procedure	EIP = [ESP]; ESP += 4;
+202	CA	RET	0	100	103	2	101	0	2	1	0	.........	Return From Procedure	EIP = [ESP]; ESP += 4 * (1 + I);
+203	CB	RET	0	100	101	0	101	0	0	1	0	.........	Return From Procedure	EIP = [ESP]; ESP += 4;
+192	C0	ROL	1	0	103	1	100	1	1	1	1	.CO......	Rotate Left	
+193	C1	ROL	1	0	103	1	100	4	1	1	1	.CO......	Rotate Left	
+208	D0	ROL	1	0	101	0	100	1	0	1	1	.CO......	Rotate Left	
+209	D1	ROL	1	0	101	0	100	4	0	1	1	.CO......	Rotate Left	
+210	D2	ROL	1	0	1	1	100	1	0	1	1	.CO......	Rotate Left	
+211	D3	ROL	1	0	1	1	100	4	0	1	1	.CO......	Rotate Left	
+192	C0	ROR	1	1	103	1	100	1	1	1	1	.CO......	Rotate Right	
+193	C1	ROR	1	1	103	1	100	4	1	1	1	.CO......	Rotate Right	
+208	D0	ROR	1	1	101	0	100	1	0	1	1	.CO......	Rotate Right	
+209	D1	ROR	1	1	101	0	100	4	0	1	1	.CO......	Rotate Right	
+210	D2	ROR	1	1	1	1	100	1	0	1	1	.CO......	Rotate Right	
+211	D3	ROR	1	1	1	1	100	4	0	1	1	.CO......	Rotate Right	
+158	9E	SAHF	0	100	101	0	101	0	0	1	0	.........	Store AH Register into FLAGS	EFLAGS = AH;
+192	C0	SAR	1	7	103	1	100	1	1	1	1	.COSPZ...	Shift Arithmetic Right	
+193	C1	SAR	1	7	103	1	100	4	1	1	1	.COSPZ...	Shift Arithmetic Right	
+208	D0	SAR	1	7	101	0	100	1	0	1	1	.COSPZ...	Shift Arithmetic Right	temp = RM8[7]; RM8 = RM8 >> 1; RM[7] = temp;
+209	D1	SAR	1	7	101	0	100	4	0	1	1	.COSPZ...	Shift Arithmetic Right	
+210	D2	SAR	1	7	1	1	100	1	0	1	1	.COSPZ...	Shift Arithmetic Right	
+211	D3	SAR	1	7	1	1	100	4	0	1	1	.COSPZ...	Shift Arithmetic Right	
+24	18	SBB	1	100	100	1	100	1	0	1	1	ACOSPZ...	Subtract with Borrow/Carry	RM8 = RM8 - R8 - CF;
+25	19	SBB	1	100	100	4	100	4	0	1	1	ACOSPZ...	Subtract with Borrow/Carry	RM32 = RM32 - R32 - CF;
+26	1A	SBB	1	100	100	1	100	1	0	1	0	ACOSPZ...	Subtract with Borrow/Carry	R8 = R8 - RM8 - CF;
+27	1B	SBB	1	100	100	4	100	4	0	1	0	ACOSPZ...	Subtract with Borrow/Carry	R32 = R32 - RM32 - CF;
+28	1C	SBB	0	100	0	1	103	1	1	1	0	ACOSPZ...	Subtract with Borrow/Carry	AL = AL - I - CF;
+29	1D	SBB	0	100	0	4	103	4	4	1	0	ACOSPZ...	Subtract with Borrow/Carry	EAX = EAX - I - CF;
+128	80	SBB	1	3	103	1	100	1	1	1	1	ACOSPZ...	Subtract with Borrow/Carry	RM8 = RM8 - I - CF;
+129	81	SBB	1	3	103	4	100	4	4	1	1	ACOSPZ...	Subtract with Borrow/Carry	RM32 = RM32 - I - CF;
+131	83	SBB	1	3	103	1	100	4	1	1	1	ACOSPZ...	Subtract with Borrow/Carry	RM32 = RM32 - I - CF;
+3991	0F97	SETA	1	100	101	0	100	1	0	1	1	.........	Set if Above	
+3987	0F93	SETAE	1	100	101	0	100	1	0	1	1	.........	Set if Above or Equal	
+3986	0F92	SETB	1	100	101	0	100	1	0	1	1	.........	Set if Below	
+3990	0F96	SETBE	1	100	101	0	100	1	0	1	1	.........	Set if Below or Equal	
+3986	0F92	SETC	1	100	101	0	100	1	0	1	1	.........	Set if Carry	
+3988	0F94	SETE	1	100	101	0	100	1	0	1	1	.........	Set if Equal	
+3999	0F9F	SETG	1	100	101	0	100	1	0	1	1	.........	Set if Greater	
+3997	0F9D	SETGE	1	100	101	0	100	1	0	1	1	.........	Set if Greater or Equal	
+3996	0F9C	SETL	1	100	101	0	100	1	0	1	1	.........	Set if Less	
+3998	0F9E	SETLE	1	100	101	0	100	1	0	1	1	.........	Set if Less or Equal	
+3989	0F95	SETNE	1	100	101	0	100	1	0	1	1	.........	Set if Not Equal	
+3985	0F91	SETNO	1	100	101	0	100	1	0	1	1	.........	Set if Not Overflow	
+3984	0F90	SETO	1	100	101	0	100	1	0	1	1	.........	Set if Overflow	
+3994	0F9A	SETP	1	100	101	0	100	1	0	1	1	.........	Set if Parity	
+3995	0F9B	SETPO	1	100	101	0	100	1	0	1	1	.........	Set if Parity Odd	
+192	C0	SHL	1	4	103	1	100	1	1	1	1	.COSPZ...	Shift Logical Left	RM8 = RM8 << I;
+193	C1	SHL	1	4	103	1	100	4	1	1	1	.COSPZ...	Shift Logical Left	RM32 = RM32 << I;
+208	D0	SHL	1	4	101	0	100	1	0	1	1	.COSPZ...	Shift Logical Left	RM32 = RM32 << 1;
+209	D1	SHL	1	4	101	0	100	4	0	1	1	.COSPZ...	Shift Logical Left	RM8 = RM8 << 1;
+210	D2	SHL	1	4	1	1	100	1	0	1	1	.COSPZ...	Shift Logical Left	RM8 = RM8 << CL;
+211	D3	SHL	1	4	1	1	100	4	0	1	1	.COSPZ...	Shift Logical Left	RM32 = RM32 << CL;
+192	C0	SHR	1	5	103	1	100	1	1	1	1	.COSPZ...	Shift Logical Right	RM8 = RM8 >> I;
+193	C1	SHR	1	5	103	1	100	4	1	1	1	.COSPZ...	Shift Logical Right	RM32 = RM32 >> I;
+208	D0	SHR	1	5	101	0	100	1	0	1	1	.COSPZ...	Shift Logical Right	RM8 = RM8 >> 1;
+209	D1	SHR	1	5	101	0	100	4	0	1	1	.COSPZ...	Shift Logical Right	RM32 = RM32 >> 1;
+210	D2	SHR	1	5	1	1	100	1	0	1	1	.COSPZ...	Shift Logical Right	RM8 = RM8 >> CL;
+211	D3	SHR	1	5	1	1	100	4	0	1	1	.COSPZ...	Shift Logical Right	RM32 = RM32 >> CL;
+249	F9	STC	0	100	101	0	101	0	0	1	0	.C.......	Set Carry	CF = 1;
+253	FD	STD	0	100	101	0	101	0	0	1	0	........D	Set Direction Flag	DF = 1;
+251	FB	STI	0	100	101	0	101	0	0	1	0	.......I.	Set Interrupt Flag	IF = 1;
+40	28	SUB	1	100	100	1	100	1	0	1	1	ACOSPZ...	Subtract	RM8 = RM8 - R8;
+41	29	SUB	1	100	100	4	100	4	0	1	1	ACOSPZ...	Subtract	RM32 = RM32 - R32;
+42	2A	SUB	1	100	100	1	100	1	0	1	0	ACOSPZ...	Subtract	R8 = R8 - RM8;
+43	2B	SUB	1	100	100	4	100	4	0	1	0	ACOSPZ...	Subtract	R32 = R32 - RM32;
+44	2C	SUB	0	100	0	1	103	1	1	1	0	ACOSPZ...	Subtract	AL = AL - I;
+45	2D	SUB	0	100	0	4	103	4	4	1	0	ACOSPZ...	Subtract	EAX = EAX - I;
+128	80	SUB	1	5	103	1	100	1	1	1	1	ACOSPZ...	Subtract	RM8 = RM8 - I;
+129	81	SUB	1	5	103	4	100	4	4	1	1	ACOSPZ...	Subtract	RM32 = RM32 - I;
+131	83	SUB	1	5	103	1	100	4	1	1	1	ACOSPZ...	Subtract	RM32 = RM32 - I;
+132	84	TEST	1	100	100	1	100	1	0	1	1	.COSPZ...	Test For Bit Pattern	temp = RM8 - R8;
+133	85	TEST	1	100	100	4	100	4	0	1	1	.COSPZ...	Test For Bit Pattern	temp = RM32 - R32;
+168	A8	TEST	0	0	0	1	103	1	1	1	0	.COSPZ...	Test For Bit Pattern	temp = AL - I;
+169	A9	TEST	0	0	0	0	103	4	4	1	0	.COSPZ...	Test For Bit Pattern	temp = EAX - I;
+246	F6	TEST	1	0	103	1	100	1	1	1	1	.COSPZ...	Test For Bit Pattern	temp = RM32 - I;
+247	F7	TEST	1	0	103	4	100	4	4	1	1	.COSPZ...	Test For Bit Pattern	temp = RM8 - I;
+145	91	XCHG	0	0	0	4	1	4	0	1	0	.........	Exchange	temp = EAX; EAX = ECX; ECX = temp;
+146	92	XCHG	0	0	0	4	2	4	0	1	0	.........	Exchange	temp = EAX; EAX = EDX; EDX = temp;
+147	93	XCHG	0	0	0	4	3	4	0	1	0	.........	Exchange	temp = EAX; EAX = EBX; EBX = temp;
+148	94	XCHG	0	0	0	4	4	4	0	1	0	.........	Exchange	temp = EAX; EAX = ESP; ESP = temp;
+149	95	XCHG	0	0	0	4	5	4	0	1	0	.........	Exchange	temp = EAX; EAX = EBP; EBP = temp;
+150	96	XCHG	0	0	0	4	6	4	0	1	0	.........	Exchange	temp = EAX; EAX = ESI; ESI = temp;
+151	97	XCHG	0	0	0	4	7	4	0	1	0	.........	Exchange	temp = EAX; EAX = EDI; EDI = temp;
+52	34	XOR	0	0	0	1	103	1	1	1	0	.COSPZ...	Exclusive OR	
+53	35	XOR	0	0	0	4	103	4	4	1	0	.COSPZ...	Exclusive OR
+128	80	XOR	1	6	103	1	100	1	1	1	1	.COSPZ...	Exclusive OR
+129	81	XOR	1	6	103	4	100	4	4	1	1	.COSPZ...	Exclusive OR
+131	83	XOR	1	6	103	1	100	4	1	1	1	.COSPZ...	Exclusive OR
+48	30	XOR	1	100	100	1	100	1	0	1	1	.COSPZ...	Exclusive OR
+49	31	XOR	1	100	100	4	100	4	0	1	1	.COSPZ...	Exclusive OR
+50	32	XOR	1	100	100	1	100	1	0	1	0	.COSPZ...	Exclusive OR
+51	33	XOR	1	100	100	4	100	4	0	1	0	.COSPZ...	Exclusive OR
