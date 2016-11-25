@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<title>Syntax</title>
+</head>
+
+<body>
+<div class="center"><span class="big_header">Syntax</span></div><br />
+
+<table class="maintable">
+<tr><td>
+
+Sometimes formatting is strict; sometimes it's quite liberal. Here's what you need to know to avoid getting a syntax error thrown in your face.<br /><br />
+
+<span class="small_header">Things You Can Do</span><br />
+1. There is no case-sensitivity: you can mix and match capitalization as you wish. The Assembler completely ignores capitalization when analyzing assembly code.<br />
+What actually happens is that all capital letters are converted to lowercase before assembling. Everything from that point onwards is considered lowercase.<br /><br />
+
+2. You may use whatever amount of whitespacing you want, including tabs and spaces. Blank lines are ignored.<br />
+The following ways of writing MOV EAX,ECX are all fine:<br />
+
+<pre>
+<span class="mnemonic">MOV</span> EAX,ECX
+  <span class="mnemonic">mov</span> eax,ecx
+<span class="mnemonic">MoV</span>  EaX , eCx</pre>
+
+However, this is <b>not okay</b>:
+
+<pre>M O V   eax,ecx   <span class="comment">;Splitting up the characters in MOV causes problems</span></pre>
+
+3. You may put the <span class="teletype">offset</span> statement anywhere in your source code, as long as it's written on its own line. It can even be at the end of your file. However, for easy readability of your code, you should probably put it at the beginning.<br /><br />
+
+4. You may put the <span class="teletype">#define</span> and <span class="teletype">#enddefine</span> statements anywhere in your source code. You can even put multiple define blocks in your code:
+
+<pre><span class="system">offset</span> 405000
+
+<span class="macro">#define</span>
+lawl=cats
+<span class="macro">#enddefine</span>
+
+<span class="mnemonic">MOV</span> EDX,lawl
+
+<span class="macro">#define</span>
+cats=EAX
+<span class="macro">#enddefine</span></pre>
+
+The above code evaluates to <span class="teletype">MOV EDX,EAX</span>. All defines are evaluated before parsing of the code begins, regardless of where the define blocks are placed.<br /><br />
+
+<span class="small_header">Things You Can't Do</span><br /><br />
+
+1. You cannot use weird or odd-numbered multipliers inside your memory operands. Valid multipliers only include 1,2,4, and 8.<br />
+This will give you an error:
+<pre><span class="mnemonic">JMP</span> DWORD [EAX*5 + 404000]</pre>
+
+Rather than <span class="teletype">EAX*5</span>, you should instead use <span class="teletype">EAX*4 + EAX</span>.
+<pre><span class="mnemonic">JMP</span> DWORD [EAX*4 + EAX + 404000]   <span class="comment">//This works.</span></pre>
+
+2. You can't use the <span class="teletype">decimal</span> or <span class="teletype">~</span> operator inside memory brackets. Just convert to hex first.
+<br /><br />
+<span class="small_header">Pointers and Memory Locations</span><br />
+If you want to use a pointer to a DWORD, no size-specifier is needed:<br />
+<span class="teletype mnemonic">MOV</span><span class="teletype"> [EAX],ECX</span><br /><br />
+If you want a pointer to a word, prefix the memory brackets with WORD:<br />
+<span class="teletype mnemonic">MOV</span><span class="teletype"> WORD [EAX],CX</span><br /><br />
+If you want a pointer to a byte, prefix the memory brackets with BYTE:<br />
+<span class="teletype mnemonic">MOV</span><span class="teletype"> BYTE [EAX],CL</span><br /><br />
+
+You are also allowed to use <span class="teletype">MOV DWORD [EAX],ECX</span>, even though the DWORD part is actually not needed.<br /><br />
+
+You should always be explicit about the sizes of memory operands whenever possible, especially when dealing with pointers to bytes and words.
+
+<pre><span class="mnemonic">MOV</span> [4a5adc],AL        <span class="comment">//Does not work. Will become MOV [4a5adc],EAX.</span>
+<span class="mnemonic">MOV</span> BYTE [4a5adc],AL   <span class="comment">//Works.</span>
+<span class="mnemonic">MOV</span> AX,[48BB00]        <span class="comment">//Works, but not recommended.</span>
+<span class="mnemonic">MOV</span> AX,WORD [48BB00]   <span class="comment">//Recommended way of writing this instruction.</span></pre>
+
+In some rare cases, the Doukutsu Assembler is able to accept QWORDs (64-bits).
+
+<pre>
+<span class="mnemonic">CMPXCHG8B</span> QWORD [EDX+ECX]   <span class="comment">//This will work fine.</span>
+</pre>
+
+<span class="small_header">Don't use PTR DS: and PTR SS:</span><br />
+Avoid using <span class="teletype">PTR DS:</span> and <span class="teletype">PTR SS:</span> notation.<br /><br />
+
+Each instruction variation has a default segment register it uses for memory operations.<br />
+<span class="teletype">PTR DS:</span> and <span class="teletype">PTR SS:</span> are actually ignored by the Assembler and will just clutter your code.
+
+<pre><span class="mnemonic">CMP</span> EAX,[ECX]                <span class="comment">;Good. Uses DS by default.</span>
+<span class="mnemonic">CMP</span> BX,WORD [EBP-8]          <span class="comment">;Good. Uses SS by default.</span>
+<span class="mnemonic">CMP</span> EAX,DWORD PTR DS:[ECX]   <span class="comment">;Works, but PTR DS: is unnecessary.</span>
+<span class="mnemonic">CMP</span> BX,WORD PTR SS:[EBP-8]   <span class="comment">;Works, but PTR SS: is unnecessary.</span></pre>
+
+If you're in a situation where you really need to specify a different segment register, use <a href="other.html#prefix">prefixes</a> to do it.<br /><br />
+
+<span class="small_header">Error?</span><br />
+An error message generated by the Assembler looks something like this:<br /><br />
+
+<img src="img/error.png" alt="Error Box" /><br /><br />
+
+The above error shows that you are trying to do <span class="teletype">MOV AX,50A00</span> but <span class="teletype">0x50A00</span> is too big to fit into <span class="teletype">AX</span>.<br /><br />
+
+To fix your error, open the Doukutsu Assembler again and press Ctrl+G. Notice that the error message gave you a line number. Just type in the line number and you'll get to the line where the error occurred.<br /><br />
+
+If you really can't figure out what's wrong or why the Assembler isn't accepting your code, feel free to drop me a PM or VM.<br /><br />
+
+If you accidentally closed the message box without seeing what happened, you can usually look in the file error.log, which keeps a copy of the error messages.
+
+<br /><br />
+<a href="..\Userguide.html">Table of Contents</a><br /><br /><br /><br />
+
+</td></tr>
+</table>
+
+</body>
+
+</html>

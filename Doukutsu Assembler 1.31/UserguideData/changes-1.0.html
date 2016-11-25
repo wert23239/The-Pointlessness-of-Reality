@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<title>Version 1.0 Changes</title>
+</head>
+
+<body>
+<div class="center"><span class="big_header">Version 1.0 Changes</span></div><br />
+
+<table class="simple_table"><tr><td>
+<ul>
+<li>Rewritten in Java.</li>
+<li>Added a text-editor with New File, Open, and Save functions.</li>
+<li>Added an upper menu bar.</li>
+<li>Added tabbed windows</li>
+<li>Completely changed the way parsing and compiling of code works</li>
+<li>Added support for many new variations of instructions</li>
+<li>Memory operands can now be written in the "wrong order".<br />
+For example, <span class="teletype">DWORD [EAX*4+300]</span> can be written as <span class="teletype">DWORD [300+4*EAX]</span>.</li>
+<li>You can now write multiple instructions on the same line.<br />
+Just separate them with pipes. For example:<br />
+<span class="teletype">XOR eax,eax | PUSH 500 | NOP</span></li>
+<li>Much better error messages. They tell you which line number the error was on.</li>
+<li>Press Ctrl+G to go to a line number. The first line is considered Line 1, not Line 0.</li>
+<li>There are now three kinds of comments allowed:<br />
+<span class="teletype">; Assembly-style semicolon comments<br />
+//C or C++ style double-slash comments<br />
+/* C or C++ style block comments */</span></li>
+<li>Comments are now allowed in defines.</li>
+<li>Added code previews. You can preview a bunch of things partway through<br />
+the assembling process, so the compiler doesn't keep things so secret anymore.</li>
+<li>You can't use the word <span class="teletype">decimal</span> or <span class="teletype">~</span> (tilde operator) inside memory brackets.<br />
+Sorry for the inconvenience.</li>
+<li>Rewrote this manual in XHTML and CSS 2.1</li>
+<li>A bunch of other stuff that I don't really remember.</li>
+</ul>
+<br />
+<div class="center"><a href="../Userguide.html">Back to the Table of Contents</a></div>
+</td></tr></table>
+
+<br /><br /><br /><br />
+
+
+</body>
+</html>

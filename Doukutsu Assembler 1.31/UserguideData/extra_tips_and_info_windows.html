@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<title>Tips and Info for Windows</title>
+</head>
+
+<body>
+<div class="center"><span class="big_header">Tips and Info for Windows</span></div><br />
+
+<table class="maintable">
+<tr><td>
+<span class="small_header">Finding Where Java Is Installed</span><br />
+This should be easy. First, go to the control panel and click on Java. In control panel, don't use category view - use classic view on XP, which is the same as large icon or small icon view on Windows 7.<br /><br />
+
+<img src="img/win7_control_panel.png" title="Windows 7 Control Panel" alt="Windows 7 Control Panel" /><br /><br />
+
+Now click on the 3rd tab that says "Java" and hit the "View" button. Look at the filepath.<br /><br />
+
+<img src="img/win7_java_control_panel.png" title="Java Control Panel" alt="Windows 7 Java Control Panel" /><br />
+
+In the picture, you can see that Java is installed in <span class="teletype">C:\Program Files (x86)\Java\jre6\bin\</span><br />
+If you have a 32-bit version of Windows, it's probably just <span class="teletype">C:\Program Files\Java\jre6\bin\</span>.
+<br /><br />
+<span class="small_header">Running the Assembler from a Batch File</span><br />
+Normally you can just run the Doukutsu Assembler by double-clicking on it, but running it from a batch file does have some benefits. We are now going to create this batch file, which should be a lot easier than using the Command Prompt to navigate and find the Assembler.<br /><br />
+
+Paste the following code into Notepad and save it as <span class="teletype">Run Assembler.bat</span>. The green part is important: if your Java runtime environment is installed in a different folder, then please change the filepath to that different location.
+
+<pre>@echo off
+setlocal
+set path=%path%;<span class="green">C:\Program Files\Java\jre6\bin</span>
+java -jar "Doukutsu Assembler.jar"
+echo [Program Finished.]
+pause
+endlocal
+exit</pre>
+
+Put the <span class="teletype">Run Assembler.bat</span> file in the same folder as the Doukutsu Assembler. Double-click on the batch file and it'll run the Assembler. When you close the Assembler but not the command prompt window, you should see <span class="teletype">[Program Finished.]</span>.<br /><br />
+
+<img src="img/cmd1.png" title="Command Prompt" alt="Command Prompt" /><br />
+
+There are many advantages to running from a batch file. If the program unexpectedly crashes without displaying a proper error box, you can see what went wrong inside the command prompt window.<br /><br />
+
+Also, if the program gets stuck in an infinite loop (which should hopefully never happen), you can close the command prompt window and it will shut down the Assembler immediately.<br /><br />
+
+<span class="small_header">Using Drag and Drop</span><br />
+If you want to get the Assembler to open a file by drag-and-drop, you have to edit your previous batch file:
+
+<pre>@echo off
+setlocal
+set path=%path%;C:\Program Files\Java\jre6\bin
+java -jar "Doukutsu Assembler.jar" <span class="red">%1</span>
+echo [Program Finished.]
+pause
+endlocal
+exit</pre>
+
+The only change we made was adding a <span class="teletype">%1</span> to the end of the 4th line.<br /><br />
+
+<img src="img/drag_and_drop.png" title="Drag and drop" alt="Drag and drop" /><br /><br />
+
+Now drag and drop a text file onto the batch file and the Doukutsu Assembler will automatically open the text file inside its editor.<br /><br />
+
+<span class="small_header">Changing the Theme</span><br />
+In Windows, you can easily change the theme of the assembler.<br /><br />
+
+Go into the ProgramData folder and look for theme.ini. Open it and change the number 0 to the number 1. Save it. Now open the Doukutsu Assembler again. You will see that the appearance of the program has changed.<br /><br />
+
+<img src="img/alt_theme.png" title="Alternate theme" alt="Alternate theme" /><br /><br />
+
+To go back to the original theme, change the contents of theme.ini from 1 to 0.
+
+<br /><br />
+<a href="..\Userguide.html">Back to the Table of Contents</a><br /><br /><br /><br />
+</td></tr>
+</table>
+
+</body>
+</html>

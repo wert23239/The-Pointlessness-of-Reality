@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<title>Defines</title>
+</head>
+
+<body>
+<div class="center"><span class="big_header">Defines</span></div><br />
+
+<table class="maintable">
+<tr><td>
+Defines are a way to customize and improve your Doukutsu assembler experience.<br />
+To use them, you'll need a define block, which starts with <b><span class="teletype">#define</span></b> and ends with <b><span class="teletype">#enddefine</span></b>.<br />
+
+<pre><span class="system">offset</span> 405F30
+
+<span class="macro">#define</span>
+<span class="comment">// Define macros go here.</span>
+<span class="macro">#enddefine</span>
+
+<span class="comment">//code goes here.</span></pre>
+
+A define in the form:<br />
+
+<pre>foo=bar</pre>
+
+will replace all instances of <span class="teletype">foo</span> with the replacement <span class="teletype">bar</span> in your assembly-source-code before parsing of the actual code begins.<br /><br />
+
+<span class="small_header">New Instructions</span><br /><br />
+
+If there's an instruction or a variation of an instruction that the Doukutsu Assembler doesn't support, you can still use that instruction by taking advantage of defines.<br /><br />
+
+Let's say that you happen to love using the instruction <span class="teletype">IN AL,DX</span>. The problem is, most people don't use <span class="teletype">IN AL,DX</span> on a regular basis, so it's not supported. You can still use a define to get around this:<br />
+
+<pre><span class="system">offset</span> 00488318
+
+<span class="macro">#define</span>
+<span class="mnemonic">IN</span> AL,DX=<span class="system">data</span> EC
+<span class="macro">#enddefine</span>
+
+<span class="mnemonic">IN</span> AL,DX
+<span class="mnemonic">CMP</span> AL,1
+<span class="mnemonic">JNE</span> 475000
+<span class="mnemonic">RETN</span></pre>
+
+You can use OllyDbg or an assembly reference to figure out that <span class="teletype">IN AL,DX</span> has the hexcode <span class="teletype">0xEC</span>, so just use the define <span class="teletype">IN AL,DX=data EC</span> to replace all instances of <span class="teletype">IN AL,DX</span> with the hex value <span class="teletype">EC</span>.<br /><br />
+
+In the past, comments were not allowed in the defines block. This isn't true anymore. Go ahead and put comments in the <span class="teletype">#define</span>/<span class="teletype">#enddefine</span> block.<br /><br />
+
+<span class="small_header">Naming Your Variables</span><br /><br />
+
+Wouldn't it be nice if you could refer to <span class="teletype">DWORD PTR DS:[49E6D0]</span> with the name <span class="teletype">MaxHealth</span>? Well, now you can.<br /><br />
+
+Take a look at the following code that uses defined variables:<br />
+
+<pre><span class="system">offset</span> 415000
+
+<span class="macro">#define</span>
+npc.xvel=[EDX+10]
+npc.yvel=[EDX+14]
+quote.x=[49E654]
+quote.y=[49E658]
+npc.xpos=[EDX+8]
+npc.ypos=[EDX+C]
+npc.direction=[EDX+4C]
+setpointer=MOV EDX,[EBP+8]
+<span class="macro">#enddefine</span>
+
+setpointer
+<span class="mnemonic">MOV</span> EAX,quote.x
+<span class="mnemonic">CMP</span> EAX,npc.xpos
+<span class="mnemonic">JGE</span> <span class="label">:approach_from_right</span>
+<span class="mnemonic">MOV</span> npc.xvel,400
+<span class="mnemonic">MOV</span> npc.direction,2
+<span class="mnemonic">JMP</span> <span class="label">:else1</span>
+<span class="label">:approach_from_right</span>
+<span class="mnemonic">MOV</span> npc.xvel,-400
+<span class="mnemonic">MOV</span> npc.direction,0
+<span class="label">:else1</span>
+<span class="mnemonic">MOV</span> EAX,npc.xvel
+<span class="mnemonic">ADD</span> npc.xpos,EAX
+<span class="mnemonic">MOV</span> EAX,npc.yvel
+<span class="mnemonic">ADD</span> npc.ypos,EAX</pre>
+
+<span class="small_header">File: defines.txt</span><br /><br />
+
+The file defines.txt is the global defines file. You can add more to this file if you want. All defines in defines.txt are always used by the Doukutsu Assembler in addition to anything in the <span class="teletype">#define</span>/<span class="teletype">#enddefine</span> block that you specify.<br /><br />
+
+You'll notice that jump synonyms, conditional-move synonyms, set-byte synonyms, the <span class="teletype">SAL</span> instruction, and any <span class="teletype">MOV EIP,(whatever)</span> instructions are already located inside defines.txt:<br />
+
+<pre>jpe=jp
+jpo=jnp
+jz=je
+jnz=jne
+jnl=jge
+jnle=jg
+jnge=jl
+jng=jle
+jnbe=ja
+jnae=jb
+jc=jb
+jna=jbe
+jnc=jnb
+jae=jnb
+mov eip,="jmp "
+
+sal=shl
+
+cmovpe=cmovp
+cmovpo=cmovnp
+cmovz=cmove
+cmovnz=cmovne
+cmovnl=cmovge
+cmovnle=cmovg
+cmovnge=cmovl
+cmovng=cmovle
+cmovnbe=cmova
+cmovnae=cmovb
+cmovc=cmovb
+cmovna=cmovbe
+cmovnc=cmovnb
+cmovae=cmovnb
+
+setpe=setp
+setpo=setnp
+setz=sete
+setnz=setne
+setnl=setge
+setnle=setg
+setnge=setl
+setng=setle
+setnbe=seta
+setnae=setb
+setc=setb
+setna=setbe
+setnc=setnb
+setae=setnb</pre>
+
+If you're using an old custom defines list, you may want to update your list with these new default defines.<br /><br />
+
+Note: comments are now allowed in defines.txt as well.<br /><br />
+
+<span class="small_header">Quoted Define Values</span><br />
+Some characters such as the pipe character are automatically removed in defines.<br />
+If you want to use them, please see the <a href="quoted_defines.html">Quoted Defines Guide</a>.
+
+<br /><br /><br />
+<a href="..\Userguide.html">Table of Contents</a><br /><br /><br /><br />
+
+</td></tr>
+</table>
+
+</body>
+
+</html>

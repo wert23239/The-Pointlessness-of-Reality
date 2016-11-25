@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<title>Labels</title>
+</head>
+
+<body>
+<div class="center"><span class="big_header">Labels</span></div><br />
+
+<table class="maintable">
+<tr><td>
+
+With the Doukutsu Assembler's labeling system, you can make jump instructions jump to a label instead of a numerical address.<br />
+<pre>
+<span class="mnemonic">MOV</span> ECX,[EBP+8]
+<span class="mnemonic">CMP</span> EDX,6
+<span class="mnemonic">JGE</span> <span class="label">:downhere</span>      <span class="comment">;you can jump to labels in your code.</span>
+<span class="mnemonic">XOR</span> EAX,EAX
+<span class="mnemonic">MOV</span> [ECX+74],EAX
+<span class="label">:downhere</span>
+<span class="mnemonic">PUSH</span> 600
+<span class="mnemonic">PUSH</span> 0
+<span class="mnemonic">CALL</span> 40F350
+<span class="mnemonic">ADD</span> ESP,8
+<span class="mnemonic">MOV</span> ECX,[EBP+8]
+<span class="mnemonic">JMP</span> 40488A         <span class="comment">;or you can jump to addresses.</span>
+<span class="mnemonic">NOP</span>
+<span class="mnemonic">NOP</span>
+<span class="mnemonic">NOP</span></pre>
+
+Remember that all labels must start with a colon (<span class="teletype">:</span>). You can use an instruction in the form <span class="teletype">JMP :examplelabel</span> to jump to wherever <span class="teletype">:examplelabel</span> is located in your code.<br /><br />
+
+The reason labels start with a colon is to prevent any hexadecimal confusion. The instruction <span class="teletype">JMP :ABCD</span> means "jump to the label with name ABCD", but <span class="teletype">JMP ABCD</span> means jump to the address 0xABCD.<br /><br />
+
+<b>IMPORTANT</b>: Labels are <b>not</b> case-sensitive. That means the label <span class="teletype">:suesakamoto</span> is the same as <span class="teletype">:SueSakamoto</span>, which is also the same as <span class="teletype">:SUESAKAMOTO</span>. In fact, no matter what you're doing, all your code is considered case-insensitive (Like <span class="teletype">add esp,20</span> and <span class="teletype">ADD ESP,20</span> are the same thing). For more information, refer to the <a href="syntax.html">syntax guide</a>.<br /><br />
+<span class="small_header">Types of Jumps</span>
+
+<table class="supported_instruction_table">
+<tr><th>Jump</th><th>Synonyms</th></tr>
+<tr><td>JMP</td><td>--</td></tr>
+<tr><td>CALL</td><td>--</td></tr>
+<tr><td>JE</td><td>JZ</td></tr>
+<tr><td>JNE</td><td>JNZ</td></tr>
+<tr><td>JLE</td><td>JNG</td></tr>
+<tr><td>JGE</td><td>JNL</td></tr>
+<tr><td>JL</td><td>JNGE</td></tr>
+<tr><td>JG</td><td>JNLE</td></tr>
+<tr><td>JS</td><td>--</td></tr>
+<tr><td>JNS</td><td>--</td></tr>
+<tr><td>JO</td><td>--</td></tr>
+<tr><td>JNO</td><td>--</td></tr>
+<tr><td>JNP</td><td>JPO</td></tr>
+<tr><td>JP</td><td>JPE</td></tr>
+<tr><td>JA</td><td>JNBE</td></tr>
+<tr><td>JB</td><td>JC, JNAE</td></tr>
+<tr><td>JBE</td><td>JNA</td></tr>
+<tr><td>JNB</td><td>JNC, JAE</td></tr>
+</table><br />
+
+The above table shows the types of jumps currently supported by the Doukutsu Assembler. The synonyms of those jumps are supported as well. For all intents and purposes, a <span class="teletype">CALL</span> is considered a jump, and you can even use labels with calls, such as <span class="teletype">CALL :labeled_function</span>.<br /><br />
+
+<span class="small_header">Switch Statements</span><br />
+Because switches are so common in NPC and Weapon hacking, the Doukutsu Assembler does accept many different kinds of switch statements. Six common examples are shown below.<br />
+
+<pre><span class="mnemonic">JMP</span> [EAX*4+(address)]
+<span class="mnemonic">JMP</span> [ECX*4+(address)]
+<span class="mnemonic">JMP</span> [EDX*4+(address)]
+<span class="mnemonic">JMP</span> [EAX*4+<span class="label">:labelname</span>]
+<span class="mnemonic">JMP</span> [ECX*4+<span class="label">:labelname</span>]
+<span class="mnemonic">JMP</span> [EDX*4+<span class="label">:labelname</span>]</pre>
+
+Where either <span class="teletype">(address)</span> or <span class="teletype">:labelname</span> refers to the place where the switch table begins.<br />
+You can still make more complicated statements than these simple switches. For example, to create some sort of multi-table switch statement, use a command like <span class="teletype">JMP [EAX*4+ECX+:labelname]</span>.<br /><br />
+
+<span class="small_header">The Print Command</span><br /><br />
+
+The command in the form of <span class="teletype">print :labelname</span> will insert the address of the label <span class="teletype">:labelname</span> as little-endian hex data into the code. This is best used in conjunction with switch statements.<br /><br />
+
+For example, let's assume you're designing a custom NPC with 4 unique ScriptStates:<br />
+
+<pre>
+<span class="system">offset</span> 43C8E0
+
+<span class="mnemonic">PUSH</span> EBP
+<span class="mnemonic">MOV</span> EBP,ESP
+<span class="mnemonic">SUB</span> ESP,50
+<span class="comment">// pretend there are framerects
+// being declared here.</span>
+<span class="mnemonic">MOV</span> EDX,[EBP+8]
+<span class="mnemonic">MOV</span> EAX,[EDX+74]    <span class="comment">;Grab scriptstate</span>
+<span class="mnemonic">JMP</span> [EAX*4+<span class="label">:switchtable</span>]
+<span class="label">:state0</span>
+<span class="comment">// pretend that there is
+// a bunch of
+// code here.</span>
+<span class="label">:state1</span>
+<span class="comment">// pretend that there is
+// a bunch of
+// code here.</span>
+<span class="label">:state2</span>
+<span class="comment">// pretend that there is
+// a bunch of
+// code here.</span>
+<span class="label">:state3</span>
+<span class="comment">// pretend that there is
+// a bunch of
+// code here.</span>
+<span class="mnemonic">MOV</span> ESP,EBP
+<span class="mnemonic">POP</span> EBP
+<span class="mnemonic">RETN</span>
+<span class="label">:switchtable</span>   <span class="comment">;Our table of addresses.</span>
+<span class="system">print</span> <span class="label">:state0</span>  <span class="comment">;this will be replaced with the address of :state0, little-endian style.</span>
+<span class="system">print</span> <span class="label">:state1</span>
+<span class="system">print</span> <span class="label">:state2</span>
+<span class="system">print</span> <span class="label">:state3</span></pre>
+
+<span class="small_header">File: label_dump.txt</span><br /><br />
+
+Every time you assemble a hack, the labels in your assembly source-code will get converted to real numerical addresses. If you want to see the actual address of each label you used, just look in (Filename)_label_dump.txt after assembling.<br /><br />
+
+<span class="small_header">Labels in Non-Jump and Non-Call Instructions</span><br />
+Starting with version 1.0, you can now use labels in commands that are not jumps and also not calls.<br /><br />
+Each label is simply translated into a 32-bit hex number. So if you use <span class="teletype">CMP ECX,:myLabel</span>, and <span class="teletype">:myLabel</span> has the address <span class="teletype">0x401007</span>, then you would be comparing <span class="teletype">ECX</span> with <span class="teletype">401007</span>.<br /><br />
+
+Here's an example of how you can use labels to store a predefined 32-bit value into <span class="teletype">EAX</span>:
+
+<pre><span class="system">offset</span> 43B005
+
+<span class="mnemonic">MOV</span> EAX,DWORD [<span class="label">:this_is_a_constant</span>]
+<span class="mnemonic">PUSH</span> EAX             <span class="comment">//EAX holds the constant 0x600DFACE</span>
+<span class="mnemonic">CALL</span> <span class="label">:some_function</span>
+<span class="mnemonic">ADD</span> ESP,4
+<span class="mnemonic">RETN</span>
+
+<span class="mnemonic">INT3
+INT3</span>
+
+<span class="label">:this_is_a_constant</span>
+<span class="system">data</span> CE FA 0D 60     <span class="comment">//Little endian 0x600DFACE</span>
+
+<span class="mnemonic">INT3
+INT3
+INT3
+INT3</span>
+
+<span class="label">:some_function</span>
+<span class="mnemonic">PUSH</span> EBP
+<span class="mnemonic">MOV</span> EBP,ESP
+<span class="comment">//Pretend there is code here.</span>
+<span class="mnemonic">MOV</span> ESP,EBP
+<span class="mnemonic">POP</span> EBP
+<span class="mnemonic">RETN</span></pre>
+
+Of course, the above code has no practical purpose because you could just do <span class="teletype">PUSH 600DFACE</span>. I just gave this example to illustrate another way you could potentially use labels.
+
+<br /><br />
+<a href="..\Userguide.html">Table of Contents</a><br /><br /><br /><br />
+
+</td></tr>
+</table>
+
+</body>
+
+</html>

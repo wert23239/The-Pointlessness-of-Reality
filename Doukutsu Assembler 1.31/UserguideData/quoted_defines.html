@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<title>Quoted Defines</title>
+</head>
+
+<body>
+<div class="center"><span class="big_header">Quoted Defines</span></div><br />
+
+<table class="maintable">
+<tr><td>
+<span class="gray">(If you have not done so, please read the regular</span> <a href="defines.html">defines guide</a><span class="gray"> first.)</span><br /><br />
+
+You can now use quoted values in defines. For example, the following two defines are equivalent:
+
+<pre>alpha=beta
+"alpha" = "beta"
+</pre>
+
+Generally, you should try to avoid quotes whenever possible because they cause your code to be assembled more slowly. However, there are some advantages to using quoted values.<br /><br />
+
+<span class="small_header">Using Special Characters</span><br />
+You can use quotes to insert special characters into define entries that would otherwise be ignored or interpreted incorrectly. For example, pipe characters | are normally ignored in defines. But if you put quotes into your defines, they will not be ignored:
+
+<pre><span class="system">offset</span> 4620AA
+
+<span class="macro">#define</span>
+<span class="comment">/* 0x11 = 17 in base 10. */</span>
+run_TSC_Event(17)="<span class="mnemonic">PUSH</span> 11 | <span class="mnemonic">CALL</span> 00421990 | <span class="mnemonic">ADD</span> ESP,4"
+<span class="macro">#enddefine</span>
+
+run_TSC_Event(17)    <span class="comment">;Refill player's health/missiles.</pre>
+
+Remember that pipes are used to write multiple commands on the same line. In this case, the define macro will replace <span class="teletype">run_TSC_Event(17)</span> with <span class="teletype">PUSH 11 | CALL 00421990 | ADD ESP,4</span>. Without the quotes, the pipes will be ignored and you'll get a syntax error.<br /><br />
+
+You can also do other interesting things like put equal signs into your defines.
+
+<pre><span class="system">offset</span> 450498
+
+<span class="macro">#define</span>
+"eax = 0"= <span class="mnemonic">XOR</span> eax,eax
+"eax = "= <span class="mnemonic">MOV</span> eax,
+"eax += "= <span class="mnemonic">ADD</span> eax,
+eax++= <span class="mnemonic">INC</span> eax
+<span class="macro">#enddefine</span>
+
+eax = 0      <span class="comment">;Set EAX to zero using bitwise XOR.</span>
+eax = 24     <span class="comment">;Gets converted to MOV EAX,24.</span>
+eax += 500   <span class="comment">;Adds 0x500 to EAX.</span>
+eax++        <span class="comment">;Increases EAX by 1.</span></pre>
+
+Now we have turned x86 assembly into a language that more resembles C or C++.<br />
+However, you still have to be careful about spacing. <span class="teletype">eax = 0</span> will work because there is one space of padding on each side of the equals sign, just as you specified in your defines. But <span class="teletype">eax=0</span> will not work because the space of padding is gone, and so the program can't replace the unrecognized statement.<br /><br />
+
+<span class="small_header">Using Escape Characters</span><br />
+Escape characters are special sequences of characters that are interpreted differently than regular characters. They are a way to encode certain characters inside a quoted define value that would otherwise be impossible to represent. For instance, you can use actual quotes inside of quoted values by using escape characters.<br /><br />
+
+The list of escape characters are as follows:
+<table class="escape_sequence_table">
+<tr><th>Escape Sequence</th><th>Gets Converted To</th></tr>
+<tr><td>\"</td><td>"</td></tr>
+<tr><td>\\</td><td>\</td></tr>
+<tr><td>\/</td><td>/</td></tr>
+<tr><td>\semi</td><td>;</td></tr>
+</table><br />
+
+Here's a way to insert a text string into your code using quoted defines. Here I've highlighted the escape sequences in red for easier readability.
+
+<pre><span class="system">offset</span> 460C00
+
+<span class="macro">#define</span>
+"string <span class="red">\"</span>Config.dat<span class="red">\"</span>"=<span class="system">data</span> 43 6f 6e 66 69 67 2e 64 61 74 00
+<span class="macro">#enddefine</span>
+
+string "Config.dat"</pre>
+
+<span class="small_header">Keeping Leading and Trailing Spaces</span><br />
+Normally, leading and trailing spaces for each leftside and rightside entry of each define are removed. This is a bit hard to explain, so I'll illustrate with a diagram:<br /><br />
+
+<img src="img/how_defines_remove_spaces.png" alt="How Defines Remove Spaces" /><br /><br />
+
+Sorry about the ugliness of the above picture. Anyway, what should you do if you want to preserve some leading or trailing spaces? Easy. You put the spaces in quotes.<br /><br />
+
+For example, quoted defines are used once in the global file defines.txt: <span class="teletype">mov eip,="jmp "</span>. This ensures that if you do something like <span class="teletype">MOV EIP,401000</span> it will get converted to the correct statement <span class="teletype">JMP 401000</span> with a space between the <span class="teletype">JMP</span> and the address.
+
+<br /><br />
+<a href="..\Userguide.html">Table of Contents</a><br /><br /><br /><br />
+
+</td></tr>
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,1122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<title>Supported Instructions</title>
+</head>
+
+<body>
+<div class="center"><span class="big_header">Supported Instructions</span></div><br />
+
+<table class="maintable">
+<tr><td>
+In the past (version <span class="teletype">0.4</span> and earlier), the Doukutsu Assembler paled in comparison to OllyDbg because the Assembler was unable to compile a large percentage of all possible x86 instructions. I am glad to announce that the Assembler now supports an much larger number of instructions (and instruction variations) when compared to version <span class="teletype">0.4</span>. There are still some unsupported instructions lying around, most notably the floating-point instructions, but otherwise you should have an easier time dealing the capabilities of the Assembler as an ASM compiler.<br /><br />
+
+<span class="small_header">Explanations for the Supported Instructions Table</span><br />
+<span class="teletype">(register)</span> refers to any of the following integer registers: <span class="teletype">EAX, ECX, EDX, EBX, ESP, EBP, ESI, EDI, AX, CX, DX, BX, SP, BP, SI, DI, AL, CL, DL, BL, AH, CH, DH, BH</span>.<br />
+<span class="teletype">(memory)</span> refers to a pointer dereference of any complexity, such as <span class="teletype">DWORD PTR DS:[EAX*4+EDX+40400A]</span> or <span class="teletype">BYTE PTR SS:[EBP]</span>.<br />
+<span class="teletype">(immediate)</span> refers to immediate data. This means any 8-bit, 16-bit, or 32-bit hexadecimal number.<br />
+<span class="teletype">(address)</span> refers to a 32-bit hexadecimal address.<br />
+<span class="teletype">(dword)</span> refers to a 32-bit hexadecimal number.<br />
+<span class="teletype">(word)</span> refers to any 16-bit hexadecimal number.<br />
+<span class="teletype">(byte)</span> refers to any 8-bit hexadecimal number.<br />
+<span class="teletype">xx</span> means conditional instruction. <span class="teletype">Jxx</span> means any type of conditional jump, such as <span class="teletype">JE, JNE, JGE, JLE, JG, JL, JP, JNP,</span> and so on.<br /><br />
+
+Remember you can use a label anywhere an address or 32-bit number can be used.<br /><br />
+
+Exceptions may occur. For example, it is not possible to push an 8-bit register (try it in OllyDbg - it doesn't work), but <span class="teletype">PUSH (register)</span> is still listed in the table. You have to assume that the variation <span class="teletype">PUSH (register)</span> excludes 8-bit registers.<br /><br />
+
+<span class="small_header">Supported Instructions Table</span>
+<table class="supported_instruction_table">
+<tr>
+<th>Instruction</th>
+<th>Stands for</th>
+<th>Supported?</th>
+<th>Variations Supported</th>
+</tr>
+
+<tr>
+<td class="center">AAA</td>
+<td class="center">ASCII adjust<br />after addition</td>
+<td class="center">Yes</td>
+<td><span class="teletype">AAA = 0x37</span></td>
+</tr>
+
+<tr>
+<td class="center">AAD</td>
+<td class="center">ASCII adjust AX<br />before division</td>
+<td class="center">Yes</td>
+<td><span class="teletype">AAD = 0xD50A</span></td>
+</tr>
+
+<tr>
+<td class="center">AAM</td>
+<td class="center">ASCII adjust AX<br />after multiply</td>
+<td class="center">Yes</td>
+<td><span class="teletype">AAM = 0xD40A</span></td>
+</tr>
+
+<tr>
+<td class="center">AAS</td>
+<td class="center">ASCII adjust AL<br />after subtraction</td>
+<td class="center">Yes</td>
+<td><span class="teletype">AAS = 0x3F</span></td>
+</tr>
+
+<tr>
+<td class="center">ADC</td>
+<td class="center">Addition<br />with carry</td>
+<td class="center">Yes</td>
+<td><span class="teletype">ADC (register),(register)<br />
+ADC (register),(memory)<br />
+ADC (memory),(register)<br />
+ADC (register),(immediate)<br />
+ADC (memory),(immediate)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">ADD</td>
+<td class="center">Addition</td>
+<td class="center">Yes</td>
+<td><span class="teletype">ADD (register),(register)<br />
+ADD (register),(memory)<br />
+ADD (memory),(register)<br />
+ADD (register),(immediate)<br />
+ADD (memory),(immediate)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">AND</td>
+<td class="center">Bitwise AND</td>
+<td class="center">Yes</td>
+<td><span class="teletype">AND (register),(register)<br />
+AND (register),(memory)<br />
+AND (memory),(register)<br />
+AND (register),(immediate)<br />
+AND (memory),(immediate)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">ARPL</td>
+<td class="center">Adjust RPL<br />field of<br />selector</td>
+<td class="center">Yes</td>
+<td><span class="teletype">ARPL (register),(register)<br />
+ARPL (memory),(register)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">BOUND</td>
+<td class="center">Check array<br />bounds</td>
+<td class="center">Yes</td>
+<td><span class="teletype">BOUND (register),(memory)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">BSF</td>
+<td class="center">Bit scan<br />forward</td>
+<td class="center">Yes</td>
+<td><span class="teletype">BSF (register),(register)<br />
+BSF (register),(memory)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">BSR</td>
+<td class="center">Bit scan<br />reverse</td>
+<td class="center">Yes</td>
+<td><span class="teletype">BSR (register),(register)<br />
+BSR (register),(memory)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">BT</td>
+<td class="center">Bit test</td>
+<td class="center">Yes</td>
+<td><span class="teletype">BT (register),(register)<br />
+BT (memory),(register)<br />
+BT (register),(byte)<br />
+BT (memory),(byte)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">BTC</td>
+<td class="center">Bit test and<br />complement</td>
+<td class="center">Yes</td>
+<td><span class="teletype">BTC (register),(register)<br />
+BTC (memory),(register)<br />
+BTC (register),(byte)<br />
+BTC (memory),(byte)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">BTR</td>
+<td class="center">Bit test and<br />reset</td>
+<td class="center">Yes</td>
+<td><span class="teletype">BTR (register),(register)<br />
+BTR (memory),(register)<br />
+BTR (register),(byte)<br />
+BTR (memory),(byte)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">BTS</td>
+<td class="center">Bit test and<br />set</td>
+<td class="center">Yes</td>
+<td><span class="teletype">BTS (register),(register)<br />
+BTS (memory),(register)<br />
+BTS (register),(byte)<br />
+BTS (memory),(byte)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">BSWAP</td>
+<td class="center">Byte swap</td>
+<td class="center">Yes</td>
+<td><span class="teletype">BSWAP (32-bit register)</span></td>
+</tr>
+
+<tr>
+<td class="center">CALL</td>
+<td class="center">Call procedure<br />or function</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CALL (address)<br />
+CALL (register)<br />
+CALL (memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">CBW</td>
+<td class="center">Convert byte<br />to word</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CBW = 0x6698</span></td>
+</tr>
+
+<tr>
+<td class="center">CDQ</td>
+<td class="center">Convert dword<br />to qword</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CDQ = 0x99</span></td>
+</tr>
+
+<tr>
+<td class="center">CLC</td>
+<td class="center">Clear carry<br />flag</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CLC = 0xF8</span></td>
+</tr>
+
+<tr>
+<td class="center">CLD</td>
+<td class="center">Clear direction<br />flag</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CLD = 0xFC</span></td>
+</tr>
+
+<tr>
+<td class="center">CLI</td>
+<td class="center">Clear interrupt<br />flag</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CLI = 0xFA</span></td>
+</tr>
+
+<tr>
+<td class="center">CLTS</td>
+<td class="center">Clear<br />task-switched<br />flag in CR0</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CLTS = 0x0F06</span></td>
+</tr>
+
+<tr>
+<td class="center">CMC</td>
+<td class="center">Complement<br />carry flag</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CMC = 0xF5</span></td>
+</tr>
+
+<tr>
+<td class="center">CMOVxx</td>
+<td class="center">Conditionally<br />move data</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CMOVxx (register),(register)<br />
+CMOVxx (register),(memory)</span><br /><br />
+<span class="teletype">CMOVxx</span> includes all of the following instructions:<br />
+<span class="teletype">
+CMOVE, CMOVZ, CMOVNE, CMOVNZ, CMOVLE, CMOVNG, CMOVGE, CMOVNL,<br />
+CMOVL, CMOVNGE, CMOVG, CMOVNLE, CMOVO, CMOVNO, CMOVS, CMOVNS,<br />
+CMOVNP, CMOVPO, CMOVP, CMOVPE, CMOVA, CMOVNBE, CMOVB, CMOVC,<br />
+CMOVNAE, CMOVBE, CMOVNA, CMOVNB, CMOVNC,</span> and <span class="teletype">CMOVAE</span>.</td>
+</tr>
+
+<tr>
+<td class="center">CMP</td>
+<td class="center">Compare</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CMP (register),(register)<br />
+CMP (register),(memory)<br />
+CMP (memory),(register)<br />
+CMP (register),(immediate)<br />
+CMP (memory),(immediate)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">CMPSD<br />CMPSW<br />CMPSB</td>
+<td class="center">Compare strings</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CMPSD = 0xA7<br />
+CMPSB = 0xA6<br />
+CMPSW = 0x66A7
+</span></td>
+</tr>
+
+<tr>
+<td class="center">CMPXCHG</td>
+<td class="center">Compare &amp;<br />exchange</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CMPXCHG (register),(register)<br />
+CMPXCHG (memory),(register)</span></td>
+</tr>
+
+<tr>
+<td class="center">CMPXCHG8B</td>
+<td class="center">Compare &amp;<br />exchange<br />8 bytes</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CMPXCHG8B (memory)<br />
+CMPXCHG8B (register)</span></td>
+</tr>
+
+<tr>
+<td class="center">CPUID</td>
+<td class="center">CPU<br />identification</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CPUID = 0x0FA2</span></td>
+</tr>
+
+<tr>
+<td class="center">CWD</td>
+<td class="center">Convert word<br />to dword</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CWD = 0x6699</span></td>
+</tr>
+
+<tr>
+<td class="center">CWDE</td>
+<td class="center">Convert word<br />to dword<br />extended</td>
+<td class="center">Yes</td>
+<td><span class="teletype">CWDE = 0x98</span></td>
+</tr>
+
+<tr>
+<td class="center">DAA</td>
+<td class="center">Decimal adjust<br />AL after<br />addition</td>
+<td class="center">Yes</td>
+<td><span class="teletype">DAA = 0x27</span></td>
+</tr>
+
+<tr>
+<td class="center">DAS</td>
+<td class="center">Decimal adjust<br />AL after<br />subtraction</td>
+<td class="center">Yes</td>
+<td><span class="teletype">DAS = 0x2F</span></td>
+</tr>
+
+<tr>
+<td class="center">DEC</td>
+<td class="center">Decrement</td>
+<td class="center">Yes</td>
+<td><span class="teletype">DEC (register)<br />
+DEC (memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">DIV</td>
+<td class="center">Unsigned<br />division</td>
+<td class="center">Yes</td>
+<td><span class="teletype">DIV (register)<br />
+DIV (memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">ENTER</td>
+<td class="center">Enter function</td>
+<td class="center">Yes</td>
+<td><span class="teletype">ENTER (word),(byte)</span></td>
+</tr>
+
+<tr>
+<td class="center">FNOP</td>
+<td class="center">Floating-point<br />NOP</td>
+<td class="center">Yes</td>
+<td><span class="teletype">FNOP = 0xD9D0</span></td>
+</tr>
+
+<tr>
+<td class="center">HLT</td>
+<td class="center">Halt</td>
+<td class="center">Yes</td>
+<td><span class="teletype">HLT = 0xF4</span></td>
+</tr>
+
+<tr>
+<td class="center">IDIV</td>
+<td class="center">Signed<br />division</td>
+<td class="center">Yes</td>
+<td><span class="teletype">IDIV (register)<br />
+IDIV (memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">IMUL</td>
+<td class="center">Signed<br />multiplication</td>
+<td class="center">Yes</td>
+<td><span class="teletype">IMUL (register)<br />
+IMUL (memory)<br />
+IMUL (register),(register)<br />
+IMUL (register),(memory)<br />
+IMUL (register),(register),(immediate)<br />
+IMUL (register),(memory),(immediate)<br />
+</span></td>
+</tr>
+
+<tr>
+<td class="center">IN</td>
+<td class="center">Input from<br />port</td>
+<td class="center">Partly</td>
+<td><span class="teletype">IN (EAX,AX, or AL),(byte)</span><br /><br />
+Not all variations of <span class="teletype">IN</span> are supported.</td>
+</tr>
+
+<tr>
+<td class="center">INSD<br />INSW<br />INSB</td>
+<td class="center">Input from<br />DX port</td>
+<td class="center">Yes</td>
+<td><span class="teletype">INSD = 0x6D<br />
+INSB = 0x6C<br />
+INSW = 0x666D
+</span></td>
+</tr>
+
+<tr>
+<td class="center">INC</td>
+<td class="center">Increment</td>
+<td class="center">Yes</td>
+<td><span class="teletype">INC (register)<br />
+INC (memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">INT</td>
+<td class="center">Interrupt</td>
+<td class="center">Yes</td>
+<td><span class="teletype">INT (byte)</span><br /><span class="red">WARNING: <span class="teletype">INT 3</span> (with space) is not the same as <span class="teletype">INT3</span> (no space).<br />You probably want <span class="teletype">INT3</span> instead of <span class="teletype">INT 3</span>.</span></td>
+</tr>
+
+<tr>
+<td class="center">INT3</td>
+<td class="center">Single-step<br />interrupt</td>
+<td class="center">Yes</td>
+<td><span class="teletype">INT3 = 0xCC</span></td>
+</tr>
+
+<tr>
+<td class="center">INTO</td>
+<td class="center">Interrupt<br />if overflow</td>
+<td class="center">Yes</td>
+<td><span class="teletype">INTO = 0xCE</span></td>
+</tr>
+
+<tr>
+<td class="center">INVD</td>
+<td class="center">Invalidate<br />cache</td>
+<td class="center">Yes</td>
+<td><span class="teletype">INVD = 0x0F08</span></td>
+</tr>
+
+<tr>
+<td class="center">INVLPG</td>
+<td class="center">Invalidate page</td>
+<td class="center">Yes</td>
+<td><span class="teletype">INVLPG (memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">IRETW<br />IRETD</td>
+<td class="center">Interrupt return</td>
+<td class="center">Yes</td>
+<td><span class="teletype">IRETW = 0x66CF<br />IRETD = 0xCF</span></td>
+</tr>
+
+<tr>
+<td class="center">Jxx</td>
+<td class="center">Conditional jump</td>
+<td class="center">Yes</td>
+<td><span class="teletype">Jxx (address)</span><br /><br />
+<span class="teletype">Jxx</span> includes all of the following instructions:<br />
+<span class="teletype">
+JE, JZ, JNE, JNZ, JLE, JNG, JGE, JNL,<br />
+JL, JNGE, JG, JNLE, JO, JNO, JS, JNS,<br />
+JNP, JPO, JP, JPE, JA, JNBE, JB, JC,<br />
+JNAE, JBE, JNA, JNB, JNC,</span> and <span class="teletype">JAE</span>.</td>
+</tr>
+
+<tr>
+<td class="center">JCXZ<br />JECXZ</td>
+<td class="center">Jump if CX / ECX<br />is zero</td>
+<td class="bold center">No</td>
+<td>N/A</td>
+</tr>
+
+<tr>
+<td class="center">JMP</td>
+<td class="center">Jump</td>
+<td class="center">Yes</td>
+<td><span class="teletype">JMP (address)<br />
+JMP (register)<br />
+JMP (memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">LAHF</td>
+<td class="center">Load flags into AH</td>
+<td class="center">Yes</td>
+<td><span class="teletype">LAHF = 0x9F</span></td>
+</tr>
+
+<tr>
+<td class="center">LAR</td>
+<td class="center">Load access<br />rights byte</td>
+<td class="center">Yes</td>
+<td><span class="teletype">LAR (register),(register)<br />
+LAR (register),(memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">LDS<br />LES<br />LFS<br />LGS<br />LSS</td>
+<td class="center">Load pointer<br />to DS / ES / FS<br />/ GS / SS</td>
+<td class="center">Yes</td>
+<td>
+<span class="teletype">LDS (32-bit register),(memory)</span><br />
+<span class="teletype">LES (32-bit register),(memory)</span><br />
+<span class="teletype">LFS (32-bit register),(memory)</span><br />
+<span class="teletype">LGS (32-bit register),(memory)</span><br />
+<span class="teletype">LSS (32-bit register),(memory)</span>
+<!--N/A<br /><br />
+Information:<br />
+You do not need LDS,LES, and LSS unless you are still running DOS.<br />
+LGS is pointless because segment register GS is not used by Windows.<br />
+LFS possibly has some uses, but I doubt that you will ever need it.--></td>
+</tr>
+
+<tr>
+<td class="center">LEA</td>
+<td class="center">Load effective<br />address</td>
+<td class="center">Yes</td>
+<td><span class="teletype">LEA (register),(memory)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">LEAVE</td>
+<td class="center">Leave function</td>
+<td class="center">Yes</td>
+<td><span class="teletype">LEAVE = 0xC9</span></td>
+</tr>
+
+<tr>
+<td class="center">LGDT</td>
+<td class="center">Load GDT register</td>
+<td class="center">Yes</td>
+<td><span class="teletype">LGDT (memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">LIDT</td>
+<td class="center">Load IDT register</td>
+<td class="center">Yes</td>
+<td><span class="teletype">LIDT (memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">LLDT</td>
+<td class="center">Load LDT<br />register</td>
+<td class="center">Yes</td>
+<td><span class="teletype">LLDT (16-bit register)<br />
+LLDT (memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">LMSW</td>
+<td class="center">Load machine<br />status word</td>
+<td class="center">Yes</td>
+<td><span class="teletype">LMSW (16-bit register)<br />
+LMSW (memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">LODSD<br />LODSW<br />LODSB</td>
+<td class="center">Load string</td>
+<td class="center">Yes</td>
+<td><span class="teletype">LODSD = 0xAD<br />
+LODSB = 0xAC<br />
+LODSW = 0x66AD
+</span></td>
+</tr>
+
+<tr>
+<td class="center">LOOP<br />LOOPZ<br />LOOPE<br />LOOPNZ<br />LOOPNE</td>
+<td class="center">Looping<br />instructions</td>
+<td class="bold center">No</td>
+<td>N/A<br /><br />
+Information: On most computers, using the looping instructions<br />
+to create a for-loop or a while-loop results in slower code than<br />
+writing these loops in terms of conditional jump statements.</td>
+</tr>
+
+<tr>
+<td class="center">LSL</td>
+<td class="center">Load segment<br />limit</td>
+<td class="center">Yes</td>
+<td><span class="teletype">LSL (register),(register)<br />
+LSL (register),(memory)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">LTR</td>
+<td class="center">Load task<br />register</td>
+<td class="center">Yes</td>
+<td><span class="teletype">LTR (16-bit register)<br />
+LTR (memory)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">MOV</td>
+<td class="center">Move data</td>
+<td class="center">Yes</td>
+<td><span class="teletype">MOV (register),(register)<br />
+MOV (register),(memory)<br />
+MOV (memory),(register)<br />
+MOV (register),(immediate)<br />
+MOV (memory),(immediate)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">MOVSD<br />MOVSW<br />MOVSB</td>
+<td class="center">Move string data</td>
+<td class="center">Yes</td>
+<td><span class="teletype">MOVSD = 0xA5<br />
+MOVSB = 0xA4<br />
+MOVSW = 0x66A5
+</span></td>
+</tr>
+
+<tr>
+<td class="center">MOVSX</td>
+<td class="center">Move with<br />sign-extend</td>
+<td class="center">Yes</td>
+<td><span class="teletype">MOVSX (register),(register)<br />
+MOVSX (register),(memory)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">MOVZX</td>
+<td class="center">Move with<br />zero-extend</td>
+<td class="center">Yes</td>
+<td><span class="teletype">MOVZX (register),(register)<br />
+MOVZX (register),(memory)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">MUL</td>
+<td class="center">Unsigned multiply</td>
+<td class="center">Yes</td>
+<td><span class="teletype">MUL (register)<br />
+MUL (memory)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">NEG</td>
+<td class="center">Negate</td>
+<td class="center">Yes</td>
+<td><span class="teletype">NEG (register)<br />
+NEG (memory)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">NOP</td>
+<td class="center">No operation</td>
+<td class="center">Yes</td>
+<td><span class="teletype">NOP = 0x90</span></td>
+</tr>
+
+<tr>
+<td class="center">NOT</td>
+<td class="center">Bitwise NOT</td>
+<td class="center">Yes</td>
+<td><span class="teletype">NOT (register)<br />
+NOT (memory)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">OR</td>
+<td class="center">Bitwise OR</td>
+<td class="center">Yes</td>
+<td><span class="teletype">OR (register),(register)<br />
+OR (register),(memory)<br />
+OR (memory),(register)<br />
+OR (register),(immediate)<br />
+OR (memory),(immediate)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">OUT</td>
+<td class="center">Output from<br />port</td>
+<td class="center">Partly</td>
+<td><span class="teletype">OUT (byte),(EAX,AX, or AL)</span><br /><br />
+Not all variations of <span class="teletype">OUT</span> are supported.</td>
+</tr>
+
+<tr>
+<td class="center">OUTSD<br />OUTSW<br />OUTSB</td>
+<td class="center">Output from<br />DX port</td>
+<td class="center">Yes</td>
+<td><span class="teletype">OUTSD = 0x6F<br />
+OUTSB = 0x6E<br />
+OUTSW = 0x666F
+</span></td>
+</tr>
+
+<tr>
+<td class="center">POP</td>
+<td class="center">Pop stack</td>
+<td class="center">Yes</td>
+<td><span class="teletype">POP (register)<br />
+POP (memory)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">POPAW<br />POPAD</td>
+<td class="center">Pop into<br />all registers</td>
+<td class="center">Yes</td>
+<td><span class="teletype">POPAW = 0x6661<br />
+POPAD = 0x61
+</span></td>
+</tr>
+
+<tr>
+<td class="center">POPFW<br />POPFD</td>
+<td class="center">Pop into<br />FLAGS or <br />EFLAGS register</td>
+<td class="center">Yes</td>
+<td><span class="teletype">POPFW = 0x669D<br />
+POPFD = 0x9D
+</span></td>
+</tr>
+
+<tr>
+<td class="center">PUSH</td>
+<td class="center">Push onto<br />stack</td>
+<td class="center">Yes</td>
+<td><span class="teletype">PUSH (register)<br />
+PUSH (memory)<br />
+PUSH (immediate)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">PUSHAW<br />PUSHAD</td>
+<td class="center">Push all<br />registers</td>
+<td class="center">Yes</td>
+<td><span class="teletype">PUSHAW = 0x6660<br />
+PUSHAD = 0x60
+</span></td>
+</tr>
+
+<tr>
+<td class="center">PUSHFW<br />PUSHFD</td>
+<td class="center">Push<br />FLAGS or <br />EFLAGS register</td>
+<td class="center">Yes</td>
+<td><span class="teletype">PUSHFW = 0x669C<br />
+PUSHFD = 0x9C
+</span></td>
+</tr>
+
+<tr>
+<td class="center">RCL</td>
+<td class="center">Rotate through<br />carry left</td>
+<td class="center">Yes</td>
+<td><span class="teletype">RCL (register),(byte)<br />
+RCL (memory),(byte)<br />
+RCL (register),CL<br />
+RCL (memory),CL
+</span></td>
+</tr>
+
+<tr>
+<td class="center">RCR</td>
+<td class="center">Rotate through<br />carry right</td>
+<td class="center">Yes</td>
+<td><span class="teletype">RCR (register),(byte)<br />
+RCR (memory),(byte)<br />
+RCR (register),CL<br />
+RCR (memory),CL
+</span></td>
+</tr>
+
+<tr>
+<td class="center">RDMSR<br />RDPMC<br />RDTSC</td>
+<td class="center">Read MSR<br />Read PMC<br />Read TSC</td>
+<td class="center">Yes</td>
+<td><span class="teletype">RDMSR = 0x0F32<br />
+RDPMC = 0x0F33<br />
+RDTSC = 0x0F31
+</span></td>
+</tr>
+
+<tr>
+<td class="center">RETN</td>
+<td class="center">Return</td>
+<td class="center">Yes</td>
+<td><span class="teletype">RETN = 0xC3
+</span></td>
+</tr>
+
+<tr>
+<td class="center">RETF</td>
+<td class="center">Far return</td>
+<td class="center">Yes</td>
+<td><span class="teletype">RETF = 0xCB
+</span></td>
+</tr>
+
+<tr>
+<td class="center">ROL</td>
+<td class="center">Rotate left</td>
+<td class="center">Yes</td>
+<td><span class="teletype">ROL (register),(byte)<br />
+ROL (memory),(byte)<br />
+ROL (register),CL<br />
+ROL (memory),CL
+</span></td>
+</tr>
+
+<tr>
+<td class="center">ROR</td>
+<td class="center">Rotate right</td>
+<td class="center">Yes</td>
+<td><span class="teletype">ROR (register),(byte)<br />
+ROR (memory),(byte)<br />
+ROR (register),CL<br />
+ROR (memory),CL
+</span></td>
+</tr>
+
+<tr>
+<td class="center">RSM</td>
+<td class="center">Resume from<br />system<br />management</td>
+<td class="center">Yes</td>
+<td><span class="teletype">RSM = 0x0FAA
+</span></td>
+</tr>
+
+<tr>
+<td class="center">SAHF</td>
+<td class="center">Store AH into<br />flags</td>
+<td class="center">Yes</td>
+<td><span class="teletype">SAHF = 0x9E
+</span></td>
+</tr>
+
+<tr>
+<td class="center">SAL</td>
+<td class="center">Shift arithmetic<br />left</td>
+<td class="center">Yes</td>
+<td>Same as <span class="teletype">SHL</span> instruction.</td>
+</tr>
+
+<tr>
+<td class="center">SAR</td>
+<td class="center">Shift arithmetic<br />right</td>
+<td class="center">Yes</td>
+<td><span class="teletype">SAR (register),(byte)<br />
+SAR (memory),(byte)<br />
+SAR (register),CL<br />
+SAR (memory),CL
+</span></td>
+</tr>
+
+<tr>
+<td class="center">SBB</td>
+<td class="center">Subtraction<br />with borrow</td>
+<td class="center">Yes</td>
+<td><span class="teletype">SBB (register),(register)<br />
+SBB (register),(memory)<br />
+SBB (memory),(register)<br />
+SBB (register),(immediate)<br />
+SBB (memory),(immediate)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">SCASD<br />SCASW<br />SCASB</td>
+<td class="center">Scan string</td>
+<td class="center">Yes</td>
+<td><span class="teletype">SCASD = 0xAF<br />
+SCASB = 0xAE<br />
+SCASW = 0x66AF
+</span></td>
+</tr>
+
+<tr>
+<td class="center">SETxx</td>
+<td class="center">Conditionally<br />set byte</td>
+<td class="center">Yes</td>
+<td><span class="teletype">SETxx (8-bit register)<br />
+SETxx (memory)</span><br /><br />
+<span class="teletype">SETxx</span> includes all of the following instructions:<br />
+<span class="teletype">
+SETE, SETZ, SETNE, SETNZ, SETLE, SETNG, SETGE, SETNL,<br />
+SETL, SETNGE, SETG, SETNLE, SETO, SETNO, SETS, SETNS,<br />
+SETNP, SETPO, SETP, SETPE, SETA, SETNBE, SETB, SETC,<br />
+SETNAE, SETBE, SETNA, SETNB, SETNC,</span> and <span class="teletype">SETAE</span>.</td>
+</tr>
+
+<tr>
+<td class="center">SGDT</td>
+<td class="center">Store GDT register</td>
+<td class="center">Yes</td>
+<td><span class="teletype">SGDT (memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">SHL</td>
+<td class="center">Shift left</td>
+<td class="center">Yes</td>
+<td><span class="teletype">SHL (register),(byte)<br />
+SHL (memory),(byte)<br />
+SHL (register),CL<br />
+SHL (memory),CL
+</span></td>
+</tr>
+
+<tr>
+<td class="center">SHLD</td>
+<td class="center">Shift left<br />double precision</td>
+<td class="center">Yes</td>
+<td><span class="teletype">SHLD (register),(register),(byte)<br />
+SHLD (memory),(register),(byte)<br />
+SHLD (register),(register),CL<br />
+SHLD (memory),(register),CL
+</span></td>
+</tr>
+
+<tr>
+<td class="center">SHR</td>
+<td class="center">Shift right</td>
+<td class="center">Yes</td>
+<td><span class="teletype">SHR (register),(byte)<br />
+SHR (memory),(byte)<br />
+SHR (register),CL<br />
+SHR (memory),CL
+</span></td>
+</tr>
+
+<tr>
+<td class="center">SHRD</td>
+<td class="center">Shift right<br />double precision</td>
+<td class="center">Yes</td>
+<td><span class="teletype">SHRD (register),(register),(byte)<br />
+SHRD (memory),(register),(byte)<br />
+SHRD (register),(register),CL<br />
+SHRD (memory),(register),CL
+</span></td>
+</tr>
+
+<tr>
+<td class="center">SIDT</td>
+<td class="center">Store IDT register</td>
+<td class="center">Yes</td>
+<td><span class="teletype">SIDT (memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">SLDT</td>
+<td class="center">Store LDT<br />register</td>
+<td class="center">Yes</td>
+<td><span class="teletype">SLDT (register)<br />
+SLDT (memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">SMSW</td>
+<td class="center">Store machine<br />status word</td>
+<td class="center">Yes</td>
+<td><span class="teletype">SMSW (register)<br />
+SMSW (memory)</span></td>
+</tr>
+
+<tr>
+<td class="center">STC</td>
+<td class="center">Set carry<br />flag</td>
+<td class="center">Yes</td>
+<td><span class="teletype">STC = 0xF9</span></td>
+</tr>
+
+<tr>
+<td class="center">STD</td>
+<td class="center">Set direction<br />flag</td>
+<td class="center">Yes</td>
+<td><span class="teletype">STD = 0xFD</span></td>
+</tr>
+
+<tr>
+<td class="center">STI</td>
+<td class="center">Set interrupt<br />flag</td>
+<td class="center">Yes</td>
+<td><span class="teletype">STI = 0xFB</span></td>
+</tr>
+
+<tr>
+<td class="center">STR</td>
+<td class="center">Store task<br />register</td>
+<td class="center">Yes</td>
+<td><span class="teletype">STR (register)<br />
+STR (memory)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">SUB</td>
+<td class="center">Subtraction</td>
+<td class="center">Yes</td>
+<td><span class="teletype">SUB (register),(register)<br />
+SUB (register),(memory)<br />
+SUB (memory),(register)<br />
+SUB (register),(immediate)<br />
+SUB (memory),(immediate)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">TEST</td>
+<td class="center">Bitwise compare</td>
+<td class="center">Yes</td>
+<td><span class="teletype">TEST (register),(register)<br />
+TEST (register),(memory)<br />
+TEST (register),(immediate)<br />
+TEST (memory),(immediate)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">UD2</td>
+<td class="center">Undefined<br />instruction</td>
+<td class="center">Yes</td>
+<td><span class="teletype">UD2 = 0x0F0B
+</span></td>
+</tr>
+
+<tr>
+<td class="center">VERR</td>
+<td class="center">Verify segment<br />for reading</td>
+<td class="center">Yes</td>
+<td><span class="teletype">VERR (16-bit register)<br />
+VERR (memory)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">VERW</td>
+<td class="center">Verify segment<br />for writing</td>
+<td class="center">Yes</td>
+<td><span class="teletype">VERW (16-bit register)<br />
+VERW (memory)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">WAIT</td>
+<td class="center">Wait</td>
+<td class="center">Yes</td>
+<td><span class="teletype">WAIT = 0x9B
+</span></td>
+</tr>
+
+<tr>
+<td class="center">WBINVD</td>
+<td class="center">Writeback and<br />invalidate cache</td>
+<td class="center">Yes</td>
+<td><span class="teletype">WBINVD = 0x0F09
+</span></td>
+</tr>
+
+<tr>
+<td class="center">WRMSR</td>
+<td class="center">Write to<br />MSR</td>
+<td class="center">Yes</td>
+<td><span class="teletype">WRMSR = 0x0F30
+</span></td>
+</tr>
+
+<tr>
+<td class="center">XADD</td>
+<td class="center">Exchange &amp; add</td>
+<td class="center">Yes</td>
+<td><span class="teletype">XADD (register),(register)<br />
+XADD (memory),(register)
+</span></td>
+</tr>
+
+<tr>
+<td class="center">XLATB</td>
+<td class="center">Table lookup<br />translation</td>
+<td class="center">Yes</td>
+<td><span class="teletype">XLATB = 0xD7
+</span></td>
+</tr>
+
+<tr>
+<td class="center">XOR</td>
+<td class="center">Bitwise<br />exclusive OR</td>
+<td class="center">Yes</td>
+<td><span class="teletype">XOR (register),(register)<br />
+XOR (register),(memory)<br />
+XOR (memory),(register)<br />
+XOR (register),(immediate)<br />
+XOR (memory),(immediate)
+</span></td>
+</tr>
+
+</table><br />
+
+If an instruction isn't on this list at all, it probably isn't supported.
+
+<br /><br />
+<a href="..\Userguide.html">Back to the Table of Contents</a><br /><br /><br /><br />
+
+</td></tr>
+</table>
+
+</body>
+</html>

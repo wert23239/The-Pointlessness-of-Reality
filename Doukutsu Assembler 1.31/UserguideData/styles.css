@@ -1,0 +1,234 @@
+body
+{
+margin:0;
+padding:0; /* These are required to make align work properly */
+color:black;
+background-color:white;
+font-family:Arial,Tahoma,Verdana,sans-serif;
+font-size:13px; /* 0.8125em = 13px = 10pt */
+/* Do not specify the font size of the
+   body in terms of em, because otherwise
+   your <pre> tags will all have
+   excessively small fonts. */
+}
+
+.alt_font
+{
+font-family:Tahoma,Verdana,Arial,sans-serif;
+}
+
+.big_header
+{
+font-family:Tahoma,Verdana,Arial,sans-serif;
+color:#326dff;
+font-size:36px;
+font-weight:bold;
+}
+
+.small_header
+{
+font-family:Tahoma,Verdana,Arial,sans-serif;
+color:#074ea6;
+font-size:1.3em;
+font-weight:bold;
+}
+
+.teletype
+{
+font-family:Courier New,Lucida Console,monospace;
+}
+
+.bold
+{
+font-weight:bold;
+}
+
+.italics
+{
+font-style:italic;
+}
+
+.author_name
+{
+font-family:Tahoma,Verdana,Arial,sans-serif;
+font-weight:bold;
+color:#002d88;
+font-size:1.1em;
+}
+
+a.whitelink
+{
+color:white;
+font-weight:bold;
+text-decoration:none;
+}
+
+a.whitelink:hover
+{
+color:#8ee7ff;
+}
+
+a {color:#3399ff;text-decoration:none;}
+a:hover {color:#000080;}
+
+table.maintable
+{
+/* Note that td, th, tr will have 0 border unless otherwise
+specified */
+border:none;
+margin-left:auto; /* Center the maintable */
+margin-right:auto;
+width:80%;
+border-collapse:collapse;
+}
+
+table.simple_table
+{
+/* Note that td, th, tr will have 0 border unless otherwise
+specified */
+border:none;
+margin-left:auto; /* Center the table */
+margin-right:auto;
+border-collapse:collapse;
+}
+
+table.simple_table_fixed_size
+{
+/* Note that td, th, tr will have 0 border unless otherwise
+specified */
+border:none;
+margin-left:auto; /* Center the table */
+margin-right:auto;
+border-collapse:collapse;
+width:500px;
+}
+
+table.escape_sequence_table
+{
+border:1px black solid;
+border-collapse:collapse;
+font-family:Courier New,Lucida Console,monospace;
+}
+
+table.escape_sequence_table td,th
+{
+border:1px black solid;
+padding:6px;
+/*font-family:Courier New,Lucida Console,monospace;*/
+}
+
+table.supported_instruction_table
+{
+border:1px black solid;
+border-collapse:collapse;
+}
+
+table.supported_instruction_table td,th
+{
+border:1px black solid;
+padding:6px;
+}
+
+.minifont
+{
+font-size:11px;
+}
+
+table.widthmax
+{
+width:100%;
+}
+
+.black_border /* Class designed for td, tr, th */
+{
+border: 1px solid black;
+}
+
+.center
+{
+text-align:center;
+}
+
+.valign_top
+{
+vertical-align:top;
+}
+
+img /* Images used as links should not have borders. */
+{
+border:none;
+}
+
+.noborder
+{
+border:none;
+}
+
+.centerobject /*Centering for tables and non-text objects*/
+{
+margin-left:auto;
+margin-right:auto;
+}
+
+.big_indent
+{
+margin-left:150px;
+}
+
+.small_indent
+{
+margin-left:40px;
+}
+
+.clickable
+{
+cursor:pointer;
+}
+
+.red
+{
+color:red;
+}
+
+.green
+{
+color:green;
+}
+
+.gray
+{
+color:gray;
+}
+
+.mnemonic
+{
+color:#0000ff;
+}
+
+.system
+{
+color:#316db7;
+}
+
+.macro
+{
+color:#930a0a;
+}
+
+.label
+{
+color:#8900b0;
+}
+
+.comment
+{
+color:#159600;
+}
+
+/* TIP:
+You can use multiple CSS classes with a single tag.
+<table class="funky egg"> ... </table>
+Will use CSS classes .egg and .funky to style the table.
+
+More info:
+http://www.w3schools.com/tags/att_standard_class.asp */

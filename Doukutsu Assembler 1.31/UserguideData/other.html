@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<title>Other Features</title>
+</head>
+
+<body>
+<div class="center"><span class="big_header">Other Features</span></div><br />
+
+<table class="maintable">
+<tr><td>
+
+<a name="comments"></a><span class="small_header">Comments</span><br />
+The Doukutsu Assembler accepts 3 types of comments. They are shown below.
+
+<pre><span class="mnemonic">NOP</span>   <span class="comment">;Assembly style semicolon comments</span>
+<span class="mnemonic">NOP</span>   <span class="comment">//C++ style double slash comments</span>
+<span class="mnemonic">NOP</span>   <span class="comment">/* C++ style block
+         comments */</span></pre>
+
+<span class="small_header">Offset Statement</span><br />
+Put the word <span class="teletype">offset</span> somewhere in your code, and follow it up with a numerical address. This determines exactly where you want your code to be written in the game executable (if you choose direct assemble). Direct assemble only overwrites the old code; it does not insert any bytes (i.e. it doesn't increase the size of the executable).<br /><br />
+
+You must use the <span class="teletype">offset</span> statement exactly once in each ASM source file. If you want to compile different pieces of code at multiple offsets, you need to create multiple source files and then do a Multi-File Assemble.<br /><br />
+
+Warning: <b>please do not</b> use an offset less than 0x400000, or else bad things may happen to you. Address 0x400000 is considered the first byte of the executable.
+
+<br /><br />
+<span class="small_header">Decimal Numbers</span><br />
+All numbers are assumed to be hex unless otherwise stated. If you want to specify a decimal number, prefix it with a tilde (<span class="teletype">~</span>).<br />
+
+<pre><span class="mnemonic">ADD</span> EAX,500     <span class="comment">;adds 0x500 to EAX.</span>
+<span class="mnemonic">ADD</span> EAX,-500    <span class="comment">;adds 0x-500 to EAX.</span>
+<span class="mnemonic">ADD</span> EAX,~500    <span class="comment">;adds 500 (decimal) to EAX.</span>
+<span class="mnemonic">ADD</span> EAX,~-500   <span class="comment">;adds -500 (decimal) to EAX.</span></pre>
+
+If you dislike abbreviations, prefixing any number with the word <span class="teletype">decimal</span> will also work:<br />
+
+<pre>
+<span class="mnemonic">ADD</span> EAX,decimal 500
+<span class="mnemonic">ADD</span> EAX,decimal -500</pre>
+
+<span class="small_header">The Data Statement</span><br />
+Use the word <span class="teletype">data</span> followed by hex pairs to insert those hexadecimal bytes directly into your code.<br /><br />
+
+Assume you want to NOP out a large area:<br />
+
+<pre><span class="system">offset</span> 4937F4
+
+<span class="comment">;fill this space with 256 NOPS (0x90)</span>
+
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+<span class="system">data</span> 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90 90</pre>
+
+Or, you can put a null-terminated string into your code:<br />
+
+<pre><span class="system">offset</span> 4937F4
+
+<span class="comment">;this says "Profile.dat"</span>
+<span class="system">data</span> 50 72 6f 66 69 6c 65 2e 64 61 74 00</pre>
+
+<span class="small_header">The Pipe Separator</span><br />
+The pipe character <span class="teletype">|</span> is used to write multiple instructions on the same line.<br /><br />
+
+This is fairly easy to use. An example follows.
+
+<pre><span class="system">offset</span> 401030
+
+<span class="mnemonic">push</span> ebp | <span class="mnemonic">mov</span> ebp,esp
+<span class="mnemonic">push</span> 80
+<span class="mnemonic">push</span> 0
+<span class="mnemonic">push</span> 499B40
+<span class="mnemonic">call</span> 480d30
+<span class="mnemonic">add</span> esp,0c
+<span class="mnemonic">mov</span> esp,ebp | <span class="mnemonic">pop</span> ebp | <span class="mnemonic">retn</span></pre>
+
+Note that the indentational editor makes judicious use of pipes to separate instructions and labels.<br /><br />
+
+<span class="small_header">Relativity</span><br />
+
+No, we're not talking about Einstein's theory here.<br /><br />
+
+The most common type of jump in x86 assembly is the relative jump. Because of this, all instances of <span class="teletype">JMP (address), JNE (address), JLE (address)</span>, and so on must be converted to relative jumps during the assembling process. OllyDbg does this too. When you enter a jump statement such as <span class="teletype">JMP 401000</span>, OllyDbg will calculate the distance between the current address and <span class="teletype">0x401000</span> in order to correctly encode the jump statement.<br /><br />
+
+Starting from version 1.0 onwards, you can now use relative jumps in your code. Instead of specifying an address or label, you can specify a certain distance (in bytes) and a direction in which to jump. To perform a forward jump of <span class="teletype">0x30</span> bytes, just do <span class="teletype">JMP ->30</span>. To do a backwards jump of <span class="teletype">0x30</span> bytes, do <span class="teletype">JMP &lt;-30</span>. As you can see, the forwards arrow operator is <span class="teletype">-></span> and the backwards arrow operator is <span class="teletype">&lt;-</span>.<br /><br />
+
+Now, relative jumps will jump a distance <b>relative to the end of the jump, not the beginning of the jump</b>. That means <span class="teletype">JMP ->0</span> will jump to the next instruction. It will not jump to itself and perform an infinite loop.<br /><br />
+
+The largest possible forward <span class="teletype">JMP SHORT</span> is 127 bytes forward (<span class="teletype">0x7F</span>). The largest possible backward <span class="teletype">JMP SHORT</span> is 128 bytes backwards (<span class="teletype">0x80</span>). Any jump that travels a longer distance will be a long jump with a 32-bit displacement.
+
+<pre><span class="system">offset</span> 402000
+
+<span class="mnemonic">jne</span> ->40    <span class="comment">;Jump 0x40 bytes forwards</span>
+<span class="mnemonic">jge</span> &lt;-80A   <span class="comment">;Jump 0x80A bytes backwards</span>
+
+<span class="mnemonic">jmp</span> ->7f    <span class="comment">;biggest possible forward JMP SHORT</span>
+<span class="mnemonic">jmp</span> &lt;-80    <span class="comment">;biggest possible backwards JMP SHORT</span>
+
+<span class="mnemonic">jmp</span> ->0     <span class="comment">;Jump to next instruction, which is DEC AX</span>
+<span class="mnemonic">dec</span> ax
+
+<span class="mnemonic">jmp</span> &lt;-2     <span class="comment">;Jump backwards 2 bytes to the beginning of the JMP instruction,
+            ;which creates an infinite loop.</span></pre>
+
+I expect that the feature of relative jumping will not be used very often because it is easier to use <span class="teletype">JMP (address)</span> or <span class="teletype">JMP :labelname</span>. Even so, it's good to know that all your direct jumps will eventually be converted to relative jumps anyway.
+<br /><br />
+<a name="prefix"></a><span class="small_header">The Prefix Statement</span><br />
+Prefixes are special additions to instructions that make them act differently. For example, the <span class="teletype">REP</span> prefixes will modify how string instructions work. The Doukutsu Assembler now supports the <span class="teletype">prefix</span> statement. You have to write out the word <span class="teletype">prefix</span> and then follow it up with the name of the prefix, such as <span class="teletype">REP</span> or <span class="teletype">LOCK</span>. Then use a pipe and type in the next command.
+
+<pre><span class="system">offset</span> 478000
+
+<span class="mnemonic">MOVSB</span>                         <span class="comment">;copies byte from [ESI] to [EDI]</span>
+<span class="mnemonic">CMPXCHG8B</span> [4AE000]            <span class="comment">;Typical CMPXCHG8B command.</span>
+
+<span class="system">prefix</span> REP | <span class="mnemonic">MOVSB</span>            <span class="comment">;copies an entire text string.</span>
+<span class="system">prefix</span> LOCK | <span class="mnemonic">CMPXCHG8B</span> EAX   <span class="comment">;The infamous F00F</span></pre>
+
+In OllyDbg, <span class="teletype">prefix REP | MOVSB</span> is simply written as <span class="teletype">REP MOVSB</span> and <span class="teletype">prefix LOCK | CMPXCHG8B EAX</span> is written as <span class="teletype">LOCK CMPXCHG8B EAX</span>.<br /><br />
+
+You can also use prefixes to force an instruction with a memory-operand to use a different segment register than the default segment register.
+
+<pre><span class="system">offset</span> 440500
+
+<span class="mnemonic">MOV</span> EAX,[EBP+8]         <span class="comment">//Uses SS register by default.</span>
+<span class="mnemonic">MOV</span> EAX,PTR DS:[EBP+8]  <span class="comment">//Still uses SS register because
+                        //PTR DS: notation is ignored.</span>
+<span class="system">prefix</span> DS | <span class="mnemonic">MOV</span> EAX,[EBP+8]   <span class="comment">//Forces instruction to use
+                              //segment register DS.</span></pre>
+
+Here is a list of all prefix statements:<br /><br />
+
+<table class="escape_sequence_table">
+<tr><th>Prefix</th><th>Equivalent Byte</th></tr>
+<tr><td>LOCK</td><td>F0</td></tr>
+<tr><td>REPNE</td><td>F2</td></tr>
+<tr><td>REPNZ</td><td>F2</td></tr>
+<tr><td>REP</td><td>F3</td></tr>
+<tr><td>REPE</td><td>F3</td></tr>
+<tr><td>REPZ</td><td>F3</td></tr>
+<tr><td>SIMD_EXTENSION</td><td>0F</td></tr>
+<tr><td>MMX</td><td>0F</td></tr>
+<tr><td>SIZE</td><td>66</td></tr>
+<tr><td>ADDRESS_SIZE</td><td>67</td></tr>
+<tr><td>CS</td><td>2E</td></tr>
+<tr><td>DS</td><td>3E</td></tr>
+<tr><td>ES</td><td>26</td></tr>
+<tr><td>FS</td><td>64</td></tr>
+<tr><td>GS</td><td>65</td></tr>
+<tr><td>SS</td><td>36</td></tr>
+</table><br />
+
+Also, avoid using <span class="teletype">prefix SIZE</span> because the size-byte is automatically taken care of by the Doukutsu Assembler.
+
+<br /><br />
+<a href="..\Userguide.html">Table of Contents</a><br /><br /><br /><br />
+
+</td></tr>
+</table>
+
+</body>
+
+</html>

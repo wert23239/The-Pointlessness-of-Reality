@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<title>Introduction: Getting Started</title>
+</head>
+
+<body>
+<div class="center"><span class="big_header">Introduction</span></div><br />
+
+<table class="maintable">
+<tr><td>
+<span class="small_header">What is the Doukutsu Assembler?</span><br />
+The Doukutsu Assembler is an assembly language (32-bit x86) compiler made specifically for Doukutsu Monogatari executable hacking.<br /><br />
+
+There are several features included in this Assembler that aren't available in OllyDbg*, mainly the dynamic labeling system. However, it's important to know that this Assembler <b>should only be a supplement to OllyDbg, not a replacement.</b><br /><br />
+
+<span class="minifont">*If you're new to ASM or something: OllyDbg is a 32-bit debugger and disassembler commonly used for modifying the Cave Story exe. Download it <a href="http://www.ollydbg.de/" target="_blank">here</a>.</span><br /><br />
+
+So, how do you use the Doukutsu Assembler program?<br /><br />
+
+First, double-click the file Doukutsu Assembler.jar to run it. You should see a window pop up with a simple text editor in it.<br /><br />
+
+Next, you should type your "assembly source code" into that text editor. Specify an offset you want your ASM code to start at. After that, you just type in ASM instructions directly into the box, like so:<br /><br />
+
+<img alt="ASM code" src="img/textbox_with_code.png" /><br /><br />
+
+<b>Make sure you save your work</b> as a <span class="teletype">.txt</span> file by going to File > Save As... or by hitting the keyboard shortcut Ctrl+S.<br /><br />
+
+Now, all pointers are assumed to be DWORD-sized unless otherwise stated, so <span class="teletype">MOV EDX,[EBP+8]</span> actually means <span class="teletype">MOV EDX,DWORD PTR SS:[EBP+8]</span>. The <span class="teletype">DWORD</span> and <span class="teletype">PTR DS:/PTR SS:</span> parts are totally optional.<br /><br />
+
+The Doukutsu Assembler also supports 3 kinds of comments. To see them, <a href="other.html#comments" target="_blank">click here</a>.<br /><br />
+
+So, aside from the user interface, how is this different from OllyDbg? Well, let's start using labels.<br /><br />
+
+<span class="small_header">The Dynamic Labeling System</span>
+
+<pre><span class="system">offset</span> 43EC33
+
+<span class="mnemonic">PUSH</span> EBP
+<span class="mnemonic">MOV</span> EBP,ESP
+<span class="mnemonic">MOV</span> EDX,[EBP+8]
+<span class="mnemonic">CMP</span> [EDX+4C],0
+<span class="mnemonic">JE</span> <span class="label">:facing_left</span>     <span class="comment">;labels must start with a colon (:)</span>
+<span class="mnemonic">MOV</span> [EDX+10],200
+<span class="mnemonic">JMP</span> <span class="label">:end_else1</span>
+<span class="label">:facing_left</span>
+<span class="mnemonic">MOV</span> [EDX+10],-200
+<span class="label">:end_else1</span>
+<span class="mnemonic">XOR</span> EAX,EAX
+<span class="mnemonic">MOV</span> [EDX+78],EAX
+<span class="mnemonic">MOV</span> [EDX+64],EAX
+<span class="mnemonic">JMP</span> 43ED5A          <span class="comment">;jumps can also go to normal addresses instead of labels</span></pre>
+
+Although the above is just a simple block of code, you can get the gist of how the labels work. You can do a jump to a <span class="teletype">:labelname</span> and the code will jump to wherever you placed that label. Essentially, it's a goto statement.<br /><br />
+
+This means you can move your labels around and the associated jumps will always go to those labels. You can cut and paste large chunks of code and rearrange them however you want, knowing that the jumps will always go to the correct location.<br /><br />
+
+OllyDbg only has static labels: labels that are assigned to one address only. They cannot be moved around except by manually renaming them, and even then your <span class="teletype">JMP <i>label</i></span> statement doesn't go to that new label. It just turns into a normal jump (like <span class="teletype">JMP <i>numerical value</i></span>). Not exactly helpful.<br /><br />
+
+OllyDbg makes designing NPCs and Weapons on a large-scale difficult: whenever you want to insert a new feature or do some debugging, you have to move around code. A simple binary copy &amp; paste will not solve things - you still have to recalculate some of the jumps and calls. In any complex NPC/Weapon hack, this can get very annoying. But, if you use the Doukutsu Assembler, you can write your code with labels, eliminating this problem entirely.<br /><br />
+
+Now, when you're done, just click on the "One-File Assemble" tab. It has some options to convert the code in the textbox (or a file) into real hex data: either use "Convert ASM code to hex", which will spit out the hex dump of your code into a file in the <span class="teletype">Output/</span> folder, or you can use "Direct Assemble", which takes ASM code, compiles it, and applies the hack directly to the game executable. You can change the game executable that the Assembler uses in the Settings tab. Convenient, no?<br /><br />
+
+<img src="img/assemble_and_settings.png" alt="Assembling Tab and Settings Tab" /><br /><br />
+
+There's more stuff than just this. You should take a look at the <a href="labels.html">in-depth label guide</a> and the <a href="other.html">other features</a> this Assembler has. You should get an idea of the variety of instructions the Assembler can support by looking at the <a href="supported.html">supported instructions page</a>. It's good to understand how to add fancy new instructions by using <a href="defines.html">defines</a>. Check out the <a href="syntax.html">syntax guide</a> if you're having trouble getting your code to assemble properly, or if you want to see if you can get away with some sloppy syntax (hint: you can). Figure out what the buttons and settings do in the <a href="user_interface.html">user interface guide</a>. <br /><br />
+
+<a href="..\Userguide.html">Back to the Table of Contents</a><br /><br /><br /><br />
+
+</td></tr>
+</table>
+
+</body>
+</html>

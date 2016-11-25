@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<title>Indentational Editor</title>
+</head>
+
+<body>
+<div class="center"><span class="big_header">Indentational Editor</span></div><br />
+
+<table class="maintable">
+<tr><td>
+You're probably wondering what's so special about the second text editor. The first editor seems straightforward, but the other one has some weird behavior.
+<br /><br />
+The second text editor is known as the indentational editor. The point of this specialized editor is to keep labels and instructions separated for easier readability. But how?
+<br /><br />
+First, open up the Doukutsu Assembler and click on the second tab. Inside the indentational editor, repeatedly press enter a few times. (Make sure you press and then release.. don't just hold the enter key down or else this won't work).<br />
+
+<img src="img/indent_editor.png" alt="Indentational Editor" /><br />
+
+Every time you press enter, you see that tabbing automatically happens. A natural barrier is created from a series of pipe characters.<br /><br />
+
+So what? Is it good for ASCII art or something? Not exactly. Go to File > New File... and start over. This time, start typing in ASM code.<br /><br />
+
+<img src="img/indent_editor_with_code.png" alt="Indentational Editor with Code" /><br />
+
+Here I have saved the file as indent_example.txt.<br />
+Notice that none of the labels have been defined yet. Instead of putting a label right before an instruction, as we normally do with the Doukutsu Assembler, this time we shall put the label on the same line as the instruction.<br /><br />
+
+Take your mouse cursor and click on the left side of the "barrier". Now start typing in your labels on the appropriate lines.<br /><br />
+
+<img src="img/indent_editor_with_bad_indents.png" alt="Indentational Editor Before Auto Adjust" /><br />
+
+Now we have a serious problem. The pipes don't line up correctly, and now everything looks ugly. We could just realign them by erasing some text, but that would be really tedious. Fortunately, there's an easy solution. Press the Ctrl+Space shortcut.<br /><br />
+
+<img src="img/indent_editor_good_indents.png" alt="Indentational Editor After Auto Adjust" /><br />
+Ctrl+Space instantly reformats the text and brings back the barrier. So whenever you insert some new labels, just do a Ctrl+Space and you're good to go.
+<br /><br />
+
+<span class="small_header">Versatility of Auto-Adjust</span><br />
+The action you just performed is called "Auto-Adjust". You can access it by going to Indentation > Auto-Adjust Indents... or just press Ctrl+Space again.<br /><br />
+Auto-adjust easily handles long label names. Here's a good example of a long label being taken care of:<br /><br />
+
+<img src="img/long_label_example.png" alt="Long Label Example" /><br />
+
+Of course, if you don't want your margins to be that large, you should try to use short label names whenever possible. Doing an Auto-Adjust will expand or shrink the tabbing as needed.<br /><br />
+
+Now for the final example. This will prove how Auto-Adjust can successfully distinguish labels from regular ASM even when there is no indentation at all! Right now I'm going to open up some_old_file.txt and press Ctrl+Space shortly after.<br /><br />
+
+<img src="img/convert_to_indent.png" alt="Convert to Indent" /><br /><br />
+
+When you're done, you should be able to assemble an indented ASM source file in much the same way as you would a regular ASM source file.<br /><br />
+
+<span class="small_header">Using Defines in the Indentational Editor</span><br /><br />
+
+It is okay to put defines to the right of the barrier. Now you can probably see why pipes are ignored in defines.
+
+<pre>        | <span class="system">offset</span> 450000
+        | 
+        | <span class="macro">#define</span>
+        | <span class="comment">// define macros go here.</span>
+        | <span class="macro">#enddefine</span>
+        | 
+<span class="label">:label0</span> | <span class="comment">// code.</span>
+        | <span class="comment">// code.</span>
+<span class="label">:label1</span> | <span class="comment">// code.</span>
+        | <span class="comment">// code.</span>
+<span class="label">:label2</span> | <span class="comment">// more code.</span></pre>
+
+<br />
+<a href="..\Userguide.html">Back to the Table of Contents</a><br /><br /><br /><br />
+
+</td></tr>
+</table>
+
+</body>
+</html>

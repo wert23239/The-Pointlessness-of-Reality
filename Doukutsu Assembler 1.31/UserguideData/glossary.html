@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<title>Glossary</title>
+</head>
+
+<body>
+<div class="center"><span class="big_header">Glossary</span></div><br />
+
+<table class="maintable">
+<tr><td>
+<span class="small_header">Index</span><br />
+<a href="#a">A</a> <a href="#b">B</a> <a href="#c">C</a> <a href="#d">D</a> <a href="#e">E</a> <a href="#f">F</a> 
+<a href="#g">G</a> <a href="#h">H</a> <a href="#i">I</a> <a href="#j">J</a> <a href="#k">K</a> <a href="#l">L</a> 
+<a href="#m">M</a> <a href="#n">N</a> <a href="#o">O</a> <a href="#p">P</a> <a href="#q">Q</a> <a href="#r">R</a> 
+<a href="#s">S</a> <a href="#t">T</a> <a href="#u">U</a> <a href="#v">V</a> <a href="#w">W</a> <a href="#x">X</a> 
+<a href="#y">Y</a> <a href="#z">Z</a> 
+
+<br /><br />
+
+<a name="a"></a><span class="small_header">A</span><br />
+<b>accumulator</b> - The accumulator is the register that is most often used for math calculations and is slightly more efficient than all other registers at doing said math calculations. Some people say only <span class="teletype">EAX</span> is the accumulator. Not true. <span class="teletype">EAX</span>, <span class="teletype">AX</span>, and <span class="teletype">AL</span> are all considered accumulator registers. Notice that even though <span class="teletype">AH</span> is a component of <span class="teletype">EAX</span>, <span class="teletype">AH</span> does not have the advantages of the accumulator.
+<br /><br />
+<!--<b>AEON</b> - AEON stands for Assembly Encoding &amp; Operand Notation. I invented this language to provide a semi-human-readable syntax for the file binary_table.dat, which holds ASM encodings. AEON is a markup language instead of a programming language, and its format is based on a data table inside Intel's software development manual. AEON happens to be simpler than TSC.
+<br /><br />-->
+<b>assemble</b> - To assemble means "to compile assembly code". An assembler is any program that acts as an ASM compiler.
+<br /><br />
+<a name="b"></a><span class="small_header">B</span><br />
+<b>base</b> - Inside a memory operand, the base is the second register that doesn't get multiplied. In <span class="teletype">DWORD PTR DS:[EAX*8+EDX+3029]</span>, the base is <span class="teletype">EDX</span> since it is not being multiplied by a number, unlike <span class="teletype">EAX</span>.<br /><br />
+
+<b>binary copy &amp; paste</b> - Binary copy and paste is an OllyDbg feature that lets you copy and paste ASM code from the debugger window in pure hexadecimal format. Personally, I think this should be renamed "hexadecimal copy &amp; paste".<br /><br />
+
+<b>binary table file</b> - The file binary_table.dat is the heart of the Doukutsu Assembler. It specifies the majority of the 32-bit x86 binary instruction encodings.
+<br /><br />
+<a name="c"></a><span class="small_header">C</span><br />
+<b>comma separator</b> - The comma separator is used to separate operands in many assembly languages. For example - <span class="teletype">IMUL EAX,ECX,1A</span> has 2 comma separators.
+<br /><br />
+<a name="d"></a><span class="small_header">D</span><br />
+<b>Doukutsu Assembler</b> - An assembler used to compile 32-bit x86 assembly code and patch pre-existing executables with that new code. I created this program in order to simplify and enhance Cave Story .exe modification. It is intended that you use the Doukutsu Assembler along with OllyDbg.
+<br /><br />
+<a name="e"></a><span class="small_header">E</span><br />
+<b>efficiency</b> - Efficiency measures how fast code can execute or how compact it is (space-efficiency). Despite what the experts say, high-level code compilers almost never produce machine code nearly as efficient as hand-written assembly.<br /><br />
+
+<b>encoding</b> - An encoding is the binary representation of an instruction. The encoding for <span class="teletype">ADD (register1),(register2)</span> is:
+
+<pre>0000000&lt;w&gt;11&lt;register2&gt;&lt;register1&gt;</pre>
+
+To create the instruction <span class="teletype">ADD EDX,EAX</span>, we have to realize that <span class="teletype">000</span> means <span class="teletype">EAX</span> and <span class="teletype">010</span> means <span class="teletype">EDX</span>. We also have to set the w-bit to <span class="teletype">1</span> to show that the wideness of this instruction is 32-bits. You get:
+
+<pre>0000000<span class="red">1</span>11<span class="red">000010</span> = ADD EDX,EAX</pre>
+
+<a name="f"></a><span class="small_header">F</span><br /><br />
+<a name="g"></a><span class="small_header">G</span><br /><br />
+<a name="h"></a><span class="small_header">H</span><br />
+<b>high-level language</b> - Any programming language that tends to completely hide or mask the underlying machine code that the CPU executes. These are often easier to use than low-level languages such as assembly. One good example of a high level language is Python.
+<br /><br />
+<a name="i"></a><span class="small_header">I</span><br />
+<b>immediate data</b> - Any 8-bit, 16-bit, 32-bit, or 64-bit number represented as a series of bytes. <span class="teletype">0x4050ABFF</span> and <span class="teletype">0x0129</span> are both examples of immediate data.
+<br /><br />
+
+<b>index</b> - Inside a memory operand, the index is the register that gets multiplied. In <span class="teletype">DWORD PTR DS:[EAX*8+EDX+3029]</span>, the index is <span class="teletype">EAX</span> because it is being multiplied by 8.<br /><br />
+
+<b>Intel</b> - A big company well known for their computer chips. They invented the x86 family of microprocessors, which are widely used today.
+<br /><br />
+<a name="j"></a><span class="small_header">J</span><br /><br />
+<a name="k"></a><span class="small_header">K</span><br /><br />
+<a name="l"></a><span class="small_header">L</span><br />
+<b>label</b> - Labels are identifiers that mark locations/addresses in a program. In some languages, you can use a <span class="teletype">goto</span> statement to jump to a label and continue the code execution from that point. <span class="teletype">Goto</span> statements are considered very bad practice in nearly all programming languages because overusing them creates difficult-to-read code. However, in ASM labels are convenient because ASM does not have if-statements, while-loops, for-loops, etc. All of those control-flow statements are instead represented with jumps and addresses.<br /><br />
+
+<b>low-level language</b> - A programming language that directly represents machine code. All assembly languages are low-level languages. Assembly is sometimes taught in computer science courses to teach people how computers "really work".
+<br /><br />
+
+<a name="m"></a><span class="small_header">M</span><br />
+<b>machine code</b> - Hexadecimal version of assembly code. Pretty much the same thing as <a href="#native_code">native code</a>.<br /><br />
+
+<b>magic number</b> - A magic number is a unique hexadecimal number that is used to clearly identify something in a program. Usually this is a "readable" hex-string such as <span class="teletype">0xDEADBEEF</span> (dead beef) or <span class="teletype">0xCAFEBABE</span> (cafe babe). The Doukutsu Assembler, while parsing labels, will use the 32-bit number <span class="teletype">0xBADC0DE</span> (bad code) to replace a label in an instruction in order to figure out the instruction's expected size. If you see something like <span class="teletype">MOV AX,WORD [BADC0DE]</span> in an error message, then you know where that number comes from.<br /><br />
+
+<b>medium-level language</b> - Any programming language that hides or masks the underlying machine code, but still offers some features of low-level ASM. C++ can be considered a medium-level language because it allows the user to directly control pointers.
+<br /><br />
+
+<b>memory operand</b> - A memory operand refers to an address that holds some data, such as a 32-bit, 16-bit, or 8-bit integer. Also see <a href="#pointer">pointer</a>.<br /><br />
+
+<b>meta-token</b> - This is a term I invented. (actually, I looked it up on Google, and I got some results. So I guess I didn't invent it). Meta-tokens are tokens that have been partially compiled into hex codes. In meta-tokens, jumps and instructions with labels in them have not been compiled because label addresses have not been calculated yet. Also see <a href="#token">token</a>.<br /><br />
+
+<b>mnemonic</b> - The mnemonic is the "name" of each assembly instruction. For example, the instruction <span class="teletype">MOV AL,CH</span> has the mnemonic <span class="teletype">MOV</span>.
+<br /><br />
+<a name="n"></a><span class="small_header">N</span><br />
+<a name="native_code"></a><b>native code</b> - Hexadecimal version of assembly code.
+<br /><br />
+<a name="o"></a><span class="small_header">O</span><br />
+<b>OllyDbg</b> - A 32-bit x86-assembly Windows debugger. <a href="http://www.ollydbg.de/" target="_blank">Download it here</a>. If you're on a 64-bit OS, you can only run OllyDbg version 2.00 or greater. If you're on 64-bit Windows 7, I highly recommend version 2.01 alpha 3 because otherwise you can't use the "Copy to Executable" feature.
+<br /><br />
+<b>operand</b> - Operands are the "arguments" of each assembly instruction (sort of). For example, the instruction <span class="teletype">SUB EAX,200</span> has two operands: <span class="teletype">EAX</span> and <span class="teletype">200</span>. Operand literally means "operated upon".
+
+<br /><br />
+<a name="p"></a><span class="small_header">P</span><br />
+<b>pipe separator</b> - The pipe separator is used in Doukutsu Assembler code in order to write multiple instructions on the same line. For example, to end a function, you can write <span class="teletype">MOV ESP,EBP | POP EBP | RETN</span>.
+<br /><br />
+<a name="pointer"></a><b>pointer</b> - A value that points to an address. In assembly, a pointer dereference is written with square brackets. <span class="teletype">ADD DWORD PTR DS:[499000],0A</span> means "add 10 to the 32-bit integer variable located at address 499000". Pointer dereferences are also called memory or memory operands.
+<br /><br />
+<b>protected mode</b> - Protected mode is a certain operating mode of the x86 that allows for stuff like virtual memory and paging. Pretty much all modern operating systems that use the x86 run in protected mode, and so you'll be writing all your ASM code in protected-mode format.<br /><br />
+
+People often say, "if it can be done on the computer, it can be done in assembly". Well yes, that's true, but not for you. In protected mode, you are not allowed to have full control over the computer. The operation system is shielded from you. You can't change the video settings (at least not directly). And no, you can't enter real mode.<br /><br />
+
+Programs can do some fairly amazing things. But the operating system almost always reigns supreme.<br /><br />
+
+References:
+[<a href="http://www.delorie.com/djgpp/doc/ug/basics/protected.html" target="_blank">What does protected mode mean?</a>] 
+[<a href="http://www.intel-assembler.it/portale/5/pc-assembly-language-manual/pc-assembly-language-manual.asp" target="_blank">PC Assembly Language Manual</a>]
+<br /><br />
+<a name="q"></a><span class="small_header">Q</span><br /><br />
+<a name="r"></a><span class="small_header">R</span><br />
+<b>real mode</b> - <!--You can think of this as "God mode". Sort of. -->Real mode for the x86 certainly has its limitations, but is also extremely powerful. You have full control over the computer and you can access any memory address, including memory belonging to other programs. Back in the days when DOS was used, people sometimes wrote entire programs in real mode.
+<br /><br />
+<a name="s"></a><span class="small_header">S</span><br />
+<b>scale</b> - Inside a memory operand, the scale is the number that a register gets multiplied by. In <span class="teletype">DWORD PTR DS:[EAX*8+EDX+3029]</span>, the scale is the number 8. In binary, the scale is written with only 2 bits. There are only four possible scales: 1,2,4, or 8.
+<br /><br />
+<a name="t"></a><span class="small_header">T</span><br />
+<b>tilde operator</b> - The tilde operator (<span class="teletype">~</span>) is used in Doukutsu Assembler code to transform the decimal number right after it into a hex number. For example, if you wanted to store the decimal number 529 into EAX and were too lazy to use a hex calculator, just write <span class="teletype">MOV EAX,~529</span>.
+<br /><br />
+
+<a name="token"></a><b>token</b> - A token is a small piece of text that the Doukutsu Assembler uses while parsing ASM code. The instruction <span class="teletype">LEA EAX,[ECX*4+500]</span> can be split into 3 tokens: <span class="teletype">LEA</span>, <span class="teletype">EAX</span>, and <span class="teletype">[ECX*4+500]</span>.
+<br /><br />
+<a name="u"></a><span class="small_header">U</span><br /><br />
+<a name="v"></a><span class="small_header">V</span><br />
+<a name="token"></a><b>variation</b> - Another term I invented. A variation is a particular combination of an instruction and its operands. <span class="teletype">MOV (register),(register)</span> is a different variation of <span class="teletype">MOV</span> than <span class="teletype">MOV (memory),(hex number)</span>. I believe Intel would call these "encodings".
+<br /><br />
+<a name="w"></a><span class="small_header">W</span><br /><br />
+<a name="x"></a><span class="small_header">X</span><br />
+<b>x86 assembly (32-bit and 64-bit)</b> - x86 assembly is the ASM language used for Intel's x86 family of processors. The 32-bit version uses mainly 32-bit registers like <span class="teletype">EAX</span> and <span class="teletype">ECX</span>. The 64-bit version has 64-bit registers like <span class="teletype">RAX</span> and <span class="teletype">RCX</span>. 32-bit applications can still run on the 64-bit version, usually.<br /><br />
+
+<b>x64 assembly</b> - x64 is exactly the same thing as 64-bit x86.
+<br /><br />
+<a name="y"></a><span class="small_header">Y</span><br /><br />
+<a name="z"></a><span class="small_header">Z</span><br />
+<b>z80 assembly</b> - (Trivia only) - The z80 is an 8-bit microprocessor used in modern graphing calculators (especially ones made by Texas Instruments). Processors very similar to the z80 were also used in the original Game Boy and Game Boy Color. The z80 ASM language is ridiculously simple and uses mostly 8-bit registers. If you're learning ASM for the first time, this is actually a good place to start understanding the basics.
+<br /><br />
+
+<br />
+<a href="..\Userguide.html">Back to the Table of Contents</a><br /><br /><br /><br />
+
+</td></tr>
+</table>
+
+</body>
+</html>

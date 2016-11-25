@@ -1,0 +1,3 @@
+offset 401000
+
+//Put assembly code here.

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<title>Tips and Info for Linux</title>
+</head>
+
+<body>
+<div class="center"><span class="big_header">Tips and Info for Linux (Ubuntu)</span></div><br />
+
+<table class="maintable">
+<tr><td>
+
+<span class="small_header">Opening the Doukutsu Assembler Using Right-Click (Not recommended)</span><br />
+Opening the Assembler in Ubuntu is possible through the right-click menu. Right click on it and select "Open With OpenJDK Java 6 Runtime" or "Open With Sun Java 6 Runtime". Do not use the archive manager.<br /><br />
+
+<img src="img/open_in_linux.png" alt="Open Assembler" /><br /><br />
+
+<span class="red">Warning: It is suggested that, in Linux, you do not use the right click menu to run the Assembler. Instead, use the below method (bash file method) to open the Assembler. Otherwise, the program has trouble finding defines.txt and dumps the error.log file into your /home/username folder. Not good.</span><br /><br />
+
+<span class="small_header">Running the Assembler from a Bash Script (Recommended)</span><br />
+<br />
+<b>If you downloaded the special Linux version of the Doukutsu Assembler, you should already have this bash file inside your extracted folder. You don't need to recreate it.</b><br /><br />
+Running the Assembler from a bash script has some serious benefits. We are now going to create a bash file (which is one type of Linux shell script). This should be a lot easier than using the Terminal to navigate and find the Assembler.<br /><br />
+
+Paste the following code into a text editor and save it as <span class="teletype">Run Assembler</span>.
+<pre>#!/bin/bash
+
+java -jar 'Doukutsu Assembler.jar'
+echo "[Program Finished.]"
+echo "Press return to exit..."
+read nothing</pre>
+
+Now use <span class="teletype">chmod +x 'Run Assembler'</span> in Terminal to force it to become an executable script. Instead of <span class="teletype">chmod</span>, you can also right-click the file, go to Properties > Permissions, and check the Allow Executing File As Program checkbox.<br /><br />
+
+Put the <span class="teletype">Run Assembler</span> file in the same folder as the Doukutsu Assembler. Double-click on the script (make sure you select Run in Terminal when it prompts you) and it'll run the Assembler. When you close the Assembler but not the Terminal window, you should see <span class="teletype">[Program Finished.]</span>.<br /><br />
+
+<img src="img/terminal.png" title="Terminal" alt="Terminal" /><br />
+
+There are many advantages to running from a bash file. If the program unexpectedly crashes without displaying a proper error box, you can see what went wrong inside the Terminal window.<br /><br />
+
+Also, if the program gets stuck in an infinite loop (which should hopefully never happen), you can close the Terminal window and it will shut down the Assembler immediately.<br /><br />
+
+<span class="small_header">Preparing defines.txt, settings.ini, and asm.txt</span><br />
+<br />
+<b>If you downloaded the special Linux version of the Doukutsu Assembler, please IGNORE this section entirely. You shouldn't need to resave defines.txt or any other text file that came with the Assembler.</b><br /><br />
+
+Before you start using the Assembler, it is very important to change defines.txt and any similar text files so that they have Linux-style end of line characters instead of Windows-style end of line characters. Open defines.txt in a text editor (not the Assembler itself!) and resave the file with the Linux/Unix line ending style. I highly recommend the text editor gedit because it clearly has this feature:<br /><br />
+
+<img src="img/resave_defines.png" alt="Resaving Defines File" /><br /><br />
+
+Do the exact same thing for settings.ini and asm.txt.<br /><br />
+
+<span class="small_header">Font Problems</span><br />
+The Linux version of the Doukutsu Assembler uses Liberation Mono as its font. The Windows version uses Lucida Console.<br /><br />
+Lucida Console is Microsoft proprietary, but Liberation Mono is free. You should be able to get a copy of the Liberation Mono font simply by searching online. Most Linux machines already have this font pre-installed, so don't worry about it unless you're clearly running into font problems.
+
+<br /><br />
+<a href="..\Userguide.html">Back to the Table of Contents</a><br /><br /><br /><br />
+</td></tr>
+</table>
+
+</body>
+</html>
