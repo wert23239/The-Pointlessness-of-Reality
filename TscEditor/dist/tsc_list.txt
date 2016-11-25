@@ -1,0 +1,125 @@
+By Wistil
+
+Here's info for the TSC commands.  Basic setup is the command name, the number of arguments it takes,
+a short name for the command, and a description of what it does.  I have personally kept the short
+names in such a way that the names match fairly well with the command code.  That way when I read
+<MYB I think MY Bump and not Player Bump which makes more sense to me.
+
+
+The following descriptions are used by CE to display information more useful for the current data
+entered for a command command.  These ids are NOT editable.
+a	arms
+A	ammo
+d	direction
+e	event
+f	face
+F	flag
+g	graphic
+l	illustration
+i	item
+m	map
+u	music
+N	npc (specific)
+n	npc type
+s	sound
+t	tile
+x	x coord
+y	y coord
+#	number
+.	ticks
+
+Tab and newline are token delimeters...
+
+
+[CE_TSC]	91
+<AE+	0	----	Arms Energy +	Refill Ammo
+<AM+	2	aA--	ArMs +	Give weapon X with Ammo Y (or just adds ammo Y to X)
+<AM-	1	a---	ArMs -	Lose Weapon X
+<AMJ	2	ae--	ArMs Jump	Jump to Y if player has weapon X
+<ANP	3	N#d-	Animate NPc	Animate npc X with animation Y and direction Z
+<BOA	1	#---	BOss Animation	Animate boss
+<BSL	1	N---	Boss Script Load	Start boss fight with npc X
+<CAT	0	----	Speed All Text	Instant text display on all messages until END
+<CIL	0	----	Clear ILlustration	Clears illustration during credits
+<CLO	0	----	CLOse	Close message box
+<CLR	0	----	CLeaR	Clear message box
+<CMP	3	xyt-	Change MaP tile	Change map coords X:Y to tile Z (with smoke)
+<CMU	1	u---	Change MUsic	Change music to song X
+<CNP	3	Nnd-	Change NPc	Change npc X to type Y with direction Z
+<CPS	0	----	Clear Prop. Sound	Clears propeller sound
+<CRE	0	----	CREdits	Roll Credits
+<CSS	0	----	Clear Stream Sound	Clear stream sound
+<DNA	1	n---	Delete NPC All	Delete all NPC of type XXXX
+<DNP	1	N---	Delete NPc	Delete npc X
+<ECJ	2	#e--	Event Check Jump	Jump to Y if npc with ID X exists
+<END	0	----	END	End script event
+<EQ+	1	#---	EQuip +	Add X to equip flag bytes
+<EQ-	1	#---	EQuip -	Subtract X from equip flag bytes
+<ESC	0	----	ESCape	Quit to title screen
+<EVE	1	e---	EVEnt	Jump to event X (non-conditional)
+<FAC	1	f---	FACe	Show face X in message box
+<FAI	1	d---	FAde In	Fade in from direction X
+<FAO	1	d---	FAde Out	Fade out from direction X
+<FL+	1	F---	FLag +	Set flag X
+<FL-	1	F---	FLag -	Clear flag X
+<FLA	0	----	FLAsh	Flash screen
+<FLJ	2	Fe--	FLag Jump	Jump to event Y if flag X is set
+<FMU	0	----	Fade MUsic	Fade Music to low volume
+<FOB	2	N.--	Focus On Boss	Focus of boss X in Y ticks [Y > 0]
+<FOM	1	.---	Focus On Me	Focus on player in X ticks [X > 0]
+<FON	2	N.--	Focus On Npc	Focus on npc X in Y ticks [Y > 0]
+<FRE	0	----	FREe	Frees menu cursor [also used after ZAM or some reason]
+<GIT	1	g---	Graphic ITem	Show item X in message box (add 1000 to X for items - GIT0000 to remove)
+<HMC	0	----	Hide My Character	Hides player
+<INI	0	----	INItialize	Resets memory and starts game from beginning
+<INP	3	Nnd-	[I?] NPc	Change NPc X to type Y and direction Z [Sets flag 0x8000]
+<IT+	1	i---	ITem +	Add item X
+<IT-	1	i---	ITem -	Remove item X
+<ITJ	2	ie--	ITem Jump	Jump to Y if player has item X
+<KEY	0	----	KEY lock	Locks keyboard input and hides status bars until END [used for message boxes]
+<LDP	0	----	LoaD Profile	Loads Profile.dat save file
+<LI+	1	#---	LIfe +	Restores X health
+<ML+	1	#---	Max Life +	Maximum health increases by X
+<MLP	0	----	Map [LP?]	Display Map
+<MM0	0	----	My Motion 0	Sets player horizontal motion to zero
+<MNA	0	----	Map NAme	Displays map name
+<MNP	4	Nxyd	Move NPc	Moves npc X to coords Y:Z with direction W
+<MOV	2	xy--	MOVe	Moves player to X:Y
+<MPJ	1	e---	MaP Jump	Jump to event X if current map's flag set.
+<MP+	1	#---	[MaP +?]	Unknown [map-related]
+<MS2	0	----	MeSsage 2	Places an invisible message box at top of screen
+<MS3	0	----	MeSsage 3	Places a message box at top of screen
+<MSG	0	----	MeSsaGe	Places a message box at bottom of screen
+<MYB	1	d---	MY Bump	Player jumps in direction X
+<MYD	1	d---	MY Direction	Set player direction to X
+<NCJ	2	ne--	Npc Check Jump	Jumps to Y if any npc of type X exist
+<NOD	0	----	NOD	Message box wait for key press to continue
+<NUM	1	#---	NUMber	Outputs variable X as text
+<PRI	0	----	PRInt	Hides status bars and freezes game until KEY or END
+<PS+	2	#m--	Portal Slot +	Set teleporter slot X to location Y
+<QUA	1	.---	QUAke	Shake screen for X ticks
+<RMU	0	----	Restore MUsic	Restores music playback [doesn't work for all songs]
+<SAT	0	----	Speed-up All Text	Instant text display until CLR
+<SIL	1	l---	Show ILlustration	Show Illustration X during credits
+<SK+	1	F---	SKipflag +	Sets Skipflag X [remains set after player died]
+<SK-	1	F---	Skipflag -	Removes Skipflag
+<SKJ	2	Fe--	SKipflag Jump	Jump to event Y if Skipflag X is set
+<SLP	0	----	Show Location Portals	Show teleporter location menu
+<SMC	0	----	Show My Character	Shows player character
+<SMP	2	xy--	Shift MaP tile	Shift map tile at coords X:Y one tile to the left in the tile set (without smoke)
+<SNP	4	nxyd	Set NPc	Create npc of type X at coord Y:Z and direction W
+<SOU	1	s---	SOUnd	Play Sound X
+<SPS	0	----	Start Propeller Sound	Starts propeller sound 
+<SSS	1	#---	Start Stream Sound	Starts stream sound with pitch X
+<STC	0	----	Save Time Counter	Saves time counter to 290.rec
+<SVP	0	----	SaVe Profile	Save game
+<TAM	3	aaA-	Trade ArMs	Trade weapon X for weapon Y with ammo Z [max ammo 0000 = no change]
+<TRA	4	mexy	TRAnsport	Transport to map X, run event Y and place player at coordinates Z:W
+<TUR	0	----	Text UnRead?	Instant text display until END or EVE
+<UNI	1	#---	UNIverse?	Changes movement mode (0000 - regular, 0001 - zero-G, 0002 - No movement allowed)
+<UNJ	1	#---	UNiverse Jump?	Unknown
+<WAI	1	.---	WAIt	Pauses script for X ticks
+<WAS	0	----	WAit until Standing	Pause script until player touches ground
+<XX1	1	l---	XX1	Shows distant view of Island [image X]
+<YNJ	1	e---	Yes/No Jump	Ask question, jump to event X if no
+<ZAM	0	----	Zero ArMs	All weapon levels drop to 1
