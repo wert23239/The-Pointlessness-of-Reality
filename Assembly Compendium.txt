@@ -1,0 +1,2300 @@
+		Noxid`s Assembly Compendium
+A collection of the Assembly knowledge on the Miraigamer Forums
+Foreword: This is just a straight-up copypaste of all the information I could dredge on Assembly Hacking. None of it is my own work.
+Also, I'm aware there's some repeated information. I tried to group by section, and some things belonged in more than one section.
+It helps if you just kinda know where most of the stuff in here is though (I made it, so, I do :])
+Finally, 0x, $0, and 00 leading the offsets all mean the same thing, but since this is from multiple sources  there are multiple representations.
+
+Table of Contents!
+Assembly Offsets Lists: [OFF]
+	Weapons: [OFFWEP]
+	NPC pointer list: [OFFNPC]
+Note: To find a specific # NPC, search [NPC#] where the # is the NPC ID rounded down to the nearest 10s
+	Boss AI table: [OFFBOSS]
+	All Other Offsets: [OFFMISC]
+		ROM Offsets: [OFFROM]
+		General Offsets: [MISCGEN]
+		Random Offsets: [MISCRAN]
+		Functions: [MISCFUN]
+		No clue: [MISCMISC]
+		Weapon related: [MISCWEP]
+		Effects related: [MISCEFF]
+		Screen rects etc:[MISCSCRN]
+		No good classification: [MISCODD]
+		NPC related: [MISCNPC]
+Assembly Hacking Information and Tutorials: [INF]
+	Commands list: [INFCOM]
+	Registers; General info and list: [INFREG]
+	Offsets; General info: [INFOFF]
+	Pointers; How and what: [INFPOI]
+	TSC Command Modding: [INFTSC]
+Information on Functions: [FUN]
+	Special Effects Functions: [FUNFX]
+NPC Hacking: [NPCHX]
+	Displaying Entities: [NPCDSP]
+	Animating Entities: [NPCGO]
+	A really big example from RuneLancer: [NPCEX1]
+	A simpler example from S. P. Gardebiter: [NPCEX2]
+RuneLancer’s NPC Guide [NPCGUIDE]
+	Example NPC Pseudocode: [NPCPSU]
+	Creating your own NPC: [NPCNEW]
+	Handy Offsets for NPCs: [NPCOFF]
+	Handy Functions for NPCs: [NPCFUN]
+Title Screen Hacking: [TITLE]
+
+
+Assembly Offsets Lists [OFF]  http://www.miraigamer.net/forums/showthread.php?t=942
+Weapons: [OFFWEP]
+
+0x047B0 - Polar Star (all levels)
+
+0x04B30 - Fireball (all levels)
+
+0x05120 - Machinegun (all levels)
+
+0x055A0 - Missile Launcher (all levels)
+
+0x05F30 - Bubbler level 1
+0x06190 - Bubbler level 2
+0x064D0 - Bubbler level 3
+
+0x068B0 - Bubbler level 3 shot
+0x075E0 - Blade level 3 slash
+0x078A0 - [unused]
+
+0x06BB0 - Blade level 1
+0x06E60 - Blade level 2
+0x07110 - Blade level 3
+
+0x07910 - Super 	Missile Launcher (all levels)
+
+0x08230 - Nemesis (all levels)
+
+0x08710 - Charged spur (all levels)
+
+0x08AE0 - Non moving spur (all levels)
+
+
+Gun:
+Snake - 41DBD0
+Polar Star - 41DE60
+Fireball - 41E110
+Machine Gun - 41E3D0
+Missle Launcher - 41E7B0 [regular and super??]
+Bubbler -  41EFD0 & 41F280
+Blade - 41F580
+Nemesis - 41F710
+Spur - 41FA10
+
+
+937F4-98187 = free space (Old map data, use for RAM only)
+
+
+NPCs [OFFNPC] http://spgardebiter.sp.funpic.de/CaveStory/FAQ/NPC.txt
+0000-0009 [NPC0]
+0x0026530	0x00265B0	0x0026AF0	0x0026FD0	0x0027040
+0x0027480	0x0027820	0x0027C60	0x0027F00	0x0028260
+
+0010-0019 [NPC10]
+0x0028540	0x00289B0	0x0028B10	0x0029940	0x0029A30	
+0x0029BF0	0x0029E00	0x002A0B0	0x002A360	0x002A490
+
+0020-0029 [NPC20]
+0x002A830	0x002A940	0x002A9C0	0x002AA70	0x002ABD0	
+0x002B280	0x002B5E0	0x002BA90	0x002BAE0	0x002C1A0
+
+0030-0039 [NPC30]
+0x002C320	0x002C4C0	0x002CA10	0x002CAC0	0x002CC20	
+0x002CCB0	0x002D010	0x002D760	0x002D810	0x002D960
+
+0040-0049 [NPC40]
+0x002D9F0	0x002DE00	0x002DE70	0x002E9F0	0x002EAB0	
+0x002F060	0x002F320	0x002F3F0	0x002F780	0x002F9E0
+
+0050-0059 [NPC50]
+0x002FEC0	0x00301B0	0x0030780	0x00307D0	0x0030B00	
+0x0030EB0	0x00311D0	0x00315E0	0x0031C20	0x00321F0
+
+0060-0069 [NPC60]
+0x0032460	0x0032B50	0x00334C0	0x00336C0	0x0033C00	
+0x0033FC0	0x00342B0	0x00345E0	0x0034D10	0x00355F0
+
+0070-0079 [NPC70]
+0x0035AB0	0x0035BA0	0x0035DE0	0x0035FC0	0x0036180	
+0x0036540	0x0036650	0x0036690	0x00367E0	0x0036870
+
+0080-0089 [NPC80]
+0x0036AE0	0x00370F0	0x00375E0	0x0037D90	0x0038250	
+0x00383D0	0x0038590	0x0038850	0x0038B10	0x0039580
+
+0090-0099 [NPC90]
+0x0039B00	0x0039B50	0x0039BC0	0x0039DC0	0x003A220	
+0x003A680	0x003AAF0	0x003AD10	0x003AF20	0x003B140
+
+0100-0109 [NPC100]
+0x003B350	0x003B410	0x003B4E0	0x003B5F0	0x003B7F0	
+0x003BD00	0x003BDB0	0x003BE00	0x003C4B0	0x003C610
+
+0110-0119 [NPC110]
+0x003C8E0	0x003CDE0	0x003D0A0	0x003D320	0x003D860	
+0x003DAE0	0x003E190	0x003E1E0	0x003E9B0	0x003F230
+
+0120-0129 [NPC120]
+0x003F280	0x003F310	0x003F4A0	0x003FC70	0x003FEF0	
+0x00400D0	0x00401F0	0x0040760	0x00408B0	0x0040CF0
+
+0130-0139 [NPC130]
+0x0041000	0x0041360	0x0041440	0x00419B0	0x0041B20	
+0x0041EC0	0x0042340	0x0042540	0x0042590	0x0042790
+
+0140-0149 [NPC140]
+0x0042BF0	0x0043AC0	0x0043EC0	0x0044190	0x0044230	
+0x0044620	0x0044780	0x0044930	0x0045050	0x0045170
+
+
+0150-0159 [NPC150]
+0x0045660	0x0045E30	0x0045FA0	0x0046020	0x0046500	
+0x0046710	0x0046B60	0x0046CA0	0x0047180	0x00474C0
+
+0160-0169 [NPC160]
+0x0047700	0x0047CB0	0x0047E90	0x00482A0	0x0048410	
+0x0048580	0x00486E0	0x00487F0	0x0048A10	0x0048BE0
+
+0170-0179 [NPC170]
+0x00495A0	0x00498C0	0x0049C10	0x0049D70	0x004A3C0	
+0x004A610	0x004A7D0	0x004ABB0	0x004AEE0	0x004B080
+
+0180-0189 [NPC180]
+0x004B210	0x004BE10	0x004C220	0x004C630	0x004C7A0	
+0x004CA60	0x004CBE0	0x004CDB0	0x004D070	0x004D3A0
+
+0190-0199 [NPC190]
+0x004D5E0	0x004D740	0x004DA00	0x004DE20	0x004DEA0	
+0x004DF10	0x004DF60	0x004E020	0x004E260	0x004E400
+
+0200-0209 [NPC200]
+0x004E5F0	0x004EC40	0x004ECE0	0x004EE40	0x004F1F0	
+0x004F3E0	0x004F6D0	0x004FB40	0x004FCB0	0x0050280
+
+0210-0219 [NPC210]
+0x0050400	0x0050760	0x0050810	0x0050BF0	0x00512A0	
+0x0051430	0x00517F0	0x0051840	0x0051CA0	0x0051DA0
+
+0220-0229 [NPC220]
+0x0051E90	0x0052000	0x0052470	0x00524E0	0x0052700	
+0x00528D0	0x0052A50	0x0052D10	0x0052D60	0x00530D0
+
+0230-0239 [NPC230]
+0x0053190	0x0053260	0x00536F0	0x00539B0	0x0053E60	
+0x0053F20	0x0054310	0x00548B0	0x0054A00	0x0054DF0
+
+0240-0249 [NPC240]
+0x0054F00	0x0055370	0x0055710	0x0055A10	0x0055AB0	
+0x0055C10	0x0055E00	0x0056110	0x0056F50	0x00570B0
+
+
+0250-0259 [NPC250]
+0x0057180	0x0057470	0x0057570	0x00579D0	0x0057B00	
+0x0057D70	0x0058010	0x0058360	0x00585A0	0x00585F0
+
+0260-0269  [NPC260]
+0x0058810	0x0058A70	0x0058C30	0x0058DF0	0x0059950	
+0x0059B30	0x0059C00	0x0059D80	0x005B3D0	0x005BCB0
+
+0270-0279 [NPC270]
+0x005BF10	0x005C230	0x005C500	0x005C5A0	0x005C750	
+0x005CC80	0x005CEA0	0x005D780	0x005D930	0x005DCF0
+
+0280-0289  [NPC280]
+0x005E110	0x005E360	0x005E4C0	0x005E950	0x005F910	
+0x0060910	0x0060AE0	0x0060BB0	0x0060D70	0x00610D0
+
+0290-0299  [NPC290]
+0x00614A0	0x0061800	0x00618B0	0x00618C0	0x00619E0	
+0x0061B90	0x0061E40	0x0061FD0	0x0062050	0x00623D0
+
+0300-309  [NPC300]
+0x00624E0	0x00625A0	0x0062890	0x0062AF0	0x0062C80	
+0x0062E00	0x0062F60	0x00630F0	0x00632B0	0x0063710
+
+0310-0319 [NPC310]
+0x0063AC0	0x0064090	0x0064740	0x0064BB0	0x0065CC0	
+0x0065F60	0x00664B0	0x0066790	0x0066B80	0x0066E50
+
+0320-0329 [NPC320]
+0x00670C0	0x00673F0	0x00676D0	0x0067C60	0x0067F40	
+0x0067FE0	0x0068230	0x0068830	0x0068990	0x00689E0
+
+0330-0339 [NPC330]
+0x0068A90	0x0068D70	0x0068F50	0x0069140	0x0069290	
+0x0069430	0x0069610	0x00696B0	0x0069800	0x0069AA0
+
+0340-0349 [NPC340]
+0x0069B40	0x006B240	0x006B340	0x006BD80	0x006BE10	
+0x006BF00	0x006C1D0	0x006C710	0x006C9B0	0x006CAC0
+
+
+0350-0359 [NPC350]
+0x006CB50	0x006D340	0x006D5D0	0x006DBE0	0x006E110	
+0x006E280	0x006E480	0x006E730	0x006E870	0x006E9E0
+
+0360: 0x006EA90
+Boss AI [OFFBOSS]
+
+Boss 0 (no special boss): 0x0072FF0	
+Boss 1 (Omega): 0x007B6F0	
+Boss 2 (Balfrog): 0x0079030	
+Boss 3 (Monster X): 0x007E6F0	
+Boss 4 (Core): 0x0074400	
+Boss 5 (Ironhead): 0x007A8A0	
+Boss 6 (Dragon Sisters): 0x007D170	
+Boss 7 (Undead Core): 0x00753D0	
+Boss 8 (Heavy Press): 0x007C820	
+Boss 9 (Ballos [Ball]): 0x00772F0
+The rest of the Offsets: [OFFMISC]
+
+Rom: [MISCROM]
+
+$000000 - Exe Header
+$00DE78 - Background Colour: Fade
+$00FDA9 - Title Screen Colour
+$010409 - Background Colour: Null
+$014B50 - Startup Info
+$014BCF - Start Health (Current)
+$014BD8 - Start Health (Max)
+$01D599 - Start Map
+$168FFF - End of Exe
+
+General: Also some TSC Stuff. [MISCGEN]
+
+004156D7 thru 00415750 -- Agility Code, How fast you move in water or on land
+00414B20 thru 00414B39 -- Pushes reserved space onto the ram. used for maps, so the higher you set push 80, the more possible maps.
+00415BF7 -- the jump function
+00404D61 -- handles the angle of the fireball shot
+0040F350 -- random number generator
+00419CB0 -- ml+
+004242DA -- cmu
+0040DB70 -- xx1
+00422510 -- tsc parser
+00421900 -- ascii to # macro
+0x422510 - Parser Offset
+0x4225d5 - Galloping Triplets
+0x425770 - End of Parser
+0x421900 - ASCII to number
+
+Command Ini:
+0x4242dA - CMU
+0x422666 - LI+
+0x4227a3 - IT+
+0x422821 - IT-
+0x422893 - EQ+
+0x422907 - EQ-
+0x422c93 - UNI
+0x42314f - KEY
+0x4237e6 - YNJ
+0x424e28 - FAC
+0x424eaf - FAC(2)
+0x4251fc - ESC
+
+Command Subs:
+0x420ee0 - CMU
+0x419c60 - LI+
+0x419cb0 - ML+
+0x4012d0 - IT+
+0x401330 - IT-
+0x416c70 - EQ+
+
+Random: Player data, and other stuff. [MISCRAN]
+
+00499B40 - Inventory
+00499bc8 WeaponData[0x00].ID +00 0x14 in size.
+00499bcb WeaponData[0x00].ShotID +04
+00499bcc WeaponData[0x00].Level +08
+00499bd0 WeaponData[0x00].Energy +0c
+00499bd4 WeaponData[0x00].MaxAmmo +10
+00499bd8 WeaponData[0x00].Ammo +14
+00499bc0 InventoryViewType [ Checking weapons 0x00 or items? 0x01 ]
+00499c68 SelectedWeaponID
+00499c6c SelectedItemID
+0049DB34 IsScreenBlack
+0049DDA0 EventFlags x 03E8, 1 bit each so 8000 flags.
+0049E6C0 LvBarFlashesLeft [how many flashes before the bar stops flashing]
+0049E6C4 ExpToGained [how much exp remains to be gained - reset to 0 after using]
+0049E6C8 InvincTimer
+0049E6CC CurrentHealth
+0049E6CE NumWhimStars
+0049E6D0 MaxHealth
+0049E6D4 YellowHealthBar [health bar value - the yellow part]
+0049E6D8 YellowHealthBarTimer [yellow health bar updated each 0x1E ticks]
+0049E6DC Oxygen (x10)
+0049E6E0 Flashing Arrow Timer (for Air Counter)
+0049E6E8 JetpackEnergy
+0049E6E6 Jetpack fuel delay(?)
+0049E6F4 NikumaruTime
+0049E638 PlayerFlags [0x01 Inspecting | 0x02 Removed | 0x04 Walking | 0x08 | 0x10 | 0x20 | 0x40 | 0x80 Visible | 0x100 Water]
+0049E63C Player on which tile? [400 = spike]
+0049E640 DirectionFaced
+0049E644 IsFacingUp [0x01 Facing Up]
+0049E648 IsFacingDown [0x01 Facing Down]
+0049E64C InFishBattle [When 0x01, move around screen in bubble like in fish battle]
+0049E650 EquippedItems
+0049E654 PlayerXPosition [In 512ths of a pixel]
+0049E658 PlayerYPosition [In 512ths of a pixel]
+0049E65C QuoteCameraXPosition
+0049E660 QuoteCameraYPosition
+0049E664 QuoteCameraOffsetX
+0049E668 QuoteCameraOffsetY
+0049E66C VelocityX [how much current/wind is affecting the player. X axis.]
+0049E670 VelocityY [how much current/wind is affecting the player. Y axis.]
+0049E67C QuoteHitRect.L [used to determine quote's solidity]
+0049E680 QuoteHitRect.U
+0049E684 QuoteHitRect.R
+0049E688 QuoteHitRect.D
+0049E68C QuoteSizeRect.L [used to determine quote's size]
+0049E690 QuoteSizeRect.U
+0049E694 QuoteSizeRect.R
+0049E698 QuoteSizeRect.D
+0049E6AC WeaponSrcRect.L [used to render quote's weapon]
+0049E6B0 WeaponSrcRect.U
+0049E6B4 WeaponSrcRect.R
+0049E6B8 WeaponSrcRect.D
+0049E218 LastKeyHeld
+0048f040 WeaponIconXOffset [icon and text; 0x10 is centered]
+0048f914 GraphicScale [Part of the data which handles different resolutions.]
+0048f91c FullscreenRect [Rect which covers the screen. Render onto this.]
+0048f924 RenderWidth [Which X to stop rendering on.]
+0048f928 RenderHeight [Which Y to stop rendering on.]
+00493464 Timer1000Init [Set to 0x00 once init.]
+0049E210 Key_Held See Key Table.
+0049E214 Key_Pressed See Key Table.
+00493610 KeyForJump
+00493614 KeyForShoot
+00493618 KeyForNextWeapon [which key is "next weapon"]
+0049361C KeyForPrevWeapon [which key is "previous weapon"]
+00493620 KeyForMenu [which key is "menu"]
+00493624 KeyForMinimap [which key is "minimap"]
+00493628 KeyForJump [which key is "jump"]
+0049362C KeyForShoot [which key is "shoot"]
+00493630 KeyForLeft [which key is "left"]
+00493634 KeyForUp [which key is "up"]
+00493638 KeyForRight [which key is "right"]
+0049363C KeyForDown [which key is "down"]
+00499b40 Inventory[0x00] 0x04 x 0x20 in size.
+00499bc4 InventoryLabelPos [ Relative height of --Arms-- and --Item-- labels. ]
+0x0048C4D8 0x01 x 0x08 b ROM_ImageTag The tag-text "(C)Pixel" used to protect images.
+0x0048F048 0x?? x 0x2C b ROM_WeaponData Weapon info.
+0x0048F048 0x00 Damage
+0x0048F049 0x01 Num Impacts
+0x0048F04C 0x04 MaxDistance
+0x0048F050 0x08 Behavior Flags [01:??? 02:??? 04:Ignore_Wall 08:Climb_Slop 10:??? 20:??? 40:??? 80:???]
+0x0048F054 0x0C Bullet size width
+0x0048F058 0x10 Bullet size Height
+0x0048F05C 0x14 Wall collision X
+0x0048F060 0x18 Wall collision Y
+0x0048F064 0x1C Pos Offset L
+0x0048F068 0x20 Pos Offset U
+0x0048F06C 0x24 Pos Offset R
+0x0048F070 0x28 Pos Offset D
+0x0048F8C0 0x?? x 0x04 b ROM_PEffects Pointer to the effects (puff, spark..)
+0x0048F93C 0x01 x 0x04 b ROM_PImageTag Pointer to the tag-text.
+0x0048F940 0x57 x 0x?? b ROM_SoundData Sounds 0x0001161A is the code which loads it. Function pushes the address and the sound ID.
+0x00493640 0x01 x 0x04 b ROM_PClassName Pointer to class name. 0x00012331 is the code which loads it.
+0x00493660 0x04 x ?? b ROM_WeaponExpTables Weapon exp tables. Weapon 0, Lv 1, 2, 3; Weapon 1, Lv 1, 2, 3... etc.
+0x004937B0 0xC8 x ?? b ROM_MapHeaders Map headers.
+0x004937B0 0x00 TilesetName
+0x004937D0 0x20 MapFileName 	
+0x004937F0 0x30 BGType
+0x004937F4 0x44 BGImageFile
+0x00493814 0x64 SpriteFileA
+0x00493834 0x84 SpriteFileB
+0x00493854 0xA4 BossID
+0x00493855 0xA5 Name
+0x004981E8 0x2A x 0x04 b Pointer to songs L00420F48 loads it. Seems to be names, but swapping them works? Weird.
+0x00498548 0x0169 x 0x04 b ROM_PEnemyCode Pointer to enemy code.
+0x00498AEC 0x0A x 0x04 b ROM_PBossCode Pointer to boss code.
+0x004A5ADC byte TSC State [0 No TSC | 1 In TSC | 2 TSC paused | 4 <WAI | 5 FAI/FAO | 6 Yes/No decision | 7 <WAS | others ?????]
+0x004A5B08 - Either 0 or 1, and determines the Yes/No cursor's x-pos (value * 0x29 + 0xD3)
+0x004A5AFC - Yes/No box y-pos, -ve values are further down the screen, >= 2 sets at the final position.
+
+???????: [MISCMISC]
+00401FA0 dk_SubAmmoFromSelected(int AmmoAmount)
+00402020 dk_AddAmmoToSelected(int AmmoAmount)
+0040B800 dk_LoadImageFileA(A8, Ac)
+0040BAC0 dk_LoadImageFileB(A8, Ac)
+0040BFD0 dk_LoadImageFileC(A8, Ac)
+00410D80 dk_FileLenght(char* FileName)
+00410EE0 dk_CenterWindow(HWND hWindow)
+00413570 dk_MessageQueue()
+00416AA0 dk_GetPlayerXY(int *X, int *Y)
+00419650 Touch XP chip
+00419890 dk_ResetSelectedWeapon()
+004198C0 dk_LevelDownFrom3()
+00419C60 dk_GainHP(int HPAmount)
+00480FFD dk_fopen(char* FileName, char* FileMode)
+0040F350 Random Number Generator
+0048b8be API_VerQueryValue
+0048b8c4 API_GetFileVersionInfo
+0048b8ca API_GetFileVersionInfoSize
+0048c038 API_GetPixel
+0048c03c API_SetPixel
+0048c040 API_DeleteObject
+0048c100 API_GetModuleFileName
+0048c1b8 API_GetWindowRect
+0048c1e0 API_PeekMessage
+0048c1e4 API_GetMessage
+0048c1e8 API_TranslateMessage
+0048c1ec API_DispatchMessage
+0048c1f0 API_DeleteMenu
+00499c70 MenuRectFlash [Whether the rectangle is white or black, for the flash effect.]
+00499c78 BackgroundSizeX
+00499c7C BackgroundSizeY
+00499C88 BackgroundMode
+00499c90 GlobalWaterDepth [How deep the water is - think "core battle."]
+004bd02c HeapHandle
+004be044 PcommandLine
+
+#Weapon stuff [MISCWEP]
+
+0x00401FA0 Weapon Ammo reduction code.
+(this is for bullets)
+0499C98 WeaponObj[0x00].Collision +0x00 [01:WallL 02:WallR 04:WallT 08:WallB 10: 20: 40: 80: ] x 0x80
+00499C9C WeaponObj[0x00].ShotID +0x04 [6=GunLv3, 8=FireballLv2... Hell, see table.]
+00499CA0 WeaponObj[0x00].Flags +0x08 [01:??? 02:??? 04:Ignore_Wall 08:Climb_Slope 10:??? 20:??? 40:??? 80:???]
+00499CA4 WeaponObj[0x00].InUse +0x0C [0x80: in use]
+00499CA8 WeaponObj[0x00].X +0x10
+00499CAC WeaponObj[0x00].Y +0x14
+00499CB0 WeaponObj[0x00].MoveX +0x18
+00499CB4 WeaponObj[0x00].MoveY +0x1C
+00499CB8 WeaponObj[0x00].??? +0x20
+00499CBC WeaponObj[0x00].??? +0x24
+00499CC0 WeaponObj[0x00].WasSetup +0x28 [handles whether the setup phase is over or not.]
+00499CC4 WeaponObj[0x00].??? +0x2C
+00499CC8 WeaponObj[0x00].??? +0x30
+00499CCC WeaponObj[0x00].FrameID +0x34
+00499CD0 WeaponObj[0x00].Direction +0x38
+00499CD4 WeaponObj[0x00].Display_L +0x3C
+00499CD8 WeaponObj[0x00].Display_U +0x40
+00499CDC WeaponObj[0x00].Display_R +0x44
+00499CE0 WeaponObj[0x00].Display_D +0x48
+00499CE4 WeaponObj[0x00].Distance +0x4C [how far it has travelled]
+00499CE8 WeaponObj[0x00].??? +0x50
+00499CEC WeaponObj[0x00].MaxDistance +0x54 [how long the "particle" lives]
+00499CF0 WeaponObj[0x00].Damage +0x58
+00499CF4 WeaponObj[0x00].NumImpacts +0x5C
+00499CF8 WeaponObj[0x00].??? +0x60 hitRect.left
+00499CFC WeaponObj[0x00].??? +0x64 hitRect.up
+00499D00 WeaponObj[0x00].??? +0x68 hitRect.right
+00499D04 WeaponObj[0x00].??? +0x6C hitRect.down
+00499D08 WeaponObj[0x00].??? +0x70 (Pos Offset?)
+00499D0C WeaponObj[0x00].??? +0x74 (Pos Offset?)
+00499D10 WeaponObj[0x00].??? +0x78 (Pos Offset?)
+00499D14 WeaponObj[0x00].??? +0x7C (Pos Offset?)
+0049BC18 WeaponObj[0x3F]
+
+# Effect Data [MISCEFF]
+
+0049BCA8 EffectObj[0x00].InUse +0x00 0x44 in len
+0049BCAC EffectObj[0x00].ID +0x04
+0049BCB0 EffectObj[0x00].Mode +0x08
+0049BCB4 EffectObj[0x00].X +0x0C
+0049BCB8 EffectObj[0x00].Y +0x10
+0049BCBC EffectObj[0x00].MoveX +0x14
+0049BCC0 EffectObj[0x00].MoveY +0x18
+0049BCC4 EffectObj[0x00].WasInit +0x1C
+0049BCC8 EffectObj[0x00]. +0x20 ; Unused?
+0049BCCC EffectObj[0x00].FrameID +0x24 ; This is the actual frame to display, from the rects.
+0049BCD0 EffectObj[0x00].FrameTimer +0x28
+0049BCD4 EffectObj[0x00].XOffset +0x2C
+0049BCD8 EffectObj[0x00].YOffset +0x30
+0049BCDC EffectObj[0x00].Display_L +0x34
+0049BCE0 EffectObj[0x00].Display_U +0x38
+0049BCE4 EffectObj[0x00].Display_R +0x3C
+0049BCE8 EffectObj[0x00].Display_D +0x40
+
+
+ # Screen manipulation [MISCSCRN]
+
+0049CDA8 ScreenOffsetX
+0049CDAC ScreenOffsetY
+0049CDB0 Rect_Fullscreen.L	
+0049CDB4 Rect_Fullscreen.U
+0049CDB8 Rect_Fullscreen.R
+0049CDBC Rect_Fullscreen.D
+
+48f91c - left
+ 48f920 - top
+ normally set to 0
+ also the 2 after, which i'd call bottom and right
+ seem to be at 320x240, but are still working
+
+
+0049D368 HFontObject [Handle to the game's font.]
+0049D374 Fullscreen_Width
+0049D378 Fullscreen_Height
+0049D37C DirectDrawObj [Instance of the Direct Draw object, once created.]
+0049d380 DD7_SurfaceA [LPDIRECTDRAW7SURFACE* to the main display.]
+0049d384 DD7_SurfaceB [LPDIRECTDRAW7SURFACE* to the main display.]
++00: QueryInterface(p,a,b)
++04: AddRef(p)
++08: Release(p)
++0C: AddAttachedSurface(p,a)
++10: AddOverlayDirtyRect(p,a)
++14: Blt(p,a,b,c,d,e)
++18: BltBatch(p,a,b,c)
++1C: BltFast(p,a,b,c,d,e)
++20: DeleteAttachedSurface(p,a,b)
++24: EnumAttachedSurfaces(p,a,b)
++28: EnumOverlayZOrders(p,a,b,c)
++2C: Flip(p,a,b)
++30: GetAttachedSurface(p,a,b)
++34: GetBltStatus(p,a)
++38: GetCaps(p,b)
++3C: GetClipper(p,a)
++40: GetColorKey(p,a,b)
++44: GetDC(p,a)
++48: GetFlipStatus(p,a)
++4C: GetOverlayPosition(p,a,b)
++50: GetPalette(p,a)
++54: GetPixelFormat(p,a)
++58: GetSurfaceDesc(p,a)
++5C: Initialize(p,a,b)
++60: IsLost(p)
++64: Lock(p,a,b,c,d)
++68: ReleaseDC(p,a)
++6C: Restore(p)
++70: SetClipper(p,a)
++74: SetColorKey(p,a,b)
++78: SetOverlayPosition(p,a,b)
++7C: SetPalette(p,a)
++80: Unlock(p,b)
++84: UpdateOverlay(p,a,b,c,d,e)
++88: UpdateOverlayDisplay(p,a)
++8C: UpdateOverlayZOrder(p,a,b)
+0049D388 ImageResSurface [LPDIRECTDRAW7SURFACE* to image resources. 0x?? x 0x04]
+0049D428 WinRect.L [window rect, used once only]
+0049D42C WinRect.U
+0049D430 WinRect.R
+0049D434 WinRect.D
+0049D438 LastTickCount
+0049D43C CurrentTickCount
+0049d440 RECT_ScreenCopy [RECT struct used to copy the screen.]
+0049D450 DDBLTFX_ScreenCopy [DDBLTFX struct used to copy the screen.]
+0049D4B4 BlitRect4B4.L [Used at one place only.]
+0049D4B8 BlitRect4B4.U 
+0049D4BC BlitRect4B4.R 
+0049D4C0 BlitRect4B4.D 
+0049D4C4 BlitRect4C4.L [Used at one place only.]
+0049D4C8 BlitRect4C4.U 
+0049D4CC BlitRect4C4.R 
+0049D4D0 BlitRect4C4.D 
+0049D4D4 BlitRect4D4.L [Used at one place once.]
+0049D4D8 BlitRect4D4.U
+0049D4DC BlitRect4D4.R
+0049D4E0 BlitRect4D4.D
+0049D4E4 BlitRect4E4.L [Used at one place once.]
+0049D4E8 BlitRect4E4.U
+0049D4EC BlitRect4E4.R
+0049D4F0 BlitRect4E4.D
+0049d514 RECT_Clear [RECT struct used to clear the screen.]
+0049D528 DDBLTFX_Clear [DDBLTFX struct used to clear the screen.]
+0049D610 ???, x 0x0018
+0049D628 ???, x 0x0500
+0049DB30 ???, x 0x0268
+0049DD98 ???, x 0x0008
+0049DDA0 - Start of Flag Data
+
+# More interesting stuff [MISCODD]
+
+004937A8 - Pointer to Profile.dat string
+0049DB34 - IsFadeOut
+0049E190 OccasionalFlash If set to true, the screen flashes occasionally.
+0049E1C4 FlashColor [Color of the flash, RGB]
+0049E1C8 CameraPosX {shf9}
+0049E1CC CameraPosY {shf9}
+0049E1D0 FocusX
+0049E1D4 FocusY
+0049E1D8 Focus Speed
+0049E1DC SoftQuakeDuration [How long the screen shakes for. Soft shake.]
+0049E1E0 HardQuakeDuration [How long the screen shakes for. Hard shake.]
+0049E1E4 CursorPosition [Cursor position ID, maybe just for the title screen...]
+0049E1E8 GameState [0: title, 3: normal play, 4 game over/black fade, 5 event, 7 status screen; &2=accepts input]
+0049E1EC GameTime
+0049E1F0 DirectInputObj [Instance of the Direct Input object, once created.]
+0049E328 FullExePath [Full path to the executable.]
+0049E37C (last possible flag...)
+0049E44C AppInstance
+0049E458 AppWinHandle
+0049e464 ShowFPS [Set to non-zero to have an FPS counter.]
+0049E468 CanAcceptInput [Set to 0 when focus is lost. Locks keyboard when unset.]
+0049e46C Timer1000Time [Final Time the 1000 timer took to complete.]
+0049e470 Timer1000Elapsed [Time elapsed during the 1000 tick counter's countdown.]
+0049e474 Timer1000Ticks [Timer updated every 1000 ticks.]
+0049E480 Pointer to heap memory for PXM file
+0049E586 Width of current map
+0049E588 Height of current map
+0049E5B8 ???, x 0x0080 MPJ array, indexed by map ID...
+0049E6E4 Is in water
+0049E6EC EnvironmentSound (0 = none, 1 = StreamSound, 2 = PropellerSound)
+004A4DA8 TimerHandle [Handle to a timeSetEvent timer.]
+004A4DAC IsTimerActive [Set to 0x01 if the timeSetEvent timer is active.]
+004A5500 ???, x 0x0040
+004a5568 SoundBufferArray [Series of 4 byte pointers to IDirectSoundBuffer objects, one per sound ID.]
+004A57E8 DirectSoundObj [Instance of the Direct Sound object, once created.]
+004a57f0 CurrentMapID
+004a57f4 CurrentSongID
+004a57fc PreviousSongID [backup to revert to the last song played]
+004A5800 WhimsicalStar [3 elements [68 bytes]: 004A5800 - 004A58CB]
++0C XPosition
++10 YPosition
++14 XVelocity
++18 YVelocity
+004a58cc CurrentStarID [which whimsical star is being updated currently]
+004A58D0 Message Box RAM Buffer [0x100 in len]
+004A59D0 Current Map TSC file location
+004a5ad8 PCurrentScript [Where the current script is loaded]
+004a5ae0 ScriptPosition [Which position into the current script file we're at]
+004a5ae4 TextColumn [which column text is written at]
+004a5ae8 TextRow [Which row text is written at]
+004A5B10 Face Slide Timer
+004a5B1C TextBox Rect
+004A5B00 <WAI time
+004A5B0C FaceID [which face is being displayed]
+004A4B00 ECurrent beat of the song
+004A57F8 EPrevious song beat
+
+
+
+ # NPC Stuff [MISCNPC]
+
+004A6220/4a5F98 0xAC, 0x0200
++0x00: Event.InUse 	(N)	; is the event active? 0 kills.
++0x04: Event.Collision	(N)	; flag to show what it's colliding w/
++0x08: Event.X 		(N)	; Position [x]
++0x0C: Event.Y		(N)	; Poxition [y]
++0x10: Event.MoveX		; xvel, add to event.x each step
++0x14: Event.MoveY		; yvel
++0x18: Event.AltVel		; 
++0x1C: Event.AltVel		; 
++0x20: Event.Unknown1		; For entities such as curly that use
++0x24: Event.Unknown2		; the targeting macro.
++0x28: Event.NPCID       (N)	; sprite #
++0x2C: Event.EntityID	 (N)	; Entity ID, as seen in CE
++0x30: Event.EventNum    (N)	; Event #, as seen in CE
++0x34: Event.Tileset     (N)	; The tileset # as seen in a NPC.tbl editor
++0x38: Event.HurtSound   (N)	;
++0x3C: Event.DeathSound  (N)	;
++0x40: Event.Health      (N)	; health/damagetaken
++0x44: Event.EXP	 (N)	; EXP dropped
++0x48: Event.Size	 (N)	;
++0x4C: Event.Direction   (N)	;
++0x50: Event.Flags       (N)	; Entity flags
++0x54: Event.Frame_L   (N)	; left side of the frame rect
++0x58: Event.Frame_U   (N)	; top side of the frame rect
++0x5C: Event.Frame_R   (N)	; right side of the frame rect 
++0x60: Event.Frame_D   (N)	; bottom side of the frame rect 
++0x64: Event.FrameTimer		;
++0x68: Event.FrameNum		;
++0x6C: Event.ObjectTimer	;
++0x70: Event.Directive		; Usually something from the parent.
++0x74: Event.ScriptState	;	
++0x78: Event.ScriptTimer	;
++0x7C: Event.HitRect_L	(N)	;
++0x80: Event.HitRect_U	(N)	;
++0x84: Event.HitRect_R	(N)	;	
++0x88: Event.HitRect_D	(N)	;
++0x8C: Event.Display_L  (N)	; Used to calc. how far left/right to offset the sprite when displaying
++0x90: Event.Display_U  (N)	; Used to calc. how far up/down to offset the sprite when displaying
++0x94: Event.Display_R  (N)	; Sometimes used as the radius of the entity for making smoke appear from it
++0x98: Event.Display_D  (N)	; no known use
++0x9c: Event.HitTrue	[N]	; Has the entity been Hit?
++0xA0: Event.DamageTaken(N)	; Damage displayed by damage numbers
++0xA4: Event.Damage	(N)	; Damage done to Player
++0xA8: Event.Parent	[N]	; It's like the ebp+8 of the parent entity.
+
+(N): NOT conventions - Don't turn them into temporary storage locations.
+
+004bba34 NPCStruct[0x00].Flags +0x00 x 0x18
+004bba36 NPCStruct[0x00].Health +0x02
+004bba38 NPCStruct[0x00].Tileset +0x04
+004bba39 NPCStruct[0x00].DeathSnd +0x05
+004bba3A NPCStruct[0x00].HurtSnd +0x06
+004bba3B NPCStruct[0x00].DeathAnim +0x07
+004bba3C NPCStruct[0x00].Exp +0x08
+004bba40 NPCStruct[0x00].Damage +0x0C
+004bba44 NPCStruct[0x00].HitBox[4] +0x10
+004bba48 NPCStruct[0x00].DisplayBox[4] +0x14
+
+004BBA58 ???, x 0x0D70 boss data?
+
+Hacking Reference Info [INF]
+http://www.miraigamer.net/forums/showthread.php?t=2590
+
+COMMANDS: [INFCOM]
+mov x,y -- Equals sign, x = y
+
+cmp x,y -- Compares x and y, useless unless you have one of the following after it.
+- je x -- If x and y are equal, jump to x.
+- jne x -- If x and y are not equal, jump to x
+- jl x -- If x is smaller than y, jump to x
+- jle x -- If x is smaller than or equal to y, go to x.
+- jr x -- Same as jl, but larger than
+- jre x -- same as jle but larger than or equal to.
+- disclaimer: if you see one of these with a z in it, the evil warlords are trying to kill you, just pretend it's an e.
+
+Which leads us to:
+jmp x -- teleports the script to x.
+call x -- calls the function at x
+ret -- jumps back to where the function was called.
+
+push x -- pushes x onto the stack (not sure what a stack is? Look here!)
+pop x -- pops x from the stack
+add x,y -- adds y to x, saves to x
+sub x,y -- subtracts y from x, saves to x
+shl x,y -- multiples x by 2^y, a lot faster than mul.
+shr x,y -- divides x by 2^y, rounding down. similar to shl
+... ; -- equivalent of //, ends the line, and anything after it don't count, useful for comments or writing the original code in case you screw stuff up.
+
+REGISTERS: [INFREG]
+places where you can store stuff while you use it. There are nine, but you can only use 3 of them
+EAX - you can use this one  
+EBX - reserved for something or other
+ECX - you can use this one  
+EDX - you can use this one  
+ESP - reserved, points to the top of the stack
+EBP - reserved, points to the base of the stack
+ESI - reserved for something or other
+EDI - reserved for something or other
+EIP - reserved, points to the next instruction to be run
+
+if you ever see AX, BX, CX, etc, that just means its only using half of EAX, EBX, ECX. And AL, BL, CL is only using half of AX, BX, CX
+
+OFFSETS: [INFOFF]
+yeh, you can do all kinds of stuff now, but adding one to eax and setting edx equal to it really isn't that exciting. 
+All the jazz is at offsets, some are codes, ie 419CB0 has ML+ at it, but other offsets, like 0049E6CC (current health) are just values 
+which are accessed by the code to do cool things.
+
+BRACKETS/POINTERS: [INFPOI]
+so, pretend eax holds 49E6D0.
+if you have a bit of code that says:
+
+mov eax,49E6D0
+add eax,2
+
+it will add two to eax (49E6D0), which is kinda useless since eax is now an offset to something random
+However, if you have:
+
+add [eax],2
+
+with the brackets around eax, it doesn't add two to 49E6D0, but rather whatever is at that offset, the max health.
+
+What some of this means; AKA an example
+MOV EAX,[EBP+8]     ; this line is created for a process called pipelining that make the code run faster. 
+Also because of this, [EAX+14], [ECX+14], and [EDX+14] will always be the same thing, as long as [EBP+8] is in EAX, ECX, or EDX. 
+Any line that puts [EBP+8] in a register is doing this, and you can condense these to gain space if you need to (this is more advanced)
+
+MOV ECX,[EAX+14]     ; this line takes the number that is in [EAX+14] and puts it in ECX so that we can do stuff with it. 
+In a higher level language, [EAX+14] would be called a variable.
+
+MOV EDX,[EBP+8]     ; pipelining
+
+ADD ECX,[EDX+1C]     ; this line adds whatever is in [EDX+1C] to ECX (which currently contains [EAX+14] from before)
+
+MOV EAX,[EBP+8]     ; pipelining
+
+MOV [EAX+14],ECX     ; this takes whatever is in ECX and moves it back to [EAX+14]
+
+TSC COMMAND MINI GUIDE: By Lace [INFTSC]
+
+To make a new command, find a command that you're not going to use - 
+The most obvious choice for this would be a duplicate FAC command (at 424eaf), but if you want a larger command, you can cannibalize a command such as xx1.
+
+to find xx1, you would covert it's letters into ascii (so 58,58,51), 
+and then search for a "mov e_x,[004A5AD8]". and then a cmp [e_x+1],58. What this is doing is comparing the first char of the read-in data with 58 (x). 
+If it's not x, it jumps to the next command, and if it is x, it does another check, etcetera. What this code ends up looking like is:
+
+mov e_x,[004A5AD8]
+add e_x,[004A5AE0]
+movsx e_x,byte ptr [eax+0001]
+cmp e_x,__ ;Checks if the first letter is __
+jne next_command
+mov e_x,[004A5AD8]
+add e_x,[004A5AE0]
+movsx e_x,byte ptr [e_x+0002]
+cmp e_x,__ ;Second Letter
+jne next_command
+mov e_x,[004A5AD8]
+add e_x,[004A5AE0]
+movsx e_x,byte ptr [ecx+0003]
+cmp e_x,__ ;Thoid
+jne next_command
+
+So you'd look for something like this that cmps 58, then 58, then 3D.
+
+To make the command something else, you would just relace the ascii with other values, such as 4D, 4C, 3D (for ML=)
+
+(Code for xx1 isat 00425149 btw)
+
+To change the command itself, you simply need to look at the code after the intro check up until a jmp away.
+ Here you just need general hax knowledge to make you're own command. Don't exceed the length given, but that's an obvious.
+
+the big-fart tsc commands are in two parts, the normal bit, which is in the parser, and then a subroutine, which is generally the last call in the tsc.
+ you can go into the subroutine of a tsc event to write you're own code, too.
+
+probably the most important thing your tsc command needs is this ikkle bit of tagalong code that's either near the start or the end that looks like this:
+
+mov e_x,dword ptr ds:[4A5AE0]
+add e_x,(chars used up by your tsc command, one with no arguments would take up 4)
+mov dword ptr ds:[4A5AE0],e_x
+
+and this allows the parser to move on, and doesn't break the game.
+
+and a little bonus for you all, if you do this:
+
+425244: jmp 4252ac
+
+what this does is makes it so that if a tsc command doesn't exist, it treats it as text, instead of crashing.
+cool, right?
+
+
+Various Functions: [FUN]
+
+http://www.miraigamer.net/forums/showpost.php?p=54346&postcount=39
+LOADING:
+Sound Loader:
+push soundid ; what is going to be the sound id
+push channels
+push offset ; offset of the sound
+call 004207E0
+add esp,0C
+
+Music Loader:
+Push Offset of song name to load. Regular songs start at 4981E8 and are 16 bytes long.
+call 0041CF60
+add esp, 4
+
+Graphics Loader:
+push graphicid ; what is going to be the graphics id
+push offset ; this offset holds the name of the graphic, not the graphic itself
+call 0040B800
+add esp,08
+
+EFFECTS:
+Play Sound:
+push channelnum
+push soundid
+call 00420640
+add esp,8
+
+Play Music:
+push musicid
+call 00420EE0
+add esp,4
+
+RMU
+420F50
+
+Render Graphics:
+push graphicsid
+push rects ; lea [ebp-xx]
+push y
+push x
+push FullScreenRect [48F91c]
+call 0040C3C0
+add esp,14
+
+WEAPONS:
+Weapon Ammo Add:
+push Amt. of Ammo (always uses selected gun)
+call 402020
+add esp,4
+
+Weapon Ammo Subtract:
+push Amt. of Ammo
+call 401FA0
+add esp,4
+
+Weapon Bullet Counter:
+push weaponid
+call 00403C40 ; returns into eax
+add esp,4
+
+create bullet:
+push dir
+push y
+push x
+push bulletid
+call 403f80
+add esp,10
+
+EXP Add:
+push xptogain
+call 4196f0
+add esp,4
+
+OTHER:
+RAM Reserve A:
+push amount
+push ? (0 works)
+push offset to reserve
+call 00480D30
+add esp,0C
+
+RAM Reserve B:
+push amount
+call 004813A3 ; Not sure about what this does. Used in conjunction with above
+add esp,4     ; for tsc reserves, and is used by itself other places.
+
+Check Flag:
+PUSH flag #
+Call 0040E930	; Returns 1 or 0
+ADD ESP, 4 
+
+Call TSC Event:
+push eventnum
+call 421990 ; note that with an unhacked parser, this will destroy invincibility
+add esp,4
+
+ASCII To Number:
+push ascii
+call 00421900 ; returns into eax
+add esp,4
+
+Random Num Generator:
+push max
+push min
+call 40f350 ; returns into eax
+add esp,8
+
+Create Animated Effect
+push mode
+push ID
+push Y
+push X
+call 40AC90
+add esp, 10
+
+Take Damage:
+push damage
+call 00419910 ; this will also hurt your exp, not seperate functions.
+add esp,4
+
+NPC Create:
+push init slot (0x200 entity slots, starts checking from # pushed.)
+push Parent	; This is to push [ebp+8] in ASM  to relate entities to one another, with +A8
+push Direction 
+push yvel
+push xvel
+push y
+push x
+push num
+call 46efd0
+add esp,20
+
+Underwater Timer:
+push y
+push x
+call 41a350
+add esp,8 
+
+Get Hell Time:
+call 41a7c0
+returns time to EAX
+
+Check for Profile.DAT
+call 41cFc0
+retns 1 or 0 to eax
+
+Get Version Num
+Push ?
+push ?
+push ?
+push ?
+call 410990
+add esp, 10
+puts some things into the addresses push'd.
+Probably the number of each digit.
+
+Set Title Screen BG colour?
+PUSH RGB
+Call 40c8b0
+add esp, 4
+
+Update Keys
+Call 4122E0
+
+On Esc - 
+Push [49e458]
+Call 40DD70
+add esp, 4
+
+Draw Full Screen Colour
+Push ???
+Push FullScreenRect
+Call 40c9E0
+Add esp, 8
+
+Prep Ram for Image??
+Push MODE (0 or 1, 0 should work)
+PUSH Tileset #
+PUSH Height
+PUSH Width
+CALL 40C1D0
+ADD ESP, 10
+
+Load Img, Permanent
+PUSH Tileset#
+Push ASCII, NAME
+CALL 40BAC0
+ADD ESP, 08
+
+Load Img, reloadable *note must prep ram first*
+PUSH Tileset#
+PUSH ASCII, Name
+CALL 40BFD0
+ADD ESP, 08
+
+Load Img from resource
+PUSH Tileset#
+PUSH ASCII, resource name
+CALL 40b800
+ADD ESP, 08
+
+Render Numbers
+PUSH # of digits (???Or not???)
+PUSH Number to display
+PUSH Y (pixels)
+PUSH X (pixels)
+CALL 40F380
+ADD ESP, 10
+
+Spawn XP
+PUSH XP amount
+PUSH Y
+PUSH X
+CALL 46f2b0
+
+Explosion?
+push 1
+push y
+push x                               
+call 0040EA70                  
+add esp,0C
+
+Make Smoke (from death anim, etc.)
+PUSH # smoke entities
+PUSH Range (max distance in CS units from [x,y] the smoke should spawn)
+PUSH Y
+PUSH X
+CALL 46F150
+ADD ESP, 10
+
+Spawn XP
+PUSH XP amount
+PUSH Y
+PUSH X
+CALL 46f2b0
+Add ESP, 0C
+
+Create Damage/XP numbers
+PUSH Number
+PUSH offset
+PUSH offset
+CALL 425BF0
+ADD ESP, 0C
+
+Is Player Colliding? [treats entity as solid]
+Push Entity (entity # * 0AC + (4A6220?))
+Call 418C20
+Add esp, 4
+Rets True or False to EAX (maybe)
+
+Is Player Colliding? [treats entity as not solid]
+Push Entity (entity # * 0AC + (4A6220?))
+Call 418B10
+Add esp, 4
+Rets True or False to EAX (maybe)
+
+SaveProfile
+Push ??? (0 should work)
+Call 41D040
+Add ESP, 4
+
+LoadProfile
+push ??? (0 should work)
+Call 41D260
+Add ESP, 4
+
+DrawText
+push (Size? <0D>)
+Push Color <00FEFFFF>
+Push String
+Push Y
+Push X
+Call 40CEB0
+Add ESP, 14
+
+41058c - CALL 00403740 (Bullet Tile code)
+
+==Collisions Info== 
+
+Collisions are by Flag.
+Have fun.
+
+
+Special Effects [FUNFX]
+http://www.miraigamer.net/forums/showthread.php?t=1296
+There are 18 different types of effects. Each effect can have a mode which can alter what happens exactly.
+Code:
+00 Nothing
+01 Pulsing Disc Particles (mode 0: blue discs, mode 1: red discs)
+02 Rising Disc / Exploding Diamond (mode 0: green disc, mode 1: diamond explosion)
+03 Star (mode 0 only)
+04 Fireball Impact (mode 0 only)
+05 ZzZ... (mode 0 only)
+06 (same as 04)
+07 Booster smoke (mode 0 only)
+08 Drowned Quote (mode 0: face left, mode 1: face right)
+09 Exclamation (mode 0: question mark, mode 1: exclamation mark)
+0A Level Up/Down (mode 0: level up, mode 1: level down)
+0B Red "damage" discs (mode 0 only)
+0C White "explosion" disc (mode 0 only)
+0D Headbump sparks (mode 0 only)
+0E ?
+0F Small white "explosion" disc (mode 0 only)
+10 "Empty!" (mode 0 only)
+11 "Push jump key!" (mode 0 only)
+The rest seem rather buggy...
+The pointer table to their code can be found at 0048F8C0.
+Code:
+70964000
+80964000
+80984000
+809B4000
+709C4000
+009E4000
+709C4000
+609F4000
+20A14000
+B0A14000
+80A24000
+F0A34000
+A0A54000
+50A64000
+E0A74000
+F0A84000
+E0A94000
+A0AA4000
+90C24800
+A4C24800
+BCC24800
+Here's how the data is laid out.
+Code:
+0049BCA8	EffectObj[0x00].InUse		0x00		x44 in len
+0049BCAC	EffectObj[0x00].ID		+0x04
+0049BCB0	EffectObj[0x00].Mode		+0x08
+0049BCB4	EffectObj[0x00].X			+0x0C
+0049BCB8	EffectObj[0x00].Y			+0x10
+0049BCBC	EffectObj[0x00].MoveX		+0x14
+0049BCC0	EffectObj[0x00].MoveY		+0x18
+0049BCC4	EffectObj[0x00].WasInit		+0x1C
+0049BCC8	EffectObj[0x00].			+0x20 ; Unused?
+0049BCCC	EffectObj[0x00].FrameID		+0x24 ; This is the actual frame to display, from the rects.
+0049BCD0	EffectObj[0x00].FrameTimer	+0x28
+0049BCD4	EffectObj[0x00].XOffset		+0x2C
+0049BCD8	EffectObj[0x00].YOffset		+0x30
+0049BCDC	EffectObj[0x00].Display_L	+0x34
+0049BCE0	EffectObj[0x00].Display_U	+0x38
+0049BCE4	EffectObj[0x00].Display_R	+0x3C
+0049BCE8	EffectObj[0x00].Display_D	+0x40
+Aside from this, here are a few functions that may prove interesting (I've transformed them into pseudocode to make them easier to understand.)
+Code:
+	|							|	Clear All Effects						
+	|							|
+	409650::clear_all_effects
+	{
+		// Clear 64 x 68 bytes.
+409650		push 0x00001100	// Size  : 4352 bytes (64 x 68)
+409658		push 0x00000000	// Value : 0
+40965a		push &EffectObj	// Offset: Effect Objects
+40965f		call 480D30::memset
+
+		// Exit.
+409670		return
+	}
+
+
+	|							|
+	|	Update All Effects					|
+	|							|
+	40ab50::update_all_effects
+	{
+40ab50		L04_SlotID = 0
+40ab5d		Goto 40ab68
+
+		// Iterate through all 64 effect slots.
+40ab5f		{
+			L04_SlotID++
+40ab68			if(L04_SlotID >= 64)
+				return
+
+			// Skip this slot if it's not in use.
+40ab6e			if(EffectObj[L04_SlotID].InUse & 0x80 != 0x00)
+			{
+			// Call the appropriate effect code and move along.
+
+
+
+
+40ab82				push &EffectObj[L04_SlotID]
+40ab9e				call ROM_PEffects[EffectObj[L04_SlotID].ID]
+			}
+40abab		}
+	}
+
+	|							|
+	|	Create Animated Effect				|
+	|	08_X				X position.	|
+	|	0C_Y				Y position.	|
+	|	10_ID				Effect ID.		|
+	|	14_Mode				Effect Mode.	|
+	|							|
+	40ac90::create_animated_effect
+	{
+		// Find a free slot.
+40ac90		L04_EffectSlot = 0
+40ac9b		Goto 40aca6
+
+40ac9d		{
+			L04_EffectSlot++
+40aca6			if(L04_EffectSlot >= 64)
+				break
+
+40acac			if(EffectObj[L04_EffectSlot].InUse == 0)
+40acbb				break
+40acbd		}
+
+		// Exit if no slots are free.
+		// That is, if we've hit slot 64, that means we've gone through all slots without finding anything.
+40acbf		if(L04_EffectSlot == 64)
+40acc5			return
+
+		// Clear the slot.
+		// Writes 0x00 to 68 bytes.
+40acca		push 0x00000044		// Size  : 68 bytes
+40accc		push 0x00000000		// Value : 0
+40acce		push &EffectObj[L04_EffectSlot]	// Offset: Specified Effect
+40acdb		call 480D30::memset
+
+		// Fill the slot with data.
+40ace3		EffectObj[L04_EffectSlot].InUse		= 0x80
+40acf3		EffectObj[L04_EffectSlot].ID		= 10_ID
+40ad02		EffectObj[L04_EffectSlot].X		= 08_X
+40ad11		EffectObj[L04_EffectSlot].Y		= 0C_Y
+40ad20		EffectObj[L04_EffectSlot].XOffset	= [10_ID * 8 + 0048f830]	// 0048F830: Effect Offset Table.X
+40ad36		EffectObj[L04_EffectSlot].YOffset	= [10_ID * 8 + 0048f834]	// 0048F830: Effect Offset Table.Y
+40ad4c		EffectObj[L04_EffectSlot].Mode	= 14_Mode
+
+		// Exit.
+40ad5b		return
+	}
+
+Example:
+	|	Effect 0x01: Pulsing Disc Particles				
+	|	08_Effect	The effect object for this.			|	
+	|	INITIAL_VEL_X_MIN		0xFFFFFC00 (-4)	|
+	|	INITIAL_VEL_Y_MIN		0xFFFFFC00 (-4)	|
+	|	INITIAL_VEL_X_MAX		0x00000400 ( 4)	|
+	|	INITIAL_VEL_Y_MAX		0x00000000 ( 0)	|
+	|	FRAME_DELAY			0x05       ( 5)	|
+	|	NUM_FRAMES			0x03       ( 3)	|
+	|							
+
+
+		|
+	409680::effect_0001
+	{
+		// Frame Data
+409680		frames[-0x0040] = { 0x00000000, 0x00000040, 0x00000008, 0x00000048 }
+	// 000 064  008 072: Blue disc 4
+4096a5		frames[-0x0030] = { 0x00000008, 0x00000040, 0x00000010, 0x00000048 }
+	// 008 064  016 072: Blue disc 3
+4096c1		frames[-0x0020] = { 0x00000010, 0x00000040, 0x00000018, 0x00000048 }
+	// 016 064  024 072: Blue disc 2
+4096dd		frames[-0x0010] = { 0x00000018, 0x00000040, 0x00000020, 0x00000048 }
+	// 024 064  032 072: Blue disc 1
+4096f9		frames[-0x0080] = { 0x00000040, 0x00000018, 0x00000048, 0x00000020 }
+	// 064 024  072 032: Red disc 4
+409715		frames[-0x0070] = { 0x00000048, 0x00000018, 0x00000050, 0x00000020 }
+	// 072 024  080 032: Red disc 3
+409731		frames[-0x0060] = { 0x00000050, 0x00000018, 0x00000058, 0x00000020 }
+	// 080 024  088 032: Red disc 2
+40974d		frames[-0x0050] = { 0x00000058, 0x00000018, 0x00000060, 0x00000020 }
+	// 088 024  096 032: Red disc 1
+
+		// If the effect wasn't initialized, we give it a random X/Y velocity.
+		// The velocity will make the particle go left or right randomly and upwards.
+409769		if(not 08_Effect.WasInit)
+		{
+409772			08_Effect.WasInit = 1
+40977c			push INITIAL_VEL_X_MAX	// Max: +4
+409781			push INITIAL_VEL_X_MIN	// Min: -4
+409786			08_Effect.MoveX = {40f350::random_number}
+409794			push INITIAL_VEL_Y_MAX	// Max: +0
+409796			push INITIAL_VEL_Y_MIN	// Min: -4
+40979b			08_Effect.MoveY = {40f350::random_number}
+		}
+
+		// Update the position.
+		// Slow down the Y velocity by 0.25 and add the X/Y velocity to the X/Y position.
+4097a9		08_Effect.MoveY	= 08_Effect.MoveY	+ 0x40
+4097bb		08_Effect.X	= 08_Effect.X		+ 08_Effect.MoveX
+4097ca		08_Effect.Y	= 08_Effect.Y		+ 08_Effect.MoveY
+
+		// Update the frame to display.
+		// Frame delay: 5. Num frames: 3. Disabled after final frame.
+4097dc		08_Effect.FrameTimer++
+4097eb		if(08_Effect.FrameTimer > FRAME_DELAY)
+		{
+4097f4			08_Effect.FrameTimer = 0
+4097fe			08_Effect.FrameID++
+40980d			if(08_Effect.FrameID > NUM_FRAMES)
+409816				08_Effect.InUse	= 0
+		}
+
+		// Prepare the effect for rendering based on its mode.
+		// Setting the mode to a non-zero value makes it use the second set of frames.
+40981f		if(08_Effect.Mode == 0)
+409828			08_Effect->SetRect[08_Effect.FrameID - 0x0040]
+409851		else
+409853			08_Effect->SetRect[08_Effect.FrameID - 0x0080]
+		// Exit.
+40987c		return
+
+
+
+NPC Hacking [NPCHX]
+http://www.miraigamer.net/forums/showthread.php?t=1290
++0x00: Event.InUse (N)		; is the event active? 0 kills.
++0x04: Event.Collision		; flag to show what it's colliding w/
++0x08: Event.X (N)		
++0x0C: Event.Y (N)		
++0x10: Event.MoveX		; xvel, added to event.x each step
++0x14: Event.MoveY		; yvel
++0x1C: ?			; also yvel, but only used for some
++0x20: Event.Unknown1
++0x24: Event.Unknown2
++0x28: Event.NPCID (N)		; sprite #
++0x40: ?			; health/damagetaken
++0x44: Event.EXP (?)
++0x4C: Event.Direction (N)
++0x54: Event.Display_L (N)	; left side of the display rect
++0x58: Event.Display_U (N)	; top side of the display rect
++0x5C: Event.Display_R (N)	; right side of the display rect (NOT width)
++0x60: Event.Display_D (N)	; bottom side of the display rect (NOT height)
++0x64: Event.FrameTimer
++0x68: Event.FrameNum
++0x6C: Event.ObjectTimer
++0x74: Event.ScriptState	
++0x78: Event.ScriptTimer
++0x9c: Event.HitTrue		; Has the entity been Hit?
++0xA4: Event.Damage
+
+
+
+What's interesting to you, here, is the +0x?? part. For instance, to mess with the X/Y position, you'd access the enemy data through this...
+
+mov edx, [ebp + 0x08] ; This is the enemy pointer.
+mov eax, [edx + 0x0C] ; (enemy pointer) + 0x0c bytes: x position
+mov ecx, [edx + 0x10] ; (enemy pointer) + 0x10 bytes: y position
+
+This places the x position in eax and the y position in ecx. You can also write back to those locations like that, 
+and changes those values (for instance, changing the X/Y positions.)
+
+What you do is grab the pointer to the NPC object (all NPCs are passed this through [ebp + 0x08]), then add to that 
+the amount you need to get to the member you want (ex, if you MOVed the pointer into register edx, you'd do [edx + 0x0C] to get the X position.)
+
+
+mov edx, [ebp + 0x08] ; This is the enemy pointer.
+mov [edx + 0x0C], eax ; Now we're WRITING eax into the enemy's X position.
+
+And that above is an example of writing back to this data.
+Displaying Your Entity [NPCDSP]
+To display an entity, you have to define a display rect. Otherwise there's nothing for it to display and it'll just be invisible.
+
+Display_L: left side of the display rect
+Display_U: top side of the display rect
+Display_R: right side of the display rect (NOT width)
+Display_D: bottom side of the display rect (NOT height)
+
+Fill those members up with anything you want. You don't actually have to define rects, 
+you can just calculate the positions by yourself and set them manually. Defining rects the way most entities and such do is the easiest way though, 
+since you can just copy the data.
+
+Though there are different ways to do this (have a look at some of the code near the end of any displayable entity) 
+you can just MOV the contents of the frame you want to display into the display rect of the entity. That'll be enough to get it to show up.
+
+Generally, the game uses +68 to store the ID of the frame. Most enemies take this value at the end of the code, shift it to the left 4x 
+(ie, multiplies it by 16), then build the offset to load the frame from with it.
+Code:
+  mov edx,[ebp+0008]
+  mov ecx,[edx+0068]
+  shl ecx,0x04 ; Multiply by 16, since there are 16 bytes in a frame
+  lea eax,[ebp+ecx-70] ; Frame offset = ebp-0x70 + the above
+(In the above example, frames went up to ebp-0x70.)
+
+Chances are you may be running into problems if you're not setting the value, I dunno. Maybe it's used somewhere else in the code.
+
+Making Stuff Go [NPCGO]
+Here's a little bit of physics: to have smooth, realistic movement, you need to use velocities. 
+A velocity is something you add to a position every frame to get a new position. For instance...
+
+Code:
+{
+  x position = x position + x velocity
+  y position = y position + y velocity
+}
+This isn't enough though. Imagine you have a tennis ball. Without friction to slow it down, 
+the moment you'd hit the ball it would keep going in the same direction without slowing down at all. So you also need to make the velocity drop each frame.
+Code:
+{
+  x velocity = x velocity * 0.975
+  y velocity = y velocity * 0.975
+  x position = x position + x velocity
+  y position = y position + y velocity
+}
+Here we have a friction of 0.975. The higher the number, the longer it takes to reach 0, 
+the slower the object loses its velocity. Now when we hit our tennis ball, it'll go in a straight line and slow down, 
+stopping suspended in the air. This is enough for most things, but if we have objects that jump or otherwise lose contact with the floor, 
+they'll need gravity.
+Code:
+{
+  x velocity = x velocity * 0.975
+  y velocity = y velocity * 0.975 + 0.1
+  x position = x position + x velocity
+  y position = y position + y velocity
+}
+We have a gravity of 0.1 now. Since we add a small value every frame, 
+the y velocity will gradually go from -1 to 0 then up into positive numbers, making the object arc upwards then back down realistically.
+
+This is what MoveX and MoveY are for. None of this happens automatically, though: you have to implant that in your code yourself. 
+And this introduces a lot of timing issues; when does your enemy start moving? When does it stop moving? 
+To set this up, you can and should use the ScriptState member. If ScriptState is equal to 0, set the initial velocity and set Script State to 1. 
+If ScriptState is equal to 1, keep updating the position until the velocity drops to 0, then set ScriptState to 2. Etc, etc..
+
+Example: [NPCEX1]
+Iron Crab [094 Giant Jelly]
+  push ebp
+  mov ebp,esp
+  sub esp,0x74
+  mov [ebp-0070],0x00000110	; WALK B
+  mov [ebp-006C],0x00000000
+  mov [ebp-0068],0x00000128
+  mov [ebp-0064],0x00000020
+  mov [ebp-0060],0x00000110	; WALK A
+  mov [ebp-005C],0x00000020
+  mov [ebp-0058],0x00000128
+  mov [ebp-0054],0x00000040
+  mov [ebp-0050],0x00000110	; WALK C
+  mov [ebp-004C],0x00000040
+  mov [ebp-0048],0x00000128
+  mov [ebp-0044],0x00000060
+  mov [ebp-0040],0x00000110	; WALK A
+  mov [ebp-003C],0x00000020
+  mov [ebp-0038],0x00000128
+  mov [ebp-0034],0x00000040
+  mov [ebp-0030],0x00000128	; FIRE A
+  mov [ebp-002C],0x00000020
+  mov [ebp-0028],0x00000140
+  mov [ebp-0024],0x00000040
+  mov [ebp-0020],0x00000128	; FIRE B
+  mov [ebp-001C],0x00000040
+  mov [ebp-0018],0x00000140
+  mov [ebp-0014],0x00000060
+  mov [ebp-0010],0x00000128	; SPAWN WORM
+  mov [ebp-000C],0x00000000
+  mov [ebp-0008],0x00000140
+  mov [ebp-0004],0x00000020
+  mov edx,[ebp+0008]		; We'll keep ebp+08 in edx as much as possible.
+  mov ecx,[edx+0078]		; Increment the script timer. It'll be in ecx for now.
+  add ecx,0x01
+  mov [edx+0078],ecx
+  mov eax,[edx+0074]		; Jump based on the state.
+  jmp [eax*4+X]
+0 cmp ecx,0x64			; --- State 0
+  jl A
+  mov [edx+0074],0x00000003
+  xor ecx,ecx
+  mov [edx+0078],ecx
+A mov eax,[edx+0064]		; Increment the frame counter.
+  add eax,0x01
+  mov [edx+0064],eax
+  cmp eax,0x10
+  jl E
+  mov eax,[0049E658]		; Move towards player.
+  mov ecx,[edx+000C]
+  cmp eax,ecx
+  jle B
+  mov ecx,0x00000C01
+  nop 
+  jmp C
+B mov ecx,0xFFFFF000
+  nop
+C mov [edx+0014],ecx
+  xor eax,eax
+  mov [edx+0064],eax
+  mov eax,[edx+0068]		; Increment the frame ID.
+  add eax,0x01
+  cmp eax,0x04
+  jl D
+  xor eax,eax
+D mov [edx+0068],eax
+E mov eax,[0049E658]		; Is it aligned with the player?
+  mov ecx,[edx+000C]
+  sub eax,ecx
+  cmp eax,0x00000800
+  jg I
+  cmp eax,0xFFFFF800
+  jg F
+  jmp I
+F mov [edx+0074],0x00000001	; --- State 1.a
+  xor ecx,ecx
+  mov [edx+0078],ecx
+1 cmp ecx,0x14			; --- State 1.b
+  jg J
+  jl G
+  mov eax,[0049E658]		; Are we still aligned with the player?
+  mov ecx,[edx+000C]
+  sub eax,ecx
+  cmp eax,0x00001000
+  jg J
+  cmp eax,0xFFFFF000
+  jg K
+G mov eax,[edx+0068]		; Nope. So update the frame.
+  mov ecx,0x00000004
+  cmp eax,0x05
+  je H
+  inc ecx
+H mov [edx+0068],ecx
+I jmp L
+  nop
+  nop
+  nop
+  nop
+  nop
+J xor eax,eax			; Set the state back to 0.
+  mov [edx+0074],eax
+  jmp L
+K mov [edx+0074],0x00000002	; --- State 2.a
+  xor ecx,ecx
+  mov [edx+0078],ecx
+2 push 0x01				; --- State 2.b
+  push 0x10
+  call 0040F350
+  add esp,0x08
+  mov edx,[ebp+0008]
+  shl eax,0x06
+  sub eax,0x00000580		; eax = -580 to 580
+  push 0x00000100
+  push 0x00
+  push 0x00
+  push eax
+  push 0xFFFFF600
+  mov eax,[edx+000C]
+  push eax
+  mov eax,[edx+0008]
+  push eax
+  push 0x0B
+  call 0046EFD0			; spawn fireball
+  add esp,0x20
+  push 0x01
+  push 0x38
+  call 00420640			; play sound
+  add esp,0x08
+  mov edx,[ebp+0008]
+  mov ecx,[edx+0078]		; check timer
+  cmp ecx,0x10
+  jle M				; exit
+  mov [edx+0074],0x00000000	; set state to 0
+  xor eax,eax
+  mov [edx+0078],eax		; set timer to 0
+L jmp M				; exit
+3 mov [edx+0074],0x00000004	; --- State 3
+  push 0x00000100
+  push 0x00
+  push 0x00
+  push 0x00
+  push 0x00
+  mov eax,[edx+000C]
+  push eax
+  mov eax,[edx+0008]
+  push eax
+  push 0x000000EB
+  call 0046EFD0			; spawn worm
+  add esp,0x20
+  push 0x01
+  push 0x17
+  call 00420640			; play sound
+  add esp,0x08
+  mov edx,[ebp+0008]
+  mov [edx+0068],0x00000006
+4 mov ecx,[edx+0078]		; --- State 4 ; check timer
+  cmp ecx,0x18
+  jle M				; exit
+  mov [edx+0074],0x00000000	; set state to 0
+  xor eax,eax
+  mov [edx+0078],eax		; set timer to 0
+M mov eax,[edx+000C]		; --- exit - Render
+  mov ecx,[edx+0014]
+  add eax,ecx
+  mov [edx+000C],eax
+  mov ecx,[edx+0068]
+  shl ecx,0x04
+  lea eax,[ebp+ecx-70]
+  add edx,0x54
+  mov ecx,[eax]
+  mov [edx],ecx
+  mov ecx,[eax+0004]
+  mov [edx+0004],ecx
+  mov ecx,[eax+0008]
+  mov [edx+0008],ecx
+  mov ecx,[eax+000C]
+  mov [edx+000C],ecx
+  mov esp,ebp
+  pop ebp
+  ret
+X --- 0
+  --- 1
+  --- 2
+  --- 3
+  --- 4
+
+
+
+Another example from S. P. Gardebiter [NPCEX2]
+mov edx,[ebp+0008]
+ mov eax,[edx+0074]
+ cmp eax,0x00
+ je A
+ cmp eax,0x01
+ je B
+ cmp eax,0x02
+ je C
+ jmp D
+A mov edx,[ebp+0008]
+ mov ecx,[ebp-0030]
+ mov [edx+0054],ecx
+ mov ecx,[ebp-002C]
+ mov [edx+0058],ecx
+ mov ecx,[ebp-0028]
+ mov [edx+005C],ecx
+ mov ecx,[ebp-0024]
+ mov [edx+0060],ecx
+ add eax,0x01
+ mov [edx+0074],eax
+ xor eax,eax
+ mov [edx+0014],0xFFFFFD00
+ jmp D
+B mov ecx,[edx+0014]
+ add ecx,0x10
+ mov [edx+0014],ecx
+ mov ebx,[edx+0078]
+ cmp ebx,0xFF
+ jne D
+ xor ebx,ebx
+ mov [edx+0078],ebx
+ add eax,0x01
+ mov [edx+0074],eax
+ mov [edx+0014],0x00000300
+ jmp D
+C mov ecx,[edx+0014]
+ sub ecx,0x10
+ mov [edx+0014],ecx
+ mov ebx,[edx+0078]
+ cmp ebx,0xFF
+ jne D
+ xor ebx,ebx
+ mov [edx+0078],ebx
+ sub eax,0x01
+ mov [edx+0074],eax
+ mov [edx+0014],0xFFFFFD00
+ jmp D
+D mov ebx,[edx+0078]
+ add ebx,0x01
+ mov [edx+0078],ebx
+ mov edx,[ebp+0008]
+ mov ecx,[edx+000C]
+ mov ebx,[edx+0014]
+ add ecx,ebx
+ mov [edx+000C],ecx
+ mov edx,[ebp+0008]
+ mov ecx,[edx+0068]
+ shl ecx,0x04
+ lea eax,[ebp+ecx-60]
+It works like this:
+
+Start:
+
+Jump to either A, B, C, or D.
+
+A:
+
+Inserting framerects
+Set the scriptstate to B
+Set the speed
+Jump to D
+
+B:
+
+Speed velocity
+If ScriptTimer = 255 then set the scriptstate to C
+Reset the ScriptTimer
+Set the new speed
+Jump to D
+
+C:
+
+Speed velocity
+If ScriptTimer = 255 then set the scriptstate to B
+Reset the ScriptTimer
+Set the new speed
+
+D:
+
+Increase the ScriptTimer
+Drawing routine
+
+NPC Guide - by RuneLancer [NPCGUIDE]
+http://spgardebiter.sp.funpic.de/CaveStory/FAQ/Advanced%20NPC.txt
+A few notes.
+
+Offsets in the game start at 0x00400000. I've written them down as the actual offset you'd find in the file using a hex editor, 
+but always keep that in mind if you're altering pointers or trying to follow a pointer somewhere and end up going past the end of the file.
+
+The pointer table is located at 0x0098548. The boss pointer table is RIGHT after it, located at 0x0098AEC.
+
+The display rects are all 32 bit values MOVed into the stack. I've written them down as a group of 16 bit values to save space and for convinience. 
+If you plan on editing them, make sure you keep in mind the fact these are NOT data, but rather code: 
+you won't find a series of 32 bit values one after the other, but a series of instructions moving 32 bit values into the stack one after the other. 
+Dust off your assembly knowhow and don't make a mess of the code. :)
+
+Adding frames requires altering the code. This is not something I'm going to explain here, because it's largely a case by case thing. 
+You will have to make heavy alterations to the code because it involves adding 25-30 bytes of code per frame, 
+not including the actual code that puts the enemy in a state where the new frame is shown.
+
+The states are for use with script commands. I haven't tested all of these - I've just based myself on what they do in the code. 
+States that don't have any noticeable effect or that should only be messed around with internally have not been mentionned. 
+It is up to you to experiment and dig through the code if the effect you're trying to acheive isn't mentionned here - 
+in a worse-case scenario, chances are the effect you're looking for CAN be acheived but might required a bit of tweaking. 
+These cases are beyond the scope of this document.
+NPC Pseudocode [NPCPSU]
+
+052 [0x0034] Sitting Blue Bot
+	Select FrameRect (0)
+
+
+
+
+077 [0x004D] Sandaim the Farmer
+	if (ScriptState = 0x00) Goto A
+	if (ScriptState = 0x01) Goto B
+	if (ScriptState = 0x02) Goto C
+	Goto D
+
+A	ScriptState = 0x01
+	FrameID     = 0x00
+	FrameNum    = 0x00
+
+
+B	if (F_0040F350(0x00, 0x78) != 0x0A) Goto D
+	ScriptState = 0x02
+	ScriptTimer = 0x00
+	FrameID     = 0x01
+	Goto D
+
+C	ScriptTimer = ScriptTimer + 0x01
+	If (ScriptTimer <= 0x08) Goto D
+	ScriptState = 0x01
+	FrameID     = 0x00
+
+D	If (Direction != 0x00)
+		Select Frame (FrameID)
+	Else
+		Select Frame (3)
+
+
+
+078 [0x004E] Pot
+	If (Direction != 0x00)
+		Select Frame (0)
+	else
+		Select Frame (1)
+
+----------------------------------------------------------------------------------------------------
+
+Creating an NPC [NPCNEW]
+
+I mentionned in the introduction that I wouldn't be dealing with actual assembly here and that such a thing was beyond the scope of the document. 
+This is not entirely true - as a parting gift, I'll explain the basics behind enemy creation. There are a few ways to do this, 
+and you don't have to follow the order I do things all the time.
+
+First, like any assembly function, you must move esp into ebp after pushing it on the stack.
+PUSH ebp
+MOV ebp, esp
+
+At the end of your function, you'll want to pop ebp after moving it back into esp.
+
+MOV esp, ebp
+POP ebp
+RET
+
+Now you get to sandwich your code between these two chunks. First thing you want to do is define the frames you'll be using. 
+This isn't too hard: subtract 0x10 from esp for each frame you'll be adding. Then just shove each frame onto the stack. 
+Here's an example from the pot (entity 0x4E)...
+
+SUB esp, 0x20
+MOV [ebp - 0x20], 0x000000A0
+MOV [ebp - 0x1C], 0x00000030
+MOV [ebp - 0x18], 0x000000B0
+MOV [ebp - 0x14], 0x00000040
+MOV [ebp - 0x10], 0x000000B0
+MOV [ebp - 0x0C], 0x00000030
+MOV [ebp - 0x08], 0x000000C0
+MOV [ebp - 0x04], 0x00000040
+
+Now you can do whatever you want. The pot entity mentionned above just tests the direction of the event and picks either of its two frames 
+for display accordingly, then returns. Other entities may have more complicated behavior. You might want to make yourself a pointer table, 
+jump to the appropriate bit of code based on the event's state, do your thing, then jump to some rendering code.
+
+The rendering code just involves picking a frame based on conditions you decide on and setting the rect. You don't HAVE to conform to the 
+aforementionned placing of a frame on the stack, but it's probably the easiest way to do this. You could also read it from the exe directly 
+or calculate it on the fly (as some entities do.) Either way you need to set the rect, which is as easy as MOVing values into the appropriate offsets.
+
+The usual calculation, when there are multiple frames, is somewhat as follows.
+
+
+MOV edx, [ebp + 0x08]
+MOV eax, [edx + 0x68]
+shl eax, 0x04
+lea ecx, [ebp + eax - 0x20]
+MOV edx, [ebp + 0x08]
+ADD edx, 0x54
+MOV eax, [ecx]
+MOV [edx], eax
+MOV eax, [ecx + 0x04]
+MOV [edx + 0x04], eax
+MOV eax, [ecx + 0x08]
+MOV [edx + 0x08], eax
+MOV ecx, [ecx + 0x0c]
+MOV [edx + 0x0c], ecx
+
+Once that's done, the function caller will shift everything off to other functions which will handle the display and whatnot. 
+At this point you no longer have to worry - the game engine handles the rest. 
+To sum things up, you need to at least specify the display rect before your function exits - everything else is up to you.
+
+Title Screen [TITLE]
+http://www.miraigamer.net/forums/showthread.php?t=1314
+Title Screen Frames
+Code:
+40f9b0		frame[-0x0020] = { 0x00000000, 0x00000000, 0x00000090, 0x00000028 }		//	000 000  144 040: Title Screen		
+40f9d5		frame[-0x0114] = { 0x00000000, 0x00000000, 0x000000a0, 0x00000010 }		//	000 000  160 016: Studio Pixel		
+40f9fd		frame[-0x00f0] = { 0x00000090, 0x00000000, 0x000000c0, 0x00000010 }
+		//	144 000  192 016: New				
+40fa25		frame[-0x0010] = { 0x00000090, 0x00000010, 0x000000c0, 0x00000020 }		//	144 016  192 032: Continue			
+40fa41		frame[-0x0038] = { 0x00000098, 0x00000050, 0x000000d0, 0x00000058 }		//	152 080  208 088: Version			
+40fa5d		frame[-0x0098] = { 0x00000098, 0x00000058, 0x000000d0, 0x00000060 }		//	152 088  208 076: Version Dots		
+40fa85		frame[-0x01e8] = { 0x00000000, 0x00000010, 0x00000010, 0x00000020 }		//	000 016  016 032: Quote Frame A		
+40faad		frame[-0x01d8] = { 0x00000010, 0x00000010, 0x00000020, 0x00000020 }		//	016 016  032 032: Quote Frame B		
+40fad5		frame[-0x01c8] = { 0x00000000, 0x00000010, 0x00000010, 0x00000020 }		//	000 016  016 032: Quote Frame C		
+40fafd		frame[-0x01b8] = { 0x00000020, 0x00000010, 0x00000030, 0x00000020 }		//	032 016  048 032: Quote Frame D		
+40fb25		frame[-0x00e0] = { 0x00000000, 0x00000070, 0x00000010, 0x00000080 }		//	000 112  016 128: Curly Frame A		
+40fb4d		frame[-0x00d0] = { 0x00000010, 0x00000070, 0x00000020, 0x00000080 }		//	016 112  032 128: Curly Frame B		
+40fb75		frame[-0x00c0] = { 0x00000000, 0x00000070, 0x00000010, 0x00000080 }		//	000 112  016 128: Curly Frame C		
+40fb9d		frame[-0x00b0] = { 0x00000020, 0x00000070, 0x00000030, 0x00000080 }		//	032 112  048 128: Curly Frame D		
+40fbc5		frame[-0x0160] = { 0x00000040, 0x00000050, 0x00000050, 0x00000060 }		//	064 080  080 096: Toroko Frame A	
+40fbed		frame[-0x0150] = { 0x00000050, 0x00000050, 0x00000060, 0x00000060 }		//	080 080  096 096: Toroko Frame B	
+40fc15		frame[-0x0140] = { 0x00000040, 0x00000050, 0x00000050, 0x00000060 }		//	064 080  080 096: Toroko Frame C	
+40fc3d		frame[-0x0130] = { 0x00000060, 0x00000050, 0x00000070, 0x00000060 }		//	096 080  112 096: Toroko Frame D	
+40fc65		frame[-0x0088] = { 0x000000e0, 0x00000030, 0x000000f0, 0x00000040 }
+		//	224 048  240 064: King Frame A		
+40fc87		frame[-0x0078] = { 0x00000120, 0x00000030, 0x00000130, 0x00000040 }		//	288 048  304 064: King Frame B		
+40fca3		frame[-0x0068] = { 0x000000e0, 0x00000030, 0x000000f0, 0x00000040 }
+		//	224 048  240 064: King Frame C		
+40fcbf		frame[-0x0058] = { 0x00000130, 0x00000030, 0x00000140, 0x00000040 }		//	304 048  320 064: King Frame D		
+40fcdb		frame[-0x01a8] = { 0x00000000, 0x00000010, 0x00000010, 0x00000020 }		//	000 016  016 032: Sue Frame A		
+40fd03		frame[-0x0198] = { 0x00000020, 0x00000010, 0x00000030, 0x00000020 }		//	032 016  048 032: Sue Frame B		
+40fd2b		frame[-0x0188] = { 0x00000000, 0x00000010, 0x00000010, 0x00000020 }		//	000 016  016 032: Sue Frame C		
+40fd53		frame[-0x0178] = { 0x00000030, 0x00000010, 0x00000040, 0x00000020 }		//	048 016  064 032: Sue Frame D
+
+This is also the start of the title screen code.
+
+Change the background color
+Around 0000FDA8, the game PUSHes a number onto the stack: 0x202020 (20 20 20 00) Immediately afterwards, 
+it calls a function which sets the background color. You can change this value to any other RGB number to have a different title screen background color.
+
+Change the version number
+This had me strumped for a bit. The game's version number seems quite well-hidden indeed. 
+Well, you won't find it anywhere in the code. It's ridiculously simple, it turns out. Just right-click, go into properties, 
+and under the version tab... well, you get the picture. Now go ahead and make that mod of yours version 1.0.0.0.
+
+Change the hell times
+Code:
+			//	Determine which mode the title screen is in, based on the best hell time.									
+40fdfa		if(L0164_HellBestTime != 0)
+40fe03			if(L0164_HellBestTime <= 18000)
+40fe0f				L011C_Mode = 1
+
+40fe19		if(L0164_HellBestTime != 0)
+40fe22			if(L0164_HellBestTime <= 15000)
+40fe2e				L011C_Mode = 2
+
+40fe38		if(L0164_HellBestTime != 0)
+40fe41			if(L0164_HellBestTime <= 12000)
+40fe4d				L011C_Mode = 3
+
+40fe57		if(L0164_HellBestTime != 0)
+40fe60			if(L0164_HellBestTime <=  9000)
+40fe6c				L011C_Mode = 4
+Here's what the code looks like. Time /3000 = minutes?
+
+Some sounds...
+0000FF47: change the 12 00 00 00 being pushed into something else to change the selection sound.
+0000FFB3: change the 01 00 00 00 being pushed into something else to change the movement sound.
+
+
+For the most up-to-date and complete information, please refer to the pages from which this information was copied.
+
+Offsets List: http://www.miraigamer.net/forums/showthread.php?t=942
+NPC Pointer Table: http://spgardebiter.sp.funpic.de/CaveStory/FAQ/NPC.txt
+General Guide: http://www.miraigamer.net/forums/showthread.php?t=2590
+TSC Guide: http://www.miraigamer.net/forums/showpost.php?p=54276&postcount=36
+http://www.miraigamer.net/forums/showpost.php?p=43463&postcount=33
+Special effect functions: http://www.miraigamer.net/forums/showthread.php?t=1296
+More functions: http://www.miraigamer.net/forums/showpost.php?p=54346&postcount=39
+NPC Hacking: http://www.miraigamer.net/forums/showthread.php?t=1290
+http://spgardebiter.sp.funpic.de/CaveStory/FAQ/Advanced%20NPC.txt
+Title Screen Hacking: http://www.miraigamer.net/forums/showthread.php?t=1314
+
+
+Random Crap I found and stuck at the back:
+
+416990 EWhat happens when you drown. Checks left/rightness.
+
+40ee70 = camera code (courtesy of GIRakaCHEEZER)
+
+4937b0 = Old map data.
+49a000 = New map data?
+
+41f710 = Firing the Nemesis? contains various datas such as bullet pos. and sound.
+
+417e40 = Tile code
+
+4180f7 - 2nd no NPC tile
+417b70
+
+419B0A - Death
+
+420bE0 - Something to do with loading map data?
+
+419030 = Collision Detection algorithm (entity)
+
+40f9b0 - Title Screen
+
+200 (hex) = 1 pixel
+2000 (hex) = 1 tile
+
+00410836      6A 01         |PUSH 1     
+00410838      E8 93990000   |CALL KingLoad.0041A1D0  
+0041083D      83C4 04       |ADD ESP,4
+Render Health Bar
+
+00410840      6A 01         |PUSH 1       
+00410842      E8 C9940000   |CALL KingLoad.00419D10 
+00410847      83C4 04       |ADD ESP,4
+Render XP Bar, misc UI
+
+004106F5      E8 76E0FFFF   CALL TimgTest.0040E770
+<FAI and <FAO
+
+00410815      6A 00         PUSH 0    
+00410817      E8 343A0000   CALL TimgTest.00414250  
+0041081C      83C4 04       ADD ESP,4
+<MNA
+
+
+410856 - Render Weapon Icons Call
+
+403eff = Calls 40c3c0 for drawing bullets
+
+40f59f = Calls 40c3c0 for rendering the #s for lvl, HP and ammo
+
+410307 = Calls GFX for mychar, top selection.
+41032A = Calls GFX for mychar on title screen
+
+413bFA = Calls GFX for map tileset, "Background layer" tiles.
+413d8f = Calls GFX for map tileset, "foreground layer" tiles.
+413dde = Calls GFX for the star block sprite.
+
+41405C = Calls GFX for caret.pbm, uncertain use.
+
+V Note, all pushes static for these two V
+4142a2 = Calls GFX for <MNA
+4142c5 = Calls GFX for <MNA on title screen
+
+
+~~~Player Stuff~~~
+
+410400 contains below
+push [ebp+8] = 2900d4
+
+	415250 contains below, handles all [?] rendering for character
+	push [ebp-10] = [12fc20] ~= 8c7a
+	push [ebp-4]  = [12fc2c] ~= 2ddfc
+	call 415250
+
+		415395 = Calls GFX for gun, char facing left
+		415407 = Calls GFX for gun, char facing right
+
+		4154d4 = Calls GFX for mychar ingame	
+		push 10		; +18 	; Tileset
+		push 12fbf0 	; +14	; frames??
+		push 71		; +10	; # of pixels top of frame is from top of screen
+		push A9		; +C	; # of pixels left of frame is from left of screen
+		push 48f91c	; +8	; Full Screen Rect
+	call 403c30
+
+
+~~~~~~~~~~~~The proper way to scale your values from SHL9 (CS units) to pixels;
+Say EAX is your value;
+CDQ
+AND EDX, 1FF
+ADD EAX, EDX
+MOV ECX, EAX
+SAR ECX, 9
+MOV EAX, [Camera]
+CDQ
+AND EDX, 1FF
+ADD EAX, EDX
+SAR EAX, 9
+SUB ECX, EAX
+PUSH ECX
+
+
+41491d = Calls GFX for map system [Number 9 on the list
+
+Bitmap object slots:
+0 = title image 
+1 = "2004.12 Studio Pixel"
+2 = current map tileset*
+3 = null
+4 = null
+5 = null
+6 = bg fade sheet
+7 = null
+8 = itemimage.pbm *
+9 = Map System something
+0A = Screenshot (for Map System, Pause)
+0B = arms.pbm*
+0C = armsimage.pbm
+0D = The text that appears from <MNA
+0E = stageimage.pbm
+0F = "Loading" image from title screen
+10 = mychar.pbm*
+11 = bullet.pbm*
+12 = null
+13 = caret.pbm
+14 = npcsym.pbm*
+15 = Map NPC tileset 1*
+16 = Map NPC tileset 2*
+17 = npcregu.pbm*
+18 = null
+19 = null
+1A = textbox.pbm
+1B = face.pbm
+1C = Map BG
+1D = numberObj_buff
+1E = TextBox Line 1
+1F = TextBox Line 2
+20 = TextBox Line 3
+21 = ????
+22 = Null
+23 = Credits Text Bitmap?
+24 = For Credits
+25 = For Credits
+26 = Null
+27 = Null
+
+
+49e63c - Which tiles is the PC contacting?
+1- Solid Left
+2- Solid Up
+4- Solid Right
+8- Solid Down
+10- Slope Up Left
+20- Slope Up Right
+40- (slope down?)
+80- (Unused?)
+100- Water
+200- (Unused?)
+400- Spike Tile
+800- Spike Tile {Water?}
+1000- Wind Left
+2000- Wind Up
+4000- Wind Right
+8000- Wind Down
+
+Player Frame #: 49E678
+
+0 - Frame 0, Standing
+1 - Frame 1, walk
+2 - Frame 0, walk
+3 - Frame 2, walk
+4 - Frame 0, walk
+5 - Frame 3, Stand
+6 - Frame 4, Walk
+7 - Frame 3, Walk
+8 - Frame 5, Walk
+9 - Frame 3, Walk
+A - Frame 6, Jumping look down
+B - Frame 7, Back turned
+C - Frame 8, Sitting
+D - Frame 9, On Ground
+E - Frame 10, Upside-down
+
+anding by the key_held or key_pressed offsets....:
+    0x000001 Left Arrow
+    0x000002 Right Arrow
+    0x000004 Up Arrow
+    0x000008 Down Arrow
+    0x000010 Show Mini-Map
+    0x000020 Shoot
+    0x000040 Jump
+    0x000080 Next Weapon
+    0x000100 Previous Weapon
+    0x000200 Shift
+    0x000400 F1
+    0x000800 F2
+    0x001000 Status/Menu Screen
+    0x008000 Escape
+    0x010000 "," Comma
+    0x020000 "." Period
+    0x040000 "?" Question Mark
+    0x080000 "L" The Letter L
+    0x100000 "=" Equal
+
+Gun IDs
+1 - Snake
+2 - Polar Star
+3 - Fireball
+4 - Machine Gun
+5 - Missile Launcher
+6 - Missiles 
+7 - Bubbler
+8 - Nothing
+9 - Blade
+A - Super Missile Launcher
+B - Super Missiles 
+C - Nemesis
+D - Spur
+
+Bullet IDs
+1 - Snake L1
+2 - Snake L2
+3 - Snake L3
+4 - Polar Star L1
+5 - Polar Star L2
+6 - Polar Star L3
+7 - Fireball L1
+8 - Fireball L2
+9 - Fireball L3
+a - Machine Gun L1
+b - Machine Gun L2
+c - Machine Gun L3
+d - Missle L1
+e - Missle L2
+f - Missle L3
+10 - Missle Ammo 01
+11 - Missle Ammo 02
+12 - Missle Ammo 03
+13 - Bubbler L1
+14 - Bubbler L2
+15 - Bubbler L3
+16 - Bubble Spurs
+17 - Blade Slashes
+18 - Invisible/127 (Egg Corridor Spike)
+19 - Blade L1
+1a - Blade L2
+1b - Blade L3
+1c - Super Missle L1
+1d - Super Missle L2
+1e - Super Missle L3
+1f - Super Missle Ammo 01
+20 - Super Missle Ammo 02
+21 - Super Missle Ammo 03
+22 - Nemesis 01
+23 - Nemesis 02
+24 - Nemesis 03
+25 - Spur L1
+26 - Spur L2
+27 - Spur L3
+28 - Spur Trail L1
+29 - Spur Trail L2
+2a - Spur Trail L3
+2b+ Nothing (OOB)
+
+NPC Special Flags
+
+1 - Solid
+2 - Ignore Tile 44
+4 - Invincible
+8 - Ignore Solid
+10 - Bouncy Top
+20 - Shootable
+40 - Special Solid
+80 - No Top or Back attack
+100 - Run Script on Contact
+200 - Run Script On Death
+400 - Unused
+800 - Appears once FlagID is set
+1000 - Init Direction = 1
+2000 - Not Shootable / PC presses down to run script
+4000 - Disappears once FlagID is set
+8000 - Shows damage
+
+Key Table
+    0x000001 Left Arrow
+    0x000002 Right Arrow
+    0x000004 Up Arrow
+    0x000008 Down Arrow
+    0x000010 Show Mini-Map
+    0x000020 Shoot
+    0x000040 Jump
+    0x000080 Next Weapon
+    0x000100 Previous Weapon
+    0x000200 Shift
+    0x000400 F1
+    0x000800 F2
+    0x001000 Status/Menu Screen
+    0x008000 Escape
+    0x010000 "," Comma
+    0x020000 "." Period
+    0x040000 "?" Question Mark
+    0x080000 "L" The Letter L
+    0x100000 "=" Equal
+
+Key Input codes (EDX@412E7B) in HEX == ASCII Value of capital letter - 0x10
+Other stuff:
+F1 = 60
+F2 = 61
+F3 = 62
+F4 = 63
+F5 = 64
+F6 = 65
+F7 = 66
+F8 = 67
+F9 = 68
+F10 = Doesn't work?
+F11 = 6A
+F12 = 6B but it also triggers some kind of debug breakpoint?
+
+*NOTE* the bullets that say missle Ammo are also the explosion bullet for the missle... at the corresponding lvl? Probably..?
+
