@@ -1,0 +1,38 @@
+CPU Disasm
+Address   Hex dump          Command                                               Comments
+0041CFBE      55            PUSH EBP                                              ; Initail Param Grab
+0041CFBF      89E5          MOV EBP,ESP                                           ; TODO
+0041CFC1      8BEC          MOV EBP,ESP                                           ; TODO
+0041CFC3      81EC 10010000 SUB ESP,110                                           ; 272 Bytes Saved
+0041CFC9      A1 208B4900   MOV EAX,DWORD PTR DS:[498B20]                         ; TODO
+0041CFCE      8945 F8       MOV DWORD PTR SS:[EBP-8],EAX                          ; TODO
+0041CFD1      A1 A8374900   MOV EAX,DWORD PTR DS:[4937A8]                         ; ASCII "Profile.dat"
+0041CFD6      50            PUSH EAX                                              ; Push Profile to the Stack
+0041CFD7      68 28E34900   PUSH OFFSET 0049E328                                  ; Push Full Executable
+0041CFDC      68 18C74800   PUSH OFFSET 0048C718                                  ; ASCII "%s\%s"
+0041CFE1      8D8D F0FEFFFF LEA ECX,[EBP-110]                                     ; Go to Local Varaiable Address
+0041CFE7      51            PUSH ECX                                              ; Push to Function
+0041CFE8      E8 23400600   CALL 00481010                                         ; TODO Updates Local Varibles with New Address
+0041CFED      83C4 10       ADD ESP,10                                            ; Fix Stack
+0041CFF0      6A 00         PUSH 0                                                ; Rand Var 6
+0041CFF2      68 80000000   PUSH 80                                               ; Rand Var 5
+0041CFF7      6A 03         PUSH 3                                                ; Rand Var 4
+0041CFF9      6A 00         PUSH 0                                                ; Rand Var 3
+0041CFFB      6A 01         PUSH 1                                                ; Rand Var 2
+0041CFFD      6A 00         PUSH 0                                                ; Rand Var 1
+0041CFFF      8D95 F0FEFFFF LEA EDX,[EBP-110]                                     ; Address of Local
+0041D005      52            PUSH EDX                                              ; Push to Close File Function
+0041D006      FF15 D0C04800 CALL DWORD PTR DS:[<&KERNEL32.CreateFileA>]           ; Call File Close Kernal
+0041D00C      8945 FC       MOV DWORD PTR SS:[EBP-4],EAX                          ; TODO
+0041D00F      837D FC FF    CMP DWORD PTR SS:[EBP-4],-1                           ; Check EAX with -1??
+0041D013      75 04         JNE SHORT 0041D019                                    ; If not keep going in function
+0041D015      33C0          XOR EAX,EAX                                           ; reset EAX
+0041D017      EB 0F         JMP SHORT 0041D028                                    ; Jump to Error Function
+0041D019      8B45 FC       MOV EAX,DWORD PTR SS:[EBP-4]                          ; Getter for File Address
+0041D01C      50            PUSH EAX                                              ; Push EAX function
+0041D01D  |.  FF15 D8C04800 CALL DWORD PTR DS:[<&KERNEL32.CloseHandle>]           ; Close File
+0041D023  |.  B8 01000000   MOV EAX,1                                             ; Intial Eax to 1
+0041D028      8B4D F8       MOV ECX,DWORD PTR SS:[EBP-8]                          ; File Size
+0041D02B  |.  E8 913D0600   CALL 00480DC1                                         ; Reserve RAM Pulls from ECX , EAX is 1 to represent reserve
+0041D030  |.  8BE5          MOV ESP,EBP
+0041D032  |.  5D            POP EBP
