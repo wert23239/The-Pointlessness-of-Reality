@@ -12,10 +12,12 @@ It's called cave editor [I'm an inline-style link with title](http://www.cavesto
 [I'm an inline-style link with title](http://www.cavestory.org/download/editors.php) "Here")
 
 
-## Used Levels
+## Used Levels Include
 
 17 Yamashita Farm (Plant) [Shadow Entrance]
 
 30 Grasstown Hut (WeedB) [Shadow Doors]
 
 44 Boulder Chamber (MazeS) [Shadow Doors]
+
+More not listed...
