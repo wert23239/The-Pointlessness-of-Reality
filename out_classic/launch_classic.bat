@@ -1,0 +1,1 @@
+java -jar BoostLab.jar "MODE=0"
