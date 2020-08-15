@@ -1,0 +1,1394 @@
+Flag 99
+	 <FLJ CentW.tsc event #250
+	 <FL+ CentW.tsc event #300
+Flag 100
+	 <FL+ Eggs.tsc event #500
+Flag 101
+	 <FL+ Eggs.tsc event #400
+	 <FLJ save.tsc event #101
+	 <FL- save.tsc event #103
+	 <FL+ ct.tsc event #202
+Flag 102
+	 <FL+ Eggs.tsc event #401
+	 <FL+ tnl.tsc event #201
+	 <FLJ save.tsc event #101
+	 <FL- save.tsc event #102
+Flag 103
+	 <FLJ Eggs.tsc event #108
+	 <FL+ Eggs.tsc event #503
+	 <FL- Eggs.tsc event #600
+	 <FLJ Eggs2.tsc event #108
+	 <FLJ EgEnd2.tsc event #108
+Flag 105
+	 <FLJ Eggs.tsc event #94
+	 <FLJ Eggs.tsc event #110
+	 <FL+ EggX.tsc event #200
+Flag 106
+	 <FLJ Eggs.tsc event #100
+	 <FL- Eggs.tsc event #102
+	 <FL+ EggX.tsc event #200
+	 <FLJ Eggs2.tsc event #100
+Flag 120
+	 <FLJ EggX.tsc event #94
+	 <FLJ EggX.tsc event #200
+	 <FL+ EggX.tsc event #200
+	 <FLJ EggX2.tsc event #94
+Flag 140
+	 <FLJ Egg6.tsc event #200
+	 <FL+ Egg6.tsc event #200
+Flag 153
+	 <FLJ Pens1.tsc event #200
+	 <FL+ Pens1.tsc event #200
+Flag 154
+	 <FLJ Pens1.tsc event #200
+	 <FL+ EggX.tsc event #200
+Flag 155
+	 <FLJ Pens1.tsc event #102
+	 <FL+ EggX.tsc event #200
+Flag 156
+	 <FL+ Pens1.tsc event #620
+	 <FL- SandE.tsc event #600
+Flag 157
+	 <FLJ Pens1.tsc event #200
+	 <FL- Pens1.tsc event #620
+Flag 158
+	 <FLJ Pens1.tsc event #200
+	 <FLJ Pens1.tsc event #621
+	 <FLJ Pens1.tsc event #622
+	 <FLJ Pens1.tsc event #624
+	 <FLJ Pens1.tsc event #625
+	 <FL+ Pens1.tsc event #625
+Flag 159
+	 <FLJ Pens1.tsc event #200
+	 <FLJ Pens1.tsc event #6001
+	 <FL+ Almond.tsc event #1100
+Flag 160
+	 <FL- Pens1.tsc event #651
+	 <FL+ Stream.tsc event #1001
+Flag 161
+	 <FL+ Pens1.tsc event #651
+	 <FLJ Prefa1.tsc event #200
+Flag 162
+	 <FL+ Pens1.tsc event #651
+	 <FLJ Cent.tsc event #370
+	 <FLJ e_Jenk.tsc event #100
+	 <FLJ Cent_2.tsc event #370
+	 <FLJ Cent_2_3.tsc event #370
+Flag 200
+	 <FLJ EggR.tsc event #300
+	 <FL+ EggR.tsc event #300
+Flag 201
+	 <FLJ MazeS.tsc event #200
+	 <FLJ Hell3.tsc event #400
+	 <FL+ Hell3.tsc event #400
+	 <FL+ lab.tsc event #110
+Flag 202
+	 <FL+ MazeS.tsc event #201
+	 <FLJ Hell3.tsc event #400
+Flag 212
+	 <FLJ Weed.tsc event #101
+	 <FL+ Weed.tsc event #503
+Flag 213
+	 <FL+ Chako.tsc event #202
+Flag 214
+	 <FLJ Weed.tsc event #104
+	 <FL+ Weed.tsc event #105
+Flag 215
+	 <FL+ Weed.tsc event #200
+	 <FLJ Weed.tsc event #230
+	 <FL+ Weed.tsc event #230
+Flag 216
+	 <FLJ Weed.tsc event #230
+	 <FL+ Weed.tsc event #234
+	 <FLJ Malco.tsc event #302
+	 <FLJ Malco.tsc event #303
+Flag 219
+	 <FLJ Weed.tsc event #100
+	 <FL- Weed.tsc event #130
+	 <FL+ Weed.tsc event #600
+Flag 221
+	 <FLJ Weed.tsc event #230
+	 <FL+ Weed.tsc event #236
+	 <FL+ Malco.tsc event #312
+Flag 222
+	 <FLJ Weed.tsc event #109
+	 <FL+ Weed.tsc event #110
+Flag 223
+	 <FLJ Weed.tsc event #230
+	 <FL+ Weed.tsc event #233
+Flag 224
+	 <FL+ Weed.tsc event #98
+Flag 225
+	 <FL+ Weed.tsc event #600
+Flag 226
+	 <FLJ Santa.tsc event #500
+	 <FL+ Shelt.tsc event #200
+Flag 227
+	 <FL- Weed.tsc event #100
+	 <FL- Weed.tsc event #101
+	 <FL+ Shelt.tsc event #105
+Flag 240
+	 <FLJ Santa.tsc event #500
+	 <FL+ Santa.tsc event #500
+Flag 241
+	 <FLJ Santa.tsc event #500
+	 <FL+ Santa.tsc event #500
+	 <FLJ Chako.tsc event #200
+	 <FLJ Chako.tsc event #300
+Flag 242
+	 <FLJ Santa.tsc event #300
+	 <FLJ Santa.tsc event #301
+	 <FL+ Santa.tsc event #301
+	 <FLJ Santa.tsc event #500
+Flag 243
+	 <FL+ SandE.tsc event #600
+Flag 261
+	 <FLJ Chako.tsc event #201
+	 <FL+ Chako.tsc event #201
+	 <FLJ Chako.tsc event #300
+Flag 262
+	 <FL+ SandE.tsc event #600
+Flag 263
+	 <FL- Chako.tsc event #90
+	 <FL- Chako.tsc event #91
+	 <FL- Chako.tsc event #92
+	 <FL- Chako.tsc event #93
+	 <FL- Chako.tsc event #94
+	 <FL+ Chako.tsc event #201
+	 <FLJ Chako.tsc event #210
+Flag 274
+	 <FL+ Dark.tsc event #400
+	 <FL- Gard.tsc event #502
+Flag 301
+	 <FLJ Cave.tsc event #102
+Flag 302
+	 <FLJ Cave.tsc event #102
+	 <FL+ Cave.tsc event #103
+Flag 303
+	 <FL+ Pole.tsc event #302
+Flag 321
+	 <FL- Pool.tsc event #300
+Flag 325
+	 <FLJ Pens1.tsc event #200
+	 <FLJ Pens1.tsc event #600
+Flag 326
+	 <FL- Barr.tsc event #1000
+	 <FL+ Pool.tsc event #300
+Flag 329
+	 <FL+ EggX.tsc event #200
+	 <FL- Weed.tsc event #130
+Flag 340
+	 <FL+ Almond.tsc event #1100
+Flag 341
+	 <FLJ Pens1.tsc event #94
+	 <FLJ Pens1.tsc event #99
+	 <FLJ Santa.tsc event #94
+	 <FLJ Chako.tsc event #94
+	 <FLJ Pool.tsc event #90
+	 <FLJ Pool.tsc event #91
+	 <FLJ Pool.tsc event #92
+	 <FLJ Pool.tsc event #93
+	 <FLJ Pool.tsc event #94
+	 <FLJ Plant.tsc event #90
+	 <FLJ Plant.tsc event #91
+	 <FLJ Plant.tsc event #92
+	 <FLJ Plant.tsc event #93
+	 <FLJ Plant.tsc event #94
+	 <FL+ Almond.tsc event #1000
+Flag 360
+	 <FLJ Barr.tsc event #100
+	 <FLJ Barr.tsc event #291
+	 <FL+ Barr.tsc event #1000
+Flag 361
+	 <FLJ Barr.tsc event #100
+	 <FL- Barr.tsc event #400
+	 <FL+ Barr.tsc event #1000
+	 <FL+ Barr.tsc event #1000
+	 <FL- Barr.tsc event #1001
+Flag 362
+	 <FLJ Barr.tsc event #100
+	 <FL- Barr.tsc event #400
+	 <FL- Barr.tsc event #1001
+	 <FL+ Pool.tsc event #300
+Flag 370
+	 <FLJ Barr.tsc event #290
+	 <FL+ Pool.tsc event #300
+	 <FLJ Pool.tsc event #400
+Flag 371
+	 <FLJ Pool.tsc event #100
+	 <FL+ Pool.tsc event #300
+	 <FL+ Pool.tsc event #401
+Flag 372
+	 <FL+ Almond.tsc event #1100
+Flag 390
+	 <FLJ Cemet.tsc event #300
+	 <FL+ Cemet.tsc event #300
+Flag 391
+	 <FL+ Oside.tsc event #602
+Flag 410
+	 <FL+ Plant.tsc event #300
+Flag 411
+	 <FL+ Almond.tsc event #1100
+Flag 412
+	 <FL+ EgEnd2.tsc event #500
+	 <FL+ Hell4.tsc event #500
+	 <FL+ Hell4_2.tsc event #500
+	 <FL+ Hell4_5.tsc event #500
+Flag 440
+	 <FL+ Barr.tsc event #1000
+Flag 444
+	 <FL+ Pens1.tsc event #620
+	 <FL- SandE.tsc event #600
+Flag 470
+	 <FLJ Egg1.tsc event #200
+	 <FL+ Egg1.tsc event #201
+Flag 480
+	 <FLJ Malco.tsc event #100
+	 <FL- Malco.tsc event #203
+	 <FL+ Malco.tsc event #204
+Flag 481
+	 <FLJ Weed.tsc event #205
+	 <FLJ Malco.tsc event #94
+	 <FLJ Malco.tsc event #200
+	 <FL+ Malco.tsc event #200
+	 <FLJ Malco.tsc event #300
+Flag 482
+	 <FL+ Malco.tsc event #203
+	 <FLJ Malco.tsc event #301
+Flag 483
+	 <FLJ Malco.tsc event #300
+	 <FL+ Malco.tsc event #302
+Flag 484
+	 <FLJ Weed.tsc event #230
+	 <FLJ Santa.tsc event #500
+	 <FLJ Malco.tsc event #303
+	 <FL+ Malco.tsc event #304
+Flag 485
+	 <FL+ Malco.tsc event #302
+Flag 486
+	 <FLJ Malco.tsc event #303
+	 <FL+ Malco.tsc event #312
+Flag 500
+	 <FLJ Frog.tsc event #100
+	 <FL+ Frog.tsc event #200
+	 <FL- Frog.tsc event #1000
+Flag 501
+	 <FLJ Frog.tsc event #200
+	 <FL+ Frog.tsc event #200
+Flag 512
+	 <FL+ Cent.tsc event #1500
+	 <FL+ Cent_2.tsc event #1500
+	 <FL+ Cent_2_3.tsc event #1500
+Flag 518
+	 <FL+ Oside.tsc event #1500
+Flag 519
+	 <FL+ Oside.tsc event #1501
+Flag 520
+	 <FL+ Shelt.tsc event #200
+	 <FLJ Malco.tsc event #303
+Flag 521
+	 <FL+ Weed.tsc event #250
+Flag 522
+	 <FL+ Weed.tsc event #250
+	 <FL- Shelt.tsc event #200
+Flag 523
+	 <FL- Weed.tsc event #600
+	 <FLJ Shelt.tsc event #100
+	 <FL+ Shelt.tsc event #200
+	 <FL- MazeB.tsc event #500
+Flag 524
+	 <FLJ Shelt.tsc event #102
+	 <FLJ Shelt.tsc event #220
+	 <FL+ Jail2.tsc event #200
+	 <FL+ Jail2_2.tsc event #200
+Flag 525
+	 <FL+ Shelt.tsc event #200
+Flag 550
+	 <FLJ WeedB.tsc event #202
+	 <FLJ WeedB.tsc event #300
+	 <FL+ WeedB.tsc event #300
+Flag 565
+	 <FL+ SandE.tsc event #600
+Flag 594
+	 <FL+ Gard.tsc event #502
+Flag 596
+	 <FL+ Gard.tsc event #502
+Flag 610
+	 <FL+ Dark.tsc event #400
+Flag 620
+	 <FL+ Gard.tsc event #502
+Flag 621
+	 <FLJ Gard.tsc event #100
+	 <FL+ Gard.tsc event #502
+	 <FL- Gard.tsc event #601
+Flag 622
+	 <FLJ Gard.tsc event #505
+	 <FL+ Gard.tsc event #600
+Flag 623
+	 <FL+ Gard.tsc event #503
+	 <FLJ Gard.tsc event #505
+Flag 624
+	 <FLJ Gard.tsc event #100
+	 <FL+ Gard.tsc event #100
+Flag 641
+	 <FLJ MazeI.tsc event #202
+	 <FLJ MazeI.tsc event #402
+	 <FL+ MazeI.tsc event #402
+Flag 666
+	 <FL+ Weed.tsc event #201
+Flag 680
+	 <FL- MazeW.tsc event #301
+	 <FL+ MazeW.tsc event #1000
+Flag 681
+	 <FLJ MazeW.tsc event #103
+	 <FL+ MazeW.tsc event #104
+Flag 700
+	 <FLJ MazeO.tsc event #300
+	 <FL+ MazeO.tsc event #300
+Flag 701
+	 <FLJ MazeO.tsc event #310
+	 <FLJ MazeO.tsc event #320
+	 <FL+ MazeO.tsc event #320
+Flag 702
+	 <FLJ MazeO.tsc event #300
+	 <FL+ MazeO.tsc event #302
+	 <FLJ MazeO.tsc event #310
+	 <FLJ MazeO.tsc event #320
+Flag 703
+	 <FLJ MazeO.tsc event #100
+	 <FL+ MazeO.tsc event #322
+Flag 704
+	 <FL+ MazeO.tsc event #101
+	 <FLJ MazeO.tsc event #300
+	 <FLJ MazeO.tsc event #310
+Flag 705
+	 <FLJ MazeO.tsc event #400
+	 <FL+ MazeO.tsc event #400
+Flag 710
+	 <FLJ MazeD.tsc event #100
+	 <FL+ MazeD.tsc event #200
+	 <FL- MazeD.tsc event #300
+Flag 711
+	 <FLJ MazeD.tsc event #200
+	 <FL+ MazeD.tsc event #200
+Flag 720
+	 <FLJ MazeA.tsc event #240
+	 <FLJ MazeA.tsc event #310
+	 <FL+ MazeM.tsc event #310
+Flag 721
+	 <FLJ MazeA.tsc event #400
+	 <FL+ MazeA.tsc event #401
+	 <FL+ MazeA.tsc event #402
+	 <FL+ MazeA.tsc event #404
+Flag 722
+	 <FL+ MazeA.tsc event #404
+Flag 740
+	 <FLJ Sand.tsc event #109
+	 <FLJ MazeW.tsc event #110
+	 <FL+ MazeB.tsc event #500
+Flag 741
+	 <FL+ Pens1.tsc event #651
+	 <FLJ MazeB.tsc event #501
+	 <FL+ MazeB.tsc event #501
+Flag 742
+	 <FL- Momo.tsc event #202
+Flag 743
+	 <FL- Momo.tsc event #203
+Flag 744
+	 <FL+ Pens1.tsc event #651
+	 <FLJ MazeB.tsc event #200
+Flag 760
+	 <FL+ MazeO.tsc event #322
+	 <FL- MazeS.tsc event #600
+Flag 761
+	 <FLJ MazeS.tsc event #92
+	 <FLJ MazeS.tsc event #300
+	 <FL+ MazeS.tsc event #300
+	 <FLJ MazeS.tsc event #320
+	 <FLJ MazeS.tsc event #500
+Flag 762
+	 <FLJ MazeS.tsc event #300
+	 <FLJ MazeS.tsc event #320
+	 <FL+ MazeS.tsc event #321
+	 <FLJ MazeS.tsc event #500
+Flag 763
+	 <FLJ MazeS.tsc event #100
+	 <FL+ MazeS.tsc event #321
+	 <FL- MazeS.tsc event #600
+Flag 764
+	 <FLJ MazeS.tsc event #110
+	 <FLJ MazeS.tsc event #300
+	 <FL+ MazeS.tsc event #600
+Flag 765
+	 <FL- MazeS.tsc event #201
+	 <FL+ MazeS.tsc event #600
+Flag 766
+	 <FLJ MazeS.tsc event #201
+	 <FL+ MazeS.tsc event #201
+Flag 780
+	 <FLJ MazeM.tsc event #93
+	 <FLJ MazeM.tsc event #94
+	 <FL+ MazeM.tsc event #111
+Flag 781
+	 <FL+ MazeS.tsc event #600
+	 <FLJ MazeM.tsc event #110
+	 <FL- MazeM.tsc event #111
+Flag 782
+	 <FLJ MazeM.tsc event #90
+	 <FLJ MazeM.tsc event #92
+	 <FLJ MazeM.tsc event #301
+	 <FLJ MazeM.tsc event #330
+	 <FL+ MazeM.tsc event #330
+Flag 783
+	 <FLJ MazeM.tsc event #110
+	 <FL+ Almond.tsc event #1000
+Flag 800
+	 <FLJ Drain.tsc event #90
+	 <FLJ Drain.tsc event #100
+	 <FL+ Almond.tsc event #1100
+Flag 801
+	 <FL+ Almond.tsc event #1100
+Flag 820
+	 <FL+ Drain.tsc event #150
+	 <FL- Almond.tsc event #200
+Flag 821
+	 <FLJ Almond.tsc event #200
+	 <FL+ Almond.tsc event #200
+Flag 822
+	 <FLJ Almond.tsc event #92
+	 <FL+ Almond.tsc event #200
+	 <FL- Almond.tsc event #340
+	 <FL- Almond.tsc event #351
+Flag 823
+	 <FLJ Almond.tsc event #200
+	 <FLJ Almond.tsc event #301
+	 <FL+ Almond.tsc event #340
+Flag 824
+	 <FLJ Almond.tsc event #200
+	 <FL+ Almond.tsc event #202
+	 <FL- Almond.tsc event #452
+Flag 825
+	 <FLJ Almond.tsc event #210
+	 <FL+ Almond.tsc event #210
+	 <FLJ Almond.tsc event #350
+	 <FL- Almond.tsc event #1100
+Flag 826
+	 <FL+ Almond.tsc event #340
+	 <FL- Almond.tsc event #351
+Flag 827
+	 <FL+ Almond.tsc event #351
+	 <FL- Almond.tsc event #1100
+Flag 828
+	 <FLJ Almond.tsc event #240
+	 <FLJ Almond.tsc event #452
+	 <FL+ Almond.tsc event #452
+	 <FL- Almond.tsc event #1000
+Flag 829
+	 <FLJ Almond.tsc event #92
+	 <FL- Almond.tsc event #307
+	 <FL+ Almond.tsc event #1100
+	 <FLJ Almond.tsc event #1200
+Flag 830
+	 <FLJ Malco.tsc event #94
+	 <FLJ Malco.tsc event #303
+	 <FLJ Almond.tsc event #210
+	 <FLJ Almond.tsc event #360
+	 <FL+ Almond.tsc event #1100
+Flag 831
+	 <FLJ Oside.tsc event #206
+	 <FL+ Oside.tsc event #207
+	 <FLJ Oside.tsc event #207
+	 <FL+ Oside.tsc event #400
+Flag 832
+	 <FLJ Almond.tsc event #200
+	 <FL+ Almond.tsc event #1000
+Flag 834
+	 <FL+ MazeB.tsc event #501
+Flag 835
+	 <FL+ Almond.tsc event #307
+	 <FLJ Pixel.tsc event #200
+Flag 836
+	 <FLJ Stream.tsc event #1002
+	 <FL- Stream.tsc event #1003
+	 <FL+ Almond.tsc event #307
+	 <FLJ River.tsc event #220
+	 <FLJ Pixel.tsc event #250
+	 <FL- Pixel.tsc event #251
+	 <FL+ Pixel.tsc event #256
+Flag 837
+	 <FLJ Almond.tsc event #452
+	 <FL+ Almond.tsc event #1000
+Flag 838
+	 <FL+ Almond.tsc event #1100
+Flag 839
+	 <FLJ Almond.tsc event #100
+	 <FL+ Almond.tsc event #240
+	 <FL- Almond.tsc event #1100
+Flag 851
+	 <FLJ Stream.tsc event #1003
+	 <FL+ River.tsc event #221
+Flag 880
+	 <FLJ Eggs2.tsc event #320
+	 <FL+ Eggs2.tsc event #320
+Flag 900
+	 <FL+ Oside.tsc event #1300
+	 <FL+ Cent.tsc event #1300
+	 <FL+ Clock.tsc event #400
+	 <FL+ Cent_2.tsc event #1300
+	 <FL+ Poko's Jail Cell.tsc event #1300
+	 <FL+ Cent_2_3.tsc event #1300
+Flag 920
+	 <FLJ EggR2.tsc event #302
+	 <FL+ EggR2.tsc event #302
+Flag 921
+	 <FLJ EggR2.tsc event #100
+	 <FLJ EggR2.tsc event #101
+	 <FL+ EggR2.tsc event #304
+	 <FL- EggR2.tsc event #1000
+Flag 940
+	 <FLJ EggX2.tsc event #110
+	 <FL+ EggX2.tsc event #500
+	 <FL+ EggX2.tsc event #501
+Flag 941
+	 <FLJ EggX2.tsc event #500
+	 <FL+ EggX2.tsc event #500
+Flag 960
+	 <FL+ EggX2.tsc event #500
+	 <FLJ Oside.tsc event #400
+	 <FL+ Oside.tsc event #400
+Flag 961
+	 <FLJ Oside.tsc event #310
+	 <FLJ Oside.tsc event #1302
+	 <FL+ Oside.tsc event #1302
+	 <FL+ Momo.tsc event #200
+Flag 962
+	 <FLJ Oside.tsc event #311
+	 <FLJ Oside.tsc event #1303
+	 <FL+ Oside.tsc event #1303
+Flag 963
+	 <FLJ Oside.tsc event #312
+	 <FLJ Oside.tsc event #1304
+	 <FL+ Oside.tsc event #1304
+Flag 964
+	 <FLJ Oside.tsc event #313
+	 <FLJ Oside.tsc event #1305
+	 <FL+ Oside.tsc event #1305
+Flag 999
+	 <FLJ Weed.tsc event #199
+	 <FL+ Oside.tsc event #1300
+	 <FL+ Cent.tsc event #1300
+	 <FLJ Clock.tsc event #199
+	 <FL+ Clock.tsc event #400
+	 <FL+ Cent_2.tsc event #1300
+	 <FL+ Poko's Jail Cell.tsc event #1300
+	 <FL+ Cent_2_3.tsc event #1300
+	 <FL+ Cent_2_3.tsc event #1302
+Flag 1000
+	 <FLJ Itoh.tsc event #94
+	 <FL+ Itoh.tsc event #200
+Flag 1001
+	 <FLJ Itoh.tsc event #400
+	 <FL+ Itoh.tsc event #400
+Flag 1002
+	 <FLJ CurlyS.tsc event #430
+	 <FL+ CurlyS.tsc event #430
+	 <FLJ EgEnd2.tsc event #400
+	 <FL+ EgEnd2.tsc event #400
+	 <FLJ Itoh.tsc event #400
+	 <FL+ Itoh.tsc event #401
+	 <FLJ Cent.tsc event #133
+	 <FL+ Cent.tsc event #133
+	 <FLJ Cent.tsc event #1300
+	 <FL+ Cent.tsc event #1300
+	 <FL+ Hell4.tsc event #400
+	 <FLJ Clock.tsc event #400
+	 <FL+ Clock.tsc event #400
+	 <FL- Clock.tsc event #900
+	 <FL+ Hell4_2.tsc event #400
+	 <FLJ Cent_2.tsc event #1300
+	 <FL+ Cent_2.tsc event #1300
+	 <FLJ Poko's Jail Cell.tsc event #1300
+	 <FL+ Poko's Jail Cell.tsc event #1300
+	 <FLJ Cent_2_3.tsc event #1300
+	 <FL+ Cent_2_3.tsc event #1300
+	 <FL+ Cent_2_3.tsc event #1302
+	 <FL+ Hell4_5.tsc event #400
+Flag 1003
+	 <FL+ Jenka2.tsc event #230
+	 <FLJ Itoh.tsc event #400
+	 <FL+ Itoh.tsc event #403
+	 <FLJ Hell4.tsc event #400
+	 <FL+ Hell4.tsc event #400
+	 <FL- Hell4.tsc event #999
+	 <FLJ Hell4_2.tsc event #400
+	 <FL+ Hell4_2.tsc event #400
+	 <FL- Hell4_2.tsc event #999
+	 <FLJ Hell4_5.tsc event #400
+	 <FL+ Hell4_5.tsc event #400
+	 <FL- Hell4_5.tsc event #999
+Flag 1004
+	 <FL+ Momo.tsc event #281
+Flag 1005
+	 <FL+ Curly.tsc event #101
+Flag 1010
+	 <FL+ krn1.tsc event #101
+Flag 1011
+	 <FL+ krn1.tsc event #102
+Flag 1012
+	 <FLJ krn1.tsc event #102
+	 <FL+ krn1.tsc event #102
+Flag 1013
+	 <FLJ acave.tsc event #101
+	 <FLJ krn1.tsc event #102
+	 <FL+ krn1.tsc event #105
+Flag 1020
+	 <FLJ 0.tsc event #100
+	 <FLJ Pens1.tsc event #660
+	 <FLJ Plant.tsc event #220
+	 <FLJ MazeA.tsc event #220
+	 <FLJ Cent.tsc event #200
+	 <FLJ Cent.tsc event #210
+	 <FLJ Cent.tsc event #220
+	 <FLJ Cent.tsc event #230
+	 <FLJ Cent.tsc event #240
+	 <FLJ Cent.tsc event #250
+	 <FLJ Cent.tsc event #322
+	 <FL- Cent.tsc event #375
+	 <FL+ Momo.tsc event #205
+	 <FLJ lounge.tsc event #200
+	 <FLJ lounge.tsc event #210
+	 <FLJ lounge.tsc event #220
+	 <FLJ lounge.tsc event #230
+	 <FLJ Ring1.tsc event #400
+	 <FLJ Ring1.tsc event #500
+	 <FLJ Ring1.tsc event #501
+	 <FLJ Ring2.tsc event #200
+	 <FLJ Ring2.tsc event #222
+	 <FL+ acave.tsc event #101
+	 <FLJ gmnk.tsc event #110
+	 <FLJ Cent_2.tsc event #200
+	 <FLJ Cent_2.tsc event #210
+	 <FLJ Cent_2.tsc event #220
+	 <FLJ Cent_2.tsc event #230
+	 <FLJ Cent_2.tsc event #240
+	 <FLJ Cent_2.tsc event #250
+	 <FLJ Cent_2.tsc event #322
+	 <FL- Cent_2.tsc event #375
+	 <FLJ Cent_2_3.tsc event #200
+	 <FLJ Cent_2_3.tsc event #210
+	 <FLJ Cent_2_3.tsc event #220
+	 <FLJ Cent_2_3.tsc event #230
+	 <FLJ Cent_2_3.tsc event #240
+	 <FLJ Cent_2_3.tsc event #250
+	 <FLJ Cent_2_3.tsc event #322
+	 <FL- Cent_2_3.tsc event #375
+	 <FLJ Cent_2_3.tsc event #1302
+	 <FL+ Cent_2_3.tsc event #1302
+Flag 1021
+	 <FLJ Start.tsc event #200
+	 <FL- Start.tsc event #202
+	 <FL+ lounge.tsc event #250
+	 <FL+ gmnk.tsc event #111
+Flag 1022
+	 <FLJ Cent.tsc event #260
+	 <FLJ Cent.tsc event #265
+	 <FL+ Cent.tsc event #266
+	 <FLJ Cent_2.tsc event #260
+	 <FLJ Cent_2.tsc event #265
+	 <FL+ Cent_2.tsc event #266
+	 <FLJ Cent_2_3.tsc event #260
+	 <FLJ Cent_2_3.tsc event #265
+	 <FL+ Cent_2_3.tsc event #266
+Flag 1023
+	 <FLJ Cent.tsc event #135
+	 <FL+ Cent.tsc event #136
+	 <FLJ Cent.tsc event #260
+	 <FLJ Cent_2.tsc event #135
+	 <FL+ Cent_2.tsc event #136
+	 <FLJ Cent_2.tsc event #260
+	 <FLJ Cent_2_3.tsc event #135
+	 <FL+ Cent_2_3.tsc event #136
+	 <FLJ Cent_2_3.tsc event #260
+Flag 1024
+	 <FLJ Cent.tsc event #120
+	 <FLJ Cent_2.tsc event #120
+	 <FLJ Cent_2_3.tsc event #120
+Flag 1025
+	 <FL+ Itoh.tsc event #200
+Flag 1026
+	 <FL- Momo.tsc event #281
+Flag 1027
+	 <FL+ Momo.tsc event #207
+	 <FLJ acave.tsc event #99
+	 <FLJ acave.tsc event #100
+	 <FLJ acave.tsc event #101
+	 <FL+ acave.tsc event #103
+Flag 1028
+	 <FLJ Cent.tsc event #250
+	 <FL- Cent.tsc event #416
+	 <FL+ Momo.tsc event #207
+	 <FLJ Cent_2.tsc event #250
+	 <FL- Cent_2.tsc event #416
+	 <FLJ Cent_2_3.tsc event #250
+	 <FL- Cent_2_3.tsc event #416
+Flag 1029
+	 <FLJ Cent.tsc event #250
+	 <FL+ Cent.tsc event #252
+	 <FLJ Cent.tsc event #415
+	 <FLJ Cent_2.tsc event #250
+	 <FL+ Cent_2.tsc event #252
+	 <FLJ Cent_2.tsc event #415
+	 <FLJ Cent_2_3.tsc event #250
+	 <FL+ Cent_2_3.tsc event #252
+	 <FLJ Cent_2_3.tsc event #415
+Flag 1030
+	 <FLJ Cent.tsc event #150
+	 <FL+ Momo.tsc event #281
+	 <FL+ Hell4.tsc event #501
+	 <FL+ Clock.tsc event #500
+	 <FL+ Hell4_2.tsc event #501
+	 <FLJ Cent_2.tsc event #150
+	 <FLJ Cent_2_3.tsc event #150
+	 <FL+ Hell4_5.tsc event #501
+Flag 1031
+	 <FL+ Momo.tsc event #281
+	 <FL- Ring3.tsc event #600
+Flag 1032
+	 <FL+ Momo.tsc event #281
+	 <FL- Ring3.tsc event #600
+Flag 1033
+	 <FL+ Momo.tsc event #281
+	 <FLJ lounge.tsc event #210
+Flag 1034
+	 <FLJ Cent.tsc event #370
+	 <FL+ Cent.tsc event #370
+	 <FLJ Cent_2.tsc event #370
+	 <FL+ Cent_2.tsc event #370
+	 <FLJ Cent_2_3.tsc event #370
+	 <FL+ Cent_2_3.tsc event #370
+Flag 1035
+	 <FLJ Cent.tsc event #260
+	 <FL+ Cent.tsc event #260
+	 <FLJ Cent.tsc event #265
+	 <FLJ Cent_2.tsc event #260
+	 <FL+ Cent_2.tsc event #260
+	 <FLJ Cent_2.tsc event #265
+	 <FLJ Cent_2_3.tsc event #260
+	 <FL+ Cent_2_3.tsc event #260
+	 <FLJ Cent_2_3.tsc event #265
+Flag 1036
+	 <FL+ Momo.tsc event #281
+Flag 1037
+	 <FLJ Cent.tsc event #240
+	 <FL+ Cent.tsc event #241
+	 <FLJ Cent_2.tsc event #240
+	 <FL+ Cent_2.tsc event #241
+	 <FLJ Cent_2_3.tsc event #240
+	 <FL+ Cent_2_3.tsc event #241
+Flag 1038
+	 <FL+ Itoh.tsc event #200
+	 <FL+ Itoh.tsc event #400
+	 <FL- Momo.tsc event #281
+Flag 1039
+	 <FL+ Momo.tsc event #281
+Flag 1040
+	 <FLJ Cent.tsc event #450
+	 <FL+ Cent.tsc event #450
+	 <FL+ Jail2.tsc event #502
+	 <FL+ Hell4.tsc event #400
+	 <FL+ Hell4.tsc event #502
+	 <FL+ Hell4_2.tsc event #400
+	 <FL+ Hell4_2.tsc event #502
+	 <FLJ Cent_2.tsc event #450
+	 <FL+ Cent_2.tsc event #450
+	 <FLJ Cent_2_3.tsc event #450
+	 <FL+ Cent_2_3.tsc event #450
+	 <FL+ Jail2_2.tsc event #502
+	 <FL+ Hell4_5.tsc event #400
+	 <FL+ Hell4_5.tsc event #502
+Flag 1041
+	 <FLJ Cent.tsc event #310
+	 <FL+ Cent.tsc event #320
+	 <FLJ Cent_2.tsc event #310
+	 <FL+ Cent_2.tsc event #320
+	 <FLJ Cent_2_3.tsc event #310
+	 <FL+ Cent_2_3.tsc event #320
+Flag 1042
+	 <FL+ Stream.tsc event #1003
+Flag 1044
+	 <FLJ Cent.tsc event #310
+	 <FL+ Cent.tsc event #311
+	 <FLJ Mapi.tsc event #400
+	 <FLJ Cent_2.tsc event #310
+	 <FL+ Cent_2.tsc event #311
+	 <FLJ Cent_2_3.tsc event #310
+	 <FL+ Cent_2_3.tsc event #311
+Flag 1045
+	 <FLJ Cent.tsc event #310
+	 <FLJ Cent.tsc event #320
+	 <FL+ Cent.tsc event #322
+	 <FLJ Cent_2.tsc event #310
+	 <FLJ Cent_2.tsc event #320
+	 <FL+ Cent_2.tsc event #322
+	 <FLJ Cent_2_3.tsc event #310
+	 <FLJ Cent_2_3.tsc event #320
+	 <FL+ Cent_2_3.tsc event #322
+Flag 1046
+	 <FLJ Cent.tsc event #320
+	 <FL+ Cent.tsc event #324
+	 <FLJ Ring3.tsc event #1001
+	 <FLJ Cent_2.tsc event #320
+	 <FL+ Cent_2.tsc event #324
+	 <FLJ Cent_2_3.tsc event #320
+	 <FL+ Cent_2_3.tsc event #324
+Flag 1050
+	 <FL+ Hell4.tsc event #503
+	 <FL+ Hell4_2.tsc event #503
+	 <FL+ Hell4_5.tsc event #503
+Flag 1082
+	 <FL+ CentW.tsc event #150
+Flag 1099
+	 <FLJ Oside.tsc event #1300
+	 <FL+ Oside.tsc event #1300
+Flag 1100
+	 <FLJ Momo.tsc event #200
+	 <FL+ Momo.tsc event #200
+Flag 1101
+	 <FLJ Momo.tsc event #200
+	 <FL+ Momo.tsc event #205
+Flag 1102
+	 <FLJ Itoh.tsc event #400
+	 <FLJ Cent.tsc event #400
+	 <FLJ Cent.tsc event #410
+	 <FLJ Momo.tsc event #200
+	 <FL+ Momo.tsc event #210
+	 <FLJ Cent_2.tsc event #400
+	 <FLJ Cent_2.tsc event #410
+	 <FLJ Cent_2_3.tsc event #400
+	 <FLJ Cent_2_3.tsc event #410
+Flag 1103
+	 <FLJ Momo.tsc event #200
+	 <FL+ Momo.tsc event #211
+	 <FLJ Momo.tsc event #280
+	 <FL- Momo.tsc event #281
+Flag 1105
+	 <FLJ Cent.tsc event #120
+	 <FL+ Momo.tsc event #281
+	 <FLJ Cent_2.tsc event #120
+	 <FLJ Cent_2_3.tsc event #120
+Flag 1106
+	 <FLJ Momo.tsc event #200
+	 <FL+ Momo.tsc event #202
+	 <FL+ Momo.tsc event #203
+Flag 1107
+	 <FL+ Momo.tsc event #210
+Flag 1120
+	 <FL+ lounge.tsc event #250
+Flag 1121
+	 <FLJ lounge.tsc event #201
+	 <FL+ lounge.tsc event #202
+Flag 1140
+	 <FLJ CentW.tsc event #150
+	 <FL+ CentW.tsc event #150
+Flag 1141
+	 <FLJ CentW.tsc event #150
+	 <FL+ CentW.tsc event #150
+Flag 1190
+	 <FL- Blcny1.tsc event #90
+	 <FL+ Blcny1.tsc event #91
+	 <FL- Blcny1.tsc event #94
+	 <FL- Blcny2.tsc event #90
+	 <FL+ Blcny2.tsc event #91
+	 <FL- Blcny2.tsc event #94
+	 <FL- Blcny2.tsc event #310
+Flag 1191
+	 <FL- Blcny1.tsc event #90
+	 <FL- Blcny1.tsc event #91
+	 <FL+ Blcny1.tsc event #94
+	 <FLJ Blcny1.tsc event #210
+	 <FL- Blcny2.tsc event #90
+	 <FL- Blcny2.tsc event #91
+	 <FL+ Blcny2.tsc event #94
+	 <FLJ Blcny2.tsc event #210
+	 <FL- Blcny2.tsc event #310
+Flag 1192
+	 <FL+ Blcny1.tsc event #90
+	 <FL- Blcny1.tsc event #91
+	 <FL- Blcny1.tsc event #94
+	 <FLJ Blcny1.tsc event #210
+	 <FL+ Blcny2.tsc event #90
+	 <FL- Blcny2.tsc event #91
+	 <FL- Blcny2.tsc event #94
+	 <FLJ Blcny2.tsc event #210
+	 <FL+ Blcny2.tsc event #310
+Flag 1250
+	 <FLJ Ring1.tsc event #92
+	 <FLJ Ring1.tsc event #93
+Flag 1270
+	 <FLJ Ring2.tsc event #93
+	 <FLJ Ring2.tsc event #200
+	 <FLJ Ring2.tsc event #210
+	 <FLJ Ring2.tsc event #220
+	 <FL- Ring2.tsc event #410
+	 <FL+ Ring2.tsc event #420
+	 <FL- Ring2.tsc event #502
+	 <FL- Ring2.tsc event #501
+Flag 1271
+	 <FLJ Ring2.tsc event #200
+	 <FLJ Ring2.tsc event #210
+	 <FLJ Ring2.tsc event #220
+	 <FL+ Ring2.tsc event #502
+	 <FL+ Ring2.tsc event #501
+Flag 1272
+	 <FLJ Ring2.tsc event #200
+	 <FL+ Ring2.tsc event #202
+Flag 1273
+	 <FL+ Ring3.tsc event #600
+Flag 1274
+	 <FLJ Ring2.tsc event #204
+	 <FL+ Ring2.tsc event #204
+Flag 1290
+	 <FLJ Cthu.tsc event #200
+	 <FL+ Cthu.tsc event #200
+Flag 1320
+	 <FL- Priso2.tsc event #241
+	 <FLJ Priso2.tsc event #251
+	 <FL+ Priso2.tsc event #251
+Flag 1340
+	 <FL- Ring3.tsc event #441
+	 <FL+ Ring3.tsc event #1000
+Flag 1341
+	 <FLJ Ring1.tsc event #93
+	 <FLJ Ring1.tsc event #100
+	 <FLJ Ring2.tsc event #93
+	 <FL+ Ring3.tsc event #600
+Flag 1370
+	 <FL+ Oside.tsc event #131
+	 <FLJ Little.tsc event #210
+Flag 1371
+	 <FLJ Cemet.tsc event #200
+	 <FLJ Oside.tsc event #601
+	 <FL+ Little.tsc event #210
+Flag 1372
+	 <FLJ Little.tsc event #200
+	 <FL+ Little.tsc event #200
+Flag 1373
+	 <FLJ Little.tsc event #200
+Flag 1390
+	 <FL+ Ring3.tsc event #600
+	 <FL+ Prefa2.tsc event #200
+Flag 1391
+	 <FL+ Ring3.tsc event #600
+	 <FL- Blcny2.tsc event #310
+	 <FL+ Prefa2.tsc event #200
+Flag 1392
+	 <FL+ Ring3.tsc event #600
+	 <FL- Blcny2.tsc event #330
+	 <FL+ Prefa2.tsc event #200
+Flag 1393
+	 <FL+ Ring3.tsc event #1002
+	 <FLJ Blcny2.tsc event #120
+Flag 1440
+	 <FLJ Pixel.tsc event #200
+	 <FLJ Pixel.tsc event #250
+	 <FL+ Pixel.tsc event #251
+	 <FL- Pixel.tsc event #256
+Flag 1441
+	 <FLJ Pixel.tsc event #200
+	 <FLJ Pixel.tsc event #221
+	 <FL+ Pixel.tsc event #222
+	 <FLJ Pixel.tsc event #250
+Flag 1442
+	 <FLJ Pixel.tsc event #250
+	 <FL+ Pixel.tsc event #253
+Flag 1443
+	 <FLJ Pixel.tsc event #250
+	 <FL+ Pixel.tsc event #254
+Flag 1444
+	 <FLJ River.tsc event #220
+	 <FLJ Pixel.tsc event #250
+	 <FL+ Pixel.tsc event #256
+Flag 1445
+	 <FL+ Pixel.tsc event #202
+	 <FLJ Pixel.tsc event #221
+Flag 1460
+	 <FL+ Fall.tsc event #120
+Flag 1531
+	 <FL+ Prefa2.tsc event #110
+	 <FLJ Hell1.tsc event #110
+	 <FL- Hell1.tsc event #500
+Flag 1532
+	 <FL+ Hell1.tsc event #500
+	 <FLJ Hell3.tsc event #95
+	 <FL- Hell3.tsc event #200
+Flag 1533
+	 <FL+ Hell3.tsc event #200
+Flag 1534
+	 <FLJ Weed.tsc event #199
+	 <FL+ Prefa2.tsc event #110
+	 <FLJ Hell3.tsc event #110
+	 <FLJ Statue.tsc event #92
+	 <FLJ Statue.tsc event #100
+	 <FLJ Clock.tsc event #199
+Flag 1550
+	 <FL+ Prefa2.tsc event #110
+	 <FLJ Hell3.tsc event #95
+	 <FLJ Hell3.tsc event #200
+	 <FL- Hell3.tsc event #1000
+Flag 1551
+	 <FLJ Hell3.tsc event #390
+	 <FL+ Hell3.tsc event #390
+Flag 1561
+	 <FLJ Mapi.tsc event #400
+	 <FL+ Mapi.tsc event #402
+Flag 1562
+	 <FLJ Mapi.tsc event #400
+	 <FL+ Mapi.tsc event #410
+Flag 1563
+	 <FLJ Mapi.tsc event #400
+Flag 1564
+	 <FLJ Mapi.tsc event #100
+	 <FL+ Mapi.tsc event #420
+	 <FL- Mapi.tsc event #500
+Flag 1590
+	 <FLJ Hell4.tsc event #120
+	 <FLJ Hell4.tsc event #210
+	 <FLJ Hell4.tsc event #211
+	 <FLJ Statue.tsc event #210
+	 <FLJ Hell4_2.tsc event #210
+	 <FLJ Hell4_2.tsc event #211
+	 <FLJ Hell4_5.tsc event #120
+	 <FLJ Hell4_5.tsc event #210
+	 <FLJ Hell4_5.tsc event #211
+Flag 1591
+	 <FLJ Statue.tsc event #211
+Flag 1592
+	 <FLJ Statue.tsc event #212
+Flag 1593
+	 <FLJ Statue.tsc event #213
+Flag 1600
+	 <FLJ Ballo1.tsc event #1000
+	 <FL+ Ballo1.tsc event #1000
+Flag 1620
+	 <FL+ Ostep.tsc event #900
+Flag 1640
+	 <FLJ Pole.tsc event #200
+	 <FL+ Pole.tsc event #200
+Flag 1641
+	 <FL+ Cave.tsc event #103
+Flag 1642
+	 <FL+ Cave.tsc event #103
+	 <FL- Almond.tsc event #1100
+Flag 1643
+	 <FL+ Almond.tsc event #1100
+Flag 1644
+	 <FLJ Pole.tsc event #301
+	 <FL+ Pole.tsc event #302
+Flag 2000
+	 <FLJ 0.tsc event #100
+	 <FLJ 0.tsc event #1060
+	 <FLJ 0.tsc event #1090
+	 <FLJ Sand.tsc event #101
+	 <FLJ CurlyS.tsc event #101
+	 <FLJ Jenka2.tsc event #232
+	 <FL+ Jenka2.tsc event #232
+	 <FL+ Fall.tsc event #120
+	 <FLJ e_Maze.tsc event #100
+	 <FLJ e_Sky.tsc event #100
+	 <FLJ gmnk.tsc event #110
+Flag 2001
+	 <FL+ CurlyS.tsc event #300
+	 <FL- CByear2.tsc event #104
+Flag 2002
+	 <FLJ gmnk.tsc event #110
+	 <FL- gmnk.tsc event #114
+	 <FL- gmnk.tsc event #116
+	 <FL+ CByear2.tsc event #104
+Flag 2003
+	 <FLJ acave.tsc event #101
+	 <FL+ CByear2.tsc event #104
+Flag 2004
+	 <FLJ krn2.tsc event #110
+	 <FL+ krn2.tsc event #112
+Flag 2005
+	 <FL- gmnk.tsc event #114
+	 <FL+ CByear2.tsc event #104
+Flag 2007
+	 <FLJ gmnk.tsc event #111
+	 <FL+ gmnk.tsc event #116
+Flag 2008
+	 <FL+ gmnk.tsc event #114
+	 <FLJ krn2.tsc event #110
+Flag 2009
+	 <FLJ acave.tsc event #100
+	 <FLJ gmnk.tsc event #110
+	 <FL+ gmnk.tsc event #116
+Flag 2017
+	 <FL+ tnl.tsc event #420
+Flag 2018
+	 <FL+ CByear2.tsc event #104
+Flag 2030
+	 <FL+ Mimi.tsc event #200
+Flag 2031
+	 <FL- Comu.tsc event #98
+	 <FLJ Comu.tsc event #101
+	 <FL+ Comu.tsc event #220
+Flag 2032
+	 <FLJ Comu.tsc event #220
+	 <FL+ Comu.tsc event #220
+Flag 2037
+	 <FL+ Wdng.tsc event #201
+Flag 2040
+	 <FLJ Mimi.tsc event #100
+	 <FL+ Comu.tsc event #98
+	 <FLJ Comu.tsc event #100
+Flag 2041
+	 <FL+ Wdng.tsc event #120
+Flag 2045
+	 <FL+ Mimi.tsc event #98
+Flag 2055
+	 <FL+ gshill.tsc event #200
+	 <FL- gen.tsc event #200
+	 <FL- gen.tsc event #201
+	 <FL+ gen.tsc event #202
+	 <FL- Gen1.tsc event #201
+	 <FL+ Gen1.tsc event #202
+Flag 2056
+	 <FL+ Mimi.tsc event #301
+Flag 2060
+	 <FL+ Mimi.tsc event #301
+	 <FL- Comu.tsc event #98
+Flag 2070
+	 <FL+ gen.tsc event #200
+	 <FLJ gen.tsc event #201
+	 <FL+ gen.tsc event #201
+	 <FL- gen.tsc event #202
+	 <FLJ Gen1.tsc event #201
+	 <FL+ Gen1.tsc event #201
+	 <FL- Gen1.tsc event #202
+Flag 2075
+	 <FLJ gen.tsc event #200
+	 <FL+ gen.tsc event #200
+Flag 2080
+	 <FL+ gshill.tsc event #200
+	 <FL- gen.tsc event #200
+Flag 2081
+	 <FL+ gshill.tsc event #200
+Flag 2082
+	 <FL+ fort.tsc event #420
+Flag 2090
+	 <FLJ gshill.tsc event #105
+	 <FL- gshill.tsc event #106
+	 <FL+ gen.tsc event #200
+Flag 2100
+	 <FL+ Comu.tsc event #222
+Flag 2101
+	 <FL+ Gen1.tsc event #200
+Flag 2102
+	 <FLJ Sand.tsc event #99
+	 <FLJ Sand.tsc event #100
+	 <FL+ Comu.tsc event #222
+Flag 2105
+	 <FL+ Comu.tsc event #222
+	 <FLJ Comu.tsc event #300
+	 <FLJ Jenka2.tsc event #230
+Flag 2658
+	 <FLJ Wdng.tsc event #100
+	 <FL+ Wdng.tsc event #200
+Flag 3000
+	 <FLJ Sand.tsc event #101
+	 <FLJ CurlyS.tsc event #101
+	 <FL- Dark.tsc event #400
+	 <FLJ Jenka2.tsc event #230
+	 <FL+ Jenka2.tsc event #233
+	 <FLJ eproom.tsc event #200
+	 <FL+ CByear3.tsc event #100
+Flag 3001
+	 <FL- Dark.tsc event #400
+	 <FL+ CByear3.tsc event #100
+Flag 3002
+	 <FL+ Dark.tsc event #400
+	 <FLJ CByear3.tsc event #210
+	 <FL+ CByear3.tsc event #210
+Flag 3003
+	 <FL- Dark.tsc event #400
+	 <FLJ CByear3.tsc event #211
+	 <FL+ CByear3.tsc event #211
+Flag 3004
+	 <FL- Dark.tsc event #400
+	 <FLJ CByear3.tsc event #212
+	 <FL+ CByear3.tsc event #212
+Flag 3005
+	 <FLJ CByear3.tsc event #213
+	 <FL+ CByear3.tsc event #213
+Flag 3012
+	 <FLJ Jenka2.tsc event #234
+	 <FL+ Jenka2.tsc event #234
+Flag 3030
+	 <FL+ pyr.tsc event #420
+Flag 3067
+	 <FL+ Sand.tsc event #201
+Flag 3070
+	 <FL+ snkrns.tsc event #210
+Flag 3071
+	 <FL+ snkrns.tsc event #210
+Flag 3073
+	 <FL+ snkrns.tsc event #210
+Flag 3093
+	 <FL+ Opening.tsc event #300
+Flag 3094
+	 <FL+ Opening.tsc event #100
+Flag 3096
+	 <FLJ Jenka2.tsc event #230
+	 <FL+ Opening.tsc event #300
+Flag 3111
+	 <FL+ CByear3.tsc event #100
+Flag 3113
+	 <FLJ Sand.tsc event #500
+	 <FL+ CByear3.tsc event #301
+Flag 3121
+	 <FL+ Opening.tsc event #300
+Flag 3131
+	 <FLJ Sand.tsc event #101
+	 <FL- Sand.tsc event #106
+	 <FL+ Jenka2.tsc event #235
+Flag 3132
+	 <FL+ Sand.tsc event #106
+Flag 3140
+	 <FLJ Jenka2.tsc event #235
+	 <FL+ Jenka2.tsc event #235
+Flag 3199
+	 <FL+ Jenka2.tsc event #233
+	 <FL+ Jenka2.tsc event #235
+	 <FL- CByear3.tsc event #100
+Flag 3235
+	 <FL+ vnt.tsc event #400
+Flag 3240
+	 <FL+ lab.tsc event #110
+Flag 3345
+	 <FL+ Opening.tsc event #300
+Flag 3610
+	 <FL- ct.tsc event #253
+	 <FL+ ct.tsc event #254
+	 <FL- ct.tsc event #255
+	 <FLJ evtr.tsc event #100
+	 <FL- evtr.tsc event #101
+	 <FLJ evtr.tsc event #110
+	 <FLJ evtr.tsc event #111
+	 <FL- evtr.tsc event #112
+	 <FL+ evtr.tsc event #116
+Flag 3611
+	 <FL- ct.tsc event #253
+	 <FL- ct.tsc event #254
+	 <FL+ ct.tsc event #255
+	 <FLJ evtr.tsc event #100
+	 <FL- evtr.tsc event #102
+	 <FLJ evtr.tsc event #110
+	 <FLJ evtr.tsc event #111
+	 <FL+ evtr.tsc event #112
+	 <FL- evtr.tsc event #113
+	 <FL- evtr.tsc event #116
+	 <FL+ evtr.tsc event #117
+Flag 3612
+	 <FL+ ct.tsc event #253
+	 <FL- ct.tsc event #254
+	 <FL- ct.tsc event #255
+	 <FLJ evtr.tsc event #100
+	 <FL- evtr.tsc event #103
+	 <FLJ evtr.tsc event #110
+	 <FLJ evtr.tsc event #111
+	 <FL+ evtr.tsc event #113
+	 <FL- evtr.tsc event #117
+Flag 3746
+	 <FLJ prsn.tsc event #210
+	 <FL+ prsn.tsc event #210
+Flag 3770
+	 <FLJ prsn.tsc event #200
+	 <FLJ prsn.tsc event #210
+	 <FL+ prsn.tsc event #400
+	 <FL- prsn.tsc event #401
+Flag 3772
+	 <FLJ ct.tsc event #200
+	 <FL- prsn.tsc event #401
+	 <FL+ prsn.tsc event #500
+Flag 3773
+	 <FLJ prsn.tsc event #100
+	 <FL+ prsn.tsc event #210
+Flag 3774
+	 <FLJ prsn.tsc event #400
+	 <FL+ prsn.tsc event #500
+Flag 3840
+	 <FL+ vnt.tsc event #101
+Flag 3935
+	 <FL+ lab.tsc event #200
+	 <FL+ lab.tsc event #201
+	 <FL+ lab.tsc event #202
+	 <FL+ lab.tsc event #203
+Flag 3936
+	 <FLJ lab.tsc event #101
+	 <FL- lab.tsc event #110
+	 <FLJ lab.tsc event #210
+	 <FL+ lab.tsc event #210
+Flag 3937
+	 <FL- ct.tsc event #502
+	 <FL+ lab.tsc event #110
+Flag 3938
+	 <FLJ ct.tsc event #500
+	 <FL- prsn.tsc event #401
+	 <FL- vnt.tsc event #101
+	 <FL+ lab.tsc event #110
+Flag 4000
+	 <FL+ Almond.tsc event #1000
+	 <FL- Almond.tsc event #1100
+Flag 8510
+	 <FLJ River.tsc event #110
+Skipflag 1
+	 <SKJ Ring2.tsc event #500
+	 <SK+ Ring2.tsc event #500
+Skipflag 2
+	 <SKJ Ring1.tsc event #500
+	 <SK+ Ring1.tsc event #500
+Skipflag 3
+	 <SKJ Gard.tsc event #500
+	 <SK+ Gard.tsc event #500
+Skipflag 4
+	 <SKJ Ring3.tsc event #500
+	 <SK+ Ring3.tsc event #500
+Skipflag 5
+	 <SK+ Shelt.tsc event #500
+Skipflag 6
+	 <SKJ Almond.tsc event #450
+	 <SK+ Almond.tsc event #450
+Skipflag 20
+	 <SKJ Hell1.tsc event #900
+	 <SK+ Hell1.tsc event #900
+Skipflag 21
+	 <SKJ Hell1.tsc event #901
+	 <SK+ Hell1.tsc event #901
+Skipflag 22
+	 <SKJ Hell2.tsc event #900
+	 <SK+ Hell2.tsc event #900
+Skipflag 23
+	 <SKJ Hell2.tsc event #901
+	 <SK+ Hell2.tsc event #901
+Skipflag 24
+	 <SKJ Hell3.tsc event #900
+	 <SK+ Hell3.tsc event #900
+Skipflag 25
+	 <SKJ Hell3.tsc event #901
+	 <SK+ Hell3.tsc event #901
+Skipflag 26
+	 <SKJ Hell42.tsc event #900
+	 <SK+ Hell42.tsc event #900
+Skipflag 1003
+	 <SKJ Jenka2.tsc event #230
+	 <SK+ Jenka2.tsc event #230
+Skipflag 1007
+	 <SKJ acave.tsc event #101
+	 <SK+ acave.tsc event #101
+Skipflag 1009
+	 <SKJ Start.tsc event #200
+	 <SK+ Start.tsc event #200
+Skipflag 1700
+	 <SKJ Opening.tsc event #100
+	 <SK+ Opening.tsc event #100
