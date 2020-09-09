@@ -1,0 +1,17 @@
+Smoke stack of Umbrella and clock tower
+
+
+FlagID:1111
+Criters spawn for polar gun
+
+
+FlagID:1112~1115
+critters killed open passage
+
+FlagID:1116~1120
+Level one Circuits
+
+40:camp
+124: He woke up.
+
+

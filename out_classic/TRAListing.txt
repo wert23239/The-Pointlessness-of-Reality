@@ -1,0 +1,507 @@
+Transport scripts to map 0 0 Null
+	 Fall.tsc event #100 TRA to coords (1,15) running event 100
+	 Fall.tsc event #120 TRA to coords (1,15) running event 100
+	 Fall.tsc event #121 TRA to coords (1,15) running event 100
+	 e_Maze.tsc event #110 TRA to coords (1,15) running event 1010
+	 e_Jenk.tsc event #100 TRA to coords (1,15) running event 1020
+	 e_Jenk.tsc event #110 TRA to coords (1,15) running event 1020
+	 e_Malc.tsc event #100 TRA to coords (1,15) running event 1030
+	 e_Sky.tsc event #110 TRA to coords (1,15) running event 1050
+	 e_Labo.tsc event #100 TRA to coords (1,15) running event 1060
+	 e_Blcn.tsc event #100 TRA to coords (1,15) running event 1090
+Transport scripts to map 1 Pens1 Arthur's Housesss
+	 Eggs.tsc event #100 TRA to coords (5,8) running event 99
+	 EggX.tsc event #300 TRA to coords (5,7) running event 94
+	 Weed.tsc event #100 TRA to coords (5,8) running event 99
+	 MazeB.tsc event #201 TRA to coords (5,8) running event 99
+	 Eggs2.tsc event #100 TRA to coords (5,8) running event 99
+	 CentW.tsc event #152 TRA to coords (5,8) running event 99
+Transport scripts to map 2 Eggs Egg Corridor
+	 Pens1.tsc event #6001 TRA to coords (5,6) running event 99
+	 EggX.tsc event #100 TRA to coords (291,8) running event 94
+	 Egg6.tsc event #100 TRA to coords (179,10) running event 94
+	 EggR.tsc event #100 TRA to coords (220,7) running event 94
+	 EgEnd1.tsc event #100 TRA to coords (297,8) running event 94
+	 Cthu.tsc event #100 TRA to coords (125,2) running event 94
+	 Cthu.tsc event #101 TRA to coords (125,12) running event 94
+	 Egg1.tsc event #100 TRA to coords (259,11) running event 94
+Transport scripts to map 3 EggX Egg No. 00
+	 Eggs.tsc event #109 TRA to coords (4,10) running event 94
+Transport scripts to map 4 Egg6 Egg No. 06
+	 Eggs.tsc event #101 TRA to coords (9,8) running event 94
+Transport scripts to map 5 EggR Egg Observation Room
+	 Eggs.tsc event #103 TRA to coords (10,8) running event 94
+	 Eggs2.tsc event #103 TRA to coords (10,8) running event 94
+Transport scripts to map 6 Weed Grasstown
+	 Pens1.tsc event #6002 TRA to coords (4,18) running event 98
+	 Santa.tsc event #100 TRA to coords (4,12) running event 94
+	 Chako.tsc event #100 TRA to coords (119,17) running event 94
+	 Chako.tsc event #202 TRA to coords (124,11) running event 99
+	 Shelt.tsc event #100 TRA to coords (217,16) running event 94
+	 Shelt.tsc event #105 TRA to coords (217,16) running event 600
+	 Malco.tsc event #100 TRA to coords (171,17) running event 94
+	 WeedS.tsc event #100 TRA to coords (187,13) running event 94
+	 WeedD.tsc event #100 TRA to coords (233,17) running event 94
+	 Frog.tsc event #100 TRA to coords (273,6) running event 94
+	 WeedB.tsc event #100 TRA to coords (219,7) running event 94
+	 Eggs2.tsc event #1200 TRA to coords (171,14) running event 1200
+Transport scripts to map 7 Santa Santa's House
+	 Weed.tsc event #102 TRA to coords (15,8) running event 94
+Transport scripts to map 8 Chako Chaco's House
+	 Weed.tsc event #103 TRA to coords (9,11) running event 94
+Transport scripts to map 9 MazeI Labyrinth I
+	 SandE.tsc event #600 TRA to coords (17,64) running event 400
+	 MazeH.tsc event #100 TRA to coords (12,64) running event 92
+Transport scripts to map 10 Sand Sand Zone
+	 Pens1.tsc event #100 TRA to coords (18,32) running event 94
+	 Pens1.tsc event #6003 TRA to coords (36,33) running event 99
+	 Weed.tsc event #119 TRA to coords (11,10) running event 94
+	 Weed.tsc event #1200 TRA to coords (50,34) running event 1200
+	 MazeI.tsc event #100 TRA to coords (222,32) running event 94
+	 Sand.tsc event #801 TRA to coords (211,12) running event 100
+	 Pens2.tsc event #501 TRA to coords (36,33) running event 91
+	 Curly.tsc event #120 TRA to coords (3,12) running event 100
+	 Dark.tsc event #100 TRA to coords (73,27) running event 94
+	 Gard.tsc event #102 TRA to coords (225,36) running event 94
+	 Jenka2.tsc event #101 TRA to coords (35,26) running event 100
+	 Priso2.tsc event #110 TRA to coords (43,40) running event 91
+	 Opening.tsc event #102 TRA to coords (238,36) running event 100
+	 acave.tsc event #200 TRA to coords (36,33) running event 99
+	 CByear2.tsc event #103 TRA to coords (3,12) running event 100
+	 gshill.tsc event #501 TRA to coords (36,33) running event 99
+	 CByear3.tsc event #200 TRA to coords (3,12) running event 100
+	 ct.tsc event #500 TRA to coords (36,33) running event 99
+Transport scripts to map 11 Mimi Mimiga Village
+	 Pens1.tsc event #102 TRA to coords (16,53) running event 94
+	 Pens1.tsc event #103 TRA to coords (16,53) running event 400
+	 Weed.tsc event #130 TRA to coords (24,29) running event 420
+	 Cave.tsc event #104 TRA to coords (8,6) running event 94
+	 Barr.tsc event #100 TRA to coords (42,52) running event 94
+	 Barr.tsc event #102 TRA to coords (42,52) running event 94
+	 Pool.tsc event #100 TRA to coords (1,38) running event 92
+	 Pool.tsc event #101 TRA to coords (1,38) running event 308
+	 Cemet.tsc event #100 TRA to coords (56,33) running event 90
+	 Plant.tsc event #100 TRA to coords (45,21) running event 90
+	 Shelt.tsc event #502 TRA to coords (8,6) running event 302
+	 Comu.tsc event #101 TRA to coords (43,34) running event 100
+	 Comu.tsc event #102 TRA to coords (43,34) running event 301
+	 MiBox.tsc event #100 TRA to coords (24,34) running event 100
+	 Pens2.tsc event #101 TRA to coords (16,53) running event 100
+	 tnl.tsc event #202 TRA to coords (1,32) running event 100
+	 Wdng.tsc event #201 TRA to coords (19,3) running event 98
+Transport scripts to map 12 Cave First Cave
+	 Pens1.tsc event #101 TRA to coords (37,11) running event 94
+	 Pole.tsc event #100 TRA to coords (53,36) running event 94
+Transport scripts to map 13 Start Grotto
+	 Cave.tsc event #101 TRA to coords (10,3) running event 93
+	 Shelt.tsc event #500 TRA to coords (10,8) running event 91
+	 acave.tsc event #104 TRA to coords (10,3) running event 100
+Transport scripts to map 15 Pool Reservoir
+	 Stream.tsc event #1010 TRA to coords (16,12) running event 410
+	 Stream.tsc event #1011 TRA to coords (16,12) running event 410
+	 River.tsc event #111 TRA to coords (14,1) running event 93
+Transport scripts to map 16 Cemet Graveyard
+	 Mapi.tsc event #100 TRA to coords (32,2) running event 94
+Transport scripts to map 18 Shelt Shelter
+	 Weed.tsc event #112 TRA to coords (6,10) running event 94
+	 Weed.tsc event #220 TRA to coords (6,10) running event 91
+	 Weed.tsc event #250 TRA to coords (6,0) running event 200
+	 Cave.tsc event #103 TRA to coords (2,0) running event 502
+	 Jail2.tsc event #200 TRA to coords (15,10) running event 99
+	 Pole.tsc event #200 TRA to coords (2,0) running event 501
+	 Cent_2_3.tsc event #110 TRA to coords (15,10) running event 92
+	 Jail2_2.tsc event #200 TRA to coords (15,10) running event 99
+Transport scripts to map 19 Comu Assembly Hall
+	 Mimi.tsc event #98 TRA to coords (9,10) running event 98
+	 Mimi.tsc event #102 TRA to coords (7,10) running event 100
+	 Gen1.tsc event #200 TRA to coords (9,10) running event 222
+Transport scripts to map 20 MiBox Save Point
+	 Mimi.tsc event #104 TRA to coords (10,9) running event 90
+Transport scripts to map 21 EgEnd1 Side Room
+	 Eggs.tsc event #111 TRA to coords (10,9) running event 94
+Transport scripts to map 22 Cthu Cthulhu's Abode
+	 Eggs.tsc event #105 TRA to coords (12,2) running event 94
+	 Eggs.tsc event #106 TRA to coords (11,12) running event 94
+Transport scripts to map 23 Egg1 Egg No. 01
+	 Eggs.tsc event #107 TRA to coords (9,8) running event 94
+Transport scripts to map 24 Pens2 Arthur's House
+	 Pens1.tsc event #700 TRA to coords (2,0) running event 700
+	 Eggs.tsc event #102 TRA to coords (2,0) running event 700
+	 Sand.tsc event #6003 TRA to coords (5,8) running event 92
+	 Mimi.tsc event #105 TRA to coords (17,8) running event 90
+	 Shelt.tsc event #700 TRA to coords (2,0) running event 701
+	 Shelt.tsc event #701 TRA to coords (2,0) running event 702
+	 Shelt.tsc event #702 TRA to coords (2,0) running event 703
+	 gshill.tsc event #500 TRA to coords (5,8) running event 91
+Transport scripts to map 25 Malco Power Room
+	 Weed.tsc event #106 TRA to coords (16,7) running event 94
+Transport scripts to map 26 WeedS Save Point
+	 Weed.tsc event #107 TRA to coords (10,7) running event 94
+Transport scripts to map 27 WeedD Execution Chamber
+	 Weed.tsc event #108 TRA to coords (10,9) running event 94
+Transport scripts to map 28 Frog Gum
+	 Weed.tsc event #111 TRA to coords (6,13) running event 94
+Transport scripts to map 29 Curly Curly Brace's House (Year 1)
+	 Sand.tsc event #101 TRA to coords (18,9) running event 100
+	 CurlyS.tsc event #101 TRA to coords (6,9) running event 100
+	 Opening.tsc event #100 TRA to coords (8,9) running event 101
+	 Opening.tsc event #101 TRA to coords (8,9) running event 100
+Transport scripts to map 30 WeedB Grasstown Hut
+	 Weed.tsc event #113 TRA to coords (7,9) running event 94
+Transport scripts to map 31 Stream Main Artery
+	 River.tsc event #110 TRA to coords (30,8) running event 92
+Transport scripts to map 32 CurlyS Bedroom
+	 Curly.tsc event #121 TRA to coords (8,9) running event 100
+	 Jenka2.tsc event #232 TRA to coords (10,9) running event 300
+	 CByear2.tsc event #102 TRA to coords (8,9) running event 100
+	 CByear3.tsc event #201 TRA to coords (8,9) running event 100
+Transport scripts to map 33 snkrns Sunken Ruins
+	 Sand.tsc event #201 TRA to coords (12,65) running event 99
+	 Ring3.tsc event #102 TRA to coords (147,14) running event 99
+	 pyr.tsc event #101 TRA to coords (254,38) running event 100
+	 pyr.tsc event #102 TRA to coords (253,26) running event 100
+	 pyr.tsc event #106 TRA to coords (227,8) running event 100
+Transport scripts to map 36 Jenka2 Jenka's House
+	 Sand.tsc event #103 TRA to coords (12,10) running event 100
+Transport scripts to map 37 SandE Sand Zone
+	 Gard.tsc event #100 TRA to coords (33,14) running event 600
+Transport scripts to map 38 MazeH Labyrinth H
+	 MazeI.tsc event #203 TRA to coords (35,13) running event 90
+	 MazeW.tsc event #100 TRA to coords (5,3) running event 92
+Transport scripts to map 39 MazeW Labyrinth W
+	 MazeH.tsc event #101 TRA to coords (4,16) running event 91
+	 MazeO.tsc event #100 TRA to coords (84,15) running event 94
+	 MazeO.tsc event #101 TRA to coords (84,15) running event 94
+	 MazeD.tsc event #100 TRA to coords (66,4) running event 92
+	 MazeA.tsc event #100 TRA to coords (33,9) running event 94
+	 MazeB.tsc event #100 TRA to coords (197,14) running event 90
+Transport scripts to map 40 MazeO Camp
+	 MazeW.tsc event #102 TRA to coords (4,5) running event 92
+	 MazeW.tsc event #120 TRA to coords (12,2) running event 94
+	 Level1.tsc event #107 TRA to coords (12,2) running event 109
+Transport scripts to map 41 MazeD Clinic Ruins
+	 MazeW.tsc event #105 TRA to coords (15,9) running event 90
+Transport scripts to map 42 MazeA Labyrinth Shop
+	 MazeW.tsc event #106 TRA to coords (5,9) running event 94
+	 MazeM.tsc event #310 TRA to coords (26,5) running event 301
+Transport scripts to map 43 MazeB Labyrinth B
+	 Pens1.tsc event #6004 TRA to coords (10,34) running event 99
+	 Sand.tsc event #109 TRA to coords (16,13) running event 500
+	 Sand.tsc event #110 TRA to coords (16,13) running event 99
+	 MazeW.tsc event #110 TRA to coords (4,13) running event 500
+	 MazeW.tsc event #111 TRA to coords (4,13) running event 92
+	 MazeS.tsc event #100 TRA to coords (16,13) running event 90
+Transport scripts to map 44 MazeS Boulder Chamber
+	 MazeB.tsc event #110 TRA to coords (2,13) running event 92
+	 MazeS.tsc event #310 TRA to coords (9,14) running event 600
+	 MazeM.tsc event #100 TRA to coords (10,14) running event 94
+Transport scripts to map 45 MazeM Labyrinth M
+	 MazeA.tsc event #311 TRA to coords (2,53) running event 301
+	 MazeS.tsc event #111 TRA to coords (2,5) running event 92
+	 Drain.tsc event #100 TRA to coords (81,53) running event 90
+Transport scripts to map 46 Drain Dark Place
+	 MazeM.tsc event #110 TRA to coords (3,9) running event 92
+	 MazeM.tsc event #111 TRA to coords (3,9) running event 150
+	 Almond.tsc event #100 TRA to coords (17,9) running event 90
+Transport scripts to map 47 Almond Core
+	 Stream.tsc event #100 TRA to coords (8,9) running event 91
+	 MazeW.tsc event #1200 TRA to coords (38,16) running event 1200
+	 Drain.tsc event #110 TRA to coords (4,17) running event 92
+	 River.tsc event #100 TRA to coords (8,9) running event 91
+Transport scripts to map 48 River Waterway
+	 Drain.tsc event #121 TRA to coords (155,1) running event 93
+	 Pixel.tsc event #100 TRA to coords (153,16) running event 94
+Transport scripts to map 49 Eggs2 Egg Corridor?
+	 Pens1.tsc event #6011 TRA to coords (7,6) running event 99
+	 Cthu2.tsc event #100 TRA to coords (126,2) running event 94
+	 Cthu2.tsc event #101 TRA to coords (126,12) running event 94
+	 EggR2.tsc event #100 TRA to coords (216,4) running event 94
+	 EggR2.tsc event #101 TRA to coords (227,6) running event 94
+	 EggX2.tsc event #100 TRA to coords (290,8) running event 94
+	 Blcny2.tsc event #400 TRA to coords (98,6) running event 1200
+Transport scripts to map 50 Cthu2 Cthulhu's Abode?
+	 Eggs2.tsc event #105 TRA to coords (12,2) running event 94
+	 Eggs2.tsc event #106 TRA to coords (11,12) running event 94
+Transport scripts to map 51 EggR2 Egg Observation Room?
+	 Eggs2.tsc event #101 TRA to coords (4,4) running event 94
+	 Eggs2.tsc event #102 TRA to coords (18,8) running event 94
+Transport scripts to map 52 EggX2 Egg No. 00
+	 Eggs2.tsc event #109 TRA to coords (4,10) running event 94
+Transport scripts to map 53 Oside Outer Wall
+	 Weed.tsc event #120 TRA to coords (78,3) running event 94
+	 Weed.tsc event #199 TRA to coords (75,4) running event 94
+	 Weed.tsc event #999 TRA to coords (75,4) running event 94
+	 EggX2.tsc event #111 TRA to coords (4,165) running event 92
+	 Itoh.tsc event #100 TRA to coords (75,5) running event 94
+	 Little.tsc event #100 TRA to coords (2,173) running event 92
+	 Clock.tsc event #100 TRA to coords (8,121) running event 92
+Transport scripts to map 54 EgEnd2 Side Room
+	 Eggs2.tsc event #110 TRA to coords (10,9) running event 94
+	 Clock.tsc event #110 TRA to coords (10,9) running event 94
+Transport scripts to map 55 Itoh Storehouse
+	 Oside.tsc event #120 TRA to coords (9,9) running event 94
+	 Cent.tsc event #100 TRA to coords (3,9) running event 92
+	 Cent_2.tsc event #100 TRA to coords (3,9) running event 92
+	 Cent_2_3.tsc event #100 TRA to coords (3,9) running event 92
+Transport scripts to map 56 Cent Plantation
+	 Almond.tsc event #1202 TRA to coords (69,76) running event 1200
+	 Itoh.tsc event #110 TRA to coords (118,83) running event 90
+	 Priso3.tsc event #100 TRA to coords (59,31) running event 90
+	 Priso3.tsc event #110 TRA to coords (59,31) running event 90
+	 Momo.tsc event #100 TRA to coords (72,84) running event 90
+	 lounge.tsc event #100 TRA to coords (24,82) running event 92
+	 CentW.tsc event #100 TRA to coords (1,103) running event 92
+	 Priso1.tsc event #100 TRA to coords (80,9) running event 90
+	 Priso2.tsc event #100 TRA to coords (80,9) running event 90
+	 Hell4.tsc event #110 TRA to coords (102,55) running event 90
+	 Hell4_5.tsc event #110 TRA to coords (102,55) running event 90
+Transport scripts to map 57 Priso3 Jail No. 1
+	 EgEnd2.tsc event #110 TRA to coords (3,7) running event 94
+	 Cent.tsc event #115 TRA to coords (3,7) running event 92
+	 CentW.tsc event #120 TRA to coords (28,19) running event 94
+	 CentW.tsc event #150 TRA to coords (11,14) running event 220
+	 CentW.tsc event #152 TRA to coords (11,14) running event 94
+	 Cent_2.tsc event #115 TRA to coords (3,2) running event 92
+	 Cent_2_3.tsc event #115 TRA to coords (3,2) running event 92
+Transport scripts to map 58 Momo Hideout
+	 Cent.tsc event #121 TRA to coords (9,4) running event 93
+	 Cent.tsc event #122 TRA to coords (9,4) running event 93
+	 Cent_2.tsc event #121 TRA to coords (9,4) running event 93
+	 Cent_2.tsc event #122 TRA to coords (9,4) running event 93
+	 Cent_2_3.tsc event #121 TRA to coords (9,4) running event 93
+	 Cent_2_3.tsc event #122 TRA to coords (9,4) running event 93
+Transport scripts to map 59 lounge Rest Area
+	 Cent.tsc event #130 TRA to coords (26,8) running event 90
+	 Cent_2.tsc event #130 TRA to coords (26,8) running event 90
+	 Cent_2_3.tsc event #130 TRA to coords (26,8) running event 90
+Transport scripts to map 60 CentW Bomb Room
+	 Pens1.tsc event #6005 TRA to coords (9,9) running event 99
+	 Cent.tsc event #137 TRA to coords (18,9) running event 90
+	 Priso3.tsc event #200 TRA to coords (1,9) running event 94
+	 Cent_2.tsc event #137 TRA to coords (18,9) running event 90
+	 Cent_2_3.tsc event #137 TRA to coords (18,9) running event 90
+Transport scripts to map 61 Jail2 Jail No. 2
+	 Shelt.tsc event #103 TRA to coords (7,13) running event 99
+	 Cent.tsc event #140 TRA to coords (29,9) running event 90
+	 Cent_2.tsc event #140 TRA to coords (29,9) running event 90
+	 Poko's Jail Cell.tsc event #100 TRA to coords (17,9) running event 92
+	 Cent_2_3.tsc event #140 TRA to coords (29,9) running event 90
+Transport scripts to map 62 Blcny1 Balcony
+	 Blcny1.tsc event #210 TRA to coords (7,74) running event 95
+	 Blcny1.tsc event #211 TRA to coords (79,73) running event 95
+	 Blcny1.tsc event #212 TRA to coords (117,62) running event 95
+	 Priso1.tsc event #110 TRA to coords (7,74) running event 91
+	 Ring1.tsc event #100 TRA to coords (118,62) running event 90
+	 Prefa1.tsc event #100 TRA to coords (79,73) running event 94
+Transport scripts to map 63 Priso1 Final Cave
+	 Cent.tsc event #151 TRA to coords (7,52) running event 92
+	 Blcny1.tsc event #100 TRA to coords (9,4) running event 93
+	 Blcny2.tsc event #100 TRA to coords (9,4) running event 93
+	 Cent_2.tsc event #151 TRA to coords (7,52) running event 92
+	 Cent_2_3.tsc event #151 TRA to coords (7,52) running event 92
+Transport scripts to map 64 Ring1 Throne Room
+	 Blcny1.tsc event #110 TRA to coords (1,11) running event 92
+	 Ring2.tsc event #100 TRA to coords (3,1) running event 93
+	 Blcny2.tsc event #110 TRA to coords (1,11) running event 92
+Transport scripts to map 65 Ring2 The King's Table
+	 Ring1.tsc event #110 TRA to coords (3,12) running event 91
+	 Ring3.tsc event #100 TRA to coords (3,1) running event 93
+Transport scripts to map 66 Prefa1 Prefab Building
+	 Blcny1.tsc event #120 TRA to coords (10,8) running event 94
+Transport scripts to map 67 Priso2 Last Cave (Hidden)
+	 Sand.tsc event #111 TRA to coords (9,4) running event 91
+	 Cent.tsc event #160 TRA to coords (7,52) running event 92
+	 Blcny1.tsc event #101 TRA to coords (9,4) running event 93
+	 Blcny2.tsc event #101 TRA to coords (9,4) running event 93
+	 Cent_2.tsc event #160 TRA to coords (7,52) running event 92
+	 Cent_2_3.tsc event #160 TRA to coords (7,52) running event 92
+Transport scripts to map 68 Ring3 Black Space
+	 Ring2.tsc event #110 TRA to coords (3,14) running event 91
+	 Little.tsc event #102 TRA to coords (2,14) running event 92
+	 Blcny2.tsc event #300 TRA to coords (24,13) running event 600
+Transport scripts to map 69 Little Little House
+	 Oside.tsc event #130 TRA to coords (15,8) running event 90
+	 Oside.tsc event #131 TRA to coords (15,8) running event 90
+Transport scripts to map 70 Blcny2 Balcony
+	 Ring1.tsc event #101 TRA to coords (118,62) running event 310
+	 Ring3.tsc event #1010 TRA to coords (56,73) running event 300
+	 Blcny2.tsc event #210 TRA to coords (7,74) running event 95
+	 Blcny2.tsc event #211 TRA to coords (79,73) running event 95
+	 Blcny2.tsc event #212 TRA to coords (117,62) running event 95
+	 Prefa2.tsc event #200 TRA to coords (118,62) running event 310
+Transport scripts to map 71 Fall Fall
+	 Island.tsc event #100 TRA to coords (1,1) running event 100
+	 Ballo2.tsc event #500 TRA to coords (0,0) running event 120
+Transport scripts to map 73 Pixel Waterway Cabin
+	 River.tsc event #120 TRA to coords (6,9) running event 94
+	 Pixel.tsc event #251 TRA to coords (12,9) running event 95
+Transport scripts to map 74 e_Maze 
+	 0.tsc event #200 TRA to coords (1,1) running event 100
+Transport scripts to map 75 e_Jenk 
+	 0.tsc event #1639839 TRA to coords (20,1) running event 100
+Transport scripts to map 76 e_Malc 
+	 0.tsc event #2345573 TRA to coords (1,1) running event 100
+Transport scripts to map 77 noname Unnamed
+	 0.tsc event #3569698 TRA to coords (1,1) running event 100
+Transport scripts to map 78 e_Sky 
+	 0.tsc event #1040 TRA to coords (1,1) running event 100
+Transport scripts to map 79 Prefa2 Prefab House
+	 Blcny2.tsc event #121 TRA to coords (10,8) running event 94
+Transport scripts to map 80 Hell1 Sacred Ground - B1
+	 Prefa2.tsc event #110 TRA to coords (17,1) running event 93
+	 Hell1.tsc event #100 TRA to coords (18,97) running event 90
+	 Hell2.tsc event #100 TRA to coords (18,97) running event 90
+Transport scripts to map 81 Hell2 Sacred Ground - B2
+	 Hell1.tsc event #110 TRA to coords (2,13) running event 92
+	 Hell3.tsc event #100 TRA to coords (151,13) running event 95
+Transport scripts to map 82 Hell3 Sacred Ground - B3
+	 Hell2.tsc event #110 TRA to coords (154,2) running event 95
+	 Hell42.tsc event #100 TRA to coords (8,14) running event 96
+Transport scripts to map 83 Mapi Storage
+	 Cemet.tsc event #110 TRA to coords (7,10) running event 94
+Transport scripts to map 84 Hell4 HELL
+	 Cent.tsc event #110 TRA to coords (5,49) running event 92
+	 Cent.tsc event #170 TRA to coords (1,21) running event 92
+	 Hell3.tsc event #110 TRA to coords (10,2) running event 95
+	 Hell4.tsc event #720 TRA to coords (14,24) running event 96
+	 Statue.tsc event #100 TRA to coords (19,21) running event 90
+	 Clock.tsc event #199 TRA to coords (13,1) running event 94
+	 Clock.tsc event #999 TRA to coords (13,1) running event 94
+	 Hell4_2.tsc event #720 TRA to coords (13,24) running event 96
+	 Cent_2.tsc event #170 TRA to coords (1,21) running event 92
+	 Cent_2_3.tsc event #170 TRA to coords (1,21) running event 92
+	 Hell4_5.tsc event #720 TRA to coords (14,24) running event 96
+Transport scripts to map 85 Hell42 Passage?
+	 Hell3.tsc event #111 TRA to coords (10,2) running event 95
+	 Statue.tsc event #101 TRA to coords (19,21) running event 96
+	 Ostep.tsc event #100 TRA to coords (19,29) running event 96
+Transport scripts to map 86 Statue Statue Chamber
+	 Hell42.tsc event #120 TRA to coords (2,10) running event 92
+	 Hell4_2.tsc event #560 TRA to coords (2,10) running event 94
+Transport scripts to map 87 Ballo1 Seal Chamber
+	 Hell42.tsc event #300 TRA to coords (2,7) running event 95
+	 Ostep.tsc event #110 TRA to coords (4,11) running event 95
+Transport scripts to map 88 Ostep Corridor
+	 Hell42.tsc event #130 TRA to coords (5,14) running event 92
+Transport scripts to map 89 e_Labo 
+	 0.tsc event #1050 TRA to coords (1,1) running event 100
+Transport scripts to map 90 Pole Hermit Gunsmith
+	 Cave.tsc event #110 TRA to coords (7,9) running event 92
+	 Shelt.tsc event #501 TRA to coords (14,9) running event 95
+Transport scripts to map 91 Island 
+	 Cent.tsc event #1200 TRA to coords (1,1) running event 100
+	 Ballo1.tsc event #1001 TRA to coords (0,0) running event 110
+	 Cent_2.tsc event #1200 TRA to coords (1,1) running event 100
+	 Cent_2_3.tsc event #1200 TRA to coords (1,1) running event 100
+Transport scripts to map 92 Ballo2 Seal Chamber
+	 Island.tsc event #110 TRA to coords (8,52) running event 500
+Transport scripts to map 93 e_Blcn 
+	 0.tsc event #1061 TRA to coords (1,1) running event 100
+Transport scripts to map 94 Clock Clock Room
+	 Oside.tsc event #140 TRA to coords (13,5) running event 90
+	 EgEnd2.tsc event #100 TRA to coords (10,12) running event 94
+Transport scripts to map 95 Opening ???
+	 Sand.tsc event #105 TRA to coords (1,9) running event 99
+	 snkrns.tsc event #103 TRA to coords (12,10) running event 200
+Transport scripts to map 96 acave Ancient Cave
+	 Sand.tsc event #6001 TRA to coords (149,15) running event 99
+	 Start.tsc event #101 TRA to coords (52,7) running event 100
+	 krn1.tsc event #104 TRA to coords (22,22) running event 100
+	 krn1.tsc event #105 TRA to coords (22,22) running event 100
+	 gmnk.tsc event #200 TRA to coords (300,7) running event 100
+	 krn2.tsc event #101 TRA to coords (22,22) running event 100
+	 tnl.tsc event #200 TRA to coords (309,16) running event 100
+Transport scripts to map 97 krn1 Koron House
+	 acave.tsc event #106 TRA to coords (8,14) running event 100
+	 krn1.tsc event #400 TRA to coords (14,14) running event 404
+Transport scripts to map 98 gmnk Greasemonkey's House
+	 acave.tsc event #105 TRA to coords (5,11) running event 100
+Transport scripts to map 99 CByear2 Curly Brace's House (Year 2)
+	 Sand.tsc event #102 TRA to coords (18,9) running event 100
+	 CurlyS.tsc event #102 TRA to coords (6,9) running event 100
+	 eproom.tsc event #200 TRA to coords (4,9) running event 100
+Transport scripts to map 100 eproom Epilogue Room
+	 CByear2.tsc event #101 TRA to coords (10,11) running event 100
+	 CByear3.tsc event #202 TRA to coords (10,11) running event 100
+Transport scripts to map 101 Hell4_2 Hell
+	 acave.tsc event #108 TRA to coords (8,14) running event 100
+Transport scripts to map 102 Cent_2 Plantation
+	 Mimi.tsc event #101 TRA to coords (209,12) running event 100
+	 Mimi.tsc event #106 TRA to coords (209,12) running event 100
+	 Jail2.tsc event #100 TRA to coords (8,49) running event 92
+	 Jail2.tsc event #101 TRA to coords (8,4) running event 600
+	 acave.tsc event #201 TRA to coords (1,12) running event 100
+	 Hell4_2.tsc event #110 TRA to coords (102,55) running event 90
+	 Jail2_2.tsc event #100 TRA to coords (8,49) running event 92
+	 Jail2_2.tsc event #101 TRA to coords (8,4) running event 600
+	 save.tsc event #102 TRA to coords (130,9) running event 100
+Transport scripts to map 103 krn2 Koron House
+	 tnl.tsc event #201 TRA to coords (4,12) running event 100
+	 ct.tsc event #202 TRA to coords (4,12) running event 100
+Transport scripts to map 104 Poko's Jail Cell Poko's Jail Cell
+	 Mimi.tsc event #301 TRA to coords (10,49) running event 120
+	 Jail2.tsc event #506 TRA to coords (10,11) running event 92
+	 Jail2_2.tsc event #506 TRA to coords (10,11) running event 92
+Transport scripts to map 105 Cent_2_3 Plantation
+	 Sand.tsc event #6002 TRA to coords (58,46) running event 98
+	 Pens2.tsc event #500 TRA to coords (58,46) running event 99
+	 Cent_2.tsc event #110 TRA to coords (6,49) running event 92
+	 fort.tsc event #101 TRA to coords (123,50) running event 100
+	 fort.tsc event #102 TRA to coords (140,50) running event 100
+	 fort.tsc event #103 TRA to coords (132,39) running event 100
+	 gen.tsc event #101 TRA to coords (156,32) running event 100
+	 Gen1.tsc event #101 TRA to coords (227,65) running event 100
+Transport scripts to map 106 Jail2_2 Jail No. 2
+	 Jail2.tsc event #502 TRA to coords (28,9) running event 92
+	 gshill.tsc event #101 TRA to coords (3,23) running event 100
+	 gshill.tsc event #102 TRA to coords (26,23) running event 100
+	 gshill.tsc event #104 TRA to coords (15,3) running event 100
+Transport scripts to map 107 Hell4_5 HELL
+	 gshill.tsc event #103 TRA to coords (3,12) running event 100
+	 gen.tsc event #500 TRA to coords (7,12) running event 203
+Transport scripts to map 108 tnl Tunnel
+	 gshill.tsc event #105 TRA to coords (3,12) running event 100
+	 gshill.tsc event #106 TRA to coords (4,12) running event 200
+Transport scripts to map 109 save Sanctuary
+	 Sand.tsc event #104 TRA to coords (18,9) running event 99
+	 Sand.tsc event #106 TRA to coords (14,9) running event 300
+	 CurlyS.tsc event #103 TRA to coords (6,9) running event 99
+	 Jenka2.tsc event #233 TRA to coords (9,9) running event 100
+	 eproom.tsc event #201 TRA to coords (4,9) running event 99
+	 CByear3.tsc event #100 TRA to coords (11,9) running event 99
+	 CByear3.tsc event #803 TRA to coords (5,9) running event 301
+	 vnt.tsc event #400 TRA to coords (14,9) running event 402
+Transport scripts to map 110 Wdng War Dungeon
+	 snkrns.tsc event #101 TRA to coords (36,24) running event 100
+	 snkrns.tsc event #102 TRA to coords (36,4) running event 100
+Transport scripts to map 111 gshill Grass Hills
+	 Sand.tsc event #6004 TRA to coords (15,225) running event 100
+	 save.tsc event #103 TRA to coords (20,201) running event 99
+	 prsn.tsc event #200 TRA to coords (25,118) running event 99
+	 evtr.tsc event #101 TRA to coords (32,201) running event 99
+	 evtr.tsc event #102 TRA to coords (32,118) running event 99
+	 evtr.tsc event #103 TRA to coords (32,79) running event 99
+	 vnt.tsc event #110 TRA to coords (47,61) running event 99
+	 vnt.tsc event #111 TRA to coords (20,54) running event 99
+	 lab.tsc event #101 TRA to coords (40,54) running event 99
+	 lab.tsc event #110 TRA to coords (40,54) running event 99
+Transport scripts to map 112 fort Fortress
+	 ct.tsc event #200 TRA to coords (3,13) running event 400
+	 ct.tsc event #201 TRA to coords (3,13) running event 100
+	 prsn.tsc event #500 TRA to coords (10,13) running event 401
+Transport scripts to map 113 gen Generator Room 2
+	 ct.tsc event #253 TRA to coords (11,11) running event 99
+	 ct.tsc event #254 TRA to coords (11,11) running event 99
+	 ct.tsc event #255 TRA to coords (11,11) running event 99
+Transport scripts to map 114 Gen1 Generator Room 1
+	 ct.tsc event #203 TRA to coords (7,5) running event 100
+	 ct.tsc event #204 TRA to coords (93,5) running event 100
+	 ct.tsc event #502 TRA to coords (16,18) running event 400
+Transport scripts to map 115 CByear3 Curly Brace's House (Year 3)
+	 ct.tsc event #205 TRA to coords (9,20) running event 100
+	 lab.tsc event #200 TRA to coords (12,20) running event 110
+	 lab.tsc event #201 TRA to coords (12,20) running event 110
+	 lab.tsc event #202 TRA to coords (12,20) running event 110
+	 lab.tsc event #203 TRA to coords (12,20) running event 110
+Transport scripts to map 124 Level1 He woke up.
+	 MazeO.tsc event #105 TRA to coords (94,60) running event 109

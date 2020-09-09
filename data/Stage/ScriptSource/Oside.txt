@@ -1,0 +1,216 @@
+
+#0090
+<MNA<CMU0025<FAI0000<END
+#0091
+<MNA<CMU0025<FAI0001<END
+#0092
+<MNA<CMU0025<FAI0002<END
+#0093
+<MNA<CMU0025<FAI0003<END
+#0094
+<MNA<CMU0025<FAI0004<END
+
+
+#0099
+<KEY<MNA<CMU0000<CMU0008
+<ANP0102:0001:0000<FAI0004
+<CNP0301:0112:0000<WAI0100
+<ANP0102:0000:0000
+<MYD0002<DNP0301<SMC<END
+
+
+
+#0100
+<KEY<MOV0090:0101<END
+
+
+#0120
+<KEY<SOU0011<ANP0120:0000:0002<FAO0004<TRA0055:0094:0009:0009
+<MSGThat's all...<NOD<END
+
+#0130
+<KEY<ITJ0032:0131<SOU0011<ANP0130:0000:0002<FAO0000<TRA0069:0090:0015:0008
+#0131
+<KEY<CMU0000<SOU0011<ANP0130:0000:0002
+<GIT1032<IT-0032<FL+1370<MSGI'm hooome!<NOD<CLO
+<FAO0000<TRA0069:0090:0015:0008
+
+#0140
+<KEY<FAO0000<MYD0000<TRA0094:0090:0013:0005
+
+#0200
+<PRI<MSGA sign?<NOD<END
+
+
+#0205
+<KEY
+<MSGA teleporter.<NOD
+This seems to only be 
+the recieving end.
+<NOD<END
+
+#0206
+<KEY<FLJ0831:0207
+<MSGA teleporter.<NOD
+It won't respond to you.
+<NOD<END
+
+#0207
+<PRI<MSGGo back up?<YNJ0000<CLO
+<KEY<CNP0300:0111:0002<HMC<WAI0060<ANP0102:0001:0000
+<WAI0100<MOV0068:0007<FL+0831<FLJ0831:0099<END
+
+
+#0305
+<KEY<MSGCan you help me find my
+son his face is everywhere around
+here<NOD
+You need to 
+find the 4 spirits 
+first<NOD
+<CLRI'll give you
+something that will make it 
+worth it.<NOD
+once you're strong 
+enough<NOD<END
+
+#0310
+<FLJ0961:0311<EVE0305
+#0311
+<FLJ0962:0312<EVE0305
+#0312
+<FLJ0963:0313<EVE0305
+#0313
+<FLJ0964:0314<EVE0305
+#0314
+<KEY
+<MSGYou're strong enough.
+Take this.
+<GIT1018<IT+0018<CLR
+<CMU0010Got the =Jetpack=!<WAI0160<NOD<RMU<CLR
+Press Q to equip it.<NOD<END
+
+
+
+
+#0400
+<KEY<FLJ0960:0403<MSGHm?<NOD<CLR
+Hey, you've got something
+pretty spiffy there.
+<NOD<CLRI always loved
+the Haram<NOD<CLRCan I take a quick look at it?<YNJ0402
+How about you let me have that gun...
+I will let you us my teleporter<YNJ0402
+<CLO
+<AM-0013
+<WAI0020<MSG
+<GIT0013Handed over the Haram.<NOD<GIT0000<CLR
+<SOU0044Hoho!<NOD<CLR<FL+0960<GIT0003<CLR
+<TAM0013:0003:0000<CMU0010=Broken Gun= :(
+<WAI0160<AM+0003:0000
+<FL+0831
+<NOD<RMU<END
+
+#0401
+<KEY<CLO<FON0410:0016<WAI0050
+<MSG<FAC0010Get <MYD0000on.<NOD<CLO
+<CNP0420:0150:0000<HMC
+<ANP0400:0003:0000<WAI0032
+<ANP0400:0000:0002<WAI0032
+<ANP0420:0050:0000<WAI0032
+<ANP0420:0000:0002<WAI0032
+<DNP0400<DNP0420
+<ANP0410:0010:0002<WAI0200
+<MSG<FAC0010Hold on tight.<NOD<CLO<FAC0000<ANP0410:0010:0002<WAI0200
+<MSGAnd so was your escape from
+the island successful.<WAI0200<CLRBefore long, the Doctor began
+his attack on the earth, using
+the floating island as a base.<WAI0200<CLRWere the countries of the earth
+able to withstand the Doctor's
+assault?<WAI0200<CLR<FAO0002Either way, it made no
+difference to you.<WAI0200<CLRTogether, deep in the heart
+of the mountains, far from
+the Doctor's reach,<WAI0200<CLRyou and Kazuma quietly lived
+out the rest of your days...<WAI0200<CLR<CMU0026
+<TUR                - The End -<WAI9999
+<END
+
+#0402
+<KEY<MSG<CLROkay well then get lost kid...<NOD<END
+
+#0403
+<KEY<MSG<FAC0010Well Feel Free To Teleport arond...
+Thanks for the Gun.<NOD<END
+
+#0404
+
+#0410
+<KEY<MSGGrrrrrr...<NOD<END
+#0420
+
+
+#0600
+<KEY<MSG
+3.https://goo.gl/yiz5Ay<NOD<END
+
+#0601
+<PRI
+<FLJ1371:0602
+<MSGYeah? Whaddaya want?<NOD<END
+
+#0602
+<PRI<MSGYou say my wife's lookin'
+for me?<NOD<CLR
+Yeah, you're right,<NOD
+I ain't been home in a while.<NOD
+Arright, time to go.<NOD<GIT1032<DNP0200<IT+0032<FL+0391<CLRYou're gonna take me there,
+of course?<NOD<END
+
+
+#1300
+<KEY<FLJ1099:1301<FL+1099<SOU0022<CNP1300:0021:0000<FL+0900<SOU0022<CNP0042:0021:000
+<MSGOpened the chest.<NOD<GIT1038<IT+0038<CLR
+<CMU0010Sonu You Got 
+the Too Tired<WAI0160<NOD<RMU<GIT0000<CLO<RMU<FL+0999<END
+
+
+
+#1301
+<KEY<MSGEmpty.<NOD<CLO<END
+
+#1302
+<KEY<FLJ0961:1301<FL+0961<SOU0022<CNP1302:0021:0000<SOU0022<CNP0042:0021:000
+<MSGOpened the chest.<NOD<CLR
+<CMU0010Sonu You Got 
+the Courage<WAI0160<NOD<RMU<GIT0000<CLO<RMU<END
+
+#1303
+<KEY<FLJ0962:1301<FL+0962<SOU0022<CNP1303:0021:0000<SOU0022<CNP0042:0021:000
+<MSGOpened the chest.<NOD<CLR
+<CMU0010Sonu You Got 
+the Imagination<WAI0160<NOD<RMU<GIT0000<CLO<RMU<END
+
+#1304
+<KEY<FLJ0963:1301<FL+0963<SOU0022<CNP1304:0021:0000<SOU0022<CNP0042:0021:000
+<MSGOpened the chest.<NOD<CLR
+<CMU0010Sonu You Got 
+the Spirit<WAI0160<NOD<RMU<GIT0000<CLO<RMU<END
+
+
+#1305
+<KEY<FLJ0964:1301<FL+0964<SOU0022<CNP1305:0021:0000<SOU0022<CNP0042:0021:000
+<MSGOpened the chest.<NODCLR
+<CMU0010Sonu You Got 
+the Creativity<WAI0160<NOD<RMU<GIT0000<CLO<RMU<END
+
+#1500
+<FL+0518
+<PRI<SOU0022<DNP1500<CMU0016
+<MSG<GIT1006Got a =Life Capsule=!<WAI0160<NOD<RMU<ML+0006
+Your health increased by 6<NOD<END
+
+#1501
+<FL+0519
+<PRI<SOU0022<DNP1501<CMU0016
+<MSG<GIT1006Got a =Life Capsule=!<WAI0160<NOD<RMU<ML+0003
+Your health increased by 3<NOD<END
